@@ -1,0 +1,15 @@
+﻿run_id,model,revision,tokenizer,accelerator,parallelism,quantization,purpose,phase,schema,available_at_us
+a-recent-1-measurement,shared-model,r-0,codepoint-v1, gpu-0 ,1,fp16,recent,measurement,bench/1,100
+a-recent-2-measurement,shared-model,r-0,codepoint-v1, gpu-0 ,1,fp16,recent,measurement,bench/2,100
+a-baseline-2-warmup,shared-model,r-0,codepoint-v1, gpu-0 ,1,fp16,baseline,warmup,bench/2,100
+c-recent-1-measurement,shared-model,r-2,codepoint-v1, gpu-2 ,3,int8,recent,measurement,bench/1,100
+a-baseline-1-measurement-foreign,shared-model,r-0,codepoint-v1, retired-gpu ,1,fp16,baseline,measurement,bench/1,100
+a-baseline-2-measurement,shared-model,r-0,codepoint-v1, gpu-0 ,1,fp16,baseline,measurement,bench/2,100
+b-recent-2-measurement,shared-model,r-1,utf8-v1, gpu-1 ,2,fp16,recent,measurement,bench/2,100
+b-recent-1-measurement,shared-model,r-1,utf8-v1, gpu-1 ,2,fp16,recent,measurement,bench/1,100
+a-baseline-1-measurement,shared-model,r-0,codepoint-v1, gpu-0 ,1,fp16,baseline,measurement,bench/1,100
+c-baseline-1-measurement,shared-model,r-2,codepoint-v1, gpu-2 ,3,int8,baseline,measurement,bench/1,100
+b-baseline-1-measurement,shared-model,r-1,utf8-v1, gpu-1 ,2,fp16,baseline,measurement,bench/1,100
+c-recent-2-measurement,shared-model,r-2,codepoint-v1, gpu-2 ,3,int8,recent,measurement,bench/2,100
+b-baseline-2-measurement,shared-model,r-1,utf8-v1, gpu-1 ,2,fp16,baseline,measurement,bench/2,100
+c-baseline-2-measurement,shared-model,r-2,codepoint-v1, gpu-2 ,3,int8,baseline,measurement,bench/2,100

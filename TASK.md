@@ -1,28 +1,37 @@
-# 异构 LLM 推理集群的首 Token 时限路由与负载漂移治理
+# 从原始压测证据重建 LLM Serving 成本画像并修复持续流量接纳
 
-你负责基于 vLLM Production Stack 的推理网关。不同性能的副本接入长文和
-热门前缀流量后，试运行的 deadline 路由出现拒绝、容量占用及监控偏差。
-请根据产品契约和随附演练材料调查，修复实际请求链路，并验证兼容行为。
+推理网关的离线画像和线上时限判断发生偏离。最新容量汇总看起来正常，
+但混合长度、缓存和并发解码的流量下，网关会使用不适用的成本依据；画像
+重新生成后，在途请求和晚到反馈还可能让后续接纳失真。
 
-正式要求见 docs/deadline-routing-contract.md、docs/monitoring-contract.md；
-输入和评分边界见 docs/task-acceptance.md。上游已有路由代码与部署文档保留，
-任务新增的 CPU 试验层及材料来源见 UPSTREAM.md。
+请修复这个工程：从保留原貌的压测导出、运行清单、服务 trace 与缓存证明
+重建可用画像，让真实 completions 入口使用这些画像，并正确处理持续流量
+中的接纳、画像替换、容量释放、反馈与监控。必要的证据不足必须明确表现为
+不可用，不能用零、其他设备的样本或旧汇总补齐。
 
-交付修复源码、regression_tests/ 中实际通过且无跳过的新增 pytest 回归、
-非空且真实的 ROUTING_DESIGN.md，并使随附演练命令能在新输出目录生成
-routing-evaluation.json 与 metrics.prom。报告说明依据、实现取舍、验证及局限。
+本题基于 Apache-2.0 的 vllm-project/production-stack，保留真实路由与转发
+链。数据和扩展均为独立编写的合成工程材料；CPU 时钟回放只验证协议和状态，
+不声称复现 GPU 性能。上游来源见 `UPSTREAM.md`。
 
-验收会沿真实 completions 转发入口检查改变参数的工作负载、并发事件与监控，
-不只检查某个离线函数或手填结果。可自由重构内部实现、批量调查和选择工具。
+当前生效要求见 `docs/serving-calibration-contract.md`、
+`docs/export-formats.md` 和 `docs/continuous-replay.md`。
+`docs/deadline-routing-contract.md`、旧 `routing_exercise` 与 notebook summary
+保留为历史资料。V2 的范围、覆盖策略及反馈分母以本次契约为准。
 
-环境为 Linux/Python 3.12，CPU 依赖预装、PYTHONPATH=/workspace/src。
-不需要 GPU、权重、Kubernetes 或付费 API。
+交付内容：修复后的源码；可以从输入重新生成的样本账、画像、漂移与回放产物；
+非空 `SERVING_DESIGN.md`，说明数据取舍、证据不足、代码生效路径和生命周期；
+`regression_tests/` 下至少一个真实运行且通过的回归测试。不能依赖已生成产物
+代替实现，验收会使用不同的原始输入、数值、记录顺序和事件重叠。
 
-```bash
-python -m pytest pilot_tests -q
+工作目录 `/workspace`，Python 3.12，依赖已经安装，`PYTHONPATH=/workspace/src`。
+保持普通 RoundRobin/LoadAware 路由行为与上游接口兼容。允许重构新增模块和
+增删源码，不固定私有类名或修补文件范围。
+
+```sh
+python -m serving_lab build --input captures/capture-5 --output out/profiles --as-of 100000
+python -m serving_lab replay --input captures/capture-5 --workload captures/capture-5/workload.json --output out/replay
 python -m pytest regression_tests -q
-python -m routing_exercise --scenario workloads/mixed-load.json --output /tmp/deadline-replay
 ```
 
-regression_tests 起初为空，应提交自己的回归。公开演练数据没有标准答案表；
-应依据正式规则解释观察，并用改变后的输入验证实现。
+公开回放是调查工具；需要核对它与真实 HTTP/ASGI 转发行为的一致性。测试不要求
+指定工具使用次数，也不以人为等待或生成额外文件数量计难度。

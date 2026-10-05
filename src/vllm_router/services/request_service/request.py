@@ -277,7 +277,7 @@ async def process_request(
             },
         )
 
-    deadline_router = getattr(request.app.state, "deadline_router", None)
+    deadline_router = getattr(request.app.state, "_state", {}).get("deadline_router")
     first_token = False
     total_len = 0
     start_time = time.time()
@@ -431,7 +431,7 @@ async def route_general_request(
         )
         return response
     in_router_time = time.time()
-    deadline_router = getattr(request.app.state, "deadline_router", None)
+    deadline_router = getattr(request.app.state, "_state", {}).get("deadline_router")
     # Same as vllm, Get request_id from X-Request-Id header if available
     request_id = request.headers.get("X-Request-Id") or str(uuid.uuid4())
     request.state.deadline_request_id = request_id
@@ -512,7 +512,7 @@ async def route_general_request(
                 status_code=400, detail="Request body is not JSON parsable."
             )
 
-    service_discovery = getattr(request.app.state, "service_discovery", None) or get_service_discovery()
+    service_discovery = getattr(request.app.state, "_state", {}).get("service_discovery") or get_service_discovery()
     endpoints = service_discovery.get_endpoint_info()
 
     aliases = getattr(service_discovery, "aliases", None)

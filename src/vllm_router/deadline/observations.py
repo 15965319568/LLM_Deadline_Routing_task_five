@@ -32,7 +32,7 @@ class Observations:
                 if not isinstance(row["decode_count"], int):
                     return False
             previous = self.samples.get(sample["endpoint_id"])
-            if previous is not None and sample["sample_seq"] == previous["sample_seq"]:
+            if previous is not None and sample["sample_seq"] <= previous["sample_seq"]:
                 return False
             self.samples[sample["endpoint_id"]] = copy.deepcopy(sample)
             return True
@@ -45,8 +45,8 @@ class Observations:
             return None
         age = self.clock.now_us() - sample["observed_at_us"]
         if not 0 <= age <= self.max_age_us:
-            return (0, 0, 0)
-        other = list(sample["by_owner"].values())
+            return None
+        other = [row for owner, row in sample["by_owner"].items() if owner != self.owner]
         return sum(row["backlog_us"] for row in other), sum(row["decode_count"] for row in other), age
 
 
@@ -67,7 +67,7 @@ class CacheCatalog:
         result = 0
         now = self.clock.now_us()
         for row in self.claims:
-            if row["endpoint_id"] != endpoint:
+            if (row["endpoint_id"], row["model_revision"], row["tokenizer"]) != (endpoint, model_revision, tokenizer):
                 continue
             if not row["created_at_us"] <= now <= row["expires_at_us"]:
                 continue

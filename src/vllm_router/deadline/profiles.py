@@ -28,9 +28,13 @@ class Surface:
             raise ValueError("Calibration values must be finite and nonnegative")
 
     def estimate(self, uncached_tokens, decodes):
-        x, _ = bracket(self.tokens, max(0, uncached_tokens))
-        y, _ = bracket(self.decodes, max(0, decodes))
-        return float(self.values[y][x])
+        x, tx = bracket(self.tokens, max(0, uncached_tokens))
+        y, ty = bracket(self.decodes, max(0, decodes))
+        low_left, low_right = map(lambda v: Decimal(str(v)), self.values[y][x:x + 2])
+        high_left, high_right = map(lambda v: Decimal(str(v)), self.values[y + 1][x:x + 2])
+        bottom = low_left + tx * (low_right - low_left)
+        top = high_left + tx * (high_right - high_left)
+        return float(max(Decimal(0), bottom + ty * (top - bottom)))
 
 
 class Tokenizers:

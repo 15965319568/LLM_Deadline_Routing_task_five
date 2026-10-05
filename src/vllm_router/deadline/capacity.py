@@ -11,6 +11,8 @@ class Reservation:
     predicted_first_us: int
     work_us: float
     model: str
+    epoch: int = 1
+    baseline_us: float = 0
     stage: str = "prefill"
     first_us: int | None = None
     outcome: str | None = None
@@ -41,8 +43,6 @@ class Capacity:
         row = self.requests.get(request_id)
         if row is None or row.stage == "terminal":
             return None
-        if not success:
-            return None
-        row.outcome = "completed" if row.first_us is not None else "failed"
+        row.outcome = "completed" if success and row.first_us is not None else "failed"
         row.stage = "terminal"
         return row

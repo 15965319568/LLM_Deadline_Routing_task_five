@@ -27,6 +27,7 @@ class DeadlineRouter:
         self.lock = asyncio.Lock()
         self.parsers = {}
         self.backend_spans = {}
+        self.epochs = {eid: 1 for eid in self.profiles}
 
     def extract_session_id(self, request, request_json):
         return None
@@ -46,13 +47,15 @@ class DeadlineRouter:
             version = profile["tokenizer"]
             if version not in tokenized:
                 tokenized[version] = await self.tokenizers.encode(version, request_json.get("prompt", ""))
-        async with asyncio.Lock():
+        async with self.lock:
             now = self.clock.now_us()
             choices = []
             for endpoint in endpoints:
                 if not endpoint.healthy or endpoint.sleep:
                     continue
                 profile = self.profiles[endpoint.Id]
+                if not profile.get('usable', True):
+                    continue
                 observed = self.observations.load(endpoint.Id)
                 if observed is None:
                     continue
@@ -60,16 +63,21 @@ class DeadlineRouter:
                 reserved, decoding = self.capacity.load(endpoint.Id)
                 tokens = tokenized[profile["tokenizer"]]
                 match = await self.cache.matched(endpoint.Id, profile["revision"], profile["tokenizer"], tokens)
-                work = self.feedback.factors[endpoint.Id] * self.surfaces[endpoint.Id].estimate(len(tokens) - match, external_decode + decoding)
+                surface = self.surfaces[endpoint.Id]
+                if self.config.get('require_support') and (len(tokens)-match > surface.tokens[-1] or external_decode+decoding > surface.decodes[-1]):
+                    continue
+                baseline = surface.estimate(len(tokens) - match, external_decode + decoding)
+                work = self.feedback.factors[endpoint.Id] * baseline
                 predicted = rounded_us(now + external_work + reserved + work + profile["transport_us"])
-                choices.append((predicted, endpoint.Id, work, endpoint.url))
+                choices.append((predicted, endpoint.Id, work, endpoint.url, baseline))
             feasible = [choice for choice in choices if choice[0] <= deadline]
             if not feasible:
                 status = 429 if choices else 503
                 self.monitoring.decide(rid, model, arrival, status)
                 raise HTTPException(status, "No deadline-feasible endpoint" if choices else "No current load observation")
-            predicted, eid, work, url = min(feasible)
-            row = Reservation(rid, eid, arrival, deadline, predicted, work, model)
+            predicted, eid, work, url, baseline = min(feasible)
+            row = Reservation(rid, eid, arrival, deadline, predicted, work, model,
+                              epoch=self.epochs[eid], baseline_us=baseline)
             self.capacity.reserve(row)
             self.parsers[rid] = FirstToken()
             self.monitoring.decide(rid, model, arrival, 200, eid, predicted)
@@ -89,7 +97,7 @@ class DeadlineRouter:
         self.monitoring.first(row)
         try:
             self.feedback.observe(row.endpoint, headers["x-service-sample"],
-                                  float(headers["x-baseline-us"]), self.clock.now_us() - row.arrival_us)
+                                  float(headers["x-baseline-us"]), float(headers["x-service-us"]))
         except (KeyError, ValueError, TypeError):
             pass
 
@@ -106,6 +114,8 @@ class DeadlineRouter:
             nodes[eid] = dict(reserved_us=round(reserved, 6), decoding=decoding,
                               correction=round(self.feedback.factors[eid], 6), drift=self.feedback.status(eid),
                               age_us=sample[2] if sample else -1)
+            if self.config.get('require_support'):
+                nodes[eid].update(epoch=self.epochs[eid], profile_status='ready' if self.profiles[eid].get('usable', True) else 'insufficient_data')
         return dict(nodes=nodes, decisions=list(self.monitoring.decisions))
 
     def summary(self, start_us, end_us):

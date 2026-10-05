@@ -1,0 +1,52 @@
+targets:
+- endpoint_id: a
+  url: http://a:8100
+  model: shared-model
+  revision: r-0
+  tokenizer: codepoint-v1
+  accelerator: gpu-0
+  parallelism: 1
+  quantization: fp16
+  transport_us: 7
+- endpoint_id: b
+  url: http://b:8100
+  model: shared-model
+  revision: r-1
+  tokenizer: utf8-v1
+  accelerator: gpu-1
+  parallelism: 2
+  quantization: fp16
+  transport_us: 10
+- endpoint_id: c
+  url: http://c:8100
+  model: shared-model
+  revision: r-2
+  tokenizer: codepoint-v1
+  accelerator: gpu-2
+  parallelism: 3
+  quantization: int8
+  transport_us: 13
+profile_policy:
+  tokens:
+  - 0
+  - 12
+  - 28
+  decodes:
+  - 0
+  - 2
+  min_samples: 3
+  recent_window: 4
+  drift_lower: 0.8
+  drift_upper: 1.25
+runtime:
+  owner: router-local
+  max_age_us: 150000
+  calibration:
+    alpha: 0.5
+    lower: 0.5
+    upper: 2
+    window_samples: 3
+    drift_lower: 0.8
+    drift_upper: 1.25
+  profile_source: notebook
+  notebook_dir: captures/capture-5

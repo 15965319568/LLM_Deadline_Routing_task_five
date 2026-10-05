@@ -12,7 +12,7 @@ class Feedback:
 
     def observe(self, endpoint, sample_id, baseline_us, service_us):
         identity = (endpoint, sample_id)
-        if endpoint not in self.factors:
+        if endpoint not in self.factors or identity in self.seen:
             return False
         if not finite_nonnegative(baseline_us) or baseline_us == 0 or not finite_nonnegative(service_us):
             return False
@@ -26,7 +26,7 @@ class Feedback:
 
     def status(self, endpoint):
         samples = self.samples[endpoint]
-        if len(samples) < 1:
+        if len(samples) < self.policy["window_samples"]:
             return "insufficient_data"
         ratio = sum(samples) / len(samples)
         if ratio > self.policy["drift_upper"]:
