@@ -277,7 +277,7 @@ async def process_request(
             },
         )
 
-    deadline_router = getattr(request.app.state, "_state", {}).get("deadline_router")
+    deadline_router = request.app.state.deadline_router if getattr(getattr(request.app.state, "router", None), "deadline_enabled", False) is True else None
     first_token = False
     total_len = 0
     start_time = time.time()
@@ -431,10 +431,11 @@ async def route_general_request(
         )
         return response
     in_router_time = time.time()
-    deadline_router = getattr(request.app.state, "_state", {}).get("deadline_router")
+    deadline_router = request.app.state.deadline_router if getattr(getattr(request.app.state, "router", None), "deadline_enabled", False) is True else None
     # Same as vllm, Get request_id from X-Request-Id header if available
     request_id = request.headers.get("X-Request-Id") or str(uuid.uuid4())
-    request.state.deadline_request_id = request_id
+    if deadline_router is not None:
+        request.state.deadline_request_id = request_id
     request_body = await request.body()
     try:
         request_json = json.loads(request_body) if request_body else {}
@@ -512,7 +513,7 @@ async def route_general_request(
                 status_code=400, detail="Request body is not JSON parsable."
             )
 
-    service_discovery = getattr(request.app.state, "_state", {}).get("service_discovery") or get_service_discovery()
+    service_discovery = request.app.state.service_discovery if deadline_router is not None else get_service_discovery()
     endpoints = service_discovery.get_endpoint_info()
 
     aliases = getattr(service_discovery, "aliases", None)
