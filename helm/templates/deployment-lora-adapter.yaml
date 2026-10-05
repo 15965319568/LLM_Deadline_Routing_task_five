@@ -1,0 +1,62 @@
+{{- range .Values.loraAdapters }}
+{{- if ne .enabled false }}
+---
+apiVersion: production-stack.vllm.ai/v1alpha1
+kind: LoraAdapter
+metadata:
+  name: {{ .name }}
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: lora-adapter
+    helm-release-name: {{ $.Release.Name }}
+    {{- with .labels }}
+    {{ toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  baseModel: {{ .baseModel | quote }}
+  {{- if and .vllmApiKey .vllmApiKey.secretName .vllmApiKey.secretKey }}
+  vllmApiKey:
+    secretName: {{ .vllmApiKey.secretName | quote }}
+    secretKey: {{ .vllmApiKey.secretKey | quote }}
+  {{- else if and (kindIs "string" $.Values.servingEngineSpec.vllmApiKey) $.Values.servingEngineSpec.vllmApiKey }}
+  vllmApiKey:
+    secretName: {{ $.Release.Name }}-secrets
+    secretKey: vllmApiKey
+  {{- else if and (kindIs "map" $.Values.servingEngineSpec.vllmApiKey) $.Values.servingEngineSpec.vllmApiKey.secretName $.Values.servingEngineSpec.vllmApiKey.secretKey }}
+  vllmApiKey:
+    secretName: {{ $.Values.servingEngineSpec.vllmApiKey.secretName }}
+    secretKey: {{ $.Values.servingEngineSpec.vllmApiKey.secretKey }}
+  {{- end }}
+  adapterSource:
+    type: {{ .adapterSource.type | quote }}
+    adapterName: {{ .adapterSource.adapterName | quote }}
+    {{- if .adapterSource.adapterPath }}
+    adapterPath: {{ .adapterSource.adapterPath | quote }}
+    {{- end }}
+    {{- if .adapterSource.repository }}
+    repository: {{ .adapterSource.repository | quote }}
+    {{- end }}
+    {{- if .adapterSource.pattern }}
+    pattern: {{ .adapterSource.pattern | quote }}
+    {{- end }}
+    {{- if .adapterSource.maxAdapters }}
+    maxAdapters: {{ .adapterSource.maxAdapters }}
+    {{- end }}
+    {{- if .adapterSource.credentials }}
+    {{- if (kindIs "string" .adapterSource.credentials) }}
+    credentialsSecretRef:
+      name: {{ $.Release.Name }}-secrets
+      key: lora_adapter_credentials_{{ .adapterSource.adapterName }}
+    {{- else }}
+    credentialsSecretRef:
+      name: {{ .adapterSource.credentials.secretName | quote }}
+      key: {{ .adapterSource.credentials.secretKey | quote }}
+    {{- end }}
+    {{- end }}
+  loraAdapterDeploymentConfig:
+    algorithm: {{ .loraAdapterDeploymentConfig.algorithm | default "default" | quote }}
+    {{- if .loraAdapterDeploymentConfig.replicas }}
+    replicas: {{ .loraAdapterDeploymentConfig.replicas }}
+    {{- end }}
+{{- end }}
+{{- end }}

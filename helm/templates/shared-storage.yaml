@@ -1,0 +1,54 @@
+{{- if .Values.sharedPvcStorage.enabled }}
+{{- if or (.Values.sharedPvcStorage.hostPath) (and .Values.sharedPvcStorage.nfs.server .Values.sharedPvcStorage.nfs.path) }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Release.Name }}-shared-pvc-storage
+  labels:
+    type: local
+    app: {{ .Release.Name }}
+    component: shared-pvc-storage
+spec:
+  {{- if .Values.sharedPvcStorage.storageClass }}
+  storageClassName: {{ .Values.sharedPvcStorage.storageClass }}
+  {{- end }}
+  capacity:
+    storage: {{ .Values.sharedPvcStorage.size }}
+  accessModes:
+  {{- with .Values.sharedPvcStorage.accessModes }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- if .Values.sharedPvcStorage.hostPath }}
+  hostPath:
+    path: {{ .Values.sharedPvcStorage.hostPath }}
+  {{- else }}
+  nfs:
+    server: {{ required "A valid .Values.sharedPvcStorage.nfs.server is required" .Values.sharedPvcStorage.nfs.server }}
+    path: {{ required "A valid .Values.sharedPvcStorage.nfs.path is required" .Values.sharedPvcStorage.nfs.path }}
+  {{- end }}
+{{- end }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-shared-pvc-storage-claim
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ .Release.Name }}
+    component: shared-pvc-storage
+spec:
+  {{- if .Values.sharedPvcStorage.storageClass }}
+  storageClassName: {{ .Values.sharedPvcStorage.storageClass }}
+  {{- end}}
+  accessModes:
+  {{- with .Values.sharedPvcStorage.accessModes }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.sharedPvcStorage.size }}
+  {{- if or (.Values.sharedPvcStorage.hostPath) (and .Values.sharedPvcStorage.nfs.server .Values.sharedPvcStorage.nfs.path) }}
+  volumeName: {{ .Release.Name }}-shared-pvc-storage
+  {{- end }}
+{{- end }}
