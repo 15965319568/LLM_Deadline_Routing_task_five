@@ -80,7 +80,8 @@ async def replay_workload(input_dir, workload_path, output_dir):
                 rid = row.get('id')
                 if kind == 'arrival':
                     tasks[rid] = asyncio.create_task(client.post('/v1/completions', json=row['body'], headers={'X-Request-Id':rid}))
-                    await settled(lambda: tasks[rid].done() or rid in backend.ready)
+                    if not any(r['at_us']==at and r['id']>rid for r in workload['requests']):
+                        await settled(lambda: all(task.done() or request_id in backend.ready for request_id,task in tasks.items()))
                     if row.get('connect_error'):
                         await settled(tasks[rid].done)
                 elif kind == 'cancel' and rid in tasks:

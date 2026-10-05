@@ -16,7 +16,8 @@ workload 是普通 JSON 运行数据，不包含可执行 Python 或测试谓词
 
 按时间推进 ManualClock。同刻顺序为 cancel、end、first、reload、observations、
 caches、arrival、checkpoint；同类按原数组顺序，requests 在展开前按 id 排序。
-每次 arrival 至少推进到其被拒绝/连接失败，或后端已发送 heartbeat/空 text 并等候
+同刻 arrival 按 id 顺序创建并发任务，统一等待这批接纳完成，不逐个等待后才创建。
+每批 arrival 至少推进到其被拒绝/连接失败，或后端已发送 heartbeat/空 text 并等候
 该请求自己的 first 信号；first 推进到非空文本被转发；end/cancel 推进到 HTTP
 终止。不同请求不能共用 first/end 屏障。CPU 调度让出用 sleep(0)，时序由显式
 clock 推进，不根据墙钟耗时决定结果。
