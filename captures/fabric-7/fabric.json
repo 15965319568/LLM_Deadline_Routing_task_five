@@ -203,6 +203,115 @@
       "d3"
     ]
   ],
+  "route_specs": [
+    {
+      "route_id": "rt-01",
+      "alias": "fabric-01",
+      "path": [
+        "p1",
+        "l11",
+        "d1"
+      ],
+      "generation": 1,
+      "enabled": true,
+      "draining": false,
+      "admission_epoch": 1
+    },
+    {
+      "route_id": "rt-02",
+      "alias": "fabric-02",
+      "path": [
+        "p1",
+        "l12",
+        "d2"
+      ],
+      "generation": 1,
+      "enabled": true,
+      "draining": false,
+      "admission_epoch": 1
+    },
+    {
+      "route_id": "rt-03",
+      "alias": "fabric-03",
+      "path": [
+        "p2",
+        "l21",
+        "d1"
+      ],
+      "generation": 1,
+      "enabled": true,
+      "draining": false,
+      "admission_epoch": 1
+    },
+    {
+      "route_id": "rt-04",
+      "alias": "fabric-04",
+      "path": [
+        "p2",
+        "l22",
+        "d2"
+      ],
+      "generation": 1,
+      "enabled": true,
+      "draining": false,
+      "admission_epoch": 1
+    },
+    {
+      "route_id": "rt-05",
+      "alias": "fabric-05",
+      "path": [
+        "p3",
+        "l33",
+        "d3"
+      ],
+      "generation": 1,
+      "enabled": true,
+      "draining": false,
+      "admission_epoch": 1
+    },
+    {
+      "route_id": "rt-06",
+      "alias": "fabric-06",
+      "path": [
+        "p1",
+        "l33",
+        "d3"
+      ],
+      "generation": 1,
+      "enabled": true,
+      "draining": false,
+      "admission_epoch": 1
+    },
+    {
+      "route_id": "rt-07",
+      "alias": "fabric-07",
+      "path": [
+        "p2",
+        "l11",
+        "d1"
+      ],
+      "generation": 1,
+      "enabled": true,
+      "draining": false,
+      "admission_epoch": 1
+    },
+    {
+      "route_id": "rt-08",
+      "alias": "fabric-08",
+      "path": [
+        "p2",
+        "l23",
+        "d3"
+      ],
+      "generation": 1,
+      "enabled": true,
+      "draining": false,
+      "admission_epoch": 1
+    }
+  ],
+  "topology_epoch": 1,
+  "transaction_protocol": "reservation/v7",
+  "feedback_protocol": "feedback/v7",
   "minimum_samples": 3,
   "duration_tolerance_us": 1,
   "drift_window": 3,
@@ -218,12 +327,15 @@
     1.2,
     1.35
   ],
+  "burst_credit_us": 180,
+  "failure_penalty_us": 23,
   "tenant_limits": {
     "default": {
       "max_slots": 8,
       "max_pages": 40,
       "max_work_us": 900,
-      "max_priority": 3
+      "max_priority": 3,
+      "burst_credit_us": 180
     },
     "gold": {
       "max_slots": 2,

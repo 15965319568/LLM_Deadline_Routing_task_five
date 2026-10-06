@@ -10,6 +10,22 @@
 生产入口还要处理租户滚动 start 窗口、按优先级加权的 work 账单、带世代校验的 KV
 页血缘，以及要求完整 SSE DONE 终止标记的流状态。
 
+V7 的生效协议把一次请求视为一个跨阶段 reservation transaction。离线证据
+必须先通过 `phase/v7` manifest：每个原始行有 schema、来源文件、逐行签名，
+manifest 还绑定各个 CSV/JSONL/gzip 文件的 checksum；格式转换不能改变行的
+身份。在线路径由带 generation 的 route alias 管理，拓扑事件可能在 reload、
+缓存替换和请求已经进入 prefill 后到达；排空的 route 不能接新请求，但在途
+事务仍必须按旧代次完成或回滚。
+
+prefill、KV transfer、decode 的 ack 必须回显 request、transaction、phase
+token、route generation 和布局；任何一项不匹配都要停止后续派发，并按阶段
+释放 reservation。阶段反馈还必须绑定 trace、phase、resource epoch 和
+sample signature，迟到、重复或跨 reload 的反馈只能进入审计而不能污染新画像。
+KV lease 除了 producer/generation/page hash 外还受撤销记录约束；租户的 burst
+credit、失败惩罚、start window、slot/page/work 三本账要在取消、失败、重复
+终态和同刻到达时保持守恒。诊断可以包含审计计数，但 metrics 标签必须保持
+低基数。
+
 请完成该工程迁移，使保留原貌的测量与证据生成可靠的阶段画像，让实际
 `/v1/completions` 入口使用可兼容的 prefill—传输—decode 组合，并正确处理
 持续流量中的全额预留、阶段释放、失败、取消、画像更新、动态健康/排空、会话亲和、租户 work 预算和监控。
@@ -20,7 +36,8 @@ vllm-project/production-stack，保留上游普通路由和真实 HTTP/ASGI 入�
 状态，不代表实测 GPU 性能。上游 commit 和许可证见 `UPSTREAM.md`。
 
 本次生效要求是 `docs/fabric-measurement.md`、`docs/fabric-admission.md` 和
-`docs/fabric-protocol.md`。此前 colocated 测量与 deadline 入口保持可用；
+`docs/fabric-protocol.md`，以及 `captures/fabric-7/phase/manifest.json` 与
+其 workload 中的 topology/transaction 事件。此前 colocated 测量与 deadline 入口保持可用；
 notebook、旧试点和历史契约只解释旧路径，不覆盖分离式要求。
 
 交付：可执行修复源码；由原始输入重新生成的阶段样本账、画像、漂移和回放

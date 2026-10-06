@@ -66,3 +66,11 @@ UTF-8 字节串 `sha256(layout + "|" + session_id + "|" + page_index + "|" + tok
 的十六进制结果；缺字段、页文本长度不是 page_tokens、hash 不匹配或 generation
 不是非负整数都不构成缓存证据。`session_id` 缺省时使用空命名空间，不能用普通页
 满足带 session 的请求。重复 lease 的血缘字段也参与冲突签名。
+
+V7 还要求 `phase/v7` manifest。manifest 的 `manifest_id` 和 `schema_version`
+必须出现在每条 measurement；`source_checksum` 必须指向该行实际所在文件，
+`row_signature` 是去掉 `source_checksum` 与自身后的稳定字段签名。manifest 同时
+保存每个原始文件的 SHA-256 和行坐标签名。CSV 读成字符串、JSONL 读成数字不应
+制造冲突，但改变任意业务字段或把一行搬到另一来源必须被发现。manifest 不完整、
+文件校验失败或行签名不一致的记录不能进入 candidate，且应在 ledger 中留下可
+审计 disposition。不要把 manifest 当成已经清洗好的样本表。

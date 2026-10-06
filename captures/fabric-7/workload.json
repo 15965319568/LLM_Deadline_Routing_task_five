@@ -35,14 +35,20 @@
       "timing": {
         "prefill": {
           "sample": "r00-prefill",
+          "phase_id": "r00:prefill:v7",
+          "trace_id": "trace-r00",
           "service_us": 260
         },
         "transfer": {
           "sample": "r00-transfer",
+          "phase_id": "r00:transfer:v7",
+          "trace_id": "trace-r00",
           "service_us": 40
         },
         "decode": {
           "sample": "r00-decode",
+          "phase_id": "r00:decode:v7",
+          "trace_id": "trace-r00",
           "service_us": 55
         }
       }
@@ -67,14 +73,20 @@
       "timing": {
         "prefill": {
           "sample": "r01-prefill",
+          "phase_id": "r01:prefill:v7",
+          "trace_id": "trace-r01",
           "service_us": 260
         },
         "transfer": {
           "sample": "r01-transfer",
+          "phase_id": "r01:transfer:v7",
+          "trace_id": "trace-r01",
           "service_us": 40
         },
         "decode": {
           "sample": "r01-decode",
+          "phase_id": "r01:decode:v7",
+          "trace_id": "trace-r01",
           "service_us": 55
         }
       }
@@ -99,14 +111,20 @@
       "timing": {
         "prefill": {
           "sample": "r02-prefill",
+          "phase_id": "r02:prefill:v7",
+          "trace_id": "trace-r02",
           "service_us": 260
         },
         "transfer": {
           "sample": "r02-transfer",
+          "phase_id": "r02:transfer:v7",
+          "trace_id": "trace-r02",
           "service_us": 40
         },
         "decode": {
           "sample": "r02-decode",
+          "phase_id": "r02:decode:v7",
+          "trace_id": "trace-r02",
           "service_us": 55
         }
       }
@@ -130,14 +148,20 @@
       "timing": {
         "prefill": {
           "sample": "r03-prefill",
+          "phase_id": "r03:prefill:v7",
+          "trace_id": "trace-r03",
           "service_us": 260
         },
         "transfer": {
           "sample": "r03-transfer",
+          "phase_id": "r03:transfer:v7",
+          "trace_id": "trace-r03",
           "service_us": 40
         },
         "decode": {
           "sample": "r03-decode",
+          "phase_id": "r03:decode:v7",
+          "trace_id": "trace-r03",
           "service_us": 55
         }
       }
@@ -161,14 +185,20 @@
       "timing": {
         "prefill": {
           "sample": "r04-prefill",
+          "phase_id": "r04:prefill:v7",
+          "trace_id": "trace-r04",
           "service_us": 260
         },
         "transfer": {
           "sample": "r04-transfer",
+          "phase_id": "r04:transfer:v7",
+          "trace_id": "trace-r04",
           "service_us": 40
         },
         "decode": {
           "sample": "r04-decode",
+          "phase_id": "r04:decode:v7",
+          "trace_id": "trace-r04",
           "service_us": 55
         }
       }
@@ -193,14 +223,20 @@
       "timing": {
         "prefill": {
           "sample": "r05-prefill",
+          "phase_id": "r05:prefill:v7",
+          "trace_id": "trace-r05",
           "service_us": 260
         },
         "transfer": {
           "sample": "r05-transfer",
+          "phase_id": "r05:transfer:v7",
+          "trace_id": "trace-r05",
           "service_us": 40
         },
         "decode": {
           "sample": "r05-decode",
+          "phase_id": "r05:decode:v7",
+          "trace_id": "trace-r05",
           "service_us": 55
         }
       }
@@ -224,14 +260,20 @@
       "timing": {
         "prefill": {
           "sample": "r06-prefill",
+          "phase_id": "r06:prefill:v7",
+          "trace_id": "trace-r06",
           "service_us": 260
         },
         "transfer": {
           "sample": "r06-transfer",
+          "phase_id": "r06:transfer:v7",
+          "trace_id": "trace-r06",
           "service_us": 40
         },
         "decode": {
           "sample": "r06-decode",
+          "phase_id": "r06:decode:v7",
+          "trace_id": "trace-r06",
           "service_us": 55
         }
       },
@@ -256,14 +298,20 @@
       "timing": {
         "prefill": {
           "sample": "r07-prefill",
+          "phase_id": "r07:prefill:v7",
+          "trace_id": "trace-r07",
           "service_us": 260
         },
         "transfer": {
           "sample": "r07-transfer",
+          "phase_id": "r07:transfer:v7",
+          "trace_id": "trace-r07",
           "service_us": 40
         },
         "decode": {
           "sample": "r07-decode",
+          "phase_id": "r07:decode:v7",
+          "trace_id": "trace-r07",
           "service_us": 55
         }
       },
@@ -288,14 +336,20 @@
       "timing": {
         "prefill": {
           "sample": "r08-prefill",
+          "phase_id": "r08:prefill:v7",
+          "trace_id": "trace-r08",
           "service_us": 260
         },
         "transfer": {
           "sample": "r08-transfer",
+          "phase_id": "r08:transfer:v7",
+          "trace_id": "trace-r08",
           "service_us": 40
         },
         "decode": {
           "sample": "r08-decode",
+          "phase_id": "r08:decode:v7",
+          "trace_id": "trace-r08",
           "service_us": 55
         }
       },
@@ -320,14 +374,20 @@
       "timing": {
         "prefill": {
           "sample": "r09-prefill",
+          "phase_id": "r09:prefill:v7",
+          "trace_id": "trace-r09",
           "service_us": 260
         },
         "transfer": {
           "sample": "r09-transfer",
+          "phase_id": "r09:transfer:v7",
+          "trace_id": "trace-r09",
           "service_us": 40
         },
         "decode": {
           "sample": "r09-decode",
+          "phase_id": "r09:decode:v7",
+          "trace_id": "trace-r09",
           "service_us": 55
         }
       },
@@ -353,14 +413,20 @@
       "timing": {
         "prefill": {
           "sample": "r10-prefill",
+          "phase_id": "r10:prefill:v7",
+          "trace_id": "trace-r10",
           "service_us": 260
         },
         "transfer": {
           "sample": "r10-transfer",
+          "phase_id": "r10:transfer:v7",
+          "trace_id": "trace-r10",
           "service_us": 40
         },
         "decode": {
           "sample": "r10-decode",
+          "phase_id": "r10:decode:v7",
+          "trace_id": "trace-r10",
           "service_us": 55
         }
       }
@@ -385,14 +451,20 @@
       "timing": {
         "prefill": {
           "sample": "r11-prefill",
+          "phase_id": "r11:prefill:v7",
+          "trace_id": "trace-r11",
           "service_us": 260
         },
         "transfer": {
           "sample": "r11-transfer",
+          "phase_id": "r11:transfer:v7",
+          "trace_id": "trace-r11",
           "service_us": 40
         },
         "decode": {
           "sample": "r11-decode",
+          "phase_id": "r11:decode:v7",
+          "trace_id": "trace-r11",
           "service_us": 55
         }
       }
@@ -416,14 +488,20 @@
       "timing": {
         "prefill": {
           "sample": "r12-prefill",
+          "phase_id": "r12:prefill:v7",
+          "trace_id": "trace-r12",
           "service_us": 260
         },
         "transfer": {
           "sample": "r12-transfer",
+          "phase_id": "r12:transfer:v7",
+          "trace_id": "trace-r12",
           "service_us": 40
         },
         "decode": {
           "sample": "r12-decode",
+          "phase_id": "r12:decode:v7",
+          "trace_id": "trace-r12",
           "service_us": 55
         }
       }
@@ -448,14 +526,20 @@
       "timing": {
         "prefill": {
           "sample": "r13-prefill",
+          "phase_id": "r13:prefill:v7",
+          "trace_id": "trace-r13",
           "service_us": 260
         },
         "transfer": {
           "sample": "r13-transfer",
+          "phase_id": "r13:transfer:v7",
+          "trace_id": "trace-r13",
           "service_us": 40
         },
         "decode": {
           "sample": "r13-decode",
+          "phase_id": "r13:decode:v7",
+          "trace_id": "trace-r13",
           "service_us": 55
         }
       }
@@ -479,14 +563,20 @@
       "timing": {
         "prefill": {
           "sample": "r14-prefill",
+          "phase_id": "r14:prefill:v7",
+          "trace_id": "trace-r14",
           "service_us": 260
         },
         "transfer": {
           "sample": "r14-transfer",
+          "phase_id": "r14:transfer:v7",
+          "trace_id": "trace-r14",
           "service_us": 40
         },
         "decode": {
           "sample": "r14-decode",
+          "phase_id": "r14:decode:v7",
+          "trace_id": "trace-r14",
           "service_us": 55
         }
       }
@@ -511,14 +601,20 @@
       "timing": {
         "prefill": {
           "sample": "r15-prefill",
+          "phase_id": "r15:prefill:v7",
+          "trace_id": "trace-r15",
           "service_us": 260
         },
         "transfer": {
           "sample": "r15-transfer",
+          "phase_id": "r15:transfer:v7",
+          "trace_id": "trace-r15",
           "service_us": 40
         },
         "decode": {
           "sample": "r15-decode",
+          "phase_id": "r15:decode:v7",
+          "trace_id": "trace-r15",
           "service_us": 55
         }
       }
@@ -543,14 +639,20 @@
       "timing": {
         "prefill": {
           "sample": "r16-prefill",
+          "phase_id": "r16:prefill:v7",
+          "trace_id": "trace-r16",
           "service_us": 260
         },
         "transfer": {
           "sample": "r16-transfer",
+          "phase_id": "r16:transfer:v7",
+          "trace_id": "trace-r16",
           "service_us": 40
         },
         "decode": {
           "sample": "r16-decode",
+          "phase_id": "r16:decode:v7",
+          "trace_id": "trace-r16",
           "service_us": 55
         }
       },
@@ -576,14 +678,20 @@
       "timing": {
         "prefill": {
           "sample": "r17-prefill",
+          "phase_id": "r17:prefill:v7",
+          "trace_id": "trace-r17",
           "service_us": 260
         },
         "transfer": {
           "sample": "r17-transfer",
+          "phase_id": "r17:transfer:v7",
+          "trace_id": "trace-r17",
           "service_us": 40
         },
         "decode": {
           "sample": "r17-decode",
+          "phase_id": "r17:decode:v7",
+          "trace_id": "trace-r17",
           "service_us": 55
         }
       },
@@ -608,14 +716,20 @@
       "timing": {
         "prefill": {
           "sample": "r10-prefill",
+          "phase_id": "r18:prefill:v7",
+          "trace_id": "trace-r18",
           "service_us": 800
         },
         "transfer": {
           "sample": "r18-transfer",
+          "phase_id": "r18:transfer:v7",
+          "trace_id": "trace-r18",
           "service_us": 40
         },
         "decode": {
           "sample": "r18-decode",
+          "phase_id": "r18:decode:v7",
+          "trace_id": "trace-r18",
           "service_us": 55
         }
       },
@@ -640,14 +754,20 @@
       "timing": {
         "prefill": {
           "sample": "r19-prefill",
+          "phase_id": "r19:prefill:v7",
+          "trace_id": "trace-r19",
           "service_us": 260
         },
         "transfer": {
           "sample": "r19-transfer",
+          "phase_id": "r19:transfer:v7",
+          "trace_id": "trace-r19",
           "service_us": 40
         },
         "decode": {
           "sample": "r19-decode",
+          "phase_id": "r19:decode:v7",
+          "trace_id": "trace-r19",
           "service_us": 55
         }
       }
@@ -672,14 +792,20 @@
       "timing": {
         "prefill": {
           "sample": "r20-prefill",
+          "phase_id": "r20:prefill:v7",
+          "trace_id": "trace-r20",
           "service_us": 260
         },
         "transfer": {
           "sample": "r20-transfer",
+          "phase_id": "r20:transfer:v7",
+          "trace_id": "trace-r20",
           "service_us": 40
         },
         "decode": {
           "sample": "r20-decode",
+          "phase_id": "r20:decode:v7",
+          "trace_id": "trace-r20",
           "service_us": 55
         }
       }
@@ -704,14 +830,20 @@
       "timing": {
         "prefill": {
           "sample": "r21-prefill",
+          "phase_id": "r21:prefill:v7",
+          "trace_id": "trace-r21",
           "service_us": 260
         },
         "transfer": {
           "sample": "r21-transfer",
+          "phase_id": "r21:transfer:v7",
+          "trace_id": "trace-r21",
           "service_us": 40
         },
         "decode": {
           "sample": "r21-decode",
+          "phase_id": "r21:decode:v7",
+          "trace_id": "trace-r21",
           "service_us": 55
         }
       }
@@ -735,14 +867,20 @@
       "timing": {
         "prefill": {
           "sample": "r10-prefill",
+          "phase_id": "r22:prefill:v7",
+          "trace_id": "trace-r22",
           "service_us": 900
         },
         "transfer": {
           "sample": "r22-transfer",
+          "phase_id": "r22:transfer:v7",
+          "trace_id": "trace-r22",
           "service_us": 40
         },
         "decode": {
           "sample": "r22-decode",
+          "phase_id": "r22:decode:v7",
+          "trace_id": "trace-r22",
           "service_us": 55
         }
       }
@@ -766,14 +904,20 @@
       "timing": {
         "prefill": {
           "sample": "r23-prefill",
+          "phase_id": "r23:prefill:v7",
+          "trace_id": "trace-r23",
           "service_us": 260
         },
         "transfer": {
           "sample": "r23-transfer",
+          "phase_id": "r23:transfer:v7",
+          "trace_id": "trace-r23",
           "service_us": 40
         },
         "decode": {
           "sample": "r23-decode",
+          "phase_id": "r23:decode:v7",
+          "trace_id": "trace-r23",
           "service_us": 55
         }
       }
@@ -798,14 +942,20 @@
       "timing": {
         "prefill": {
           "sample": "r24-prefill",
+          "phase_id": "r24:prefill:v7",
+          "trace_id": "trace-r24",
           "service_us": 260
         },
         "transfer": {
           "sample": "r24-transfer",
+          "phase_id": "r24:transfer:v7",
+          "trace_id": "trace-r24",
           "service_us": 40
         },
         "decode": {
           "sample": "r24-decode",
+          "phase_id": "r24:decode:v7",
+          "trace_id": "trace-r24",
           "service_us": 55
         }
       }
@@ -829,14 +979,20 @@
       "timing": {
         "prefill": {
           "sample": "r25-prefill",
+          "phase_id": "r25:prefill:v7",
+          "trace_id": "trace-r25",
           "service_us": 260
         },
         "transfer": {
           "sample": "r25-transfer",
+          "phase_id": "r25:transfer:v7",
+          "trace_id": "trace-r25",
           "service_us": 40
         },
         "decode": {
           "sample": "r25-decode",
+          "phase_id": "r25:decode:v7",
+          "trace_id": "trace-r25",
           "service_us": 55
         }
       }
@@ -860,14 +1016,20 @@
       "timing": {
         "prefill": {
           "sample": "r26-prefill",
+          "phase_id": "r26:prefill:v7",
+          "trace_id": "trace-r26",
           "service_us": 260
         },
         "transfer": {
           "sample": "r26-transfer",
+          "phase_id": "r26:transfer:v7",
+          "trace_id": "trace-r26",
           "service_us": 40
         },
         "decode": {
           "sample": "r26-decode",
+          "phase_id": "r26:decode:v7",
+          "trace_id": "trace-r26",
           "service_us": 55
         }
       }
@@ -891,14 +1053,20 @@
       "timing": {
         "prefill": {
           "sample": "r27-prefill",
+          "phase_id": "r27:prefill:v7",
+          "trace_id": "trace-r27",
           "service_us": 260
         },
         "transfer": {
           "sample": "r27-transfer",
+          "phase_id": "r27:transfer:v7",
+          "trace_id": "trace-r27",
           "service_us": 40
         },
         "decode": {
           "sample": "r27-decode",
+          "phase_id": "r27:decode:v7",
+          "trace_id": "trace-r27",
           "service_us": 55
         }
       }
@@ -922,14 +1090,20 @@
       "timing": {
         "prefill": {
           "sample": "r28-prefill",
+          "phase_id": "r28:prefill:v7",
+          "trace_id": "trace-r28",
           "service_us": 260
         },
         "transfer": {
           "sample": "r28-transfer",
+          "phase_id": "r28:transfer:v7",
+          "trace_id": "trace-r28",
           "service_us": 40
         },
         "decode": {
           "sample": "r28-decode",
+          "phase_id": "r28:decode:v7",
+          "trace_id": "trace-r28",
           "service_us": 55
         }
       },
@@ -954,14 +1128,20 @@
       "timing": {
         "prefill": {
           "sample": "r29-prefill",
+          "phase_id": "r29:prefill:v7",
+          "trace_id": "trace-r29",
           "service_us": 260
         },
         "transfer": {
           "sample": "r29-transfer",
+          "phase_id": "r29:transfer:v7",
+          "trace_id": "trace-r29",
           "service_us": 40
         },
         "decode": {
           "sample": "r29-decode",
+          "phase_id": "r29:decode:v7",
+          "trace_id": "trace-r29",
           "service_us": 55
         }
       },
@@ -986,14 +1166,20 @@
       "timing": {
         "prefill": {
           "sample": "r30-prefill",
+          "phase_id": "r30:prefill:v7",
+          "trace_id": "trace-r30",
           "service_us": 260
         },
         "transfer": {
           "sample": "r30-transfer",
+          "phase_id": "r30:transfer:v7",
+          "trace_id": "trace-r30",
           "service_us": 40
         },
         "decode": {
           "sample": "r30-decode",
+          "phase_id": "r30:decode:v7",
+          "trace_id": "trace-r30",
           "service_us": 55
         }
       },
@@ -1018,14 +1204,20 @@
       "timing": {
         "prefill": {
           "sample": "r31-prefill",
+          "phase_id": "r31:prefill:v7",
+          "trace_id": "trace-r31",
           "service_us": 260
         },
         "transfer": {
           "sample": "r31-transfer",
+          "phase_id": "r31:transfer:v7",
+          "trace_id": "trace-r31",
           "service_us": 40
         },
         "decode": {
           "sample": "r31-decode",
+          "phase_id": "r31:decode:v7",
+          "trace_id": "trace-r31",
           "service_us": 55
         }
       },
@@ -1050,14 +1242,20 @@
       "timing": {
         "prefill": {
           "sample": "r32-prefill",
+          "phase_id": "r32:prefill:v7",
+          "trace_id": "trace-r32",
           "service_us": 260
         },
         "transfer": {
           "sample": "r32-transfer",
+          "phase_id": "r32:transfer:v7",
+          "trace_id": "trace-r32",
           "service_us": 40
         },
         "decode": {
           "sample": "r32-decode",
+          "phase_id": "r32:decode:v7",
+          "trace_id": "trace-r32",
           "service_us": 55
         }
       },
@@ -1082,14 +1280,20 @@
       "timing": {
         "prefill": {
           "sample": "r33-prefill",
+          "phase_id": "r33:prefill:v7",
+          "trace_id": "trace-r33",
           "service_us": 260
         },
         "transfer": {
           "sample": "r33-transfer",
+          "phase_id": "r33:transfer:v7",
+          "trace_id": "trace-r33",
           "service_us": 40
         },
         "decode": {
           "sample": "r33-decode",
+          "phase_id": "r33:decode:v7",
+          "trace_id": "trace-r33",
           "service_us": 55
         }
       },
@@ -1180,7 +1384,8 @@
           "expires_us": 100650,
           "ingested_us": 100000
         }
-      ]
+      ],
+      "revocations": []
     },
     {
       "at_us": 100050,
@@ -1269,6 +1474,14 @@
           "expires_us": 100650,
           "ingested_us": 100000
         }
+      ],
+      "revocations": [
+        {
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "lease_id": "a",
+          "revoked_at_us": 100045
+        }
       ]
     },
     {
@@ -1344,6 +1557,14 @@
           "expires_us": 100650,
           "ingested_us": 100000
         }
+      ],
+      "revocations": [
+        {
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "lease_id": "a",
+          "revoked_at_us": 100045
+        }
       ]
     },
     {
@@ -1362,6 +1583,76 @@
           "valid_from_us": 101600,
           "expires_us": 103000,
           "ingested_us": 101600
+        }
+      ],
+      "revocations": [
+        {
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "lease_id": "a",
+          "revoked_at_us": 100045
+        },
+        {
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "lease_id": "fresh",
+          "revoked_at_us": 101900
+        }
+      ]
+    }
+  ],
+  "topology": [
+    {
+      "at_us": 100675,
+      "topology_epoch": 2,
+      "updates": [
+        {
+          "route_id": "rt-02",
+          "generation": 2,
+          "enabled": true,
+          "draining": true
+        },
+        {
+          "route_id": "rt-06",
+          "generation": 2,
+          "enabled": false,
+          "draining": false
+        }
+      ]
+    },
+    {
+      "at_us": 101520,
+      "topology_epoch": 3,
+      "updates": [
+        {
+          "route_id": "rt-02",
+          "generation": 3,
+          "enabled": true,
+          "draining": false
+        },
+        {
+          "route_id": "rt-06",
+          "generation": 3,
+          "enabled": true,
+          "draining": false
+        }
+      ]
+    },
+    {
+      "at_us": 102695,
+      "topology_epoch": 4,
+      "updates": [
+        {
+          "route_id": "rt-01",
+          "generation": 2,
+          "enabled": true,
+          "draining": true
+        },
+        {
+          "route_id": "rt-08",
+          "generation": 2,
+          "enabled": true,
+          "draining": false
         }
       ]
     }

@@ -11,5 +11,8 @@
   ],
   "leases": [
     "phase/leases.jsonl"
+  ],
+  "manifest": [
+    "phase/manifest.json"
   ]
 }

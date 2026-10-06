@@ -46,3 +46,16 @@ CLI 必须从该目录原始测量生成所需 profiles，再通过实际 HTTP �
 实际接纳不依赖未来的回放事件、timing 或 fail_phase；这些只属于外部模拟后端。
 公开测试材料里不会提供验收答案或故障原因表。私有验收直接驱动 ASGI 并拥有
 自己的 transport，不信任 candidate 的 replay 自报。
+
+V7 的三次 ack 还必须包含 `transaction_id`、`phase` 和该阶段 `phase_token`；
+请求 header 携带 `X-Reservation-Id`、`X-Phase-Token`、`X-Route-Id`、
+`X-Route-Generation` 与 `X-Resource-Epoch`。route generation 或 token 不匹配时，
+即使资源 ID 和 layout 看起来正确也必须回滚当前事务。阶段响应 headers 的反馈
+身份是 `x-trace-id`、`x-phase-id`、`x-resource-epoch`、`x-sample-signature` 与
+`x-service-*` 的联合签名；只接受当前 reservation 的对应阶段和 epoch。
+
+回放事件还包含 `topology`。拓扑更新与 reload、cache replacement 和 arrival
+共享同一事件顺序；路由排空影响新接纳，不能改变已经发出的后端 URL。cache 事件
+可以带 `revocations`，撤销的 producer/generation/lease 组合即使 page_hash 正确
+也不能形成缓存前缀。私有验收会重复、延迟和交叉这些事件，并检查 diagnostics
+中的 route/transaction 身份和最终账本，而不是只看 HTTP code。

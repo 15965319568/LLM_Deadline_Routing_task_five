@@ -90,3 +90,15 @@ reserved。相同 boot 下 capacity_epoch 下降的迟到快照必须忽略。
 流成功还需要完整的 `data: [DONE]` 事件。只有非空 text 没有 DONE 的断流属于
 error；heartbeat、注释、空 choices 和 DONE 都不算首 token。SSE 事件可能跨任意
 字节边界，终止判定不能依赖单次 read。
+
+V7 的 `route_specs` 为每个三元组分配稳定 `route_id`、alias 和 generation。
+`topology` 事件按单调 topology_epoch 更新 enabled/draining；同一时刻的更新、
+reload、cache replacement 和 arrival 仍按 workload 顺序串行裁决。draining route
+不能被新请求选中，但已持有该 route 的 reservation 不能因为拓扑变更而迁移。
+选择结果必须记录 route_id 和 route_generation，不能只记录资源三元组。
+
+V7 的 reservation 具有 transaction_id、reservation_generation 和每阶段 phase
+token。prefill、transfer、decode 的 ack 必须回显对应 token、transaction、phase、
+route generation 和布局；错 ack 只能终止当前事务，不能释放别的 request 的资源。
+租户除了 slot/page/work 外还可有 burst credit 与 failure penalty，credit 仅用于
+守恒账本，不得写入低基数 metrics；失败、取消和重复终态必须幂等结算。
