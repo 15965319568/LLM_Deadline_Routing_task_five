@@ -95,9 +95,11 @@ class DeadlineRouter:
         if row is None:
             return
         self.monitoring.first(row)
+        if row.epoch != self.epochs[row.endpoint]:
+            return
         try:
             self.feedback.observe(row.endpoint, headers["x-service-sample"],
-                                  float(headers["x-baseline-us"]), float(headers["x-service-us"]))
+                                  row.baseline_us if self.config.get('require_support') else float(headers["x-baseline-us"]), float(headers["x-service-us"]))
         except (KeyError, ValueError, TypeError):
             pass
 

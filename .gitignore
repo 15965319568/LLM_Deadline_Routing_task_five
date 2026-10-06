@@ -181,6 +181,3 @@ docs/book/src/docs
 
 # Sub charts
 helm/charts/*.tgz
-
-# Raw compressed serving captures are task inputs.
-!captures/**/*.gz

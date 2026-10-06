@@ -1,41 +1,61 @@
-"""Client delivery consolidation used by the capacity import job."""
+"""Reconcile repeated deliveries without merging separate executions."""
 from collections import defaultdict
-from .schema import measurement, span
+from .schema import integer, measurement, span
 from .storage import records
 
 
 def available_groups(root, exports, runs, cutoff):
-    ledger, attempts = {}, defaultdict(list)
+    ledger, groups = {}, defaultdict(list)
     for source, raw in records(root, exports['measurements']):
         ledger[source] = 'excluded'
-        if not raw:
+        if raw is None:
             continue
         run_id = str(raw.get('run_id', raw.get('run', ''))).strip()
-        if run_id not in runs:
+        run = runs.get(run_id)
+        if run is None:
             continue
         try:
-            item = measurement(raw, runs[run_id])
+            item = measurement(raw, run)
+            if max(item['available_us'], integer(run['available_at_us'])) > cutoff:
+                ledger[source] = 'deferred'
+                continue
         except (KeyError, ValueError, TypeError, ArithmeticError):
             continue
-        attempts[item['key'][:2]].append((source, item))
+        groups[item['key']].append((source, item))
     winners = []
-    for key, rows in attempts.items():
-        rows.sort(key=lambda r: (r[1]['status'] == 'ok', r[1]['available_us'], r[0]))
-        for source, _ in rows[:-1]:
+    for key, entries in groups.items():
+        payloads = [{k: v for k, v in item.items() if k != 'available_us'} for _, item in entries]
+        if any(p != payloads[0] for p in payloads):
+            for source, _ in entries:
+                ledger[source] = 'conflict'
+            continue
+        entries.sort(key=lambda pair: pair[0])
+        for source, _ in entries[1:]:
             ledger[source] = 'duplicate'
-        source, item = rows[-1]
+        source, item = entries[0]
+        item['available_us'] = min(r['available_us'] for _, r in entries)
         winners.append((source, item, runs[key[0]]))
     return ledger, winners
 
 
 def service_evidence(root, exports, cutoff):
-    index = {}
+    groups = defaultdict(list)
+    bad = set()
     for _, raw in records(root, exports['spans']):
-        try:
-            row = span(raw)
-            previous = index.get(row['span_id'])
-            if previous is None or row['available_us'] >= previous['available_us']:
-                index[row['span_id']] = row
-        except (KeyError, ValueError, TypeError, ArithmeticError):
+        if raw is None:
             continue
-    return index
+        sid = raw.get('span_id', raw.get('id'))
+        try:
+            arrival = integer(raw.get('available_at_us', raw.get('delivered_us')))
+            if arrival > cutoff:
+                continue
+            groups[sid].append(span(raw))
+        except (KeyError, ValueError, TypeError, ArithmeticError):
+            bad.add(sid)
+    result = {}
+    for sid, entries in groups.items():
+        payloads = [{k: v for k, v in entry.items() if k != 'available_us'} for entry in entries]
+        if sid in bad or any(p != payloads[0] for p in payloads):
+            continue
+        result[sid] = dict(entries[0], available_us=min(e['available_us'] for e in entries))
+    return result

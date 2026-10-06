@@ -418,6 +418,8 @@ async def route_general_request(
     Returns:
         StreamingResponse: A response object that streams data from the backend server to the client.
     """
+    if getattr(request.app.state, 'fabric_enabled', False) is True:
+        return await request.app.state.fabric_gateway.forward(request, endpoint)
     if isinstance(request.app.state.router, DisaggregatedPrefillRouter):
         response = await route_disaggregated_prefill_request(
             request, endpoint, background_tasks

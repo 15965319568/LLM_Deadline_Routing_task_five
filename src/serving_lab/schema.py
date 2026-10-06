@@ -41,7 +41,7 @@ def measurement(row, run):
         scale = Decimal(1_000_000)
     elif version == 'bench/2':
         names = ('run_id', 'request_id', 'attempt', 'prompt', 'span_id', 'status', 'client_ttft', 'available_at_us')
-        scale = Decimal(1000)
+        scale = Decimal(1)
     else:
         raise ValueError('Unsupported benchmark schema')
     rid, request, attempt, prompt, sid, status, ttft, available = (row[n] for n in names)
@@ -58,7 +58,7 @@ def span(row):
     elif row['schema'] == 'span/2':
         keys = ('span_id', 'run_id', 'request_id', 'attempt', 'prefill_start_us', 'prefill_end_us',
                 'active_decodes', 'cache_claim_id', 'available_at_us')
-        scale = Decimal(1000)
+        scale = Decimal(1)
     else:
         raise ValueError('Unsupported span schema')
     sid, run, request, attempt, start, end, decodes, claim, available = (row[k] for k in keys)

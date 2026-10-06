@@ -35,13 +35,11 @@ class ServingGateway(DeadlineGateway):
         async with self.router.lock:
             for profile in records:
                 eid = profile['endpoint_id']
-                self.router.epochs[eid] += 1
-                self.router.feedback.factors[eid] = 1.0
-                self.router.feedback.samples[eid] = deque(maxlen=self.router.feedback.policy['window_samples'])
-                self.router.feedback.seen = {key for key in self.router.feedback.seen if key[0] != eid}
-                for row in self.router.capacity.requests.values():
-                    if row.endpoint == eid and row.stage == 'prefill':
-                        row.work_us = surfaces[eid].estimate(8, 0)
+                if profile != self.router.profiles[eid]:
+                    self.router.epochs[eid] += 1
+                    self.router.feedback.factors[eid] = 1.0
+                    self.router.feedback.samples[eid] = deque(maxlen=self.router.feedback.policy['window_samples'])
+                    self.router.feedback.seen = {key for key in self.router.feedback.seen if key[0] != eid}
                 self.router.profiles[eid] = profile
                 self.router.surfaces[eid] = surfaces[eid]
             self.config['endpoints'] = records
