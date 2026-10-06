@@ -209,5 +209,20 @@
   "drift_threshold": 1.25,
   "feedback_window": 3,
   "snapshot_ttl_us": 170,
-  "safety_us": 7
+  "safety_us": 7,
+  "default_tenant": "default",
+  "tenant_limits": {
+    "default": {
+      "max_slots": 8,
+      "max_pages": 40
+    },
+    "gold": {
+      "max_slots": 2,
+      "max_pages": 8
+    },
+    "batch": {
+      "max_slots": 1,
+      "max_pages": 5
+    }
+  }
 }
