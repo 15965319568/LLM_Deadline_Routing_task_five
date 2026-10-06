@@ -1,7 +1,7 @@
 {
   "window": [
     100000,
-    103800
+    114000
   ],
   "initial": "initial",
   "builds": [
@@ -12,6 +12,10 @@
     {
       "name": "updated",
       "as_of_us": 100700
+    },
+    {
+      "name": "final",
+      "as_of_us": 104200
     }
   ],
   "requests": [
@@ -1298,6 +1302,994 @@
         }
       },
       "cancel_us": 103529
+    },
+    {
+      "id": "e00",
+      "at_us": 104000,
+      "prefill_us": 104100,
+      "transfer_us": 104170,
+      "first_us": 104220,
+      "end_us": 104650,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 105000,
+        "stream": true,
+        "tenant": "elastic",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "e00-prefill",
+          "phase_id": "e00:prefill:v7",
+          "trace_id": "trace-e00",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "e00-transfer",
+          "phase_id": "e00:transfer:v7",
+          "trace_id": "trace-e00",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "e00-decode",
+          "phase_id": "e00:decode:v7",
+          "trace_id": "trace-e00",
+          "service_us": 55
+        }
+      }
+    },
+    {
+      "id": "e01",
+      "at_us": 104000,
+      "prefill_us": 104100,
+      "transfer_us": 104350,
+      "first_us": 104400,
+      "end_us": 104500,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 105000,
+        "stream": true,
+        "tenant": "elastic",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "e01-prefill",
+          "phase_id": "e01:prefill:v7",
+          "trace_id": "trace-e01",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "e01-transfer",
+          "phase_id": "e01:transfer:v7",
+          "trace_id": "trace-e01",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "e01-decode",
+          "phase_id": "e01:decode:v7",
+          "trace_id": "trace-e01",
+          "service_us": 55
+        }
+      },
+      "fail_phase": "transfer"
+    },
+    {
+      "id": "e02",
+      "at_us": 104000,
+      "prefill_us": 104100,
+      "transfer_us": 104170,
+      "first_us": 104220,
+      "end_us": 104380,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 105000,
+        "stream": true,
+        "tenant": "elastic",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "e02-prefill",
+          "phase_id": "e02:prefill:v7",
+          "trace_id": "trace-e02",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "e02-transfer",
+          "phase_id": "e02:transfer:v7",
+          "trace_id": "trace-e02",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "e02-decode",
+          "phase_id": "e02:decode:v7",
+          "trace_id": "trace-e02",
+          "service_us": 55
+        }
+      },
+      "cancel_us": 104230
+    },
+    {
+      "id": "e03",
+      "at_us": 104180,
+      "prefill_us": 104280,
+      "transfer_us": 104350,
+      "first_us": 104400,
+      "end_us": 104560,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 105180,
+        "stream": true,
+        "tenant": "elastic",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "e03-prefill",
+          "phase_id": "e03:prefill:v7",
+          "trace_id": "trace-e03",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "e03-transfer",
+          "phase_id": "e03:transfer:v7",
+          "trace_id": "trace-e03",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "e03-decode",
+          "phase_id": "e03:decode:v7",
+          "trace_id": "trace-e03",
+          "service_us": 55
+        }
+      },
+      "bad_ack": "decode",
+      "bad_ack_field": "phase_token"
+    },
+    {
+      "id": "e04",
+      "at_us": 104200,
+      "prefill_us": 104300,
+      "transfer_us": 104370,
+      "first_us": 104420,
+      "end_us": 104580,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 105200,
+        "stream": true,
+        "tenant": "elastic",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "e04-prefill",
+          "phase_id": "e04:prefill:v7",
+          "trace_id": "trace-e04",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "e04-transfer",
+          "phase_id": "e04:transfer:v7",
+          "trace_id": "trace-e04",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "e04-decode",
+          "phase_id": "e04:decode:v7",
+          "trace_id": "trace-e04",
+          "service_us": 55
+        }
+      }
+    },
+    {
+      "id": "e05",
+      "at_us": 104680,
+      "prefill_us": 104780,
+      "transfer_us": 104850,
+      "first_us": 104900,
+      "end_us": 105060,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 105680,
+        "stream": true,
+        "tenant": "elastic",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "e05-prefill",
+          "phase_id": "e05:prefill:v7",
+          "trace_id": "trace-e05",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "e05-transfer",
+          "phase_id": "e05:transfer:v7",
+          "trace_id": "trace-e05",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "e05-decode",
+          "phase_id": "e05:decode:v7",
+          "trace_id": "trace-e05",
+          "service_us": 55
+        }
+      }
+    },
+    {
+      "id": "e06",
+      "at_us": 104780,
+      "prefill_us": 104880,
+      "transfer_us": 104950,
+      "first_us": 105000,
+      "end_us": 105160,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 105780,
+        "stream": true,
+        "tenant": "elastic",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "e06-prefill",
+          "phase_id": "e06:prefill:v7",
+          "trace_id": "trace-e06",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "e06-transfer",
+          "phase_id": "e06:transfer:v7",
+          "trace_id": "trace-e06",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "e06-decode",
+          "phase_id": "e06:decode:v7",
+          "trace_id": "trace-e06",
+          "service_us": 55
+        }
+      },
+      "cancel_us": 104790
+    },
+    {
+      "id": "e07",
+      "at_us": 105500,
+      "prefill_us": 105600,
+      "transfer_us": 105670,
+      "first_us": 105720,
+      "end_us": 105880,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 106500,
+        "stream": true,
+        "tenant": "elastic",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "e07-prefill",
+          "phase_id": "e07:prefill:v7",
+          "trace_id": "trace-e07",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "e07-transfer",
+          "phase_id": "e07:transfer:v7",
+          "trace_id": "trace-e07",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "e07-decode",
+          "phase_id": "e07:decode:v7",
+          "trace_id": "trace-e07",
+          "service_us": 55
+        }
+      }
+    },
+    {
+      "id": "e08",
+      "at_us": 104790,
+      "prefill_us": 104890,
+      "transfer_us": 104960,
+      "first_us": 105010,
+      "end_us": 105170,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 105790,
+        "stream": true,
+        "tenant": "elastic",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "e08-prefill",
+          "phase_id": "e08:prefill:v7",
+          "trace_id": "trace-e08",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "e08-transfer",
+          "phase_id": "e08:transfer:v7",
+          "trace_id": "trace-e08",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "e08-decode",
+          "phase_id": "e08:decode:v7",
+          "trace_id": "trace-e08",
+          "service_us": 55
+        }
+      }
+    },
+    {
+      "id": "s00",
+      "at_us": 103850,
+      "prefill_us": 103950,
+      "transfer_us": 104020,
+      "first_us": 104070,
+      "end_us": 104230,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 104850,
+        "stream": true,
+        "tenant": "strict",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "s00-prefill",
+          "phase_id": "s00:prefill:v7",
+          "trace_id": "trace-s00",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "s00-transfer",
+          "phase_id": "s00:transfer:v7",
+          "trace_id": "trace-s00",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "s00-decode",
+          "phase_id": "s00:decode:v7",
+          "trace_id": "trace-s00",
+          "service_us": 55
+        }
+      },
+      "cancel_us": 103859
+    },
+    {
+      "id": "s01",
+      "at_us": 103859,
+      "prefill_us": 103959,
+      "transfer_us": 104029,
+      "first_us": 104079,
+      "end_us": 104239,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 104859,
+        "stream": true,
+        "tenant": "strict",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "s01-prefill",
+          "phase_id": "s01:prefill:v7",
+          "trace_id": "trace-s01",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "s01-transfer",
+          "phase_id": "s01:transfer:v7",
+          "trace_id": "trace-s01",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "s01-decode",
+          "phase_id": "s01:decode:v7",
+          "trace_id": "trace-s01",
+          "service_us": 55
+        }
+      }
+    },
+    {
+      "id": "s02",
+      "at_us": 103890,
+      "prefill_us": 103990,
+      "transfer_us": 104060,
+      "first_us": 104110,
+      "end_us": 104270,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 104890,
+        "stream": true,
+        "tenant": "strict",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "s02-prefill",
+          "phase_id": "s02:prefill:v7",
+          "trace_id": "trace-s02",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "s02-transfer",
+          "phase_id": "s02:transfer:v7",
+          "trace_id": "trace-s02",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "s02-decode",
+          "phase_id": "s02:decode:v7",
+          "trace_id": "trace-s02",
+          "service_us": 55
+        }
+      },
+      "cancel_us": 103899
+    },
+    {
+      "id": "w0",
+      "at_us": 106000,
+      "prefill_us": 106100,
+      "transfer_us": 106170,
+      "first_us": 106220,
+      "end_us": 106380,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 107000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "w0-prefill",
+          "phase_id": "w0:prefill:v7",
+          "trace_id": "trace-w0",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "w0-transfer",
+          "phase_id": "w0:transfer:v7",
+          "trace_id": "trace-w0",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "w0-decode",
+          "phase_id": "w0:decode:v7",
+          "trace_id": "trace-w0",
+          "service_us": 55
+        }
+      },
+      "stream_mode": "split_utf8"
+    },
+    {
+      "id": "w1",
+      "at_us": 106500,
+      "prefill_us": 106600,
+      "transfer_us": 106670,
+      "first_us": 106720,
+      "end_us": 106880,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 107500,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "w1-prefill",
+          "phase_id": "w1:prefill:v7",
+          "trace_id": "trace-w1",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "w1-transfer",
+          "phase_id": "w1:transfer:v7",
+          "trace_id": "trace-w1",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "w1-decode",
+          "phase_id": "w1:decode:v7",
+          "trace_id": "trace-w1",
+          "service_us": 55
+        }
+      },
+      "stream_mode": "multiline"
+    },
+    {
+      "id": "w2",
+      "at_us": 107000,
+      "prefill_us": 107100,
+      "transfer_us": 107170,
+      "first_us": 107220,
+      "end_us": 107380,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 108000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "w2-prefill",
+          "phase_id": "w2:prefill:v7",
+          "trace_id": "trace-w2",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "w2-transfer",
+          "phase_id": "w2:transfer:v7",
+          "trace_id": "trace-w2",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "w2-decode",
+          "phase_id": "w2:decode:v7",
+          "trace_id": "trace-w2",
+          "service_us": 55
+        }
+      },
+      "stream_mode": "torn_done"
+    },
+    {
+      "id": "w3",
+      "at_us": 107500,
+      "prefill_us": 107600,
+      "transfer_us": 107670,
+      "first_us": 107720,
+      "end_us": 107880,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 108500,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "w3-prefill",
+          "phase_id": "w3:prefill:v7",
+          "trace_id": "trace-w3",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "w3-transfer",
+          "phase_id": "w3:transfer:v7",
+          "trace_id": "trace-w3",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "w3-decode",
+          "phase_id": "w3:decode:v7",
+          "trace_id": "trace-w3",
+          "service_us": 55
+        }
+      },
+      "stream_mode": "after_done"
+    },
+    {
+      "id": "w4",
+      "at_us": 108000,
+      "prefill_us": 108100,
+      "transfer_us": 108170,
+      "first_us": 108220,
+      "end_us": 108380,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 109000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "w4-prefill",
+          "phase_id": "w4:prefill:v7",
+          "trace_id": "trace-w4",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "w4-transfer",
+          "phase_id": "w4:transfer:v7",
+          "trace_id": "trace-w4",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "w4-decode",
+          "phase_id": "w4:decode:v7",
+          "trace_id": "trace-w4",
+          "service_us": 55
+        }
+      },
+      "stream_mode": "done_first"
+    },
+    {
+      "id": "a0",
+      "at_us": 109000,
+      "prefill_us": 109100,
+      "transfer_us": 109170,
+      "first_us": 109220,
+      "end_us": 109380,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 110000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "a0-prefill",
+          "phase_id": "a0:prefill:v7",
+          "trace_id": "trace-a0",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "a0-transfer",
+          "phase_id": "a0:transfer:v7",
+          "trace_id": "trace-a0",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "a0-decode",
+          "phase_id": "a0:decode:v7",
+          "trace_id": "trace-a0",
+          "service_us": 55
+        }
+      },
+      "bad_ack": "prefill",
+      "bad_ack_field": "route_generation"
+    },
+    {
+      "id": "a1",
+      "at_us": 109500,
+      "prefill_us": 109600,
+      "transfer_us": 109670,
+      "first_us": 109720,
+      "end_us": 109880,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 110500,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "a1-prefill",
+          "phase_id": "a1:prefill:v7",
+          "trace_id": "trace-a1",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "a1-transfer",
+          "phase_id": "a1:transfer:v7",
+          "trace_id": "trace-a1",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "a1-decode",
+          "phase_id": "a1:decode:v7",
+          "trace_id": "trace-a1",
+          "service_us": 55
+        }
+      },
+      "bad_ack": "transfer",
+      "bad_ack_field": "topology_epoch"
+    },
+    {
+      "id": "a2",
+      "at_us": 110000,
+      "prefill_us": 110100,
+      "transfer_us": 110170,
+      "first_us": 110220,
+      "end_us": 110380,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 111000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "a2-prefill",
+          "phase_id": "a2:prefill:v7",
+          "trace_id": "trace-a2",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "a2-transfer",
+          "phase_id": "a2:transfer:v7",
+          "trace_id": "trace-a2",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "a2-decode",
+          "phase_id": "a2:decode:v7",
+          "trace_id": "trace-a2",
+          "service_us": 55
+        }
+      },
+      "bad_ack": "prefill",
+      "bad_ack_field": "kv_handle"
+    },
+    {
+      "id": "a3",
+      "at_us": 110500,
+      "prefill_us": 110600,
+      "transfer_us": 110670,
+      "first_us": 110720,
+      "end_us": 110880,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 111500,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "a3-prefill",
+          "phase_id": "a3:prefill:v7",
+          "trace_id": "trace-a3",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "a3-transfer",
+          "phase_id": "a3:transfer:v7",
+          "trace_id": "trace-a3",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "a3-decode",
+          "phase_id": "a3:decode:v7",
+          "trace_id": "trace-a3",
+          "service_us": 55
+        }
+      },
+      "bad_ack": "decode",
+      "bad_ack_field": "route_generation"
+    },
+    {
+      "id": "a4",
+      "at_us": 111000,
+      "prefill_us": 111100,
+      "transfer_us": 111170,
+      "first_us": 111220,
+      "end_us": 111380,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 112000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "a4-prefill",
+          "phase_id": "a4:prefill:v7",
+          "trace_id": "trace-a4",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "a4-transfer",
+          "phase_id": "a4:transfer:v7",
+          "trace_id": "trace-a4",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "a4-decode",
+          "phase_id": "a4:decode:v7",
+          "trace_id": "trace-a4",
+          "service_us": 55
+        }
+      },
+      "bad_ack": "transfer",
+      "bad_ack_field": "phase_token"
+    },
+    {
+      "id": "f0",
+      "at_us": 112000,
+      "prefill_us": 112100,
+      "transfer_us": 112170,
+      "first_us": 112220,
+      "end_us": 112380,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 113000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "f0-prefill",
+          "phase_id": "f0:prefill:v7",
+          "trace_id": "trace-f0",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "f0-transfer",
+          "phase_id": "f0:transfer:v7",
+          "trace_id": "trace-f0",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "f0-decode",
+          "phase_id": "f0:decode:v7",
+          "trace_id": "trace-f0",
+          "service_us": 55
+        }
+      },
+      "bad_feedback": "signature"
+    },
+    {
+      "id": "f1",
+      "at_us": 112500,
+      "prefill_us": 112600,
+      "transfer_us": 112670,
+      "first_us": 112720,
+      "end_us": 112880,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 113500,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "f1-prefill",
+          "phase_id": "f1:prefill:v7",
+          "trace_id": "trace-f1",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "f1-transfer",
+          "phase_id": "f1:transfer:v7",
+          "trace_id": "trace-f1",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "f1-decode",
+          "phase_id": "f1:decode:v7",
+          "trace_id": "trace-f1",
+          "service_us": 55
+        }
+      },
+      "bad_feedback": "trace_id"
+    },
+    {
+      "id": "f2",
+      "at_us": 113000,
+      "prefill_us": 113100,
+      "transfer_us": 113170,
+      "first_us": 113220,
+      "end_us": 113380,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 114000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "f2-prefill",
+          "phase_id": "f2:prefill:v7",
+          "trace_id": "trace-f2",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "f2-transfer",
+          "phase_id": "f2:transfer:v7",
+          "trace_id": "trace-f2",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "f2-decode",
+          "phase_id": "f2:decode:v7",
+          "trace_id": "trace-f2",
+          "service_us": 55
+        }
+      },
+      "bad_feedback": "phase_id"
+    },
+    {
+      "id": "f3",
+      "at_us": 113500,
+      "prefill_us": 113600,
+      "transfer_us": 113670,
+      "first_us": 113720,
+      "end_us": 113880,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 114500,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "f3-prefill",
+          "phase_id": "f3:prefill:v7",
+          "trace_id": "trace-f3",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "f3-transfer",
+          "phase_id": "f3:transfer:v7",
+          "trace_id": "trace-f3",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "f3-decode",
+          "phase_id": "f3:decode:v7",
+          "trace_id": "trace-f3",
+          "service_us": 55
+        }
+      },
+      "bad_feedback": "epoch"
     }
   ],
   "reloads": [
@@ -1308,6 +2300,10 @@
     {
       "at_us": 101500,
       "build": "updated"
+    },
+    {
+      "at_us": 104200,
+      "build": "final"
     }
   ],
   "caches": [
@@ -1480,7 +2476,8 @@
           "producer": "kv-cache-a",
           "generation": 1,
           "lease_id": "a",
-          "revoked_at_us": 100045
+          "revoked_at_us": 100045,
+          "ingested_us": 100045
         }
       ]
     },
@@ -1563,7 +2560,8 @@
           "producer": "kv-cache-a",
           "generation": 1,
           "lease_id": "a",
-          "revoked_at_us": 100045
+          "revoked_at_us": 100045,
+          "ingested_us": 100045
         }
       ]
     },
@@ -1590,18 +2588,45 @@
           "producer": "kv-cache-a",
           "generation": 1,
           "lease_id": "a",
-          "revoked_at_us": 100045
+          "revoked_at_us": 100045,
+          "ingested_us": 100045
         },
         {
           "producer": "kv-cache-a",
           "generation": 1,
           "lease_id": "fresh",
-          "revoked_at_us": 101900
+          "revoked_at_us": 101900,
+          "ingested_us": 102100
+        },
+        {
+          "producer": "kv-cache-a",
+          "generation": true,
+          "lease_id": "fresh",
+          "revoked_at_us": "broken",
+          "ingested_us": 101600
         }
       ]
     }
   ],
   "topology": [
+    {
+      "at_us": 100500,
+      "topology_epoch": 1,
+      "updates": [
+        {
+          "route_id": "missing-route",
+          "generation": 99,
+          "enabled": false,
+          "draining": true
+        },
+        {
+          "route_id": "rt-01",
+          "generation": 1,
+          "enabled": false,
+          "draining": true
+        }
+      ]
+    },
     {
       "at_us": 100675,
       "topology_epoch": 2,
@@ -1617,6 +2642,24 @@
           "generation": 2,
           "enabled": false,
           "draining": false
+        }
+      ]
+    },
+    {
+      "at_us": 100690,
+      "topology_epoch": 2,
+      "updates": [
+        {
+          "route_id": "rt-02",
+          "generation": 2,
+          "enabled": false,
+          "draining": false
+        },
+        {
+          "route_id": "rt-06",
+          "generation": 1,
+          "enabled": true,
+          "draining": true
         }
       ]
     },
@@ -1921,32 +2964,111 @@
     100020,
     100045,
     100065,
+    100100,
+    100110,
     100115,
+    100120,
+    100145,
+    100165,
+    100170,
+    100180,
     100185,
+    100190,
+    100215,
+    100220,
     100230,
+    100235,
+    100240,
     100260,
+    100265,
+    100285,
+    100335,
+    100355,
+    100360,
+    100380,
+    100390,
     100400,
+    100405,
+    100425,
+    100430,
+    100445,
+    100480,
+    100495,
+    100500,
+    100520,
+    100565,
+    100570,
     100600,
+    100620,
+    100640,
     100680,
     100700,
     100705,
     100720,
     100745,
+    100760,
+    100780,
+    100805,
+    100820,
+    100845,
     100850,
+    100875,
     100890,
+    100910,
+    100915,
+    100925,
     100940,
+    100965,
+    100980,
+    100990,
+    101010,
+    101060,
+    101085,
+    101100,
+    101110,
+    101125,
     101135,
     101170,
+    101180,
+    101230,
     101260,
+    101270,
+    101340,
+    101360,
+    101390,
+    101430,
+    101480,
     101500,
+    101550,
+    101640,
     101650,
     101680,
     101700,
+    101750,
+    101800,
+    101820,
+    101870,
+    101920,
+    102030,
+    102080,
     102200,
+    102300,
+    102370,
+    102420,
+    102580,
+    102650,
     102680,
     102700,
     102710,
+    102750,
+    102800,
+    102810,
+    102820,
+    102870,
+    102880,
     102900,
+    102920,
+    102930,
     102950,
     102959,
     102960,
@@ -1957,9 +3079,157 @@
     102989,
     102990,
     102999,
+    103030,
+    103050,
+    103060,
+    103070,
+    103080,
+    103090,
+    103120,
+    103130,
+    103140,
+    103150,
+    103160,
+    103170,
+    103180,
+    103190,
     103200,
+    103210,
+    103330,
+    103340,
+    103350,
+    103360,
+    103370,
     103520,
     103529,
-    103800
+    103620,
+    103690,
+    103740,
+    103800,
+    103850,
+    103859,
+    103890,
+    103900,
+    103950,
+    103959,
+    103990,
+    104000,
+    104009,
+    104020,
+    104029,
+    104040,
+    104060,
+    104070,
+    104079,
+    104100,
+    104110,
+    104170,
+    104180,
+    104200,
+    104220,
+    104230,
+    104239,
+    104270,
+    104280,
+    104300,
+    104350,
+    104370,
+    104380,
+    104400,
+    104420,
+    104500,
+    104560,
+    104580,
+    104650,
+    104680,
+    104780,
+    104790,
+    104850,
+    104880,
+    104890,
+    104900,
+    104950,
+    104960,
+    105000,
+    105010,
+    105060,
+    105160,
+    105170,
+    105500,
+    105600,
+    105670,
+    105720,
+    105880,
+    106000,
+    106100,
+    106170,
+    106220,
+    106380,
+    106500,
+    106600,
+    106670,
+    106720,
+    106880,
+    107000,
+    107100,
+    107170,
+    107220,
+    107380,
+    107500,
+    107600,
+    107670,
+    107720,
+    107880,
+    108000,
+    108100,
+    108170,
+    108220,
+    108380,
+    109000,
+    109100,
+    109170,
+    109220,
+    109380,
+    109500,
+    109600,
+    109670,
+    109720,
+    109880,
+    110000,
+    110100,
+    110170,
+    110220,
+    110380,
+    110500,
+    110600,
+    110670,
+    110720,
+    110880,
+    111000,
+    111100,
+    111170,
+    111220,
+    111380,
+    112000,
+    112100,
+    112170,
+    112220,
+    112380,
+    112500,
+    112600,
+    112670,
+    112720,
+    112880,
+    113000,
+    113100,
+    113170,
+    113220,
+    113380,
+    113500,
+    113600,
+    113670,
+    113720,
+    113880,
+    114000
   ]
 }

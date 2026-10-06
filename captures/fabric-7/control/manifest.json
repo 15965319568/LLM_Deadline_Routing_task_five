@@ -1,0 +1,8 @@
+{
+  "schema": "tenant-control/v1",
+  "sources": {
+    "control/controller.csv": "887ea60a6feb11b3269ebfc104271c7cdf702e5670bfccf6cd8ca97d0eff284e",
+    "control/shadow.jsonl.gz": "d5bc641de027a0945793b30542edc3ead7295b61f20905568d91113cb2349849",
+    "control/replica.jsonl": "3de543e1c0aa5208e63c59d33653e0db221cd2500bf837b13c71e7fb33d5efd0"
+  }
+}

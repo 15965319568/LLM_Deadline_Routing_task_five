@@ -1,0 +1,1 @@
+{"schema": "tenant-control/v1", "tenant": "elastic", "revision": 1, "parent": 0, "effective_us": 90000, "ingested_us": 95000, "authority": "controller", "state": "enacted", "patch": "{\"failure_penalty_us\":\"65.0\",\"max_work_us\":170.0}", "signature": "3748ec84659f30e165bc430a8ba5dca269b2a0a27d50feb678675453dec54028"}

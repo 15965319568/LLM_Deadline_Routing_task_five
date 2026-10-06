@@ -83,7 +83,7 @@ fabric_terminal_total 只带 outcome 标签。所有未使用资源也应暴露�
 V6 增加滚动 start 配额：`tenant_limits` 可以声明 `max_starts` 与
 `start_window_us`。它按接纳时刻记账，取消、前置阶段失败和 decode 断流仍消耗
 一次 start；400 校验失败和容量拒绝不消耗。窗口是半开区间
-`[now-start_window_us, now)`，过期记录才移除。`max_work_us` 的账单是三个
+`(now-start_window_us, now]`，包括同刻已接纳请求，年龄等于窗口时才移除。`max_work_us` 的账单是三个
 reserved 之和乘 `priority_factors[priority]`，资源 deadline 预测仍使用未加权的
 reserved。相同 boot 下 capacity_epoch 下降的迟到快照必须忽略。
 

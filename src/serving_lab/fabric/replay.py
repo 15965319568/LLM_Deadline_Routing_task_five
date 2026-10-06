@@ -8,56 +8,7 @@ from vllm_router.deadline import ManualClock
 from serving_lab.storage import read_json, write_json
 from .compile import compile_fabric
 from .runtime import FabricGateway
-
-
-class Backend:
-    def __init__(self, rows, config):
-        self.rows = {row['id']:row for row in rows}
-        self.config = config
-        self.calls, self.waiting, self.passed = [], set(), set()
-        self.gates = {(rid,phase):asyncio.Event() for rid in self.rows for phase in ['prefill','transfer','first','end']}
-
-    async def body(self, rid):
-        yield b': heartbeat\n\ndata: {"choices":[{"text":""}]}\n\n'
-        self.waiting.add((rid,'first'))
-        await self.gates[rid,'first'].wait()
-        wire = 'data: {"choices":[{"text":"甲"}]}\n\n'.encode()
-        yield wire[:30]
-        yield wire[30:]
-        self.passed.add((rid,'first'))
-        self.waiting.add((rid,'end'))
-        await self.gates[rid,'end'].wait()
-        if self.rows[rid].get('fail_phase') == 'decode':
-            raise OSError('decode stream failed')
-        yield b'data: [DONE]\n\n'
-        self.passed.add((rid,'end'))
-
-    @asynccontextmanager
-    async def request(self, **kw):
-        rid = kw['headers']['X-Request-Id']
-        resource = kw['url'].split('/')[2]
-        role = self.config['resources'][resource]['role']
-        phase = 'transfer' if role == 'link' else role
-        self.calls.append(dict(id=rid,resource=resource,url=kw['url'],body=kw['json']))
-        row = self.rows[rid]
-        timing = row['timing'][phase]
-        headers = {'x-service-sample':timing['sample'],'x-service-us':str(timing['service_us']), 'x-baseline-us':'1'}
-        if phase != 'decode':
-            self.waiting.add((rid,phase))
-            await self.gates[rid,phase].wait()
-            if row.get('fail_phase') == phase:
-                raise OSError('phase failed')
-            ack = dict(request_id=rid,resource=resource,layout=self.config['resources'][resource]['layout'],kv_handle=f'{rid}:{resource}')
-            if phase == 'transfer':
-                ack['target'] = kw['json']['target']
-            if row.get('bad_ack') == phase:
-                ack['request_id'] = 'other-request'
-            async def json_body():
-                return ack
-            self.passed.add((rid,phase))
-            yield SimpleNamespace(status=200,headers=headers,json=json_body)
-        else:
-            yield SimpleNamespace(status=200,headers=headers,content=SimpleNamespace(iter_any=lambda:self.body(rid)))
+from .wire_fixture import Backend as WireBackend
 
 
 async def settle(predicate):
@@ -70,10 +21,10 @@ def events(work):
     output = []
     for rank,field in [(0,'cancel'),(1,'end'),(2,'first'),(3,'transfer'),(4,'prefill')]:
         output.extend((r[field+'_us'],rank,r['id'],field,r) for r in work['requests'] if r.get(field+'_us') is not None)
-    for rank,field in [(5,'reloads'),(6,'observations'),(7,'caches')]:
+    for rank,field in [(5,'reloads'),(6,'observations'),(7,'caches'),(8,'topology')]:
         output.extend((r['at_us'],rank,str(i),field,r) for i,r in enumerate(work[field]))
-    output.extend((r['at_us'],8,r['id'],'arrival',r) for r in work['requests'])
-    output.extend((t,9,str(i),'checkpoint',{}) for i,t in enumerate(work['checkpoints']))
+    output.extend((r['at_us'],9,r['id'],'arrival',r) for r in work['requests'])
+    output.extend((t,10,str(i),'checkpoint',{}) for i,t in enumerate(work['checkpoints']))
     return sorted(output,key=lambda e:e[:3])
 
 
@@ -84,7 +35,7 @@ async def replay(source, workload, output):
     for row in work['builds']:
         dirs[row['name']] = output/'profiles'/row['name']
         compile_fabric(source,dirs[row['name']],row['as_of_us'])
-    backend = Backend(work['requests'],read_json(source/'fabric.json'))
+    backend = WireBackend(work['requests'],read_json(source/'fabric.json'))
     clock = ManualClock(work['window'][0])
     gateway = FabricGateway(source,dirs[work['initial']],clock=clock,transport=backend)
     tasks, checkpoints = {}, []
@@ -109,7 +60,9 @@ async def replay(source, workload, output):
                 elif kind == 'observations':
                     gateway.observe(row['rows'])
                 elif kind == 'caches':
-                    gateway.cache(row['leases'])
+                    gateway.cache(row)
+                elif kind == 'topology':
+                    gateway.update_topology(row.get('updates', []), row.get('topology_epoch'))
                 elif kind == 'checkpoint':
                     checkpoints.append(dict(at_us=at,**(await client.get('/fabric/diagnostics')).json(),dispatch=copy_calls(backend.calls)))
             replies = await asyncio.gather(*tasks.values(),return_exceptions=True)

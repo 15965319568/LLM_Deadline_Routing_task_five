@@ -16,6 +16,8 @@ from vllm_router.deadline.stream import FirstToken
 from serving_lab.storage import read_json
 from .compile import interpolate
 from .evidence import integer, number, prefix_pages
+from .legacy_control import load_control
+from .credit import CreditLedger
 
 
 def load(directory, config, now):
@@ -46,6 +48,9 @@ class FabricGateway:
         self.config = read_json(Path(source_dir)/'fabric.json')
         self.clock = clock or MonotonicClock()
         self.surfaces = load(profile_dir, self.config, self.clock.now_us())
+        self.policies = load_control(profile_dir)
+        self.config['tenant_limits'] = {t: dict(p['limits']) for t, p in self.policies.items()}
+        self.credit = CreditLedger(self.config)
         self.transport = transport
         self.lock = asyncio.Lock()
         self.epochs = {key: 1 for key in self.surfaces}
@@ -95,6 +100,8 @@ class FabricGateway:
                     self.ratios[identity].clear()
                     self.seen_feedback = {key for key in self.seen_feedback if key[0] != identity}
             self.surfaces = replacement
+            self.policies = load_control(profile_dir)
+            self.config['tenant_limits'] = {t: dict(p['limits']) for t, p in self.policies.items()}
 
     def cache(self, leases):
         self.leases = [(f'online#{index}', copy.deepcopy(row)) for index,row in enumerate(leases)]
@@ -168,6 +175,8 @@ class FabricGateway:
                              if request['stage'] != 'terminal' and request.get('tenant') == tenant]
             tenant_slots = len(tenant_active)
             tenant_pages = sum(request['pages'] for request in tenant_active)
+            active_work = sum(request['charged_work_us'] for request in tenant_active)
+            credit = self.credit.state(tenant, now)
             choices, supported = [], False
             for path in self.config['paths']:
                 p, link, d = path
@@ -189,6 +198,9 @@ class FabricGateway:
                 if any(nodes[key]['slots']+1 > spec['slots'] for key,spec in zip(path,specs)) or nodes[d]['pages']+pages > specs[2]['pages']:
                     continue
                 reserved = {key:baseline[key]*self.factors[key] for key in path}
+                overage = self.credit.required(tenant, active_work, sum(reserved.values()))
+                if overage and overage > credit['balance']:
+                    continue
                 prediction = sum(nodes[key]['work_us']+reserved[key] for key in path)+self.config['safety_us']
                 if now+prediction <= deadline:
                     choices.append((prediction,tuple(path),cached,baseline,reserved))
@@ -200,6 +212,9 @@ class FabricGateway:
             request = dict(path=list(path),cached_tokens=cached,baseline_us=baseline,reserved_us=reserved,
                            epochs={key:self.epochs[key] for key in path},pages=pages,held=set(path),stage='prefill',
                            arrival_us=now,first_us=None,deadline_us=deadline,outcome=None,tenant=tenant)
+            request.update(charged_work_us=sum(reserved.values()), policy_revision=self.policies[tenant]['revision'],
+                           burst_reserved_us=self.credit.required(tenant, active_work, sum(reserved.values())))
+            self.credit.reserve(tenant, request['burst_reserved_us'], now)
             self.requests[rid] = request
             self.decisions[rid] = dict(status=200,path=list(path),cached_tokens=cached,predicted_us=round(prediction,6))
             return 200, request
@@ -242,6 +257,7 @@ class FabricGateway:
             self.feedback(rid,row['path'][2],headers or {})
         row['stage'], row['outcome'] = 'terminal', outcome
         row['held'].clear()
+        self.credit.settle(row, outcome, self.clock.now_us())
         self.outcomes[outcome] += 1
 
     async def forward(self, request, endpoint):
@@ -309,7 +325,9 @@ class FabricGateway:
                             baseline_us={k:round(v,6) for k,v in row['baseline_us'].items()},
                             reserved_us={k:round(v,6) for k,v in row['reserved_us'].items()},epochs=row['epochs'],first_us=row['first_us'])
                     for rid,row in sorted(self.requests.items())}
-        return dict(nodes=nodes,decisions=self.decisions,requests=requests,ttft_count=len(self.ttfts),ttft_sum_us=sum(self.ttfts),outcomes=dict(self.outcomes))
+        return dict(nodes=nodes,decisions=self.decisions,requests=requests,
+                    tenant_policies=self.policies,tenant_ledgers=self.credit.rows,
+                    ttft_count=len(self.ttfts),ttft_sum_us=sum(self.ttfts),outcomes=dict(self.outcomes))
 
     def metrics(self):
         lines = ['# TYPE fabric_ttft_seconds summary',f'fabric_ttft_seconds_count {len(self.ttfts)}',f'fabric_ttft_seconds_sum {sum(self.ttfts)/1e6}']

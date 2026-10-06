@@ -328,6 +328,8 @@
     1.35
   ],
   "burst_credit_us": 180,
+  "burst_refill_us": 18,
+  "burst_refill_window_us": 100,
   "failure_penalty_us": 23,
   "tenant_limits": {
     "default": {
@@ -352,6 +354,19 @@
       "max_priority": 1,
       "max_starts": 3,
       "start_window_us": 350
+    },
+    "elastic": {
+      "max_slots": 4,
+      "max_pages": 24,
+      "max_work_us": 170,
+      "max_priority": 3,
+      "burst_credit_us": 260
+    },
+    "strict": {
+      "max_slots": 2,
+      "max_pages": 12,
+      "max_work_us": 350,
+      "max_priority": 2
     }
   }
 }
