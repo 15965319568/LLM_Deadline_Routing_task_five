@@ -1,0 +1,11 @@
+{"producer": "gpu-a", "boot": "cold", "tick": 49840, "global_us": 100680, "ingested_us": 100650}
+{"producer": "nic-b", "boot": "cold", "tick": 23420, "global_us": 100680, "ingested_us": 100650}
+{"producer": "gpu-a", "boot": "cold", "tick": 12345, "global_us": 26000, "ingested_us": 100650}
+{"producer": "gpu-a", "boot": "cold", "tick": 49000, "global_us": 99000, "ingested_us": 80000}
+{"producer": "gpu-a", "boot": "warm", "tick": 0, "global_us": 4000, "ingested_us": 80000}
+{"producer": "nic-b", "boot": "cold", "tick": 0, "global_us": 7000, "ingested_us": 80000}
+{"producer": "gpu-a", "boot": "warm", "tick": 31666, "global_us": 98998, "ingested_us": 80000}
+{"producer": "gpu-a", "boot": "cold", "tick": 0, "global_us": 1000, "ingested_us": 80000}
+{"producer": "nic-b", "boot": "cold", "tick": 23000, "global_us": 99000, "ingested_us": 80000}
+{"producer": "gpu-a", "boot": "cold", "tick": 12345, "global_us": 25000, "ingested_us": 100650}
+{"producer": "gpu-a", "boot": "warm", "tick": 32226, "global_us": 100678, "ingested_us": 100650}

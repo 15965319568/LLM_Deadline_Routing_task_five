@@ -1,0 +1,723 @@
+{
+  "builds": [
+    {
+      "name": "initial",
+      "as_of_us": 100000
+    },
+    {
+      "name": "updated",
+      "as_of_us": 200000
+    },
+    {
+      "name": "same",
+      "as_of_us": 200210
+    }
+  ],
+  "initial": "initial",
+  "reloads": [
+    {
+      "at_us": 200000,
+      "build": "updated"
+    },
+    {
+      "at_us": 200230,
+      "build": "same"
+    }
+  ],
+  "observations": [
+    {
+      "at_us": 100000,
+      "rows": [
+        {
+          "endpoint_id": "a",
+          "observed_at_us": 100000,
+          "sample_seq": 1,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "b",
+          "observed_at_us": 100000,
+          "sample_seq": 1,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "c",
+          "observed_at_us": 100000,
+          "sample_seq": 1,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "at_us": 199980,
+      "rows": [
+        {
+          "endpoint_id": "a",
+          "observed_at_us": 199980,
+          "sample_seq": 2,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 17,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "b",
+          "observed_at_us": 199980,
+          "sample_seq": 2,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 10000,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "c",
+          "observed_at_us": 199980,
+          "sample_seq": 2,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 17,
+              "decode_count": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "at_us": 200020,
+      "rows": [
+        {
+          "endpoint_id": "a",
+          "observed_at_us": 200020,
+          "sample_seq": 3,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 17,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "b",
+          "observed_at_us": 200020,
+          "sample_seq": 3,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 17,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "c",
+          "observed_at_us": 200020,
+          "sample_seq": 3,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 17,
+              "decode_count": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "at_us": 400040,
+      "rows": [
+        {
+          "endpoint_id": "a",
+          "observed_at_us": 400040,
+          "sample_seq": 5,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "b",
+          "observed_at_us": 400040,
+          "sample_seq": 5,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "c",
+          "observed_at_us": 400040,
+          "sample_seq": 5,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "at_us": 200315,
+      "rows": [
+        {
+          "endpoint_id": "a",
+          "observed_at_us": 200315,
+          "sample_seq": 4,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 10000,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "b",
+          "observed_at_us": 200315,
+          "sample_seq": 4,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "c",
+          "observed_at_us": 200315,
+          "sample_seq": 4,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 10000,
+              "decode_count": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "at_us": 200000,
+      "rows": [
+        {
+          "endpoint_id": "a",
+          "observed_at_us": 200000,
+          "sample_seq": 1,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 99999,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "b",
+          "observed_at_us": 200000,
+          "sample_seq": 1,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 99999,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "c",
+          "observed_at_us": 200000,
+          "sample_seq": 1,
+          "by_owner": {
+            "router-local": {
+              "backlog_us": 99999,
+              "decode_count": 9
+            },
+            "router-peer": {
+              "backlog_us": 99999,
+              "decode_count": 0
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "caches": [
+    {
+      "at_us": 100000,
+      "claims": [],
+      "available": true
+    },
+    {
+      "at_us": 200020,
+      "available": true,
+      "claims": [
+        {
+          "endpoint_id": "a",
+          "model_revision": "r-0",
+          "tokenizer": "codepoint-v1",
+          "prefix": [
+            80,
+            80
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 200000,
+          "expires_at_us": 200040
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "r00",
+      "at_us": 100010,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxxxxxx",
+        "stream": true,
+        "deadline_us": 102010,
+        "prompt_tokens": 0
+      },
+      "first_us": 190000,
+      "end_us": 200040,
+      "cancel_us": null,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r00",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r01",
+      "at_us": 100010,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxxxxxxx",
+        "stream": true,
+        "deadline_us": 102010,
+        "prompt_tokens": 0
+      },
+      "first_us": 100100,
+      "end_us": 200020,
+      "cancel_us": null,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r01",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r02",
+      "at_us": 100020,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxxxxxxx",
+        "stream": true,
+        "deadline_us": 102020,
+        "prompt_tokens": 0
+      },
+      "first_us": 100110,
+      "end_us": 100200,
+      "cancel_us": 100080,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r02",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r03",
+      "at_us": 100090,
+      "body": {
+        "model": "shared-model",
+        "prompt": "éééé",
+        "stream": true,
+        "deadline_us": 102090,
+        "prompt_tokens": 0
+      },
+      "first_us": 100150,
+      "end_us": 180000,
+      "cancel_us": null,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r03",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r04",
+      "at_us": 100120,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "stream": true,
+        "deadline_us": 102120,
+        "prompt_tokens": 0
+      },
+      "first_us": 100130,
+      "end_us": 100140,
+      "cancel_us": null,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r04",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r05",
+      "at_us": 100130,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxxxxxx",
+        "stream": true,
+        "deadline_us": 100140,
+        "prompt_tokens": 0
+      },
+      "first_us": 100160,
+      "end_us": 100200,
+      "cancel_us": null,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r05",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r06",
+      "at_us": 100170,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxx",
+        "stream": true,
+        "deadline_us": 102170,
+        "prompt_tokens": 0
+      },
+      "first_us": 100190,
+      "end_us": 100210,
+      "cancel_us": null,
+      "connect_error": true,
+      "timing": {
+        "sample": "feedback-r06",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r07",
+      "at_us": 199990,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxxxxxx",
+        "stream": true,
+        "deadline_us": 201990,
+        "prompt_tokens": 0
+      },
+      "first_us": 200050,
+      "end_us": 200100,
+      "cancel_us": null,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r07",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r08",
+      "at_us": 200005,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxxxx",
+        "stream": true,
+        "deadline_us": 202005,
+        "prompt_tokens": 0
+      },
+      "first_us": 200070,
+      "end_us": 200200,
+      "cancel_us": null,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r08",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r09",
+      "at_us": 200010,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxxxxxxxxxx",
+        "stream": true,
+        "deadline_us": 202010,
+        "prompt_tokens": 0
+      },
+      "first_us": 200080,
+      "end_us": 200090,
+      "cancel_us": 200015,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r09",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r10",
+      "at_us": 200025,
+      "body": {
+        "model": "shared-model",
+        "prompt": "PPxxxxxx",
+        "stream": true,
+        "deadline_us": 202025,
+        "prompt_tokens": 0
+      },
+      "first_us": 200060,
+      "end_us": 200300,
+      "cancel_us": null,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r10",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r11",
+      "at_us": 200090,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxx",
+        "stream": true,
+        "deadline_us": 202090,
+        "prompt_tokens": 0
+      },
+      "first_us": 200100,
+      "end_us": 200130,
+      "cancel_us": 200110,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r11",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r12",
+      "at_us": 200220,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxxxxxx",
+        "stream": true,
+        "deadline_us": 202220,
+        "prompt_tokens": 0
+      },
+      "first_us": 200250,
+      "end_us": 200310,
+      "cancel_us": null,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r12",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r13",
+      "at_us": 200240,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxxxxxx",
+        "stream": true,
+        "deadline_us": 202240,
+        "prompt_tokens": 0
+      },
+      "first_us": 200270,
+      "end_us": 200330,
+      "cancel_us": null,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r13",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r13b",
+      "at_us": 200320,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxxxxxx",
+        "stream": true,
+        "deadline_us": 202320,
+        "prompt_tokens": 0
+      },
+      "first_us": 200350,
+      "end_us": 200370,
+      "cancel_us": null,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r12",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r14",
+      "at_us": 400010,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxxxxxx",
+        "stream": true,
+        "deadline_us": 402010,
+        "prompt_tokens": 0
+      },
+      "first_us": 400020,
+      "end_us": 400030,
+      "cancel_us": null,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r14",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    },
+    {
+      "id": "r15",
+      "at_us": 400050,
+      "body": {
+        "model": "shared-model",
+        "prompt": "xxxxxxxx",
+        "stream": true,
+        "deadline_us": 402050,
+        "prompt_tokens": 0
+      },
+      "first_us": 400080,
+      "end_us": 400100,
+      "cancel_us": null,
+      "connect_error": false,
+      "timing": {
+        "sample": "feedback-r15",
+        "baseline_us": 99999,
+        "service_us": 215
+      }
+    }
+  ],
+  "checkpoints": [
+    100010,
+    100025,
+    100080,
+    100110,
+    100170,
+    100220,
+    190000,
+    199995,
+    200000,
+    200010,
+    200015,
+    200030,
+    200050,
+    200080,
+    200110,
+    200200,
+    200260,
+    200340,
+    200360,
+    400010,
+    400100
+  ],
+  "window": [
+    100000,
+    401000
+  ]
+}

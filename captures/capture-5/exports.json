@@ -1,0 +1,13 @@
+{
+  "measurements": [
+    "client/part-1.csv",
+    "client/part-2.jsonl.gz",
+    "client/broken.jsonl"
+  ],
+  "spans": [
+    "service-spans.jsonl"
+  ],
+  "cache_claims": [
+    "cache-proofs.jsonl"
+  ]
+}

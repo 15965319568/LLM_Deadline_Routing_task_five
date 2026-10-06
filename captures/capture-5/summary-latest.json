@@ -1,0 +1,31 @@
+{
+  "generated_at_us": 190000,
+  "description": "Archived notebook: successful client requests only, bench/1 seconds converted to us; not service spans.",
+  "models": {
+    "shared-model": {
+      "surface": {
+        "tokens": [
+          0,
+          12,
+          28
+        ],
+        "decodes": [
+          0,
+          2
+        ],
+        "service_us": [
+          [
+            30,
+            50,
+            70
+          ],
+          [
+            40,
+            60,
+            80
+          ]
+        ]
+      }
+    }
+  }
+}

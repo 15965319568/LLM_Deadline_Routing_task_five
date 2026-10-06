@@ -1,0 +1,192 @@
+{{- if .Values.routerSpec.enableRouter -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Release.Name }}-deployment-router"
+  namespace: {{ .Release.Namespace }}
+  labels:
+  {{- include "chart.routerStandardLabels" (dict "releaseName" .Release.Name "chartName" .Chart.Name) | nindent 4 }}
+  {{- include "chart.routerLabels" . | nindent 4 }}
+spec:
+{{- if not .Values.routerSpec.autoscaling.enabled }}
+  replicas: {{ .Values.routerSpec.replicaCount }}
+{{- end }}
+  {{- include "chart.routerStrategy" . | nindent 2 }}
+  selector:
+    matchLabels:
+    {{- include "chart.routerStandardLabels" (dict "releaseName" .Release.Name "chartName" .Chart.Name) | nindent 6 }}
+    {{- include "chart.routerLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+      {{- include "chart.routerStandardLabels" (dict "releaseName" .Release.Name "chartName" .Chart.Name) | nindent 8 }}
+      {{- include "chart.routerLabels" . | nindent 8 }}
+      {{- with .Values.routerSpec.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    spec:
+      serviceAccountName: {{ .Values.routerSpec.serviceAccountName | default (printf "%s-router-service-account" .Release.Name) }}
+      {{- if .Values.routerSpec.priorityClassName }}
+      priorityClassName: {{ .Values.routerSpec.priorityClassName | quote }}
+      {{- end }}
+      {{- if not (empty .Values.routerSpec.affinity) }}
+      affinity:
+        {{- toYaml .Values.routerSpec.affinity | nindent 8 }}
+      {{- else if .Values.routerSpec.nodeSelectorTerms }}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            {{- with .Values.routerSpec.nodeSelectorTerms }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+      {{- end }}
+      {{- with .Values.routerSpec.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- if .Values.routerSpec.securityContext }}
+      securityContext:
+        {{- toYaml .Values.routerSpec.securityContext | nindent 8 }}
+      {{- end }}
+      containers:
+      - name: router-container
+        image: "{{ .Values.routerSpec.repository }}:{{ .Values.routerSpec.tag }}"
+        imagePullPolicy: "{{ .Values.routerSpec.imagePullPolicy }}"
+        {{- if .Values.routerSpec.containerSecurityContext }}
+        securityContext:
+          {{- toYaml .Values.routerSpec.containerSecurityContext | nindent 10 }}
+        {{- end }}
+        env:
+          {{- if .Values.routerSpec.hf_token }}
+          - name: HF_TOKEN
+            value: "{{ .Values.routerSpec.hf_token }}"
+          {{- end }}
+          - name: PYTHONHASHSEED
+            value: "123"
+          - name: LMCACHE_LOG_LEVEL
+            value: {{ .Values.routerSpec.lmcacheConfig.logLevel | quote }}
+          {{- if and .Values.routerSpec.vllmApiKey.secretName .Values.routerSpec.vllmApiKey.secretKey }}
+          - name: VLLM_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.routerSpec.vllmApiKey.secretName }}
+                key: {{ .Values.routerSpec.vllmApiKey.secretKey }}
+          {{- else if and .Values.servingEngineSpec.enableEngine }}
+          {{- if kindIs "string" .Values.servingEngineSpec.vllmApiKey }}
+          - name: VLLM_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Release.Name }}-secrets
+                key: vllmApiKey
+          {{- else if and .Values.servingEngineSpec.vllmApiKey.secretName .Values.servingEngineSpec.vllmApiKey.secretKey }}
+          - name: VLLM_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.servingEngineSpec.vllmApiKey.secretName }}
+                key: {{ .Values.servingEngineSpec.vllmApiKey.secretKey }}
+          {{- end }}
+          {{- end }}
+          {{- with .Values.routerSpec.env }}
+            {{- toYaml . | nindent 10 }}
+          {{- end }}
+        args:
+          - "--host"
+          - "0.0.0.0"
+          - "--port"
+          - "{{ .Values.routerSpec.containerPort }}"
+          - "--service-discovery"
+          - "{{ default "k8s" .Values.routerSpec.serviceDiscovery }}"
+          {{- if eq .Values.routerSpec.serviceDiscovery "k8s" }}
+          - "--k8s-namespace"
+          - "{{ .Release.Namespace }}"
+          - "--k8s-service-discovery-type"
+          - "{{ default "pod-ip" .Values.routerSpec.k8sServiceDiscoveryType }}"
+          {{- if .Values.servingEngineSpec.enableEngine }}
+          - "--k8s-label-selector"
+          - {{ include "labels.toCommaSeparatedList" .Values.servingEngineSpec.labels }}
+          {{- end }}
+          {{- end }}
+          {{- if eq .Values.routerSpec.serviceDiscovery "static" }}
+          - "--static-backends"
+          - "{{ required "When using static service discovery, .Values.routerSpec.staticBackends is a required value" .Values.routerSpec.staticBackends }}"
+          - "--static-models"
+          - "{{ required "When using static service discovery, .Values.routerSpec.staticModels is a required value" .Values.routerSpec.staticModels }}"
+          {{- end }}
+          - "--routing-logic"
+          - "{{ .Values.routerSpec.routingLogic }}"
+          {{- if .Values.routerSpec.prefixMinMatchLength }}
+          - "--prefix-min-match-length"
+          - "{{ .Values.routerSpec.prefixMinMatchLength }}"
+          {{- end }}
+          {{- if .Values.routerSpec.sessionKey }}
+          - "--session-key"
+          - "{{ .Values.routerSpec.sessionKey }}"
+          {{- end }}
+          {{- if .Values.routerSpec.rootPath }}
+          - "--root-path"
+          - "{{ .Values.routerSpec.rootPath }}"
+          {{- end }}
+          {{- if .Values.routerSpec.engineScrapeInterval }}
+          - "--engine-stats-interval"
+          - "{{ .Values.routerSpec.engineScrapeInterval }}"
+          {{- end }}
+          {{- if .Values.routerSpec.requestStatsWindow }}
+          - "--request-stats-window"
+          - "{{ .Values.routerSpec.requestStatsWindow }}"
+          {{- end }}
+          {{- if .Values.routerSpec.extraArgs }}
+          {{- toYaml .Values.routerSpec.extraArgs | nindent 10 }}
+          {{- end }}
+          {{- if .Values.routerSpec.lmcacheControllerPort }}
+          - "--lmcache-controller-port"
+          - "{{ .Values.routerSpec.lmcacheControllerPort }}"
+          {{- end }}
+          {{- if .Values.routerSpec.lmcacheControllerReplyPort }}
+          - "--lmcache-controller-reply-port"
+          - "{{ .Values.routerSpec.lmcacheControllerReplyPort }}"
+          {{- end }}
+          {{- if .Values.routerSpec.lmcacheControllerHeartbeatPort }}
+          - "--lmcache-controller-heartbeat-port"
+          - "{{ .Values.routerSpec.lmcacheControllerHeartbeatPort }}"
+          {{- end }}
+          {{- if .Values.routerSpec.otel.endpoint }}
+          - "--otel-endpoint"
+          - "{{ .Values.routerSpec.otel.endpoint }}"
+          - "--otel-service-name"
+          - "{{ .Values.routerSpec.otel.serviceName | default "vllm-router" }}"
+          {{- if .Values.routerSpec.otel.secure }}
+          - "--otel-secure"
+          {{- end }}
+          {{- end }}
+        {{- with .Values.routerSpec.resources }}
+        resources:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
+        ports:
+          - name: "router-port"
+            containerPort: {{ .Values.routerSpec.containerPort }}
+          - name: "lmcache-port"
+            containerPort: 9000
+        {{- with .Values.routerSpec.livenessProbe }}
+        livenessProbe:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
+        {{- with .Values.routerSpec.startupProbe }}
+        startupProbe:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
+        {{- with .Values.routerSpec.readinessProbe }}
+        readinessProbe:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
+        {{- with .Values.routerSpec.extraVolumeMounts }}
+        volumeMounts:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
+      {{- with .Values.routerSpec.extraVolumes }}
+      volumes:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}
