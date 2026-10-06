@@ -27,7 +27,10 @@
         "prompt": "",
         "max_tokens": 4,
         "deadline_us": 100159,
-        "stream": true
+        "stream": true,
+        "tenant": "gold",
+        "priority": 2,
+        "session_id": "alpha"
       },
       "timing": {
         "prefill": {
@@ -56,7 +59,10 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 101010,
-        "stream": true
+        "stream": true,
+        "tenant": "gold",
+        "priority": 1,
+        "session_id": "alpha"
       },
       "timing": {
         "prefill": {
@@ -85,7 +91,10 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 101010,
-        "stream": true
+        "stream": true,
+        "tenant": "gold",
+        "priority": 0,
+        "session_id": "beta"
       },
       "timing": {
         "prefill": {
@@ -114,7 +123,9 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 16,
         "deadline_us": 101020,
-        "stream": true
+        "stream": true,
+        "tenant": "batch",
+        "priority": 1
       },
       "timing": {
         "prefill": {
@@ -143,7 +154,9 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 100200,
-        "stream": true
+        "stream": true,
+        "tenant": "batch",
+        "priority": 2
       },
       "timing": {
         "prefill": {
@@ -172,7 +185,10 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 101065,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "session_id": "alpha"
       },
       "timing": {
         "prefill": {
@@ -201,7 +217,9 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 101115,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
       },
       "timing": {
         "prefill": {
@@ -231,7 +249,9 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 101185,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
       },
       "timing": {
         "prefill": {
@@ -261,7 +281,9 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 101260,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
       },
       "timing": {
         "prefill": {
@@ -291,7 +313,9 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 101400,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
       },
       "timing": {
         "prefill": {
@@ -321,7 +345,10 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 101520,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "session_id": "gamma"
       },
       "timing": {
         "prefill": {
@@ -350,7 +377,10 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 1,
         "deadline_us": 101600,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "session_id": "gamma"
       },
       "timing": {
         "prefill": {
@@ -379,7 +409,9 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 100945,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 3
       },
       "timing": {
         "prefill": {
@@ -408,7 +440,10 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 101720,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "session_id": "gamma"
       },
       "timing": {
         "prefill": {
@@ -437,7 +472,9 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 101720,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 3
       },
       "timing": {
         "prefill": {
@@ -466,7 +503,10 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 101745,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "session_id": "delta"
       },
       "timing": {
         "prefill": {
@@ -495,7 +535,10 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 101890,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "session_id": "delta"
       },
       "timing": {
         "prefill": {
@@ -525,7 +568,10 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 102010,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "session_id": "delta"
       },
       "timing": {
         "prefill": {
@@ -555,7 +601,9 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 102170,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 1
       },
       "timing": {
         "prefill": {
@@ -585,7 +633,9 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 16,
         "deadline_us": 102260,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 2
       },
       "timing": {
         "prefill": {
@@ -614,7 +664,10 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 101651,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "session_id": "expired"
       },
       "timing": {
         "prefill": {
@@ -643,7 +696,10 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 102700,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "session_id": "gamma"
       },
       "timing": {
         "prefill": {
@@ -672,7 +728,9 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 102700,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 1
       },
       "timing": {
         "prefill": {
@@ -701,7 +759,9 @@
         "prompt": "",
         "max_tokens": 4,
         "deadline_us": 103200,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 3
       },
       "timing": {
         "prefill": {
@@ -730,7 +790,10 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 4,
         "deadline_us": 103200,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "session_id": "delta"
       },
       "timing": {
         "prefill": {
@@ -759,7 +822,9 @@
         "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
         "max_tokens": 100,
         "deadline_us": 103650,
-        "stream": true
+        "stream": true,
+        "tenant": "default",
+        "priority": 3
       },
       "timing": {
         "prefill": {
@@ -772,6 +837,68 @@
         },
         "decode": {
           "sample": "r25-decode",
+          "service_us": 55
+        }
+      }
+    },
+    {
+      "id": "r26",
+      "at_us": 102700,
+      "prefill_us": 102800,
+      "transfer_us": 102870,
+      "first_us": 102920,
+      "end_us": 103080,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 103700,
+        "stream": true,
+        "tenant": "gold",
+        "priority": 3
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r26-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r26-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r26-decode",
+          "service_us": 55
+        }
+      }
+    },
+    {
+      "id": "r27",
+      "at_us": 102710,
+      "prefill_us": 102810,
+      "transfer_us": 102880,
+      "first_us": 102930,
+      "end_us": 103090,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 103710,
+        "stream": true,
+        "tenant": "missing",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r27-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r27-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r27-decode",
           "service_us": 55
         }
       }
@@ -799,7 +926,8 @@
           "tokens": "甲甲甲甲",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "session_id": "alpha"
         },
         {
           "lease_id": "b",
@@ -809,7 +937,8 @@
           "tokens": "甲甲甲甲",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "session_id": "alpha"
         },
         {
           "lease_id": "c",
@@ -819,7 +948,30 @@
           "tokens": "错错错错",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "session_id": "alpha"
+        },
+        {
+          "lease_id": "beta-page",
+          "resource": "p1",
+          "layout": "q16",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "valid_from_us": 100000,
+          "expires_us": 100650,
+          "ingested_us": 100000,
+          "session_id": "beta"
+        },
+        {
+          "lease_id": "unscoped",
+          "resource": "p1",
+          "layout": "q16",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "valid_from_us": 100000,
+          "expires_us": 100650,
+          "ingested_us": 100000,
+          "session_id": ""
         }
       ]
     },
@@ -834,7 +986,8 @@
           "tokens": "甲甲甲甲",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "session_id": "alpha"
         },
         {
           "lease_id": "b",
@@ -844,7 +997,8 @@
           "tokens": "甲甲甲甲",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "session_id": "alpha"
         },
         {
           "lease_id": "c",
@@ -854,7 +1008,30 @@
           "tokens": "错错错错",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "session_id": "alpha"
+        },
+        {
+          "lease_id": "beta-page",
+          "resource": "p1",
+          "layout": "q16",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "valid_from_us": 100000,
+          "expires_us": 100650,
+          "ingested_us": 100000,
+          "session_id": "beta"
+        },
+        {
+          "lease_id": "unscoped",
+          "resource": "p1",
+          "layout": "q16",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "valid_from_us": 100000,
+          "expires_us": 100650,
+          "ingested_us": 100000,
+          "session_id": ""
         },
         {
           "lease_id": "a",
@@ -864,7 +1041,8 @@
           "tokens": "xxxx",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "session_id": "alpha"
         }
       ]
     },
@@ -879,7 +1057,8 @@
           "tokens": "甲甲甲甲",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "session_id": "alpha"
         },
         {
           "lease_id": "b",
@@ -889,7 +1068,8 @@
           "tokens": "甲甲甲甲",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "session_id": "alpha"
         },
         {
           "lease_id": "c",
@@ -899,7 +1079,30 @@
           "tokens": "错错错错",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "session_id": "alpha"
+        },
+        {
+          "lease_id": "beta-page",
+          "resource": "p1",
+          "layout": "q16",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "valid_from_us": 100000,
+          "expires_us": 100650,
+          "ingested_us": 100000,
+          "session_id": "beta"
+        },
+        {
+          "lease_id": "unscoped",
+          "resource": "p1",
+          "layout": "q16",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "valid_from_us": 100000,
+          "expires_us": 100650,
+          "ingested_us": 100000,
+          "session_id": ""
         }
       ]
     },
@@ -914,7 +1117,8 @@
           "tokens": "甲甲甲甲",
           "valid_from_us": 101600,
           "expires_us": 103000,
-          "ingested_us": 101600
+          "ingested_us": 101600,
+          "session_id": "gamma"
         }
       ]
     }
@@ -932,7 +1136,10 @@
           "ingested_us": 100000,
           "slots": 1,
           "pages": 3,
-          "work_us": 20
+          "work_us": 20,
+          "healthy": true,
+          "draining": false,
+          "capacity_epoch": 0
         },
         {
           "resource": "p1",
@@ -943,7 +1150,10 @@
           "ingested_us": 100000,
           "slots": 50,
           "pages": 0,
-          "work_us": 10000
+          "work_us": 10000,
+          "healthy": true,
+          "draining": false,
+          "capacity_epoch": 0
         }
       ]
     },
@@ -959,7 +1169,10 @@
           "ingested_us": 100030,
           "slots": 3,
           "pages": 12,
-          "work_us": 1000
+          "work_us": 1000,
+          "healthy": true,
+          "draining": false,
+          "capacity_epoch": 0
         }
       ]
     },
@@ -975,7 +1188,10 @@
           "ingested_us": 100000,
           "slots": 2,
           "pages": 3,
-          "work_us": 20
+          "work_us": 20,
+          "healthy": true,
+          "draining": false,
+          "capacity_epoch": 0
         }
       ]
     },
@@ -991,7 +1207,10 @@
           "ingested_us": 100610,
           "slots": 1,
           "pages": 0,
-          "work_us": 80
+          "work_us": 80,
+          "healthy": true,
+          "draining": false,
+          "capacity_epoch": 0
         }
       ]
     },
@@ -1007,7 +1226,10 @@
           "ingested_us": 100720,
           "slots": 1,
           "pages": 0,
-          "work_us": 800
+          "work_us": 800,
+          "healthy": true,
+          "draining": false,
+          "capacity_epoch": 0
         }
       ]
     },
@@ -1023,7 +1245,10 @@
           "ingested_us": 101170,
           "slots": 2,
           "pages": 10,
-          "work_us": 90
+          "work_us": 90,
+          "healthy": true,
+          "draining": false,
+          "capacity_epoch": 0
         }
       ]
     },
@@ -1039,7 +1264,10 @@
           "ingested_us": 101260,
           "slots": 0,
           "pages": 0,
-          "work_us": 0
+          "work_us": 0,
+          "healthy": true,
+          "draining": false,
+          "capacity_epoch": 0
         }
       ]
     },
@@ -1055,7 +1283,10 @@
           "ingested_us": 101680,
           "slots": 1,
           "pages": 0,
-          "work_us": 60
+          "work_us": 60,
+          "healthy": true,
+          "draining": false,
+          "capacity_epoch": 0
         },
         {
           "resource": "d1",
@@ -1066,7 +1297,86 @@
           "ingested_us": 101680,
           "slots": 1,
           "pages": 2,
-          "work_us": 30
+          "work_us": 30,
+          "healthy": true,
+          "draining": false,
+          "capacity_epoch": 0
+        }
+      ]
+    },
+    {
+      "at_us": 102680,
+      "rows": [
+        {
+          "resource": "d2",
+          "owner": "foreign",
+          "boot": 1,
+          "seq": 3,
+          "event_us": 102680,
+          "ingested_us": 102680,
+          "slots": 0,
+          "pages": 0,
+          "work_us": 0,
+          "healthy": false,
+          "draining": false,
+          "capacity_epoch": 2
+        }
+      ]
+    },
+    {
+      "at_us": 102700,
+      "rows": [
+        {
+          "resource": "d2",
+          "owner": "foreign",
+          "boot": 1,
+          "seq": 4,
+          "event_us": 102700,
+          "ingested_us": 102700,
+          "slots": 0,
+          "pages": 0,
+          "work_us": 0,
+          "healthy": true,
+          "draining": false,
+          "capacity_epoch": 3
+        }
+      ]
+    },
+    {
+      "at_us": 102710,
+      "rows": [
+        {
+          "resource": "p2",
+          "owner": "foreign",
+          "boot": 1,
+          "seq": 5,
+          "event_us": 102710,
+          "ingested_us": 102710,
+          "slots": 0,
+          "pages": 0,
+          "work_us": 0,
+          "healthy": true,
+          "draining": true,
+          "capacity_epoch": 4
+        }
+      ]
+    },
+    {
+      "at_us": 102900,
+      "rows": [
+        {
+          "resource": "p2",
+          "owner": "foreign",
+          "boot": 1,
+          "seq": 6,
+          "event_us": 102900,
+          "ingested_us": 102900,
+          "slots": 0,
+          "pages": 0,
+          "work_us": 0,
+          "healthy": true,
+          "draining": false,
+          "capacity_epoch": 5
         }
       ]
     }
@@ -1095,8 +1405,14 @@
     101170,
     101260,
     101500,
+    101650,
+    101680,
     101700,
     102200,
+    102680,
+    102700,
+    102710,
+    102900,
     103200
   ]
 }

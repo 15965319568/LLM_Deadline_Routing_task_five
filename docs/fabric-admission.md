@@ -11,10 +11,16 @@ deadline_us 和 stream=true；仅支持当前模型。非法请求 400，已作�
 ID 再次出现 409。第一笔决定保留，不能改变或释放原请求。无受支持的兼容
 组合 503，有受支持组合但容量/时限不满足 429。不做隐式重试或偷偷换布局。
 
-部署可以声明 `default_tenant` 和 `tenant_limits`。请求带有字符串 `tenant` 时按该租户计数；缺省时使用
-`default_tenant`，未知租户是 400。每个未结束请求同时占用一个租户 slot 和完整 decode 页数，接纳时就计入
-`max_slots`/`max_pages`。租户配额和 GPU/link 容量都是必要条件，任一耗尽返回 429；缓存命中只改变
-prefill 坐标和阶段成本，不能减少租户页预留。租户字段不出现在 diagnostics 的低基数节点标签中。
+部署可以声明 `default_tenant`、`tenant_limits` 和 `session_affinity_ttl_us`。请求带有字符串 `tenant` 时按该租户计数；缺省时使用
+`default_tenant`，未知租户是 400。`priority` 缺省为 0，必须是非负整数且不超过该租户的 `max_priority`；非法优先级是 400。
+每个未结束请求同时占用一个租户 slot、完整 decode 页数和三阶段 immutable work 预算，接纳时就计入
+`max_slots`/`max_pages`/`max_work_us`。阶段完成只释放资源账本，不释放租户 work 预算；终态才归还。
+租户配额和 GPU/link 容量都是必要条件，任一耗尽返回 429；缓存命中只改变 prefill 坐标和阶段成本，不能减少租户页或 work 预留。
+租户字段不出现在 diagnostics 的低基数节点标签中。
+
+请求可以带字符串 `session_id`（最多 64 个字符）。同一 session 在亲和 TTL 内固定使用上一次接纳的完整三元组；
+固定路径不可用时返回 429，不得偷偷迁移到另一个 decode。TTL 从接纳时刻计算，session 终止后仍保留到期时间。
+带 session 的缓存页必须来自相同 session；无 session 的请求只使用没有 session 命名空间的页。
 
 paths 是部署候选三元组。角色须依次为 prefill/link/decode；三者 layout 一致；
 link source/target 与两端一致。每个组合分别验证缓存、查三个阶段的成本。
@@ -22,12 +28,14 @@ link source/target 与两端一致。每个组合分别验证缓存、查三个�
 候选资源的 slots、decode pages 都必须能容纳完整预留。decode 页数是
 ceil((prompt_tokens+max_tokens)/page_tokens)，不是未缓存 tokens。
 
-外部 snapshots 字段 resource/owner/boot/seq/event_us/ingested_us/slots/pages/work_us。
+外部 snapshots 字段 resource/owner/boot/seq/event_us/ingested_us/slots/pages/work_us，可选的 `healthy`、`draining`、`capacity_epoch`。
 boot 是非负整数 generation，不是测量的 boot 字符串。每 resource/owner 按
 最大 `(boot,seq)` 保留，旧序号不覆盖新序号；未来 event/ingested 不接收；
 本 gateway owner 忽略。相同 generation/seq 不同 event、slots、pages 或 work
 使该 owner 快照冲突失效，直到更高序号恢复。相同副本幂等。
-接纳时仅汇总年龄在 `[0,snapshot_ttl_us]` 且无冲突的快照，加上本地实际所有权。
+接纳时仅汇总年龄在 `[0,snapshot_ttl_us]` 且无冲突的快照，加上本地实际所有权。`healthy=false` 或 `draining=true` 的新鲜快照
+使该资源暂时不能成为新请求的路径；它仍计入容量，已经接纳的请求不受影响。状态字段也参与同序号冲突裁决，
+过期状态自动失效。
 不能按请求 ID 做指标标签，也不能把自己的快照与本地预留重复相加。
 
 每阶段原始 baseline 从当前画像获取，reserved=baseline*当前该资源 feedback

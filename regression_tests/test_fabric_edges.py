@@ -182,3 +182,38 @@ def test_reload_rejects_invalid_document_without_mutation(tmp_path):
 
     asyncio.run(run())
     assert gateway.inspect() == before
+
+
+def test_session_namespaces_and_priority_are_admission_inputs(tmp_path):
+    gateway = _profile(tmp_path)
+    gateway.cache([
+        dict(lease_id="alpha-page", resource="p1", layout="q16", page_index=0, tokens="甲甲甲甲",
+             session_id="alpha", valid_from_us=100000, expires_us=101000, ingested_us=100000),
+        dict(lease_id="plain-page", resource="p1", layout="q16", page_index=0, tokens="甲甲甲甲",
+             valid_from_us=100000, expires_us=101000, ingested_us=100000),
+    ])
+
+    async def run():
+        alpha = dict(_body(prompt="甲" * 8), session_id="alpha", priority=2)
+        beta = dict(_body(prompt="甲" * 8), session_id="beta", priority=0)
+        assert (await gateway.admit("alpha", alpha))[0] == 200
+        assert gateway.decisions["alpha"]["cached_tokens"] == 4
+        assert (await gateway.admit("beta", beta))[0] == 200
+        assert gateway.decisions["beta"]["cached_tokens"] == 0
+        assert (await gateway.admit("bad-priority", dict(_body(), tenant="batch", priority=2)))[0] == 400
+
+    asyncio.run(run())
+
+
+def test_draining_snapshot_blocks_new_path_but_keeps_capacity(tmp_path):
+    gateway = _profile(tmp_path)
+    gateway.observe([dict(resource="p1", owner="foreign", boot=1, seq=1, event_us=100000,
+                          ingested_us=100000, slots=0, pages=0, work_us=0,
+                          healthy=True, draining=True, capacity_epoch=2)])
+
+    async def run():
+        status, row = await gateway.admit("draining", _body(prompt="甲" * 8))
+        assert status == 200 and row["path"][0] != "p1"
+        assert gateway.inspect()["nodes"]["p1"]["slots"] == 0
+
+    asyncio.run(run())
