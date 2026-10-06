@@ -560,7 +560,7 @@
       "timing": {
         "prefill": {
           "sample": "r10-prefill",
-          "service_us": 260
+          "service_us": 800
         },
         "transfer": {
           "sample": "r18-transfer",
@@ -676,8 +676,8 @@
       },
       "timing": {
         "prefill": {
-          "sample": "r22-prefill",
-          "service_us": 260
+          "sample": "r10-prefill",
+          "service_us": 900
         },
         "transfer": {
           "sample": "r22-transfer",
