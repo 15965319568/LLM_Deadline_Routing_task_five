@@ -1,4 +1,5 @@
 import asyncio
+import hashlib
 import json
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -20,6 +21,14 @@ def _profile(tmp_path):
 
 def _body(deadline=101000, prompt="甲甲甲甲甲甲甲甲"):
     return dict(model="lab-model", prompt=prompt, max_tokens=4, deadline_us=deadline, stream=True)
+
+
+def _lease(lease_id, resource="p1", layout="q16", page_index=0, tokens="甲甲甲甲", session_id="", **kwargs):
+    digest = hashlib.sha256(f"{layout}|{session_id}|{page_index}|{tokens}".encode()).hexdigest()
+    return dict(lease_id=lease_id, resource=resource, layout=layout, page_index=page_index,
+                tokens=tokens, session_id=session_id, producer="kv-cache-a", generation=1,
+                page_hash=digest, valid_from_us=100000, expires_us=101000,
+                ingested_us=100000, **kwargs)
 
 
 class AckTransport:
@@ -48,6 +57,8 @@ class AckTransport:
         await asyncio.sleep(0)
         ack = dict(request_id=kwargs["headers"]["X-Request-Id"], resource=resource,
                    layout="q16", kv_handle="handle:" + resource)
+        if role == "prefill":
+            ack["cached_tokens"] = kwargs["json"]["cached_tokens"]
         if role == "transfer":
             ack["target"] = kwargs["json"]["target"]
         if self.mode == role:
@@ -85,14 +96,10 @@ def test_snapshot_conflict_and_ttl_are_not_counted(tmp_path):
 def test_cache_prefix_stops_at_gap_and_wrong_layout(tmp_path):
     gateway = _profile(tmp_path)
     gateway.cache([
-        dict(lease_id="p0", resource="p1", layout="q16", page_index=0, tokens="甲甲甲甲",
-             valid_from_us=100000, expires_us=101000, ingested_us=100000),
-        dict(lease_id="p2", resource="p1", layout="q16", page_index=2, tokens="甲甲甲甲",
-             valid_from_us=100000, expires_us=101000, ingested_us=100000),
-        dict(lease_id="wrong", resource="p1", layout="q8", page_index=1, tokens="甲甲甲甲",
-             valid_from_us=100000, expires_us=101000, ingested_us=100000),
-        dict(lease_id="p2-0", resource="p2", layout="q16", page_index=0, tokens="甲甲甲甲",
-             valid_from_us=100000, expires_us=101000, ingested_us=100000),
+        _lease("p0"),
+        _lease("p2", page_index=2),
+        _lease("wrong", resource="p1", layout="q8", page_index=1),
+        _lease("p2-0", resource="p2"),
     ])
 
     async def run():
@@ -187,10 +194,8 @@ def test_reload_rejects_invalid_document_without_mutation(tmp_path):
 def test_session_namespaces_and_priority_are_admission_inputs(tmp_path):
     gateway = _profile(tmp_path)
     gateway.cache([
-        dict(lease_id="alpha-page", resource="p1", layout="q16", page_index=0, tokens="甲甲甲甲",
-             session_id="alpha", valid_from_us=100000, expires_us=101000, ingested_us=100000),
-        dict(lease_id="plain-page", resource="p1", layout="q16", page_index=0, tokens="甲甲甲甲",
-             valid_from_us=100000, expires_us=101000, ingested_us=100000),
+        _lease("alpha-page", session_id="alpha"),
+        _lease("plain-page"),
     ])
 
     async def run():
@@ -215,5 +220,43 @@ def test_draining_snapshot_blocks_new_path_but_keeps_capacity(tmp_path):
         status, row = await gateway.admit("draining", _body(prompt="甲" * 8))
         assert status == 200 and row["path"][0] != "p1"
         assert gateway.inspect()["nodes"]["p1"]["slots"] == 0
+
+    asyncio.run(run())
+
+
+def test_stream_requires_done_marker(tmp_path):
+    profile = tmp_path / "profile"
+    compile_fabric(SOURCE, profile, 100000)
+    transport = AckTransport()
+    original = transport._stream
+
+    async def no_done():
+        async for chunk in original():
+            if b"[DONE]" not in chunk:
+                yield chunk
+
+    transport._stream = no_done
+    gateway = FabricGateway(SOURCE, profile, clock=ManualClock(100000), transport=transport)
+
+    async def run():
+        async with httpx.AsyncClient(transport=httpx.ASGITransport(app=gateway.app), base_url="http://gateway") as client:
+            reply = await client.post("/v1/completions", json=_body(), headers={"X-Request-Id": "no-done"})
+        assert reply.status_code == 200
+        assert gateway.inspect()["requests"]["no-done"]["outcome"] == "error"
+
+    asyncio.run(run())
+
+
+def test_tenant_start_window_and_priority_charge(tmp_path):
+    gateway = _profile(tmp_path)
+    body = dict(_body(prompt="甲" * 8), tenant="gold", priority=2)
+
+    async def run():
+        for index in range(1, 5):
+            assert (await gateway.admit(f"window-{index}", body))[0] == 200
+            gateway.finish(f"window-{index}", "cancelled")
+        assert (await gateway.admit("window-5", body))[0] == 429
+        gateway.clock.advance_to(100501)
+        assert (await gateway.admit("window-6", body))[0] == 200
 
     asyncio.run(run())

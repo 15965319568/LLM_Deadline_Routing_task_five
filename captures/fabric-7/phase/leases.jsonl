@@ -1,2 +1,2 @@
-{"lease_id": "other-layout-page", "resource": "p2", "layout": "q8", "page_index": 0, "tokens": "甲甲甲甲", "valid_from_us": 10000, "expires_us": 100000, "ingested_us": 85000}
-{"lease_id": "lease-s23-161", "resource": "p2", "layout": "q16", "page_index": 0, "tokens": "前缀缓存", "valid_from_us": 63741, "expires_us": 63870, "ingested_us": 85000}
+{"lease_id": "other-layout-page", "resource": "p2", "layout": "q8", "page_index": 0, "tokens": "甲甲甲甲", "session_id": "", "producer": "kv-cache-a", "generation": 1, "page_hash": "e37f05e1ce99373ddccbc84726dc4a8d6c679609b3e0615d3ec5afa81eca10d8", "valid_from_us": 10000, "expires_us": 100000, "ingested_us": 85000}
+{"lease_id": "lease-s23-161", "resource": "p2", "layout": "q16", "page_index": 0, "tokens": "前缀缓存", "session_id": "", "producer": "kv-cache-a", "generation": 1, "page_hash": "249c39b04031f846ba819bc6a9bc465a4f660d09ce64da3f1f2f2ba403db26ae", "valid_from_us": 63741, "expires_us": 63870, "ingested_us": 85000}

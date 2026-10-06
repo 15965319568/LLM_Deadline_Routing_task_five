@@ -60,3 +60,9 @@ build 必须生成以下 JSON（字段稳定，浮点仅为 JSON 表达）：
 
 部署中的 `tenant_limits` 是在线资源约束，不是离线样本分组；不要把租户名称当作 cohort，
 也不要因为某租户的缓存命中而改写 phase ledger 或 baseline support。
+
+V6 的 lease 还必须带 `producer`、非负整数 `generation` 和 `page_hash`。hash 是
+UTF-8 字节串 `sha256(layout + "|" + session_id + "|" + page_index + "|" + tokens)`
+的十六进制结果；缺字段、页文本长度不是 page_tokens、hash 不匹配或 generation
+不是非负整数都不构成缓存证据。`session_id` 缺省时使用空命名空间，不能用普通页
+满足带 session 的请求。重复 lease 的血缘字段也参与冲突签名。

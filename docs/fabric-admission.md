@@ -79,3 +79,14 @@ outcome 为 success/error/cancelled 或 null。未到首 token 为 null。
 `/metrics` 以微秒值输出 fabric_work_us，其他数值输出 fabric_slots/pages/factor/epoch，
 只带 resource 标签；fabric_ttft_seconds_count/sum 为全局首 token 样本；
 fabric_terminal_total 只带 outcome 标签。所有未使用资源也应暴露零占用。
+
+V6 增加滚动 start 配额：`tenant_limits` 可以声明 `max_starts` 与
+`start_window_us`。它按接纳时刻记账，取消、前置阶段失败和 decode 断流仍消耗
+一次 start；400 校验失败和容量拒绝不消耗。窗口是半开区间
+`[now-start_window_us, now)`，过期记录才移除。`max_work_us` 的账单是三个
+reserved 之和乘 `priority_factors[priority]`，资源 deadline 预测仍使用未加权的
+reserved。相同 boot 下 capacity_epoch 下降的迟到快照必须忽略。
+
+流成功还需要完整的 `data: [DONE]` 事件。只有非空 text 没有 DONE 的断流属于
+error；heartbeat、注释、空 choices 和 DONE 都不算首 token。SSE 事件可能跨任意
+字节边界，终止判定不能依赖单次 read。

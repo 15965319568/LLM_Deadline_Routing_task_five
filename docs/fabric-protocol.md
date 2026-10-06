@@ -3,7 +3,8 @@
 实际转发须保持 X-Request-Id，与接纳组合一致：
 
 1. POST prefill URL + `/v1/prefill`，JSON 为原请求加 cached_tokens。
-   ack `{request_id,resource,layout,kv_handle}`，resource 为 prefill ID。
+   ack `{request_id,resource,layout,cached_tokens,kv_handle}`，resource 为 prefill ID，
+   cached_tokens 必须等于接纳时的连续页证明。
 2. POST link URL + `/v1/kv-transfer`，JSON 为 `{request_id,source,target,kv_handle,bytes}`。
    handle 是 prefill ack，bytes 是完整 prompt KV。ack 为
    `{request_id,resource,target,layout,kv_handle}`，resource 为 link ID。
@@ -30,6 +31,11 @@ transfer、prefill、reload、observation、cache、arrival、checkpoint；同�
 于回放事件的 wall-clock 时长；fail_phase 是指定阶段故障，bad_ack 是错身份。
 decode 输出 comments、空 text 和拆分的中文首 text。需要核查旧 pilot 的屏障和
 终态行为与真实协议一致，不能只改回放生成看起来正确的报告。
+
+prefill acknowledgement 还必须回显 `cached_tokens`，且与接纳时的连续页证明
+完全一致。decode 流只有在看到非空 text 且收到单独的 `data: [DONE]` 后才算成功；
+连接在首 text 后没有 DONE、只发 heartbeat 或只发空 choices 都是 error。SSE 事件
+可以跨任意字节边界，终止事件不能依赖一次 read 的完整性。
 
 `fabric-evaluation.json` 为 `{checkpoints,statuses}`。checkpoint 含 at_us、完整
 diagnostics 及 dispatch。dispatch 按 id/url 排序，每项 `{id,resource,url,body}`

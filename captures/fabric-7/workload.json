@@ -1,7 +1,7 @@
 {
   "window": [
     100000,
-    103200
+    103800
   ],
   "initial": "initial",
   "builds": [
@@ -902,6 +902,198 @@
           "service_us": 55
         }
       }
+    },
+    {
+      "id": "r28",
+      "at_us": 102950,
+      "prefill_us": 103050,
+      "transfer_us": 103120,
+      "first_us": 103170,
+      "end_us": 103330,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 103850,
+        "stream": true,
+        "tenant": "gold",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r28-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r28-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r28-decode",
+          "service_us": 55
+        }
+      },
+      "cancel_us": 102959
+    },
+    {
+      "id": "r29",
+      "at_us": 102960,
+      "prefill_us": 103060,
+      "transfer_us": 103130,
+      "first_us": 103180,
+      "end_us": 103340,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 103860,
+        "stream": true,
+        "tenant": "gold",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r29-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r29-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r29-decode",
+          "service_us": 55
+        }
+      },
+      "cancel_us": 102969
+    },
+    {
+      "id": "r30",
+      "at_us": 102970,
+      "prefill_us": 103070,
+      "transfer_us": 103140,
+      "first_us": 103190,
+      "end_us": 103350,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 103870,
+        "stream": true,
+        "tenant": "gold",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r30-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r30-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r30-decode",
+          "service_us": 55
+        }
+      },
+      "cancel_us": 102979
+    },
+    {
+      "id": "r31",
+      "at_us": 102980,
+      "prefill_us": 103080,
+      "transfer_us": 103150,
+      "first_us": 103200,
+      "end_us": 103360,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 103880,
+        "stream": true,
+        "tenant": "gold",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r31-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r31-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r31-decode",
+          "service_us": 55
+        }
+      },
+      "cancel_us": 102989
+    },
+    {
+      "id": "r32",
+      "at_us": 102990,
+      "prefill_us": 103090,
+      "transfer_us": 103160,
+      "first_us": 103210,
+      "end_us": 103370,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 103890,
+        "stream": true,
+        "tenant": "gold",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r32-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r32-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r32-decode",
+          "service_us": 55
+        }
+      },
+      "cancel_us": 102999
+    },
+    {
+      "id": "r33",
+      "at_us": 103520,
+      "prefill_us": 103620,
+      "transfer_us": 103690,
+      "first_us": 103740,
+      "end_us": 103900,
+      "body": {
+        "model": "lab-model",
+        "prompt": "",
+        "max_tokens": 4,
+        "deadline_us": 104420,
+        "stream": true,
+        "tenant": "gold",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r33-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r33-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r33-decode",
+          "service_us": 55
+        }
+      },
+      "cancel_us": 103529
     }
   ],
   "reloads": [
@@ -924,10 +1116,13 @@
           "layout": "q16",
           "page_index": 0,
           "tokens": "甲甲甲甲",
+          "session_id": "alpha",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "16ba1bdfd64339964b3b8b5168351c8f46f31b5c62e9ff3b05f1d6485333e4ee",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": "alpha"
+          "ingested_us": 100000
         },
         {
           "lease_id": "b",
@@ -935,10 +1130,13 @@
           "layout": "q16",
           "page_index": 2,
           "tokens": "甲甲甲甲",
+          "session_id": "alpha",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "7670de45b486cc01469fd4c496f5f3293bc807b7c5b50364d31bdf887ad93321",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": "alpha"
+          "ingested_us": 100000
         },
         {
           "lease_id": "c",
@@ -946,10 +1144,13 @@
           "layout": "q16",
           "page_index": 1,
           "tokens": "错错错错",
+          "session_id": "alpha",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "2078aeb83e5dc79bd3be022ec02163ab1e5387446d30a5d999ad4dd9cfbb7009",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": "alpha"
+          "ingested_us": 100000
         },
         {
           "lease_id": "beta-page",
@@ -957,10 +1158,13 @@
           "layout": "q16",
           "page_index": 0,
           "tokens": "甲甲甲甲",
+          "session_id": "beta",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "8261a2749e2e6cb446cef388cf2196ab3bf1f8a3218985c1f8b3bffdfb0fc75c",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": "beta"
+          "ingested_us": 100000
         },
         {
           "lease_id": "unscoped",
@@ -968,10 +1172,13 @@
           "layout": "q16",
           "page_index": 0,
           "tokens": "甲甲甲甲",
+          "session_id": "",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "6eb14c0b81310a06679348d17218dc8e69dac1b3e3c8ecb96b8d91df14720012",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": ""
+          "ingested_us": 100000
         }
       ]
     },
@@ -984,10 +1191,13 @@
           "layout": "q16",
           "page_index": 0,
           "tokens": "甲甲甲甲",
+          "session_id": "alpha",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "16ba1bdfd64339964b3b8b5168351c8f46f31b5c62e9ff3b05f1d6485333e4ee",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": "alpha"
+          "ingested_us": 100000
         },
         {
           "lease_id": "b",
@@ -995,10 +1205,13 @@
           "layout": "q16",
           "page_index": 2,
           "tokens": "甲甲甲甲",
+          "session_id": "alpha",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "7670de45b486cc01469fd4c496f5f3293bc807b7c5b50364d31bdf887ad93321",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": "alpha"
+          "ingested_us": 100000
         },
         {
           "lease_id": "c",
@@ -1006,10 +1219,13 @@
           "layout": "q16",
           "page_index": 1,
           "tokens": "错错错错",
+          "session_id": "alpha",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "2078aeb83e5dc79bd3be022ec02163ab1e5387446d30a5d999ad4dd9cfbb7009",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": "alpha"
+          "ingested_us": 100000
         },
         {
           "lease_id": "beta-page",
@@ -1017,10 +1233,13 @@
           "layout": "q16",
           "page_index": 0,
           "tokens": "甲甲甲甲",
+          "session_id": "beta",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "8261a2749e2e6cb446cef388cf2196ab3bf1f8a3218985c1f8b3bffdfb0fc75c",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": "beta"
+          "ingested_us": 100000
         },
         {
           "lease_id": "unscoped",
@@ -1028,10 +1247,13 @@
           "layout": "q16",
           "page_index": 0,
           "tokens": "甲甲甲甲",
+          "session_id": "",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "6eb14c0b81310a06679348d17218dc8e69dac1b3e3c8ecb96b8d91df14720012",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": ""
+          "ingested_us": 100000
         },
         {
           "lease_id": "a",
@@ -1039,10 +1261,13 @@
           "layout": "q16",
           "page_index": 0,
           "tokens": "xxxx",
+          "session_id": "alpha",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "16ba1bdfd64339964b3b8b5168351c8f46f31b5c62e9ff3b05f1d6485333e4ee",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": "alpha"
+          "ingested_us": 100000
         }
       ]
     },
@@ -1055,10 +1280,13 @@
           "layout": "q16",
           "page_index": 0,
           "tokens": "甲甲甲甲",
+          "session_id": "alpha",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "16ba1bdfd64339964b3b8b5168351c8f46f31b5c62e9ff3b05f1d6485333e4ee",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": "alpha"
+          "ingested_us": 100000
         },
         {
           "lease_id": "b",
@@ -1066,10 +1294,13 @@
           "layout": "q16",
           "page_index": 2,
           "tokens": "甲甲甲甲",
+          "session_id": "alpha",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "7670de45b486cc01469fd4c496f5f3293bc807b7c5b50364d31bdf887ad93321",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": "alpha"
+          "ingested_us": 100000
         },
         {
           "lease_id": "c",
@@ -1077,10 +1308,13 @@
           "layout": "q16",
           "page_index": 1,
           "tokens": "错错错错",
+          "session_id": "alpha",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "2078aeb83e5dc79bd3be022ec02163ab1e5387446d30a5d999ad4dd9cfbb7009",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": "alpha"
+          "ingested_us": 100000
         },
         {
           "lease_id": "beta-page",
@@ -1088,10 +1322,13 @@
           "layout": "q16",
           "page_index": 0,
           "tokens": "甲甲甲甲",
+          "session_id": "beta",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "8261a2749e2e6cb446cef388cf2196ab3bf1f8a3218985c1f8b3bffdfb0fc75c",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": "beta"
+          "ingested_us": 100000
         },
         {
           "lease_id": "unscoped",
@@ -1099,10 +1336,13 @@
           "layout": "q16",
           "page_index": 0,
           "tokens": "甲甲甲甲",
+          "session_id": "",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "6eb14c0b81310a06679348d17218dc8e69dac1b3e3c8ecb96b8d91df14720012",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000,
-          "session_id": ""
+          "ingested_us": 100000
         }
       ]
     },
@@ -1115,10 +1355,13 @@
           "layout": "q16",
           "page_index": 0,
           "tokens": "甲甲甲甲",
+          "session_id": "gamma",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "11b546c3c82275c712d130863e1f266cd80c1f881303e6a2cbfc85f7964e5097",
           "valid_from_us": 101600,
           "expires_us": 103000,
-          "ingested_us": 101600,
-          "session_id": "gamma"
+          "ingested_us": 101600
         }
       ]
     }
@@ -1413,6 +1656,19 @@
     102700,
     102710,
     102900,
-    103200
+    102950,
+    102959,
+    102960,
+    102969,
+    102970,
+    102979,
+    102980,
+    102989,
+    102990,
+    102999,
+    103200,
+    103520,
+    103529,
+    103800
   ]
 }
