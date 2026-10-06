@@ -104,7 +104,13 @@ class FabricGateway:
             self.config['tenant_limits'] = {t: dict(p['limits']) for t, p in self.policies.items()}
 
     def cache(self, leases):
+        if isinstance(leases, dict):
+            leases = leases.get('leases', [])
         self.leases = [(f'online#{index}', copy.deepcopy(row)) for index,row in enumerate(leases)]
+
+    def update_topology(self, updates, topology_epoch):
+        """Compatibility hook; the legacy pilot has no route generation state."""
+        return None
 
     def observe(self, rows):
         now = self.clock.now_us()
