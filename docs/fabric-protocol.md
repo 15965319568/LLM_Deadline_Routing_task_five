@@ -49,7 +49,9 @@ CLI 必须从该目录原始测量生成所需 profiles，再通过实际 HTTP �
 
 V7 的三次 ack 还必须包含 `transaction_id`、`phase` 和该阶段 `phase_token`；
 请求 header 携带 `X-Reservation-Id`、`X-Phase-Token`、`X-Route-Id`、
-`X-Route-Generation` 与 `X-Resource-Epoch`。route generation 或 token 不匹配时，
+`X-Route-Generation` 与 `X-Resource-Epoch`，并可用 `X-Topology-Epoch` 传递拓扑世代。
+这些 V7 身份字段属于 header 协议，JSON 只需包含本节各阶段规定的业务字段；
+为了兼容旧后端，JSON 中重复携带身份字段是允许的，但不是必需条件。route generation 或 token 不匹配时，
 即使资源 ID 和 layout 看起来正确也必须回滚当前事务。阶段响应 headers 的反馈
 身份是 `x-trace-id`、`x-phase-id`、`x-resource-epoch`、`x-sample-signature` 与
 `x-service-*` 的联合签名；只接受当前 reservation 的对应阶段和 epoch。
