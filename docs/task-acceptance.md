@@ -37,7 +37,7 @@ means the grading process completed, not every later assertion was reached.
 Float node values have the monitoring contract tolerance. Microsecond event
 times/route choices/status codes and aggregate counts remain exact.
 
-Official private Python/shell scoring is at most 100 physical lines. All private
+Official private Python/shell scoring is a small bounded harness. All private
 orchestration and assertions are in tests/grader.py and tests/test.sh. JSON is
 ordinary input/expected data with no executable DSL. The publicly provided
 exercise is a candidate deliverable independently checked against expectations;
