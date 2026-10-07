@@ -46,6 +46,9 @@ vllm-project/production-stack，保留上游普通路由和真实 HTTP/ASGI 入�
 其 workload 中的 topology/transaction 事件。此前 colocated 测量与 deadline 入口保持可用；
 notebook、旧试点和历史契约只解释旧路径，不覆盖分离式要求。
 
+状态提交链和低基数迟到数据审计还必须满足 `docs/fabric-journal.md`；它与四份
+fabric 契约同时生效，且 live gateway 与 replay 必须产生可重算、可对齐的 journal。
+
 交付：可执行修复源码；由原始输入重新生成的阶段样本账、画像、漂移和回放
 产物、租户策略审计账与原子发布 manifest；非空 `SERVING_DESIGN.md`，解释证据
 取舍、生效路径、迟到冲突重算和资源/信用守恒；

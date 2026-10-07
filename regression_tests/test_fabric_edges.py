@@ -8,6 +8,7 @@ from types import SimpleNamespace
 import httpx
 
 from serving_lab.fabric import FabricGateway, compile_fabric
+from serving_lab.fabric.journal import CommitJournal
 from vllm_router.deadline import ManualClock
 
 
@@ -245,6 +246,30 @@ def test_stream_requires_done_marker(tmp_path):
         assert gateway.inspect()["requests"]["no-done"]["outcome"] == "error"
 
     asyncio.run(run())
+
+
+def test_state_journal_hash_chain_and_audit_branch(tmp_path):
+    gateway = _profile(tmp_path)
+    gateway.cache([])
+    gateway.update_topology([], 2)
+    gateway.update_topology([], 1)
+    gateway.observe([dict(resource="d1", owner="foreign", boot=1, seq=1,
+                          event_us=100500, ingested_us=100500, slots=0,
+                          pages=0, work_us=0)])
+    journal = gateway.inspect()["journal"]
+    assert journal["count"] == len(journal["events"]) > 1
+    previous = "0" * 64
+    import hashlib
+    for seq, event in enumerate(journal["events"], 1):
+        assert event["seq"] == seq and event["prev_hash"] == previous
+        material = {key: event[key] for key in
+                    ("seq", "at_us", "kind", "id", "payload", "prev_hash")}
+        digest = hashlib.sha256(CommitJournal.canonical(material)).hexdigest()
+        assert event["hash"] == digest
+        previous = digest
+    assert journal["head"] == previous
+    assert journal["audit_counts"]["topology:stale"] == 1
+    assert journal["audit_counts"]["observation:future"] == 1
 
 
 def test_tenant_start_window_and_priority_charge(tmp_path):

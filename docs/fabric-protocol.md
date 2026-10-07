@@ -88,3 +88,5 @@ generation 与两种时间必须是 type=int 的非负数（拒绝 bool、数字
 字段必须为字符串。只有 revoked_at_us<=接纳时刻 且 ingested_us<=可见性 cutoff
 的合法记录，才按 (lease_id,producer,generation) 撤销。坏记录忽略；未来导出
 不得提前撤销当前页，也不能导致整个请求异常。
+
+状态变更日志和迟到输入的审计语义见 `docs/fabric-journal.md`，与本协议同时生效。
