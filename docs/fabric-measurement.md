@@ -32,6 +32,10 @@ start/end 均须有合法括号，start < end <= 截止；规范化 duration 与
 
 分页证明按 lease_id 去重和冲突裁决，ingested_us 不能超过截止。valid_from_us
 和 expires_us 是 global 微秒，区间左闭右开。resource、layout 必须一致。
+同一 refresh 可以携带旧 lease 的 `revoked_us` tombstone。它必须是严格晚于
+`valid_from_us` 的整数；当 `ingested_us <= as_of` 且服务时刻达到 revoked_us 时，
+该 lease_id 的所有副本均不可用，即使旧副本本身仍在 expires_us 内。未来 tombstone
+不能提前撤销；tombstone 与旧 lease 同时出现不算普通字段冲突，而是撤销裁决。
 page_index 从 0 开始，每页 tokens 是该页的完整 codepoint 文本。只累计从第 0
 页开始连续、完整且与 prompt 相同的页。同一页出现不同的有效 tokens 即停止；
 不能越过缺页，不能计入最后不满一页的尾部，不能沿用其他资源的缓存。
@@ -60,9 +64,3 @@ build 必须生成以下 JSON（字段稳定，浮点仅为 JSON 表达）：
 
 部署中的 `tenant_limits` 是在线资源约束，不是离线样本分组；不要把租户名称当作 cohort，
 也不要因为某租户的缓存命中而改写 phase ledger 或 baseline support。
-
-V6 的 lease 还必须带 `producer`、非负整数 `generation` 和 `page_hash`。hash 是
-UTF-8 字节串 `sha256(layout + "|" + session_id + "|" + page_index + "|" + tokens)`
-的十六进制结果；缺字段、页文本长度不是 page_tokens、hash 不匹配或 generation
-不是非负整数都不构成缓存证据。`session_id` 缺省时使用空命名空间，不能用普通页
-满足带 session 的请求。重复 lease 的血缘字段也参与冲突签名。

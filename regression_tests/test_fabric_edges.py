@@ -25,10 +25,12 @@ def _body(deadline=101000, prompt="甲甲甲甲甲甲甲甲"):
 
 def _lease(lease_id, resource="p1", layout="q16", page_index=0, tokens="甲甲甲甲", session_id="", **kwargs):
     digest = hashlib.sha256(f"{layout}|{session_id}|{page_index}|{tokens}".encode()).hexdigest()
-    return dict(lease_id=lease_id, resource=resource, layout=layout, page_index=page_index,
-                tokens=tokens, session_id=session_id, producer="kv-cache-a", generation=1,
-                page_hash=digest, valid_from_us=100000, expires_us=101000,
-                ingested_us=100000, **kwargs)
+    row = dict(lease_id=lease_id, resource=resource, layout=layout, page_index=page_index,
+               tokens=tokens, session_id=session_id, producer="kv-cache-a", generation=1,
+               page_hash=digest, valid_from_us=100000, expires_us=101000,
+               ingested_us=100000)
+    row.update(kwargs)
+    return row
 
 
 class AckTransport:
@@ -55,8 +57,9 @@ class AckTransport:
             yield SimpleNamespace(status=200, headers=headers, content=SimpleNamespace(iter_any=lambda: self._stream()))
             return
         await asyncio.sleep(0)
-        ack = dict(request_id=kwargs["headers"]["X-Request-Id"], resource=resource,
-                   layout="q16", kv_handle="handle:" + resource)
+        request_id = kwargs["headers"]["X-Request-Id"]
+        ack = dict(request_id=request_id, resource=resource,
+                   layout="q16", kv_handle=f"{request_id}:{resource}:test")
         if role == "prefill":
             ack["cached_tokens"] = kwargs["json"]["cached_tokens"]
         if role == "transfer":
@@ -258,5 +261,97 @@ def test_tenant_start_window_and_priority_charge(tmp_path):
         assert (await gateway.admit("window-5", body))[0] == 429
         gateway.clock.advance_to(100501)
         assert (await gateway.admit("window-6", body))[0] == 200
+
+    asyncio.run(run())
+
+
+def test_transfer_fault_quarantines_sticky_route(tmp_path):
+    profile = tmp_path / "profile"
+    compile_fabric(SOURCE, profile, 100000)
+    transport = AckTransport(mode="transfer")
+    gateway = FabricGateway(SOURCE, profile, clock=ManualClock(100000), transport=transport)
+
+    async def run():
+        async with httpx.AsyncClient(transport=httpx.ASGITransport(app=gateway.app), base_url="http://gateway") as client:
+            reply = await client.post("/v1/completions", json=_body(), headers={"X-Request-Id": "fault"})
+        assert reply.status_code == 502
+        path = tuple(gateway.decisions["fault"]["path"])
+        assert "/".join(path) in gateway.inspect()["quarantined_paths"]
+        status, row = await gateway.admit("retry", dict(_body(), session_id="sticky"))
+        assert status == 200
+        sticky_path = tuple(row["path"])
+        gateway.sessions["sticky"] = (sticky_path, gateway.clock.now_us() + 1000)
+        gateway.quarantine[sticky_path] = gateway.clock.now_us() + 100
+        assert (await gateway.admit("retry-2", dict(_body(), session_id="sticky")))[0] == 429
+
+    asyncio.run(run())
+
+
+def test_revoked_lease_is_visible_only_after_tombstone_time(tmp_path):
+    gateway = _profile(tmp_path)
+    lease = _lease("fresh", session_id="gamma", expires_us=103000, valid_from_us=100000)
+    tombstone = dict(lease, revoked_us=100200, ingested_us=100210)
+    gateway.cache([lease, tombstone])
+
+    async def run():
+        before, row = await gateway.admit("before-revoke", dict(_body(prompt="甲" * 8), session_id="gamma"))
+        assert before == 200 and row["cached_tokens"] == 4
+        gateway.finish("before-revoke", "cancelled")
+        gateway.clock.advance_to(100210)
+        after, row = await gateway.admit("after-revoke", dict(_body(prompt="甲" * 8), session_id="gamma"))
+        assert after == 200 and row["cached_tokens"] == 0
+
+    asyncio.run(run())
+
+
+def test_stream_tail_after_done_is_error_and_releases_route(tmp_path):
+    profile = tmp_path / "profile"
+    compile_fabric(SOURCE, profile, 100000)
+    transport = AckTransport()
+    original = transport._stream
+
+    async def tail():
+        async for chunk in original():
+            yield chunk
+        yield b"data: {\"choices\":[{\"text\":\"late\"}]}\n\n"
+
+    transport._stream = tail
+    gateway = FabricGateway(SOURCE, profile, clock=ManualClock(100000), transport=transport)
+
+    async def run():
+        async with httpx.AsyncClient(transport=httpx.ASGITransport(app=gateway.app), base_url="http://gateway") as client:
+            reply = await client.post("/v1/completions", json=_body(), headers={"X-Request-Id": "tail"})
+        assert reply.status_code == 200
+        assert gateway.inspect()["requests"]["tail"]["outcome"] == "error"
+        assert gateway.inspect()["quarantined_paths"]
+
+    asyncio.run(run())
+
+
+def test_ack_handle_must_be_request_and_resource_scoped(tmp_path):
+    profile = tmp_path / "profile"
+    compile_fabric(SOURCE, profile, 100000)
+    transport = AckTransport()
+    gateway = FabricGateway(SOURCE, profile, clock=ManualClock(100000), transport=transport)
+
+    async def run():
+        original = transport.request
+
+        @asynccontextmanager
+        async def forged(**kwargs):
+            async with original(**kwargs) as response:
+                if kwargs["url"].endswith("/v1/prefill"):
+                    payload = await response.json()
+                    payload["kv_handle"] = "other:p1:forged"
+                    async def body():
+                        return payload
+                    response.json = body
+                yield response
+
+        transport.request = forged
+        async with httpx.AsyncClient(transport=httpx.ASGITransport(app=gateway.app), base_url="http://gateway") as client:
+            reply = await client.post("/v1/completions", json=_body(), headers={"X-Request-Id": "scoped"})
+        assert reply.status_code == 502
+        assert len(transport.calls) == 1
 
     asyncio.run(run())

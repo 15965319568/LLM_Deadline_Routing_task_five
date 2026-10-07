@@ -3,11 +3,13 @@
 实际转发须保持 X-Request-Id，与接纳组合一致：
 
 1. POST prefill URL + `/v1/prefill`，JSON 为原请求加 cached_tokens。
-   ack `{request_id,resource,layout,cached_tokens,kv_handle}`，resource 为 prefill ID，
-   cached_tokens 必须等于接纳时的连续页证明。
+   ack `{request_id,resource,layout,cached_tokens,kv_handle}`，resource 为 prefill ID；
+   `cached_tokens` 必须等于接纳时的连续页证明；
+   `kv_handle` 必须是该请求和 prefill 资源签发的句柄，不能只检查非空。
 2. POST link URL + `/v1/kv-transfer`，JSON 为 `{request_id,source,target,kv_handle,bytes}`。
    handle 是 prefill ack，bytes 是完整 prompt KV。ack 为
-   `{request_id,resource,target,layout,kv_handle}`，resource 为 link ID。
+   `{request_id,resource,target,layout,kv_handle}`，resource 为 link ID；返回句柄
+   必须属于该 request/link，伪造或串请求句柄按阶段失败处理。
 3. POST decode URL + `/v1/completions`，JSON 为原请求加 transfer ack 的 kv_handle；
    原样转发 SSE。首 text 判断遵守接纳契约。
 
@@ -15,6 +17,8 @@ prefill/transfer 必须为 200 且 ack 身份、resource、layout（transfer 另
 与接纳一致，handle 非空；否则前两阶段返回 502、清理全部预留、后续阶段不发。
 decode 的错误/断流也清理，不能记录成功反馈。已经发给客户端的流不能补发
 502；检查流状态及终态监控。取消不会继续启动下一阶段，所有权只释放一次。
+`data: [DONE]` 后只能出现空白或 SSE 注释；任何后续 data/event 都使终态为 error，
+即使此前已经发出非空 text。首 token、DONE 和尾部事件均可能跨任意字节边界。
 后端 timing headers 为 x-service-sample/x-service-us。不能信任 x-baseline-us。
 
 workload.json 是自然请求与服务事件，不是评分脚本。window、builds/initial、
@@ -22,9 +26,10 @@ requests（at/prefill/transfer/first/end/cancel 的绝对微秒）、reloads、o
 caches、checkpoints 共同描述 CPU 事件流。same-time 的顺序：cancel、end、first、
 transfer、prefill、reload、observation、cache、arrival、checkpoint；同类请求按 ID，
 其他记录按数组位置。相同时刻到达批量并发启动，接纳须保持原子。
-请求 body 中的 `tenant`、`priority` 和 `session_id` 属于接纳输入；回放必须把它们原样传给 prefill/decode。
-`tenant`/`priority` 影响本地配额，`session_id` 影响缓存命名空间和路径亲和，不得作为 Prometheus label，也不得从 model 或 request ID 猜测。
-缺省租户和优先级由部署配置决定；未知租户和越权优先级在发出任何后端请求前返回 400。
+请求 body 中的 `tenant`、`priority` 和 `session_id` 属于接纳输入；回放必须把它们原样传给
+prefill/decode。tenant/priority 影响本地配额和加权 work 账单，session_id 影响缓存命名空间
+和路径亲和；三者不得作为 Prometheus label，也不得从 model 或 request ID 猜测。缺省租户和
+优先级由部署配置决定；未知租户或越权优先级在发出任何后端请求前返回 400。
 被拒绝或终止的请求后续服务事件没有效果；没有人为休眠模拟 service 成本。
 
 公开 replay 的 phase backend 用各请求独立 Event 控制异步边界，timing 不等同

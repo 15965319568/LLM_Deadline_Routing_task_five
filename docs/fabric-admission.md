@@ -11,16 +11,10 @@ deadline_us 和 stream=true；仅支持当前模型。非法请求 400，已作�
 ID 再次出现 409。第一笔决定保留，不能改变或释放原请求。无受支持的兼容
 组合 503，有受支持组合但容量/时限不满足 429。不做隐式重试或偷偷换布局。
 
-部署可以声明 `default_tenant`、`tenant_limits` 和 `session_affinity_ttl_us`。请求带有字符串 `tenant` 时按该租户计数；缺省时使用
-`default_tenant`，未知租户是 400。`priority` 缺省为 0，必须是非负整数且不超过该租户的 `max_priority`；非法优先级是 400。
-每个未结束请求同时占用一个租户 slot、完整 decode 页数和三阶段 immutable work 预算，接纳时就计入
-`max_slots`/`max_pages`/`max_work_us`。阶段完成只释放资源账本，不释放租户 work 预算；终态才归还。
-租户配额和 GPU/link 容量都是必要条件，任一耗尽返回 429；缓存命中只改变 prefill 坐标和阶段成本，不能减少租户页或 work 预留。
-租户字段不出现在 diagnostics 的低基数节点标签中。
-
-请求可以带字符串 `session_id`（最多 64 个字符）。同一 session 在亲和 TTL 内固定使用上一次接纳的完整三元组；
-固定路径不可用时返回 429，不得偷偷迁移到另一个 decode。TTL 从接纳时刻计算，session 终止后仍保留到期时间。
-带 session 的缓存页必须来自相同 session；无 session 的请求只使用没有 session 命名空间的页。
+部署可以声明 `default_tenant` 和 `tenant_limits`。请求带有字符串 `tenant` 时按该租户计数；缺省时使用
+`default_tenant`，未知租户是 400。每个未结束请求同时占用一个租户 slot 和完整 decode 页数，接纳时就计入
+`max_slots`/`max_pages`。租户配额和 GPU/link 容量都是必要条件，任一耗尽返回 429；缓存命中只改变
+prefill 坐标和阶段成本，不能减少租户页预留。租户字段不出现在 diagnostics 的低基数节点标签中。
 
 paths 是部署候选三元组。角色须依次为 prefill/link/decode；三者 layout 一致；
 link source/target 与两端一致。每个组合分别验证缓存、查三个阶段的成本。
@@ -28,14 +22,18 @@ link source/target 与两端一致。每个组合分别验证缓存、查三个�
 候选资源的 slots、decode pages 都必须能容纳完整预留。decode 页数是
 ceil((prompt_tokens+max_tokens)/page_tokens)，不是未缓存 tokens。
 
-外部 snapshots 字段 resource/owner/boot/seq/event_us/ingested_us/slots/pages/work_us，可选的 `healthy`、`draining`、`capacity_epoch`。
+部署可以声明 `route_quarantine_us`。prefill、transfer 或 decode 的后端故障会把
+已经选定的完整三元组加入 `[now, now+route_quarantine_us)` 的熔断窗口；取消不触发
+熔断，窗口过期后才可重新尝试。熔断是路径级状态，不能只替换失败的一个端点，且
+session 亲和仍然优先：被固定路径熔断时返回 429，不得迁移到别的 decode。诊断中的
+`quarantined_paths` 以 `p/link/d` 键记录绝对到期时间。
+
+外部 snapshots 字段 resource/owner/boot/seq/event_us/ingested_us/slots/pages/work_us。
 boot 是非负整数 generation，不是测量的 boot 字符串。每 resource/owner 按
 最大 `(boot,seq)` 保留，旧序号不覆盖新序号；未来 event/ingested 不接收；
 本 gateway owner 忽略。相同 generation/seq 不同 event、slots、pages 或 work
 使该 owner 快照冲突失效，直到更高序号恢复。相同副本幂等。
-接纳时仅汇总年龄在 `[0,snapshot_ttl_us]` 且无冲突的快照，加上本地实际所有权。`healthy=false` 或 `draining=true` 的新鲜快照
-使该资源暂时不能成为新请求的路径；它仍计入容量，已经接纳的请求不受影响。状态字段也参与同序号冲突裁决，
-过期状态自动失效。
+接纳时仅汇总年龄在 `[0,snapshot_ttl_us]` 且无冲突的快照，加上本地实际所有权。
 不能按请求 ID 做指标标签，也不能把自己的快照与本地预留重复相加。
 
 每阶段原始 baseline 从当前画像获取，reserved=baseline*当前该资源 feedback
@@ -67,6 +65,7 @@ baseline>0 方可校准；最近 feedback_window 个 ratio 的 median 截到 [1,
 资源的旧请求反馈，但改变资源的旧反馈不得污染新 epoch。
 
 `/fabric/diagnostics` 返回 `{nodes,decisions,requests,ttft_count,ttft_sum_us,outcomes}`。
+同时返回 `quarantined_paths`；它是路径到绝对到期微秒的映射，已过期路径不出现。
 nodes 每资源含 slots/pages/work_us/epoch/factor；work_us/factor 四舍五入 6 位。
 decisions 每首次 ID 含 status，接纳时另含 path/cached_tokens/predicted_us。
 requests 仅接纳请求，含 stage/outcome/held（ID 排序）/pages/baseline_us/
@@ -79,14 +78,3 @@ outcome 为 success/error/cancelled 或 null。未到首 token 为 null。
 `/metrics` 以微秒值输出 fabric_work_us，其他数值输出 fabric_slots/pages/factor/epoch，
 只带 resource 标签；fabric_ttft_seconds_count/sum 为全局首 token 样本；
 fabric_terminal_total 只带 outcome 标签。所有未使用资源也应暴露零占用。
-
-V6 增加滚动 start 配额：`tenant_limits` 可以声明 `max_starts` 与
-`start_window_us`。它按接纳时刻记账，取消、前置阶段失败和 decode 断流仍消耗
-一次 start；400 校验失败和容量拒绝不消耗。窗口是半开区间
-`[now-start_window_us, now)`，过期记录才移除。`max_work_us` 的账单是三个
-reserved 之和乘 `priority_factors[priority]`，资源 deadline 预测仍使用未加权的
-reserved。相同 boot 下 capacity_epoch 下降的迟到快照必须忽略。
-
-流成功还需要完整的 `data: [DONE]` 事件。只有非空 text 没有 DONE 的断流属于
-error；heartbeat、注释、空 choices 和 DONE 都不算首 token。SSE 事件可能跨任意
-字节边界，终止判定不能依赖单次 read。

@@ -1094,6 +1094,102 @@
         }
       },
       "cancel_us": 103529
+    },
+    {
+      "id": "r34",
+      "at_us": 100300,
+      "prefill_us": 100400,
+      "transfer_us": 100470,
+      "first_us": 100520,
+      "end_us": 100680,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 101200,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "session_id": "after-transfer-fault"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r34-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r34-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r34-decode",
+          "service_us": 55
+        }
+      }
+    },
+    {
+      "id": "r35",
+      "at_us": 101100,
+      "prefill_us": 101200,
+      "transfer_us": 101270,
+      "first_us": 101320,
+      "end_us": 101480,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 102000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r35-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r35-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r35-decode",
+          "service_us": 55
+        }
+      },
+      "tail_after_done": true
+    },
+    {
+      "id": "r36",
+      "at_us": 103200,
+      "prefill_us": 103300,
+      "transfer_us": 103370,
+      "first_us": 103420,
+      "end_us": 103580,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 104100,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r36-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r36-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r36-decode",
+          "service_us": 55
+        }
+      },
+      "bad_handle": "transfer"
     }
   ],
   "reloads": [
@@ -1362,6 +1458,40 @@
           "valid_from_us": 101600,
           "expires_us": 103000,
           "ingested_us": 101600
+        }
+      ]
+    },
+    {
+      "at_us": 101660,
+      "leases": [
+        {
+          "lease_id": "fresh",
+          "resource": "p1",
+          "layout": "q16",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "session_id": "gamma",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "11b546c3c82275c712d130863e1f266cd80c1f881303e6a2cbfc85f7964e5097",
+          "valid_from_us": 101600,
+          "expires_us": 103000,
+          "ingested_us": 101600
+        },
+        {
+          "lease_id": "fresh",
+          "resource": "p1",
+          "layout": "q16",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "session_id": "gamma",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "11b546c3c82275c712d130863e1f266cd80c1f881303e6a2cbfc85f7964e5097",
+          "valid_from_us": 101600,
+          "expires_us": 103000,
+          "ingested_us": 101660,
+          "revoked_us": 101650
         }
       ]
     }

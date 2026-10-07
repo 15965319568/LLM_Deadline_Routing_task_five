@@ -1,7 +1,8 @@
 {
   "measurements": [
     "phase/client.csv",
-    "phase/late.jsonl.gz"
+    "phase/late.jsonl.gz",
+    "phase/quarantine.jsonl"
   ],
   "anchors": [
     "phase/anchors.jsonl"

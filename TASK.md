@@ -10,6 +10,12 @@
 生产入口还要处理租户滚动 start 窗口、按优先级加权的 work 账单、带世代校验的 KV
 页血缘，以及要求完整 SSE DONE 终止标记的流状态。
 
+本次导出还包含故障现场：`phase/quarantine.jsonl` 有损坏 JSON 和非对象记录，
+必须按实际来源行号记为 invalid；`workload.json` 的 r34--r36 分别覆盖传输故障
+后的整条 PD 路径熔断、DONE 后迟到 data，以及跨请求/资源的错误 KV 句柄。
+新增的撤销 refresh 在到达 `revoked_us` 前仍可命中，达到撤销时刻后必须立即失效。
+熔断期间会话亲和不能迁移到另一条路径；协议异常要释放账本并进入 error 终态。
+
 请完成该工程迁移，使保留原貌的测量与证据生成可靠的阶段画像，让实际
 `/v1/completions` 入口使用可兼容的 prefill—传输—decode 组合，并正确处理
 持续流量中的全额预留、阶段释放、失败、取消、画像更新、动态健康/排空、会话亲和、租户 work 预算和监控。
@@ -20,7 +26,8 @@ vllm-project/production-stack，保留上游普通路由和真实 HTTP/ASGI 入�
 状态，不代表实测 GPU 性能。上游 commit 和许可证见 `UPSTREAM.md`。
 
 本次生效要求是 `docs/fabric-measurement.md`、`docs/fabric-admission.md` 和
-`docs/fabric-protocol.md`。此前 colocated 测量与 deadline 入口保持可用；
+`docs/fabric-protocol.md`。其中新增的 quarantine、tombstone、ACK 句柄血缘和
+SSE 尾部事件规则与其余三阶段状态机同时生效。此前 colocated 测量与 deadline 入口保持可用；
 notebook、旧试点和历史契约只解释旧路径，不覆盖分离式要求。
 
 交付：可执行修复源码；由原始输入重新生成的阶段样本账、画像、漂移和回放
