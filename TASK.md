@@ -42,7 +42,9 @@ notebook、旧试点和历史契约只解释旧路径，不覆盖分离式要求
 
 画像和租户策略必须作为带 `bundle_id` 的六产物 bundle 发布。workload 的 deployments
 事件要求 prepare/commit/abort 栅栏、父 bundle 校验、挂起状态和幂等审计；旧请求继续
-使用接纳时 bundle。非法顺序只能进入低基数审计，不能切换 live 状态。
+使用接纳时 bundle。非法顺序只能进入低基数审计，不能切换 live 状态。KV lease image
+还必须遵守 `docs/fabric-cache.md` 的独立 generation 栅栏；cache stage/activate/abort/revoke
+与 profile bundle、旧请求的 cached prefix、回放 journal 和 metrics 必须保持一致。
 
 交付：可执行修复源码；由原始输入重新生成的阶段样本账、画像、漂移和回放
 产物；非空 `SERVING_DESIGN.md`，解释证据取舍、生效路径及资源守恒；

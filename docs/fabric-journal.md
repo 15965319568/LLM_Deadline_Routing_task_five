@@ -26,7 +26,7 @@ V7 的在线状态不仅要能在当前检查点对账，还要能解释“哪�
 prefill/transfer ack、首 token 和终态结算分别追加 phase/first_token/terminal
 事件。重复终态不得重复追加。
 
-reload 的 prepare/commit/abort、拓扑更新、缓存替换和被接受的外部快照追加对应提交；迟到、未来、重复、
+reload 的 prepare/commit/abort、缓存 stage/activate/abort/revoke、拓扑更新、缓存替换和被接受的外部快照追加对应提交；迟到、未来、重复、
 冲突、非法或过期的观测只能增加 `audit_counts`，不能增加提交链。audit key 只能
 是小写的 `source:reason`，不能包含 request ID、trace ID 或其它高基数字段。审计
 计数用于诊断，不得作为租户或请求标签写入 Prometheus。

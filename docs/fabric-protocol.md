@@ -24,6 +24,8 @@ transfer、prefill、reload、observation、cache、topology、arrival、checkpo
 其他记录按数组位置。相同时刻到达批量并发启动，接纳须保持原子。
 请求 body 中的 `tenant`、`priority` 和 `session_id` 属于接纳输入；回放必须把它们原样传给 prefill/decode。
 `tenant`/`priority` 影响本地配额，`session_id` 影响缓存命名空间和路径亲和，不得作为 Prometheus label，也不得从 model 或 request ID 猜测。
+缓存控制面的 generation、父代次序、挂起状态和请求快照规则见
+`docs/fabric-cache.md`；它与 profile bundle 的 generation 相互独立。
 缺省租户和优先级由部署配置决定；未知租户和越权优先级在发出任何后端请求前返回 400。
 被拒绝或终止的请求后续服务事件没有效果；没有人为休眠模拟 service 成本。
 

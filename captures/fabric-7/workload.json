@@ -2305,6 +2305,17 @@
       "build": "updated"
     },
     {
+      "at_us": 100705,
+      "operation": "prepare",
+      "build": "updated"
+    },
+    {
+      "at_us": 100708,
+      "operation": "commit",
+      "build": "updated",
+      "parent_bundle": "wrong-parent"
+    },
+    {
       "at_us": 100710,
       "operation": "abort",
       "build": "updated"
@@ -2333,6 +2344,9 @@
   "caches": [
     {
       "at_us": 100000,
+      "operation": "activate",
+      "generation": 1,
+      "parent_generation": 0,
       "leases": [
         {
           "lease_id": "a",
@@ -2409,6 +2423,9 @@
     },
     {
       "at_us": 100050,
+      "operation": "stage",
+      "generation": 2,
+      "parent_generation": 1,
       "leases": [
         {
           "lease_id": "a",
@@ -2506,7 +2523,127 @@
       ]
     },
     {
+      "at_us": 100060,
+      "operation": "stage",
+      "generation": 2,
+      "parent_generation": 1,
+      "leases": [
+        {
+          "lease_id": "a",
+          "resource": "p1",
+          "layout": "q16",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "session_id": "alpha",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "16ba1bdfd64339964b3b8b5168351c8f46f31b5c62e9ff3b05f1d6485333e4ee",
+          "valid_from_us": 100000,
+          "expires_us": 100650,
+          "ingested_us": 100000
+        },
+        {
+          "lease_id": "b",
+          "resource": "p1",
+          "layout": "q16",
+          "page_index": 2,
+          "tokens": "甲甲甲甲",
+          "session_id": "alpha",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "7670de45b486cc01469fd4c496f5f3293bc807b7c5b50364d31bdf887ad93321",
+          "valid_from_us": 100000,
+          "expires_us": 100650,
+          "ingested_us": 100000
+        },
+        {
+          "lease_id": "c",
+          "resource": "p1",
+          "layout": "q16",
+          "page_index": 1,
+          "tokens": "错错错错",
+          "session_id": "alpha",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "2078aeb83e5dc79bd3be022ec02163ab1e5387446d30a5d999ad4dd9cfbb7009",
+          "valid_from_us": 100000,
+          "expires_us": 100650,
+          "ingested_us": 100000
+        },
+        {
+          "lease_id": "beta-page",
+          "resource": "p1",
+          "layout": "q16",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "session_id": "beta",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "8261a2749e2e6cb446cef388cf2196ab3bf1f8a3218985c1f8b3bffdfb0fc75c",
+          "valid_from_us": 100000,
+          "expires_us": 100650,
+          "ingested_us": 100000
+        },
+        {
+          "lease_id": "unscoped",
+          "resource": "p1",
+          "layout": "q16",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "session_id": "",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "6eb14c0b81310a06679348d17218dc8e69dac1b3e3c8ecb96b8d91df14720012",
+          "valid_from_us": 100000,
+          "expires_us": 100650,
+          "ingested_us": 100000
+        },
+        {
+          "lease_id": "a",
+          "resource": "p1",
+          "layout": "q16",
+          "page_index": 0,
+          "tokens": "xxxx",
+          "session_id": "alpha",
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "page_hash": "16ba1bdfd64339964b3b8b5168351c8f46f31b5c62e9ff3b05f1d6485333e4ee",
+          "valid_from_us": 100000,
+          "expires_us": 100650,
+          "ingested_us": 100000
+        }
+      ],
+      "revocations": [
+        {
+          "producer": "kv-cache-a",
+          "generation": 1,
+          "lease_id": "a",
+          "revoked_at_us": 100045,
+          "ingested_us": 100045
+        }
+      ]
+    },
+    {
+      "at_us": 100065,
+      "operation": "activate",
+      "generation": 2,
+      "parent_generation": 9,
+      "leases": [],
+      "revocations": []
+    },
+    {
+      "at_us": 100070,
+      "operation": "abort",
+      "generation": 2,
+      "parent_generation": 1,
+      "leases": [],
+      "revocations": []
+    },
+    {
       "at_us": 100600,
+      "operation": "stage",
+      "generation": 2,
+      "parent_generation": 1,
       "leases": [
         {
           "lease_id": "a",
@@ -2590,7 +2727,18 @@
       ]
     },
     {
+      "at_us": 100610,
+      "operation": "activate",
+      "generation": 2,
+      "parent_generation": 1,
+      "leases": [],
+      "revocations": []
+    },
+    {
       "at_us": 101600,
+      "operation": "stage",
+      "generation": 3,
+      "parent_generation": 2,
       "leases": [
         {
           "lease_id": "fresh",
@@ -2614,20 +2762,46 @@
           "lease_id": "a",
           "revoked_at_us": 100045,
           "ingested_us": 100045
-        },
+        }
+      ]
+    },
+    {
+      "at_us": 101610,
+      "operation": "activate",
+      "generation": 3,
+      "parent_generation": 2,
+      "leases": [],
+      "revocations": []
+    },
+    {
+      "at_us": 101900,
+      "operation": "revoke",
+      "generation": 3,
+      "parent_generation": 3,
+      "leases": [],
+      "revocations": [
         {
           "producer": "kv-cache-a",
           "generation": 1,
           "lease_id": "fresh",
           "revoked_at_us": 101900,
           "ingested_us": 102100
-        },
+        }
+      ]
+    },
+    {
+      "at_us": 101901,
+      "operation": "revoke",
+      "generation": 2,
+      "parent_generation": 2,
+      "leases": [],
+      "revocations": [
         {
           "producer": "kv-cache-a",
-          "generation": true,
+          "generation": 1,
           "lease_id": "fresh",
-          "revoked_at_us": "broken",
-          "ingested_us": 101600
+          "revoked_at_us": 101900,
+          "ingested_us": 102100
         }
       ]
     }
@@ -3029,6 +3203,7 @@
     100690,
     100700,
     100705,
+    100708,
     100710,
     100720,
     100745,
