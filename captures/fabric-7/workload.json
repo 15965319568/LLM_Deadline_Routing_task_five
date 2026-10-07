@@ -1190,6 +1190,38 @@
         }
       },
       "bad_handle": "transfer"
+    },
+    {
+      "id": "r37",
+      "at_us": 103300,
+      "prefill_us": 103400,
+      "transfer_us": 103470,
+      "first_us": 103520,
+      "end_us": 103680,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 104200,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r37-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r37-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r37-decode",
+          "service_us": 55
+        }
+      },
+      "bad_handle": "prefill"
     }
   ],
   "reloads": [
