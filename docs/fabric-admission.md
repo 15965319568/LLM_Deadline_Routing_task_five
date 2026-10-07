@@ -66,7 +66,8 @@ baseline>0 方可校准；最近 feedback_window 个 ratio 的 median 截到 [1,
 三阶段分别校准，不能统一乘一个模型级因子。发生 reload 时仍可接收未改变
 资源的旧请求反馈，但改变资源的旧反馈不得污染新 epoch。
 
-`/fabric/diagnostics` 返回 `{nodes,decisions,requests,ttft_count,ttft_sum_us,outcomes}`。
+`/fabric/diagnostics` 返回 `{nodes,decisions,requests,ttft_count,ttft_sum_us,outcomes}`，并包含
+当前 `bundle_id`、单调 `bundle_generation`、脱敏的 `pending_bundle` 和 `journal`。
 nodes 每资源含 slots/pages/work_us/epoch/factor；work_us/factor 四舍五入 6 位。
 decisions 每首次 ID 含 status，接纳时另含 path/cached_tokens/predicted_us。
 requests 仅接纳请求，含 stage/outcome/held（ID 排序）/pages/baseline_us/
@@ -77,6 +78,7 @@ outcome 为 success/error/cancelled 或 null。未到首 token 为 null。
 字段用于外部对账，允许任意内部结构。
 
 `/metrics` 以微秒值输出 fabric_work_us，其他数值输出 fabric_slots/pages/factor/epoch，
+以及无标签的 `fabric_bundle_generation`，
 只带 resource 标签；fabric_ttft_seconds_count/sum 为全局首 token 样本；
 fabric_terminal_total 只带 outcome 标签。所有未使用资源也应暴露零占用。
 

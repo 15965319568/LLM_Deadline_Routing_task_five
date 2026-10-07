@@ -21,7 +21,7 @@ def events(work):
     output = []
     for rank,field in [(0,'cancel'),(1,'end'),(2,'first'),(3,'transfer'),(4,'prefill')]:
         output.extend((r[field+'_us'],rank,r['id'],field,r) for r in work['requests'] if r.get(field+'_us') is not None)
-    for rank,field in [(5,'reloads'),(6,'observations'),(7,'caches'),(8,'topology')]:
+    for rank,field in [(5,'reloads'),(6,'deployments'),(7,'observations'),(8,'caches'),(9,'topology')]:
         output.extend((r['at_us'],rank,str(i),field,r) for i,r in enumerate(work[field]))
     output.extend((r['at_us'],9,r['id'],'arrival',r) for r in work['requests'])
     output.extend((t,10,str(i),'checkpoint',{}) for i,t in enumerate(work['checkpoints']))
@@ -57,6 +57,20 @@ async def replay(source, workload, output):
                     await asyncio.gather(tasks[rid],return_exceptions=True)
                 elif kind == 'reloads':
                     await gateway.reload(dirs[row['build']])
+                elif kind == 'deployments':
+                    operation = row.get('operation') or row.get('op')
+                    if operation == 'prepare':
+                        await gateway.prepare_reload(dirs[row['build']])
+                    elif operation == 'commit':
+                        manifest = read_json(dirs[row['build']] / 'bundle-manifest.json')
+                        await gateway.commit_reload(manifest['bundle_id'], row.get('parent_bundle'))
+                    elif operation == 'abort':
+                        bundle_id = None
+                        if row.get('build') in dirs:
+                            bundle_id = read_json(dirs[row['build']] / 'bundle-manifest.json')['bundle_id']
+                        await gateway.abort_reload(bundle_id)
+                    else:
+                        gateway.journal.audit('reload', 'invalid_operation')
                 elif kind == 'observations':
                     gateway.observe(row['rows'])
                 elif kind == 'caches':

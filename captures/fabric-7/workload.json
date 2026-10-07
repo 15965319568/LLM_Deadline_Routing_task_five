@@ -2292,17 +2292,41 @@
       "bad_feedback": "epoch"
     }
   ],
-  "reloads": [
+  "reloads": [],
+  "deployments": [
+    {
+      "at_us": 100690,
+      "operation": "commit",
+      "build": "updated"
+    },
     {
       "at_us": 100700,
+      "operation": "prepare",
+      "build": "updated"
+    },
+    {
+      "at_us": 100710,
+      "operation": "abort",
       "build": "updated"
     },
     {
       "at_us": 101500,
+      "operation": "prepare",
+      "build": "updated"
+    },
+    {
+      "at_us": 101510,
+      "operation": "commit",
       "build": "updated"
     },
     {
       "at_us": 104200,
+      "operation": "prepare",
+      "build": "final"
+    },
+    {
+      "at_us": 104210,
+      "operation": "commit",
       "build": "final"
     }
   ],
@@ -3002,8 +3026,10 @@
     100620,
     100640,
     100680,
+    100690,
     100700,
     100705,
+    100710,
     100720,
     100745,
     100760,
@@ -3039,6 +3065,7 @@
     101430,
     101480,
     101500,
+    101510,
     101550,
     101640,
     101650,
@@ -3126,6 +3153,7 @@
     104170,
     104180,
     104200,
+    104210,
     104220,
     104230,
     104239,

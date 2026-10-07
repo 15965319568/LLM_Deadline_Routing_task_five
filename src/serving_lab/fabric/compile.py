@@ -3,10 +3,6 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from statistics import median
 from serving_lab.storage import read_json, records, write_json
-from .legacy_control import compile_control
-import hashlib
-import json
-import math
 
 
 def compile_fabric(input_dir, output_dir, as_of_us):
@@ -23,7 +19,7 @@ def compile_fabric(input_dir, output_dir, as_of_us):
                 ledger[source] = 'deferred'
                 continue
             duration = float(row['duration'])
-            if row['status'] != 'ok' or not math.isfinite(duration) or duration <= 0 or duration > 10000:
+            if row['status'] != 'ok' or duration <= 0 or duration > 10000:
                 ledger[source] = 'excluded'
                 continue
             latest[row['sample_id']] = row
@@ -46,10 +42,6 @@ def compile_fabric(input_dir, output_dir, as_of_us):
             drift[resource]=dict(state='stable',factor=1,samples=len(values))
     result={'fabric-profiles':dict(as_of_us=as_of_us,resources=profiles),'phase-ledger':dict(rows=[dict(source=s,disposition=v) for s,v in sorted(ledger.items())],samples=samples),
             'phase-drift':drift,'phase-audit':dict(input_records=len(ledger),qualified_samples=len(samples),dispositions=dict(Counter(ledger.values())))}
-    result.update(compile_control(root, config, as_of_us))
-    result['bundle-manifest'] = dict(schema='profile-bundle/v1', as_of_us=as_of_us,
-        artifacts={name: hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True,
-        separators=(',', ':'), allow_nan=True).encode()).hexdigest() for name, value in result.items()})
     for name,value in result.items(): write_json(out/(name+'.json'),value)
     return result
 

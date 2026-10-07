@@ -18,7 +18,7 @@ decode 的错误/断流也清理，不能记录成功反馈。已经发给客户
 后端 timing headers 为 x-service-sample/x-service-us。不能信任 x-baseline-us。
 
 workload.json 是自然请求与服务事件，不是评分脚本。window、builds/initial、
-requests（at/prefill/transfer/first/end/cancel 的绝对微秒）、reloads、observations、
+requests（at/prefill/transfer/first/end/cancel 的绝对微秒）、reloads、deployments、observations、
 caches、checkpoints 共同描述 CPU 事件流。same-time 的顺序：cancel、end、first、
 transfer、prefill、reload、observation、cache、topology、arrival、checkpoint；同类请求按 ID，
 其他记录按数组位置。相同时刻到达批量并发启动，接纳须保持原子。
@@ -88,5 +88,3 @@ generation 与两种时间必须是 type=int 的非负数（拒绝 bool、数字
 字段必须为字符串。只有 revoked_at_us<=接纳时刻 且 ingested_us<=可见性 cutoff
 的合法记录，才按 (lease_id,producer,generation) 撤销。坏记录忽略；未来导出
 不得提前撤销当前页，也不能导致整个请求异常。
-
-状态变更日志和迟到输入的审计语义见 `docs/fabric-journal.md`，与本协议同时生效。

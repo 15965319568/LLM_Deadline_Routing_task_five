@@ -1,4 +1,4 @@
-# 修复策略热更新下分离式 LLM Serving 的证据仲裁与请求账本
+# 修复分离式 LLM Serving 的测量、组合接纳与 KV 生命周期
 
 同一个模型被拆为 prefill、KV 传输和 decode 服务。现有试点沿用了 colocated
 容量 notebook 和独立端点选择：离线汇总能生成，在线也能返回流，但在不同 KV
@@ -35,23 +35,17 @@ vllm-project/production-stack，保留上游普通路由和真实 HTTP/ASGI 入�
 新增服务协议、数据及故障是独立编写的合成工程材料；CPU 回放验证协议与
 状态，不代表实测 GPU 性能。上游 commit 和许可证见 `UPSTREAM.md`。
 
-控制面导出还包含草稿、shadow 副本、未来记录、同 revision 冲突和父链断裂。
-迟到反证可能使已应用策略回退，同时旧请求跨越 reload 继续使用固定罚金和预留。
-测量画像与租户策略必须作为同一 bundle 原子发布，信用退款、补充、裁剪、失败
-债务要与阶段释放和新接纳共同对账。导出顺序、最新 revision 和单次 HTTP 成功
-均不能证明整个迁移正确。
-
 本次生效要求是 `docs/fabric-measurement.md`、`docs/fabric-admission.md`、
-`docs/fabric-control.md` 和 `docs/fabric-protocol.md`，以及 `captures/fabric-7/phase/manifest.json` 与
+`docs/fabric-control.md`、`docs/fabric-deployment.md` 和 `docs/fabric-protocol.md`，以及 `captures/fabric-7/phase/manifest.json` 与
 其 workload 中的 topology/transaction 事件。此前 colocated 测量与 deadline 入口保持可用；
 notebook、旧试点和历史契约只解释旧路径，不覆盖分离式要求。
 
-状态提交链和低基数迟到数据审计还必须满足 `docs/fabric-journal.md`；它与四份
-fabric 契约同时生效，且 live gateway 与 replay 必须产生可重算、可对齐的 journal。
+画像和租户策略必须作为带 `bundle_id` 的六产物 bundle 发布。workload 的 deployments
+事件要求 prepare/commit/abort 栅栏、父 bundle 校验、挂起状态和幂等审计；旧请求继续
+使用接纳时 bundle。非法顺序只能进入低基数审计，不能切换 live 状态。
 
 交付：可执行修复源码；由原始输入重新生成的阶段样本账、画像、漂移和回放
-产物、租户策略审计账与原子发布 manifest；非空 `SERVING_DESIGN.md`，解释证据
-取舍、生效路径、迟到冲突重算和资源/信用守恒；
+产物；非空 `SERVING_DESIGN.md`，解释证据取舍、生效路径及资源守恒；
 `regression_tests/` 下真实运行且通过的回归测试。验收更换数值、覆盖范围、
 导出顺序、缓存证据及事件重叠，直接观察真实后端调用及 HTTP 结果。
 允许重构，不限定私有模块名或内部类结构。不能用固定输出代替实现。

@@ -1,11 +1,7 @@
-"""Small policy primitives shared by offline evidence and the live gateway.
-
-The serving path must not infer tenant, session, or cache identity from a
-request id.  Keeping the validation and wire checks here also makes the
-policy testable without starting an ASGI application.
-"""
+"""Small policy primitives shared by offline evidence and the live gateway."""
 import hashlib
 import json
+import codecs
 from collections import deque
 
 
@@ -15,8 +11,7 @@ def request_fields(body, config, now):
     prompt = body.get('prompt')
     if not isinstance(prompt, str):
         raise ValueError('prompt must be unicode text')
-    output = body['max_tokens']
-    deadline = body['deadline_us']
+    output, deadline = body['max_tokens'], body['deadline_us']
     if isinstance(output, bool) or not isinstance(output, int) or output < 1:
         raise ValueError('invalid output budget')
     if isinstance(deadline, bool) or not isinstance(deadline, int) or deadline < now:
@@ -46,10 +41,8 @@ def priority_factor(config, priority):
 
 
 def start_allowed(log, tenant, now, config):
-    """Return whether the tenant may start one more request in its rolling window."""
     quota = config.get('tenant_limits', {}).get(tenant, {})
-    limit = int(quota.get('max_starts', 0))
-    window = int(quota.get('start_window_us', 0))
+    limit, window = int(quota.get('max_starts', 0)), int(quota.get('start_window_us', 0))
     if limit <= 0 or window <= 0:
         return True
     recent = log.setdefault(tenant, deque())
@@ -63,21 +56,18 @@ def record_start(log, tenant, now):
 
 
 def page_hash(layout, namespace, page_index, tokens):
-    material = f'{layout}|{namespace}|{page_index}|{tokens}'.encode('utf-8')
-    return hashlib.sha256(material).hexdigest()
+    return hashlib.sha256(f'{layout}|{namespace}|{page_index}|{tokens}'.encode('utf-8')).hexdigest()
 
 
 def valid_lease(row, now, as_of, resource, layout, page_tokens, session_id):
     try:
-        if not isinstance(row, dict) or row.get('resource') != resource or row.get('layout') != layout:
+        if row.get('resource') != resource or row.get('layout') != layout:
             return None
-        producer = row['producer']
-        generation = row['generation']
-        namespace = row.get('session_id', '')
-        index = row['page_index']
-        tokens = row['tokens']
+        namespace, index, tokens = row.get('session_id', ''), row['page_index'], row['tokens']
         start, expires, ingested = row['valid_from_us'], row['expires_us'], row['ingested_us']
-        if not isinstance(producer, str) or not producer or isinstance(generation, bool) or not isinstance(generation, int) or generation < 0:
+        if not isinstance(row['producer'], str) or not row['producer']:
+            return None
+        if isinstance(row['generation'], bool) or not isinstance(row['generation'], int) or row['generation'] < 0:
             return None
         if not isinstance(namespace, str) or not isinstance(tokens, str) or len(tokens) != page_tokens:
             return None
@@ -87,7 +77,7 @@ def valid_lease(row, now, as_of, resource, layout, page_tokens, session_id):
             return None
         if expires <= start or ingested > as_of or not (start <= now < expires):
             return None
-        if namespace != session_id if session_id else namespace != '':
+        if (namespace != session_id) if session_id else (namespace != ''):
             return None
         if row.get('page_hash') != page_hash(layout, namespace, index, tokens):
             return None
@@ -97,31 +87,47 @@ def valid_lease(row, now, as_of, resource, layout, page_tokens, session_id):
 
 
 class StreamTracker:
-    """Parse SSE data across arbitrary chunk boundaries."""
     def __init__(self):
-        self._buffer = ''
-        self.first = False
-        self.done = False
+        self._buffer, self.first, self.done, self.invalid = '', False, False, False
+        self._data = []
+        self._decoder = codecs.getincrementaldecoder('utf-8')('strict')
 
     def feed(self, chunk):
-        if isinstance(chunk, bytes):
-            chunk = chunk.decode('utf-8', errors='replace')
-        self._buffer += chunk
-        lines = self._buffer.split('\n')
-        self._buffer = lines.pop()
-        for line in lines:
-            if not line.startswith('data:'):
+        try:
+            self._buffer += self._decoder.decode(chunk) if isinstance(chunk, bytes) else chunk
+        except UnicodeDecodeError:
+            self.invalid = True
+            return self.first
+        while '\n' in self._buffer:
+            line, self._buffer = self._buffer.split('\n', 1)
+            line = line.removesuffix('\r')
+            if line:
+                if line.startswith('data:'):
+                    self._data.append(line[5:].removeprefix(' '))
                 continue
-            payload = line[5:].strip()
+            if not self._data:
+                continue
+            payload, self._data = '\n'.join(self._data), []
+            if self.done:
+                self.invalid = True
+                continue
             if payload == '[DONE]':
                 self.done = True
+                if not self.first:
+                    self.invalid = True
                 continue
             try:
-                document = json.loads(payload)
-                choices = document.get('choices') or []
+                choices = json.loads(payload).get('choices') or []
                 text = choices[0].get('text', '') if choices else ''
-                if isinstance(text, str) and text:
+                if isinstance(text, str) and text and not self.invalid:
                     self.first = True
             except (TypeError, ValueError, IndexError, AttributeError):
-                continue
+                self.invalid = True
         return self.first
+
+    def complete(self):
+        try:
+            self._decoder.decode(b'', final=True)
+        except UnicodeDecodeError:
+            self.invalid = True
+        return self.first and self.done and not self.invalid and not self._data and not self._buffer.strip()

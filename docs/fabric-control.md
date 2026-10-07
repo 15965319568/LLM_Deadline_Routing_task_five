@@ -41,15 +41,17 @@ build 生成 tenant-policies.json：`{as_of_us,tenants:{tenant:{revision,limits}
 
 ## 原子发布
 
-bundle-manifest.json 为 `{schema:"profile-bundle/v1",as_of_us,artifacts:{名称:摘要}}`。
+bundle-manifest.json 为 `{schema:"profile-bundle/v1",as_of_us,artifact_order,artifacts:{名称:摘要},bundle_id}`。
 artifacts 恰好包含 fabric-profiles/phase-ledger/phase-audit/phase-drift/tenant-policies/
 tenant-policy-ledger 六项，无扩展名。摘要是产物解析成 JSON 后使用
 json.dumps(ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False)
-得到的 UTF-8 SHA-256。phase service_us/event_us、画像非空成本、漂移 factor 用浮点；
+得到的 UTF-8 SHA-256。`artifact_order` 固定为上述六项，`bundle_id` 是 canonical
+`{schema,as_of_us,artifacts}` 的 SHA-256。phase service_us/event_us、画像非空成本、漂移 factor 用浮点；
 support、coordinate、attempt、as_of_us 用整数，空值用 null。
 manifest、fabric-profiles、tenant-policies 的 cutoff 必须一致。
 
-Gateway 初始化和 reload 验证摘要、完整集合、cutoff 和所有画像/策略 shape。
+Gateway 初始化和 bundle prepare 验证摘要、完整集合、cutoff 和所有画像/策略 shape。
+在线发布的 prepare/commit/abort 栅栏见 `docs/fabric-deployment.md`。
 非法发布全量拒绝，epoch、反馈、策略、余额、在途请求均不改变。合法发布与
 admission 同锁提交。策略从 deployment 基线重算，不能用已经变更的 live limits
 作为基线；租户 revision 回退不自动重置未变资源的 feedback epoch。
