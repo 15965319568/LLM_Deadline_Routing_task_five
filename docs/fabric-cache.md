@@ -31,3 +31,7 @@ only increment `cache:<reason>`.
 The replay driver must deliver cache events in timestamp and source order and
 must produce the same cache generation, request snapshots, journal head, and
 wire calls as a live ASGI run.
+
+The old colocated helper may still call `cache(list_of_leases)`; it remains a
+one-shot compatibility activation for legacy callers. New fabric workload
+events always use the versioned dictionary form above.
