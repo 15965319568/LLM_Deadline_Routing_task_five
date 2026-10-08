@@ -3,6 +3,7 @@ import json
 import math
 from pathlib import Path
 from serving_lab.storage import read_json
+from .attention_pilot import AttentionPreview
 
 
 def rank_distribution(values, metadata):
@@ -17,6 +18,7 @@ class DraftPilot:
         catalogue=read_json(Path(source)/config['decode_assets'])
         identity=config['resources'][resource]['deployment_id']
         self.asset=catalogue[identity]
+        self.preview=AttentionPreview(self.asset)
         self.limit=limit; self.buffer=''; self.proposal=[]; self.rank_scores={}
     def feed(self, chunk):
         self.buffer+=chunk.decode('utf-8',errors='ignore')
@@ -29,6 +31,8 @@ class DraftPilot:
                 result.append(b'data: [DONE]\n\n'); continue
             row=json.loads(text)
             if row['kind']=='begin': self.proposal=row['proposal']
+            elif row['kind']=='page': self.preview.page(row)
+            elif row['kind']=='query': self.preview.query(row)
             elif row['kind']=='shard':
                 self.rank_scores[row['rank']]=[rank_distribution(v,self.asset['shards'][row['rank']]) for v in row['target']]
             elif row['kind']=='commit':

@@ -1,6 +1,6 @@
 # 量化张量分片、采样与 speculative KV 契约
 
-本文件与 measurement、deployment、admission、protocol、constraints 同时生效。新模式修复实际
+本文件与 measurement、deployment、admission、protocol、constraints、paged-attention 同时生效。新模式修复实际
 推理数值路径；CPU 后端提供量化后的 target/draft logits，不提供网关应输出的答案。
 原有 prompt 测量仍用 Unicode codepoint 计数；新模式的**生成 token**使用部署词表，
 一个 token 可只是 UTF-8 字符的一部分，不能再用字符数代替已提交 token 数。

@@ -1,0 +1,16 @@
+{
+  "sources": [
+    {
+      "path": "grammar/registry.csv",
+      "format": "csv"
+    },
+    {
+      "path": "grammar/patches.jsonl",
+      "format": "jsonl"
+    },
+    {
+      "path": "grammar/retries.jsonl.gz",
+      "format": "jsonl.gz"
+    }
+  ]
+}
