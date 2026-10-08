@@ -16,17 +16,42 @@ ID 再次出现 409。第一笔决定保留，不能改变或释放原请求。�
 `max_slots`/`max_pages`。租户配额和 GPU/link 容量都是必要条件，任一耗尽返回 429；缓存命中只改变
 prefill 坐标和阶段成本，不能减少租户页预留。租户字段不出现在 diagnostics 的低基数节点标签中。
 
+租户还可声明 `max_work_us`，限制在途推理的完整工作预算。请求接纳时，以三个
+阶段的 reserved 之和乘 `priority_factors[priority]` 固定一笔租户账单；priority
+缺省 0，须为非布尔的非负整数且不超过租户 `max_priority`（缺省 3），越权返回
+400。priority_factors 为配置中的有限正数数组，缺省 [1]；该 priority 无对应权重也返回 400。权重只影响租户工作预算，
+不乘到物理资源 work、预计 TTFT 或实际计时上。
+
+这笔租户账单从接纳一直保留到 success/error/cancelled 终态。prefill/transfer
+完成及首文本到达会释放各自物理 work，但不会减少该请求的租户账单；reload
+不能按新画像或新 feedback 重算旧账单。新请求仅在“该租户全部未终止请求的固定
+账单之和 + 新请求账单 <= max_work_us”时可接纳，等号可用；缺省不设 work 上限。
+scratch 只增加页，不增加这笔 work 账单。终态归还一次，失败和取消也要归还。
+
+`max_starts` 和 `start_window_us` 同时为正时，限制该租户时间窗
+`(now-start_window_us, now]` 内的成功接纳数。拒绝不计数，已终止请求的接纳记录
+仍保留到窗口过期；同刻并发须原子检查。任一项缺省或为 0 时不启用此限制。
+
+可选 session_id 为 1–64 字符的非空字符串，非法类型/长度返回 400。成功接纳
+固定 session 的完整路径直到 `admission_us+session_affinity_ttl_us`，到期等号
+失效。有效期内新请求仍需满足部署、容量、租户账单和时限。固定路径仍兼容、
+健康且画像可支持，但容量/时限/熔断阻塞时返回 429；固定路径已经没有受支持的
+兼容健康组合则返回 503。两者均不迁移到其他路径。后续成功接纳更新期限；拒绝不改变亲和。
+
 paths 是部署候选三元组。角色须依次为 prefill/link/decode；三者 layout 一致；
 link source/target 与两端一致。每个组合分别验证缓存、查三个阶段的成本。
 不把独立最优 prefill 和 decode 拼接，也不能默认 link 双向等价。
 候选资源的 slots、decode pages 都必须能容纳完整预留。decode 页数是
 ceil((prompt_tokens+max_tokens)/page_tokens)，不是未缓存 tokens。
 
-部署可以声明 `route_quarantine_us`。prefill、transfer 或 decode 的后端故障会把
+部署可以声明 `route_quarantine_us`。成功接纳后 prefill、transfer 或 decode 的 error 会把
 已经选定的完整三元组加入 `[now, now+route_quarantine_us)` 的熔断窗口；取消不触发
 熔断，窗口过期后才可重新尝试。熔断是路径级状态，不能只替换失败的一个端点，且
 session 亲和仍然优先：被固定路径熔断时返回 429，不得迁移到别的 decode。诊断中的
 `quarantined_paths` 以 `p/link/d` 键记录绝对到期时间。
+error 包括 HTTP/ACK/流协议错误，以及已进入 decode 后不能满足 begin 的 scratch
+页预留；此时三阶段事务已经持有 KV，整条路径进入上述窗口。接纳前 400/429/503
+和客户端取消不触发熔断。终态归还租户账单与熔断到期是两个独立条件。
 
 外部 snapshots 字段 resource/owner/boot/seq/event_us/ingested_us/slots/pages/work_us。
 boot 是非负整数 generation，不是测量的 boot 字符串。每 resource/owner 按
@@ -35,6 +60,11 @@ boot 是非负整数 generation，不是测量的 boot 字符串。每 resource/
 使该 owner 快照冲突失效，直到更高序号恢复。相同副本幂等。
 接纳时仅汇总年龄在 `[0,snapshot_ttl_us]` 且无冲突的快照，加上本地实际所有权。
 不能按请求 ID 做指标标签，也不能把自己的快照与本地预留重复相加。
+有效快照的 healthy=false 或 draining=true 同时禁止使用该资源；缺省分别为
+true/false。无效、过期、未来或冲突快照不能继续施加健康限制。
+healthy/draining 必须为布尔值；可选 capacity_epoch 为非负整数，缺省 0。
+同 boot 的 capacity_epoch 倒退记录忽略；相同 boot/seq 的 healthy、draining 或
+capacity_epoch 不同也构成冲突。更高 boot 可以重新开始容量代次。
 
 每阶段原始 baseline 从当前画像获取，reserved=baseline*当前该资源 feedback
 factor。候选的预计 TTFT 是三个资源既有 work 与本请求三个 reserved 之和，

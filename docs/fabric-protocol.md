@@ -49,7 +49,7 @@ HTTP 与终态的差异应如实保留。metrics.prom 保存最终真实 metrics
 CLI 必须从该目录原始测量生成所需 profiles，再通过实际 HTTP 入口驱动回放。
 
 实际接纳不依赖未来的回放事件、timing 或 fail_phase；这些只属于外部模拟后端。
-公开测试材料里不会提供验收答案或故障原因表。私有验收直接驱动 ASGI 并拥有
+公开测试提供局部行为示例与持续状态断言，不提供私有场景的完整答案。私有验收直接驱动 ASGI 并拥有
 自己的 transport，不信任 candidate 的 replay 自报。
 
 部署身份、兼容选择和滚动换代同时遵守 `fabric-deployment.md`。JSON 对象允许附加审计字段，数值比较容差为 1e-5；要求排序的数组仍按契约排序。

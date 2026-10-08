@@ -1,4 +1,4 @@
-# 修复量化分片解码、Speculative KV 回滚与滚动部署一致性
+# 修复量化推理的持续状态、Speculative KV 回滚与滚动部署一致性
 
 推理集群把一个逻辑模型的 prefill、KV transfer 和 decode 分到不同服务。一次
 混合版本上线后，容量报表看起来足够，在线却出现请求被过度拒绝、KV 不能被 decode
@@ -11,6 +11,10 @@
 两个提交窗口时，TTFT 与流终态又产生分歧。在线服务同时承接普通 SSE 和新数值协议。
 需要用原始证据和可运行场景定位问题，修复量化 logits、采样分布、草稿提交及其与
 资源账本和部署快照的关系。题目没有预先列出需要修改的模块和根因。
+
+还有一种生产现象：单请求生成文本正常、终态页数也归零，但长流尚未结束时的
+后续接纳和滚动发布仍不正确。同一时刻的物理阶段占用、租户在途账单、草稿窗口
+和实际已提交文本具有不同生命周期；不能用一次最终快照代替全过程的验证。
 
 请修复实际生产入口，使同一请求从证据重建、版本选择、组合接纳、三阶段转发到
 终态监控保持一致。尤其要使滚动部署期间的在途推理、旧 KV 页、阶段反馈和新请求
@@ -53,8 +57,13 @@ python -m serving_lab.fabric replay --input captures/fabric-7 --workload capture
 python -m serving_lab build --input captures/capture-5 --output out/colocated --as-of 100000
 python -m serving_lab.fabric replay --input captures/speculative-7 --workload captures/speculative-7/workload.json --output out/speculative
 python -m pytest regression_tests -q
+python -m pytest regression_tests/test_serving_lifecycle.py -q
 ```
 
-公开测试包含已知证据边界与真实 HTTP 数值回归。仅能生成 JSON、看到部分测试通过或
-某一次流返回文本，都不足以证明提交、回滚和守恒已经一致；应自行对账两个公开场景。
+公开测试包含已知证据边界、真实 HTTP 数值回归与持续状态检查。test_serving_lifecycle.py
+通过独立后端屏障检查请求中途的诊断、指标及下一笔接纳，包含 success/error/cancel、
+成本 reload、UTF-8 半字符跨窗口、scratch 容量失败和乱序原始记录分类。
+这些测试是可读的有限示例，全部通过仍不意味着所有输入都已覆盖。完成前应核对两份
+公开 workload 的连续 checkpoints，并将生成结果、实时派发与 metrics 按生效契约对账；
+保留所发现边界的回归证据。无需沿用测试的内部组织方式或新增固定命名的 helper。
 不限制批量操作，不规定工具调用次数，也不要求人为等待。
