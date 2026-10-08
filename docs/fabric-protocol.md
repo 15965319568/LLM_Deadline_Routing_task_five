@@ -10,6 +10,8 @@
    handle 是 prefill ack，bytes 是完整 prompt KV。ack 为
    `{request_id,resource,target,layout,kv_handle}`，resource 为 link ID；返回句柄
    必须属于该 request/link，伪造或串请求句柄按阶段失败处理。
+   两阶段 handle 格式均为 `<request_id>:<签发 resource>:<非空不透明后缀>`；
+   前缀按该阶段身份验证，后缀不要求固定内容或特定签名实现。
 3. POST decode URL + `/v1/completions`，JSON 为原请求加 transfer ack 的 kv_handle；
    原样转发 SSE。首 text 判断遵守接纳契约。
 

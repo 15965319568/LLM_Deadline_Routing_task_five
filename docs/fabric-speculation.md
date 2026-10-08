@@ -8,6 +8,8 @@
 ## 请求与部署资产
 
 decode_mode="speculative" 启用本模式；缺省为原三阶段 SSE。未知 mode 返回 400。
+显式 null 不是缺省 mode；同样属于 400。session_id、kv_schema 显式 null
+也不是省略字段，按各自字符串类型约束拒绝。
 temperature 缺省 1，必须为有限正数；top_p 缺省 1，范围 (0,1]；top_k 缺省 0，
 为非负整数，0 表示全部，大于词表长度等价于全部；logit_bias 缺省空对象，
 键为无前导零的十进制 token ID 字符串，值为 [-100,100] 的有限数。bool 不算数值。
@@ -44,6 +46,11 @@ request_id、deployment_id、generation、tokenizer_revision、window、kind，�
 - commit：只有所有 rank 均齐全且一致时可以提交。不得在 commit 前向客户端暴露
   草稿、概率、logits 或 token，也不得因此记录首文本。
 
+commit 是本窗口数值、token 与字节校验的原子边界。窗口非法时不提交该窗口，
+不累计其 accepted/corrected/committed/windows；先前窗口的提交仍保留。
+正常未终止的窗口可以保留 UTF-8 半字符，其 token 已提交但 text 暂空；若本窗口
+已因 EOS/预算终止而仍留下半字符，则该窗口不能成功提交，按 error 清理。
+
 客户端仍收到普通 completions SSE：choices 中 text 为已提交字节解码出的文本，
 token_ids 为本次提交的 token ID。允许将同一提交拆成多个客户端消息或合并相邻
 提交，最终已提交 token/text 的顺序和内容必须正确；允许额外审计字段，不限制空
@@ -56,6 +63,8 @@ token 数，不产生文本。仅 EOS 的成功请求没有 TTFT；TTFT 从接�
 没有未完成 UTF-8 字符。DONE 后只能空白/注释；其他事件为 error。途中关闭、
 半字符、缺 rank、错身份、过期 position、非法矩阵等也为 error。已返回 HTTP 200
 的流不补发 502；终态、资源和监控应体现失败。失败后不继续消费后续窗口。
+允许多个 SSE 事件合并在一次读取中；后续事件出错不能撤回此前已完成的提交，
+改变无损网络分片不得改变已提交 token/text。DONE 后合法 EOF 注释无需补空行。
 
 ## 必须保持的推理分布
 

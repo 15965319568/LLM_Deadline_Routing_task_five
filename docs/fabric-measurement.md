@@ -17,6 +17,9 @@ CSV、UTF-8 BOM、JSONL 与 gzip 是同等输入。空行忽略，坏 JSON/非�
 字典序最小的来源；其他副本为 duplicate。可见副本有冲突时全部 conflict。
 真实 attempt 不合并。不可见副本为 deferred，不能提前制造冲突。
 必要 identity/可见时间非法为 invalid；身份有效但资格证据不满足为 excluded。
+resource/sample_id 必须为非空字符串，attempt 为非负整数（数字字符串等价）；
+null、空字符串或其他类型不是合法字符串身份。未知但格式合法的 resource
+不能满足部署资格，属于 excluded；尚未可见的副本仍先归 deferred。
 
 样本须为 steady、ok，与部署角色和 layout 一致。trace 按 trace_id 去重和
 冲突裁决；resource、sample_id、attempt 须与测量一致。trace 提供 producer、

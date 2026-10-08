@@ -144,7 +144,9 @@ async def check_metrics(client, diagnostics):
         actual = {s.labels['resource']: s.value for s in samples if s.name == 'fabric_' + field}
         for resource, node in diagnostics['nodes'].items():
             assert actual[resource] == pytest.approx(node[field], abs=1e-5)
-    assert all(set(s.labels) <= {'resource', 'outcome'} for s in samples if s.name.startswith('fabric_'))
+    required = {'fabric_'+f for f in ['slots','pages','work_us','factor','epoch','ttft_seconds_count','ttft_seconds_sum','terminal_total']}
+    required.update('fabric_speculative_'+f for f in ['proposed','accepted','corrected','committed','windows','scratch_pages'])
+    assert all(set(s.labels) <= {'resource', 'outcome'} for s in samples if s.name in required)
 
 
 @pytest.mark.parametrize('ending', ['success', 'error', 'cancelled'])

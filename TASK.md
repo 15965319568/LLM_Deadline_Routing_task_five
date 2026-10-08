@@ -58,11 +58,16 @@ python -m serving_lab build --input captures/capture-5 --output out/colocated --
 python -m serving_lab.fabric replay --input captures/speculative-7 --workload captures/speculative-7/workload.json --output out/speculative
 python -m pytest regression_tests -q
 python -m pytest regression_tests/test_serving_lifecycle.py -q
+python -m pytest regression_tests/test_contract_boundaries.py -q
 ```
 
 公开测试包含已知证据边界、真实 HTTP 数值回归与持续状态检查。test_serving_lifecycle.py
 通过独立后端屏障检查请求中途的诊断、指标及下一笔接纳，包含 success/error/cancel、
 成本 reload、UTF-8 半字符跨窗口、scratch 容量失败和乱序原始记录分类。
+test_contract_boundaries.py 另覆盖显式空值、非法测量身份、允许的审计字段，
+以及多个 SSE 事件合并到一次读取时的提交与终态。私有验收同样检查流分片
+等价性，并核对 replay 的 metrics.prom 与真实 HTTP 指标；旧路由通过正常
+构造器和 route_request 入口检查，外部 tokenizer/LMCache 在 CPU 验证中模拟。
 这些测试是可读的有限示例，全部通过仍不意味着所有输入都已覆盖。完成前应核对两份
 公开 workload 的连续 checkpoints，并将生成结果、实时派发与 metrics 按生效契约对账；
 保留所发现边界的回归证据。无需沿用测试的内部组织方式或新增固定命名的 helper。

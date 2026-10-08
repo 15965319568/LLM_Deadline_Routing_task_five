@@ -57,6 +57,8 @@ deployment_id 的 lease 保持原 namespace/血缘规则，兼容字段缺省继
 gateway 启动与 reload 一并校验 profiles 和 deployment-profile，非法更新全量拒绝。
 资源画像语义变化或选中部署对象变化都推进该资源 epoch，并重置其校准和采样去重；
 只有 source ledger/support/as_of 变化不推进 epoch。成本完全相同的部署替换也要推进。
+附加审计字段不属于部署或资产语义身份，单独增加/修改它们不推进 epoch；
+比较选中部署与 decode 资产时仅使用本文件及 speculation 文档列出的语义字段。
 接纳捕获三资源的完整部署身份、baseline/reserved/epoch；在途请求继续按该快照
 完成 ACK 和后续派发，禁止读取 reload 后的新身份去验证旧事务。旧 epoch 反馈
 不进入新部署校准；未改变资源仍可接收旧请求反馈。同一合法更新重复装载幂等。
