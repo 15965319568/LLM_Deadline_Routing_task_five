@@ -1,0 +1,21 @@
+{
+  "measurements": [
+    "phase/client.csv",
+    "phase/late.jsonl.gz",
+    "phase/quarantine.jsonl"
+  ],
+  "anchors": [
+    "phase/anchors.jsonl"
+  ],
+  "traces": [
+    "phase/traces.jsonl"
+  ],
+  "leases": [
+    "phase/leases.jsonl"
+  ],
+  "deployments": [
+    "phase/deployments.jsonl",
+    "phase/deployments.csv",
+    "phase/deployments-bad.jsonl.gz"
+  ]
+}

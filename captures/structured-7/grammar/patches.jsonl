@@ -1,0 +1,20 @@
+{"grammar_id": "utf8", "revision": 5, "part": "metadata", "event_us": 100600, "ingested_us": 100601, "payload": {"tokenizer_revision": "tok-2026-10", "states": [20, 21, 22], "start": 20, "accept": [20], "base_revision": 4}}
+{"grammar_id": "answer", "revision": 2, "part": "arcs", "event_us": 104050, "ingested_us": 104055, "payload": [{"from": 20, "byte": 67, "to": 21, "op": "remove"}, {"from": 21, "byte": 65, "to": 22, "op": "remove"}, {"from": 22, "byte": 67, "to": 21, "op": "remove"}, {"from": 20, "byte": 67, "to": 21, "op": "add"}, {"from": 21, "byte": 66, "to": 22, "op": "add"}, {"from": 22, "byte": 67, "to": 21, "op": "add"}]}
+{"grammar_id": "utf8", "revision": 5, "part": "release", "event_us": 100600, "ingested_us": 100601, "payload": {"enabled": true}}
+{"grammar_id": "utf8", "revision": 6, "part": "metadata", "event_us": 100600, "ingested_us": 100601, "payload": {"tokenizer_revision": "tok-2026-10", "states": [20, 21, 22], "start": 20, "accept": [20], "base_revision": 1}}
+{"grammar_id": "utf8", "revision": 2, "part": "release", "event_us": 104050, "ingested_us": 104055, "payload": {"enabled": true}}
+{"grammar_id": "answer", "revision": 4, "part": "metadata", "event_us": 100600, "ingested_us": 100601, "payload": {"tokenizer_revision": "tok-2026-10", "states": [20, 21, 22], "start": 20, "accept": [20, 21, 22], "base_revision": 1}}
+{"grammar_id": "utf8", "revision": 3, "part": "metadata", "event_us": 106000, "ingested_us": 106005, "payload": {"tokenizer_revision": "tok-2026-10", "states": [20, 21, 22], "start": 20, "accept": [20], "base_revision": 2}}
+{"grammar_id": "answer", "revision": 8, "part": "metadata", "event_us": 100600, "ingested_us": 100601, "payload": {"tokenizer_revision": "tok-2026-10", "states": [20, 21, 22], "start": 20, "accept": [20, 21, 22], "base_revision": 1}}
+{"grammar_id": "utf8", "revision": 5, "part": "arcs", "event_us": 100600, "ingested_us": 100601, "payload": []}
+{"grammar_id": "", "revision": 1, "part": "arcs", "event_us": 0, "ingested_us": 0, "payload": []}
+{"grammar_id": "utf8", "revision": 8, "part": "arcs", "event_us": 100600, "ingested_us": 100601, "payload": [{"op": "add", "from": 0, "byte": 999, "to": 1}]}
+{"grammar_id": "answer", "revision": 9, "part": "release", "event_us": 100600, "ingested_us": 100601, "payload": {"enabled": true}}
+{"grammar_id": "answer", "revision": 3, "part": "metadata", "event_us": 106000, "ingested_us": 106005, "payload": {"tokenizer_revision": "tok-2026-10", "states": [20, 21, 22], "start": 20, "accept": [20, 21, 22], "base_revision": 2}}
+{"grammar_id": "utf8", "revision": 4, "part": "arcs", "event_us": 100600, "ingested_us": 100601, "payload": []}
+{"grammar_id": "answer", "revision": 1, "part": "arcs", "event_us": 100500, "ingested_us": 200000, "payload": []}
+{"grammar_id": "utf8", "revision": 6, "part": "arcs", "event_us": 100600, "ingested_us": 100601, "payload": []}
+{"grammar_id": "utf8", "revision": 2, "part": "arcs", "event_us": 104050, "ingested_us": 104055, "payload": [{"from": 20, "byte": 231, "to": 21, "op": "remove"}, {"from": 21, "byte": 148, "to": 22, "op": "remove"}, {"from": 22, "byte": 178, "to": 20, "op": "remove"}, {"from": 20, "byte": 231, "to": 21, "op": "add"}, {"from": 21, "byte": 148, "to": 22, "op": "add"}, {"from": 22, "byte": 178, "to": 20, "op": "add"}]}
+{"grammar_id": "answer", "revision": 7, "part": "metadata", "event_us": 100600, "ingested_us": 100601, "payload": {"tokenizer_revision": "tok-2026-10", "states": [20, 21, 22], "start": 20, "accept": [20, 21, 22], "base_revision": 1}}
+{"grammar_id": "answer", "revision": 2, "part": "release", "event_us": 104050, "ingested_us": 104055, "payload": {"enabled": true}}
+{"grammar_id": "utf8", "revision": 7, "part": "arcs", "event_us": 100600, "ingested_us": 100601, "payload": []}

@@ -1,6 +1,6 @@
 # 量化张量分片、采样与 speculative KV 契约
 
-本文件与 measurement、deployment、admission、protocol 同时生效。新模式修复实际
+本文件与 measurement、deployment、admission、protocol、constraints 同时生效。新模式修复实际
 推理数值路径；CPU 后端提供量化后的 target/draft logits，不提供网关应输出的答案。
 原有 prompt 测量仍用 Unicode codepoint 计数；新模式的**生成 token**使用部署词表，
 一个 token 可只是 UTF-8 字符的一部分，不能再用字符数代替已提交 token 数。
@@ -56,10 +56,10 @@ token_ids 为本次提交的 token ID。允许将同一提交拆成多个客户�
 提交，最终已提交 token/text 的顺序和内容必须正确；允许额外审计字段，不限制空
 消息和 JSON 键顺序。原始 backend kind/matrix 不能作为客户端结果透传。
 
-EOS 与 max_tokens 均会截断本窗口结果，并禁止后续 begin。EOS 自身计入已提交
+EOS、max_tokens 与 fabric-constraints.md 的 stop 均会截断本窗口结果，并禁止后续 begin。EOS 自身计入已提交
 token 数，不产生文本。仅 EOS 的成功请求没有 TTFT；TTFT 从接纳到首次非空
 已提交 text，包含跨窗口字节拼接所需时间。第一批已提交 token 不一定产生文本。
-正常结束必须收到独立 [DONE]，且已经达到 token 上限或 EOS、没有未提交窗口、
+正常结束必须收到独立 [DONE]，且已经达到 token 上限、EOS 或 stop、没有未提交窗口、
 没有未完成 UTF-8 字符。DONE 后只能空白/注释；其他事件为 error。途中关闭、
 半字符、缺 rank、错身份、过期 position、非法矩阵等也为 error。已返回 HTTP 200
 的流不补发 502；终态、资源和监控应体现失败。失败后不继续消费后续窗口。
@@ -69,7 +69,8 @@ token 数，不产生文本。仅 EOS 的成功请求没有 TTFT；TTFT 从接�
 ## 必须保持的推理分布
 
 rank 内每个量化值先按 (value-zero_point)*scale 还原，并映射回全局 token ID。
-每行 target 和 draft 都独立适用相同采样参数：先加 logit_bias，再除 temperature，
+每行 target 和 draft 使用同一实际前缀与采样参数；history/grammar 的处理次序由
+fabric-constraints.md 定义。缺省这些选项时，先加 logit_bias，再除 temperature，
 再取 top_k；同值以较小 token ID 优先。softmax 应数值稳定。随后按概率从大到小
 （同值仍按 ID）取累计概率首次达到 top_p 的最小前缀，最后归一化。
 rank 本地 softmax、先做 nucleus 后做 temperature、拼接局部列都会改变分布。
@@ -77,7 +78,7 @@ rank 本地 softmax、先做 nucleus 后做 temperature、拼接局部列都会�
 对第 i 个 proposal token t，记其 target/draft 分布为 p_i/q_i。必须 q_i(t)>0；
 接受条件是 uniforms[i] < min(1,p_i(t)/q_i(t))，等号属于拒绝。在首个拒绝处，
 从归一化 max(p_i-q_i,0) 用最后一个 uniform 采样一个替换 token，并丢弃该
-窗口后续草稿。残差总量为零时使用 p_i。全接受且没有 EOS/预算终止时，从最后
+窗口后续草稿。残差总量为零时使用 p_i。全接受且没有 EOS/预算/stop 终止时，从最后
 一行 target 用最后一个 uniform 采样一个 bonus token。按 token ID 升序逆 CDF，
 选择累计概率严格大于 uniform 的首个 token。每次拒绝后下一窗口从实际已提交
 position 继续，不能从原 proposal 长度继续。

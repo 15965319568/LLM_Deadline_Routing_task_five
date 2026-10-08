@@ -1,0 +1,6272 @@
+{
+  "builds": {
+    "initial": {
+      "as_of_us": 100700,
+      "grammars": {
+        "answer": {
+          "revision": 1,
+          "tokenizer_revision": "tok-2026-10",
+          "states": [
+            20,
+            21,
+            22
+          ],
+          "start": 20,
+          "accept": [
+            20,
+            21,
+            22
+          ],
+          "edges": [
+            {
+              "from": 20,
+              "byte": 67,
+              "to": 21
+            },
+            {
+              "from": 21,
+              "byte": 65,
+              "to": 22
+            },
+            {
+              "from": 22,
+              "byte": 67,
+              "to": 21
+            }
+          ]
+        },
+        "utf8": {
+          "revision": 1,
+          "tokenizer_revision": "tok-2026-10",
+          "states": [
+            20,
+            21,
+            22
+          ],
+          "start": 20,
+          "accept": [
+            20
+          ],
+          "edges": [
+            {
+              "from": 20,
+              "byte": 231,
+              "to": 21
+            },
+            {
+              "from": 21,
+              "byte": 148,
+              "to": 22
+            },
+            {
+              "from": 22,
+              "byte": 178,
+              "to": 20
+            }
+          ]
+        }
+      },
+      "ledger": [
+        {
+          "source": "grammar/patches.jsonl#1",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#10",
+          "disposition": "invalid"
+        },
+        {
+          "source": "grammar/patches.jsonl#11",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#12",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#13",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/patches.jsonl#14",
+          "disposition": "conflict"
+        },
+        {
+          "source": "grammar/patches.jsonl#15",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/patches.jsonl#16",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#17",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/patches.jsonl#18",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#19",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/patches.jsonl#2",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/patches.jsonl#20",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#3",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#4",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#5",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/patches.jsonl#6",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#7",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/patches.jsonl#8",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#9",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#1",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#10",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/registry.csv#11",
+          "disposition": "conflict"
+        },
+        {
+          "source": "grammar/registry.csv#12",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#13",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#14",
+          "disposition": "duplicate"
+        },
+        {
+          "source": "grammar/registry.csv#15",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/registry.csv#16",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#17",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#18",
+          "disposition": "duplicate"
+        },
+        {
+          "source": "grammar/registry.csv#19",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/registry.csv#2",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#20",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#3",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#4",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#5",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/registry.csv#6",
+          "disposition": "conflict"
+        },
+        {
+          "source": "grammar/registry.csv#7",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#8",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/registry.csv#9",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#1",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#10",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#11",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#12",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#13",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#14",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#15",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#16",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#17",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#18",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#19",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#2",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#20",
+          "disposition": "invalid"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#3",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#4",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#5",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#6",
+          "disposition": "conflict"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#7",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#8",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#9",
+          "disposition": "excluded"
+        }
+      ]
+    },
+    "rotated": {
+      "as_of_us": 104100,
+      "grammars": {
+        "answer": {
+          "revision": 2,
+          "tokenizer_revision": "tok-2026-10",
+          "states": [
+            20,
+            21,
+            22
+          ],
+          "start": 20,
+          "accept": [
+            20,
+            21,
+            22
+          ],
+          "edges": [
+            {
+              "from": 20,
+              "byte": 67,
+              "to": 21
+            },
+            {
+              "from": 21,
+              "byte": 66,
+              "to": 22
+            },
+            {
+              "from": 22,
+              "byte": 67,
+              "to": 21
+            }
+          ]
+        },
+        "utf8": {
+          "revision": 2,
+          "tokenizer_revision": "tok-2026-10",
+          "states": [
+            20,
+            21,
+            22
+          ],
+          "start": 20,
+          "accept": [
+            20
+          ],
+          "edges": [
+            {
+              "from": 20,
+              "byte": 231,
+              "to": 21
+            },
+            {
+              "from": 21,
+              "byte": 148,
+              "to": 22
+            },
+            {
+              "from": 22,
+              "byte": 178,
+              "to": 20
+            }
+          ]
+        }
+      },
+      "ledger": [
+        {
+          "source": "grammar/patches.jsonl#1",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#10",
+          "disposition": "invalid"
+        },
+        {
+          "source": "grammar/patches.jsonl#11",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#12",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#13",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/patches.jsonl#14",
+          "disposition": "conflict"
+        },
+        {
+          "source": "grammar/patches.jsonl#15",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/patches.jsonl#16",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#17",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/patches.jsonl#18",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#19",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/patches.jsonl#2",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/patches.jsonl#20",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#3",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#4",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#5",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/patches.jsonl#6",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#7",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/patches.jsonl#8",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#9",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#1",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#10",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/registry.csv#11",
+          "disposition": "conflict"
+        },
+        {
+          "source": "grammar/registry.csv#12",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#13",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#14",
+          "disposition": "duplicate"
+        },
+        {
+          "source": "grammar/registry.csv#15",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/registry.csv#16",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#17",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#18",
+          "disposition": "duplicate"
+        },
+        {
+          "source": "grammar/registry.csv#19",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/registry.csv#2",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#20",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#3",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#4",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#5",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/registry.csv#6",
+          "disposition": "conflict"
+        },
+        {
+          "source": "grammar/registry.csv#7",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#8",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/registry.csv#9",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#1",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#10",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#11",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#12",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#13",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#14",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#15",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#16",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#17",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#18",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#19",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#2",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#20",
+          "disposition": "invalid"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#3",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#4",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#5",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#6",
+          "disposition": "conflict"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#7",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#8",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#9",
+          "disposition": "excluded"
+        }
+      ]
+    },
+    "grammar": {
+      "as_of_us": 106100,
+      "grammars": {
+        "answer": {
+          "revision": 3,
+          "tokenizer_revision": "tok-2026-10",
+          "states": [
+            20,
+            21,
+            22
+          ],
+          "start": 20,
+          "accept": [
+            20,
+            21,
+            22
+          ],
+          "edges": [
+            {
+              "from": 20,
+              "byte": 65,
+              "to": 21
+            },
+            {
+              "from": 21,
+              "byte": 67,
+              "to": 22
+            },
+            {
+              "from": 22,
+              "byte": 65,
+              "to": 21
+            }
+          ]
+        },
+        "utf8": {
+          "revision": 3,
+          "tokenizer_revision": "tok-2026-10",
+          "states": [
+            20,
+            21,
+            22
+          ],
+          "start": 20,
+          "accept": [
+            20
+          ],
+          "edges": [
+            {
+              "from": 20,
+              "byte": 231,
+              "to": 21
+            },
+            {
+              "from": 21,
+              "byte": 148,
+              "to": 22
+            },
+            {
+              "from": 22,
+              "byte": 178,
+              "to": 20
+            }
+          ]
+        }
+      },
+      "ledger": [
+        {
+          "source": "grammar/patches.jsonl#1",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#10",
+          "disposition": "invalid"
+        },
+        {
+          "source": "grammar/patches.jsonl#11",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#12",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#13",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/patches.jsonl#14",
+          "disposition": "conflict"
+        },
+        {
+          "source": "grammar/patches.jsonl#15",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/patches.jsonl#16",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#17",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/patches.jsonl#18",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#19",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/patches.jsonl#2",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/patches.jsonl#20",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#3",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#4",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#5",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/patches.jsonl#6",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#7",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/patches.jsonl#8",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/patches.jsonl#9",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#1",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#10",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/registry.csv#11",
+          "disposition": "conflict"
+        },
+        {
+          "source": "grammar/registry.csv#12",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#13",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#14",
+          "disposition": "duplicate"
+        },
+        {
+          "source": "grammar/registry.csv#15",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/registry.csv#16",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#17",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#18",
+          "disposition": "duplicate"
+        },
+        {
+          "source": "grammar/registry.csv#19",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/registry.csv#2",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#20",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#3",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#4",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#5",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/registry.csv#6",
+          "disposition": "conflict"
+        },
+        {
+          "source": "grammar/registry.csv#7",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/registry.csv#8",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/registry.csv#9",
+          "disposition": "deferred"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#1",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#10",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#11",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#12",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#13",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#14",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#15",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#16",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#17",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#18",
+          "disposition": "selected"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#19",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#2",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#20",
+          "disposition": "invalid"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#3",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#4",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#5",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#6",
+          "disposition": "conflict"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#7",
+          "disposition": "excluded"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#8",
+          "disposition": "shadowed"
+        },
+        {
+          "source": "grammar/retries.jsonl.gz#9",
+          "disposition": "excluded"
+        }
+      ]
+    }
+  },
+  "requests": {
+    "c00": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": "answer",
+          "grammar_revision": 1,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": "answer",
+          "grammar_revision": 1,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": "answer",
+          "grammar_revision": 1,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": "answer",
+          "grammar_revision": 1,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": "answer",
+          "grammar_revision": 1,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": "answer",
+          "grammar_revision": 1,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": "answer",
+          "grammar_revision": 1,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": "answer",
+          "grammar_revision": 1,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": "answer",
+          "grammar_revision": 1,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": "answer",
+          "grammar_revision": 1,
+          "state": 22,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "10": {
+          "grammar_id": "answer",
+          "grammar_revision": 1,
+          "state": 22,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 2,
+        "accepted": 0,
+        "corrected": 2,
+        "committed": 2,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": "answer",
+        "grammar_revision": 1,
+        "state": 22,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 1,
+          "5": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "CA",
+        "token_ids": [
+          5,
+          0
+        ],
+        "done": true
+      }
+    },
+    "c01": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 22,
+          "generated_tokens": 2,
+          "history_counts": {
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "10": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 22,
+          "generated_tokens": 2,
+          "history_counts": {
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 2,
+        "accepted": 0,
+        "corrected": 2,
+        "committed": 2,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": "answer",
+        "grammar_revision": 2,
+        "state": 22,
+        "generated_tokens": 2,
+        "history_counts": {
+          "1": 1,
+          "5": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "CB",
+        "token_ids": [
+          5,
+          1
+        ],
+        "done": true
+      }
+    },
+    "c02": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 22,
+          "generated_tokens": 2,
+          "history_counts": {
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "10": {
+          "grammar_id": "answer",
+          "grammar_revision": 2,
+          "state": 22,
+          "generated_tokens": 2,
+          "history_counts": {
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 2,
+        "accepted": 0,
+        "corrected": 2,
+        "committed": 2,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": "answer",
+        "grammar_revision": 2,
+        "state": 22,
+        "generated_tokens": 2,
+        "history_counts": {
+          "1": 1,
+          "5": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "CB",
+        "token_ids": [
+          5,
+          1
+        ],
+        "done": true
+      }
+    },
+    "c03": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 22,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "10": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 22,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 2,
+        "accepted": 0,
+        "corrected": 2,
+        "committed": 2,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": "answer",
+        "grammar_revision": 3,
+        "state": 22,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 1,
+          "5": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "AC",
+        "token_ids": [
+          0,
+          5
+        ],
+        "done": true
+      }
+    },
+    "c04": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 1,
+        "accepted": 1,
+        "corrected": 1,
+        "committed": 2,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 3,
+          "1": 1,
+          "5": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "BC",
+        "token_ids": [
+          1,
+          5
+        ],
+        "done": true
+      }
+    },
+    "c05": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 1,
+        "accepted": 1,
+        "corrected": 1,
+        "committed": 2,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 3,
+          "1": 1,
+          "5": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "BC",
+        "token_ids": [
+          1,
+          5
+        ],
+        "done": true
+      }
+    },
+    "c06": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "1": 2
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "1": 2
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 1,
+        "accepted": 1,
+        "corrected": 1,
+        "committed": 2,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 3,
+          "1": 2
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "BB",
+        "token_ids": [
+          1,
+          1
+        ],
+        "done": true
+      }
+    },
+    "c07": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 1,
+        "accepted": 1,
+        "corrected": 1,
+        "committed": 2,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 3,
+          "1": 1,
+          "5": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "BC",
+        "token_ids": [
+          1,
+          5
+        ],
+        "done": true
+      }
+    },
+    "c08": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "5": 2
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "5": 2
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 1,
+        "accepted": 1,
+        "corrected": 1,
+        "committed": 2,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 3,
+          "5": 2
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "CC",
+        "token_ids": [
+          5,
+          5
+        ],
+        "done": true
+      }
+    },
+    "c09": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 2,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 2,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 2,
+        "accepted": 2,
+        "corrected": 1,
+        "committed": 3,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 3,
+        "history_counts": {
+          "0": 2,
+          "1": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "AAB",
+        "token_ids": [
+          0,
+          0,
+          1
+        ],
+        "done": true
+      }
+    },
+    "c10": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "10": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 4,
+        "accepted": 1,
+        "corrected": 2,
+        "committed": 3,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 3,
+        "history_counts": {
+          "0": 1,
+          "1": 1,
+          "5": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "BAC",
+        "token_ids": [
+          1,
+          0,
+          5
+        ],
+        "done": true
+      }
+    },
+    "c11": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 1,
+        "accepted": 1,
+        "corrected": 1,
+        "committed": 2,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 1,
+          "1": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "AB",
+        "token_ids": [
+          0,
+          1
+        ],
+        "done": true
+      }
+    },
+    "c12": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "10": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "11": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "12": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "13": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "14": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "4": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "eos"
+        },
+        "15": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "4": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "eos"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 3,
+        "accepted": 0,
+        "corrected": 3,
+        "committed": 3,
+        "windows": 3,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 3,
+        "history_counts": {
+          "0": 1,
+          "1": 1,
+          "4": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "eos"
+      },
+      "output": {
+        "text": "AB",
+        "token_ids": [
+          0,
+          1,
+          4
+        ],
+        "done": true
+      }
+    },
+    "c13": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 22,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "10": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 22,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 2,
+        "accepted": 0,
+        "corrected": 2,
+        "committed": 2,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": "answer",
+        "grammar_revision": 3,
+        "state": 22,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 1,
+          "5": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "AC",
+        "token_ids": [
+          0,
+          5
+        ],
+        "done": true
+      }
+    },
+    "c14": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "2": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "2": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "2": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "2": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 1,
+          "history_counts": {
+            "2": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 2,
+          "history_counts": {
+            "2": 1,
+            "3": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "10": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 2,
+          "history_counts": {
+            "2": 1,
+            "3": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 2,
+        "accepted": 1,
+        "corrected": 1,
+        "committed": 2,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": "utf8",
+        "grammar_revision": 3,
+        "state": 20,
+        "generated_tokens": 2,
+        "history_counts": {
+          "2": 1,
+          "3": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "甲",
+        "token_ids": [
+          2,
+          3
+        ],
+        "done": true
+      }
+    },
+    "c15": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        },
+        "10": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 2,
+        "accepted": 0,
+        "corrected": 2,
+        "committed": 2,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 1,
+          "1": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "stop"
+      },
+      "output": {
+        "text": "",
+        "token_ids": [
+          0,
+          1
+        ],
+        "done": true
+      }
+    },
+    "c16": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        },
+        "10": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 2,
+        "accepted": 0,
+        "corrected": 2,
+        "committed": 2,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 1,
+          "1": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "stop"
+      },
+      "output": {
+        "text": "",
+        "token_ids": [
+          0,
+          1
+        ],
+        "done": true
+      }
+    },
+    "c17": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "2": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "2": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "2": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "2": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "2": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "2": 1,
+            "3": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        },
+        "10": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "2": 1,
+            "3": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 2,
+        "accepted": 0,
+        "corrected": 2,
+        "committed": 2,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "2": 1,
+          "3": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "stop"
+      },
+      "output": {
+        "text": "",
+        "token_ids": [
+          2,
+          3
+        ],
+        "done": true
+      }
+    },
+    "c18": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "10": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 2,
+        "accepted": 0,
+        "corrected": 2,
+        "committed": 2,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 1,
+          "1": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "AB",
+        "token_ids": [
+          0,
+          1
+        ],
+        "done": true
+      }
+    },
+    "c19": {
+      "status": "cancelled",
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "10": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        }
+      },
+      "outcome": "cancelled",
+      "stats": {
+        "proposed": 1,
+        "accepted": 0,
+        "corrected": 1,
+        "committed": 1,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 1,
+        "history_counts": {
+          "0": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": null
+      }
+    },
+    "c20": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        },
+        "10": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 2,
+        "accepted": 0,
+        "corrected": 2,
+        "committed": 2,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 1,
+          "1": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "stop"
+      },
+      "output": {
+        "text": "",
+        "token_ids": [
+          0,
+          1
+        ],
+        "done": true
+      }
+    },
+    "c21": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "7": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "7": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 1,
+        "accepted": 0,
+        "corrected": 1,
+        "committed": 1,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 1,
+        "history_counts": {
+          "7": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "stop"
+      },
+      "output": {
+        "text": "",
+        "token_ids": [
+          7
+        ],
+        "done": true
+      }
+    },
+    "c22": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "4": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "eos"
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "4": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "eos"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 1,
+        "accepted": 0,
+        "corrected": 1,
+        "committed": 1,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 1,
+        "history_counts": {
+          "4": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "eos"
+      },
+      "output": {
+        "text": "",
+        "token_ids": [
+          4
+        ],
+        "done": true
+      }
+    },
+    "c23": {
+      "status": 400,
+      "frames": {}
+    },
+    "c24": {
+      "status": 400,
+      "frames": {}
+    },
+    "c25": {
+      "status": 400,
+      "frames": {}
+    },
+    "c26": {
+      "status": 400,
+      "frames": {}
+    },
+    "c27": {
+      "status": 400,
+      "frames": {}
+    },
+    "c28": {
+      "status": 503,
+      "frames": {}
+    },
+    "c29": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "10": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 2,
+        "accepted": 0,
+        "corrected": 2,
+        "committed": 2,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 1,
+          "1": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "AB",
+        "token_ids": [
+          0,
+          1
+        ],
+        "done": true
+      }
+    },
+    "c30": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        },
+        "10": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        },
+        "11": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        }
+      },
+      "outcome": "error",
+      "stats": {
+        "proposed": 2,
+        "accepted": 0,
+        "corrected": 2,
+        "committed": 2,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 1,
+          "1": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "stop"
+      },
+      "output": {
+        "text": "",
+        "token_ids": [
+          0,
+          1
+        ],
+        "done": true
+      }
+    },
+    "c31": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "10": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        }
+      },
+      "outcome": "error",
+      "stats": {
+        "proposed": 1,
+        "accepted": 0,
+        "corrected": 0,
+        "committed": 0,
+        "windows": 0,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": "answer",
+        "grammar_revision": 3,
+        "state": 20,
+        "generated_tokens": 0,
+        "history_counts": {},
+        "pending_bytes": 0,
+        "stop_reason": null
+      },
+      "output": {
+        "text": "",
+        "token_ids": [],
+        "done": false
+      }
+    },
+    "c32": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 1
+          },
+          "pending_bytes": 1,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        },
+        "10": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 2,
+        "accepted": 0,
+        "corrected": 2,
+        "committed": 2,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 1,
+          "1": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "stop"
+      },
+      "output": {
+        "text": "",
+        "token_ids": [
+          0,
+          1
+        ],
+        "done": true
+      }
+    },
+    "c33": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 2
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 2
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 2
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "0": 2
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 2,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 2,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 2,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 2,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 1,
+          "history_counts": {
+            "0": 2,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "10": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "11": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "12": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "13": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 3,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "14": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 3,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "15": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 3,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "16": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 3,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "17": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 3,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "18": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 3,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "19": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 4,
+          "history_counts": {
+            "0": 4,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "20": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 4,
+          "history_counts": {
+            "0": 4,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 4,
+        "accepted": 0,
+        "corrected": 4,
+        "committed": 4,
+        "windows": 4,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 4,
+        "history_counts": {
+          "0": 4,
+          "1": 1,
+          "5": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "BACA",
+        "token_ids": [
+          1,
+          0,
+          5,
+          0
+        ],
+        "done": true
+      }
+    },
+    "c34": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 11,
+        "accepted": 2,
+        "corrected": 1,
+        "committed": 3,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 3,
+        "history_counts": {
+          "0": 1,
+          "1": 1,
+          "5": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "BAC",
+        "token_ids": [
+          1,
+          0,
+          5
+        ],
+        "done": true
+      }
+    },
+    "c35": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "1": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "1": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "1": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {
+            "1": 3
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 3,
+            "5": 2
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 3,
+            "5": 2
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 11,
+        "accepted": 2,
+        "corrected": 1,
+        "committed": 3,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 3,
+        "history_counts": {
+          "0": 1,
+          "1": 3,
+          "5": 2
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "CAC",
+        "token_ids": [
+          5,
+          0,
+          5
+        ],
+        "done": true
+      }
+    },
+    "c36": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 2,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "5": {
+          "grammar_id": "answer",
+          "grammar_revision": 3,
+          "state": 21,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 2,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 11,
+        "accepted": 2,
+        "corrected": 1,
+        "committed": 3,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": "answer",
+        "grammar_revision": 3,
+        "state": 21,
+        "generated_tokens": 3,
+        "history_counts": {
+          "0": 2,
+          "5": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "ACA",
+        "token_ids": [
+          0,
+          5,
+          0
+        ],
+        "done": true
+      }
+    },
+    "c37": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 3,
+          "history_counts": {
+            "2": 1,
+            "3": 1,
+            "4": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "eos"
+        },
+        "5": {
+          "grammar_id": "utf8",
+          "grammar_revision": 3,
+          "state": 20,
+          "generated_tokens": 3,
+          "history_counts": {
+            "2": 1,
+            "3": 1,
+            "4": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "eos"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 11,
+        "accepted": 2,
+        "corrected": 1,
+        "committed": 3,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": "utf8",
+        "grammar_revision": 3,
+        "state": 20,
+        "generated_tokens": 3,
+        "history_counts": {
+          "2": 1,
+          "3": 1,
+          "4": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "eos"
+      },
+      "output": {
+        "text": "甲",
+        "token_ids": [
+          2,
+          3,
+          4
+        ],
+        "done": true
+      }
+    },
+    "c38": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 2,
+          "history_counts": {
+            "0": 1,
+            "1": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "stop"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 11,
+        "accepted": 2,
+        "corrected": 0,
+        "committed": 2,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 2,
+        "history_counts": {
+          "0": 1,
+          "1": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "stop"
+      },
+      "output": {
+        "text": "",
+        "token_ids": [
+          1,
+          0
+        ],
+        "done": true
+      }
+    },
+    "c39": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 5,
+          "history_counts": {
+            "0": 2,
+            "1": 1,
+            "5": 2
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "10": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 5,
+          "history_counts": {
+            "0": 2,
+            "1": 1,
+            "5": 2
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 12,
+        "accepted": 3,
+        "corrected": 2,
+        "committed": 5,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 5,
+        "history_counts": {
+          "0": 2,
+          "1": 1,
+          "5": 2
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "BACAC",
+        "token_ids": [
+          1,
+          0,
+          5,
+          0,
+          5
+        ],
+        "done": true
+      }
+    },
+    "c40": {
+      "status": "cancelled",
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        }
+      },
+      "outcome": "cancelled",
+      "stats": {
+        "proposed": 11,
+        "accepted": 0,
+        "corrected": 0,
+        "committed": 0,
+        "windows": 0,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 0,
+        "history_counts": {},
+        "pending_bytes": 0,
+        "stop_reason": null
+      }
+    },
+    "c41": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        }
+      },
+      "outcome": "error",
+      "stats": {
+        "proposed": 0,
+        "accepted": 0,
+        "corrected": 0,
+        "committed": 0,
+        "windows": 0,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 0,
+        "history_counts": {},
+        "pending_bytes": 0,
+        "stop_reason": null
+      },
+      "output": {
+        "text": "",
+        "token_ids": [],
+        "done": false
+      }
+    },
+    "c42": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        }
+      },
+      "outcome": "error",
+      "stats": {
+        "proposed": 0,
+        "accepted": 0,
+        "corrected": 0,
+        "committed": 0,
+        "windows": 0,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 0,
+        "history_counts": {},
+        "pending_bytes": 0,
+        "stop_reason": null
+      },
+      "output": {
+        "text": "",
+        "token_ids": [],
+        "done": false
+      }
+    },
+    "c43": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        }
+      },
+      "outcome": "error",
+      "stats": {
+        "proposed": 11,
+        "accepted": 0,
+        "corrected": 0,
+        "committed": 0,
+        "windows": 0,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 0,
+        "history_counts": {},
+        "pending_bytes": 0,
+        "stop_reason": null
+      },
+      "output": {
+        "text": "",
+        "token_ids": [],
+        "done": false
+      }
+    },
+    "c44": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        }
+      },
+      "outcome": "error",
+      "stats": {
+        "proposed": 11,
+        "accepted": 0,
+        "corrected": 0,
+        "committed": 0,
+        "windows": 0,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 0,
+        "history_counts": {},
+        "pending_bytes": 0,
+        "stop_reason": null
+      },
+      "output": {
+        "text": "",
+        "token_ids": [],
+        "done": false
+      }
+    },
+    "c45": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        }
+      },
+      "outcome": "error",
+      "stats": {
+        "proposed": 0,
+        "accepted": 0,
+        "corrected": 0,
+        "committed": 0,
+        "windows": 0,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 0,
+        "history_counts": {},
+        "pending_bytes": 0,
+        "stop_reason": null
+      },
+      "output": {
+        "text": "",
+        "token_ids": [],
+        "done": false
+      }
+    },
+    "c46": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "6": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "7": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "8": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "9": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 5,
+          "history_counts": {
+            "0": 2,
+            "1": 1,
+            "5": 2
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "10": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 5,
+          "history_counts": {
+            "0": 2,
+            "1": 1,
+            "5": 2
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 12,
+        "accepted": 3,
+        "corrected": 2,
+        "committed": 5,
+        "windows": 2,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 5,
+        "history_counts": {
+          "0": 2,
+          "1": 1,
+          "5": 2
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "BACAC",
+        "token_ids": [
+          1,
+          0,
+          5,
+          0,
+          5
+        ],
+        "done": true
+      }
+    },
+    "c47": {
+      "status": 200,
+      "frames": {
+        "0": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "1": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "2": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "3": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 0,
+          "history_counts": {},
+          "pending_bytes": 0,
+          "stop_reason": null
+        },
+        "4": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        },
+        "5": {
+          "grammar_id": null,
+          "grammar_revision": null,
+          "state": null,
+          "generated_tokens": 3,
+          "history_counts": {
+            "0": 1,
+            "1": 1,
+            "5": 1
+          },
+          "pending_bytes": 0,
+          "stop_reason": "length"
+        }
+      },
+      "outcome": "success",
+      "stats": {
+        "proposed": 11,
+        "accepted": 2,
+        "corrected": 1,
+        "committed": 3,
+        "windows": 1,
+        "scratch_pages": 0
+      },
+      "state": {
+        "grammar_id": null,
+        "grammar_revision": null,
+        "state": null,
+        "generated_tokens": 3,
+        "history_counts": {
+          "0": 1,
+          "1": 1,
+          "5": 1
+        },
+        "pending_bytes": 0,
+        "stop_reason": "length"
+      },
+      "output": {
+        "text": "BAC",
+        "token_ids": [
+          1,
+          0,
+          5
+        ],
+        "done": true
+      }
+    }
+  }
+}

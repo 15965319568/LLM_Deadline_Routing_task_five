@@ -1,0 +1,158 @@
+{
+  "d1-stable-r1": {
+    "deployment_id": "d1-stable-r1",
+    "generation": 1,
+    "tokenizer_revision": "tok-2026-08",
+    "quantization": "int8",
+    "eos_id": 4,
+    "vocabulary": [
+      "41",
+      "42",
+      "e7",
+      "94b2",
+      "",
+      "43",
+      "20",
+      "e4b999"
+    ],
+    "shards": [
+      {
+        "token_ids": [
+          3,
+          2,
+          0,
+          5
+        ],
+        "scale": 0.75,
+        "zero_point": 128
+      },
+      {
+        "token_ids": [
+          1,
+          4,
+          7,
+          6
+        ],
+        "scale": 0.5,
+        "zero_point": 126
+      }
+    ]
+  },
+  "d2-stable-r1": {
+    "deployment_id": "d2-stable-r1",
+    "generation": 1,
+    "tokenizer_revision": "tok-2026-08",
+    "quantization": "int8",
+    "eos_id": 4,
+    "vocabulary": [
+      "41",
+      "42",
+      "e7",
+      "94b2",
+      "",
+      "43",
+      "20",
+      "e4b999"
+    ],
+    "shards": [
+      {
+        "token_ids": [
+          3,
+          2,
+          0,
+          5
+        ],
+        "scale": 0.75,
+        "zero_point": 128
+      },
+      {
+        "token_ids": [
+          1,
+          4,
+          7,
+          6
+        ],
+        "scale": 0.5,
+        "zero_point": 126
+      }
+    ]
+  },
+  "d3-blue-r2": {
+    "deployment_id": "d3-blue-r2",
+    "generation": 2,
+    "tokenizer_revision": "tok-2026-10",
+    "quantization": "fp8",
+    "eos_id": 4,
+    "vocabulary": [
+      "41",
+      "42",
+      "e7",
+      "94b2",
+      "",
+      "43",
+      "20",
+      "e4b999"
+    ],
+    "shards": [
+      {
+        "token_ids": [
+          5,
+          4,
+          3,
+          2
+        ],
+        "scale": 0.75,
+        "zero_point": 129
+      },
+      {
+        "token_ids": [
+          1,
+          0,
+          7,
+          6
+        ],
+        "scale": 0.5,
+        "zero_point": 127
+      }
+    ]
+  },
+  "d3-blue-r3": {
+    "deployment_id": "d3-blue-r3",
+    "generation": 3,
+    "tokenizer_revision": "tok-2026-10",
+    "quantization": "fp8",
+    "eos_id": 4,
+    "vocabulary": [
+      "41",
+      "42",
+      "e7",
+      "94b2",
+      "",
+      "43",
+      "20",
+      "e4b999"
+    ],
+    "shards": [
+      {
+        "token_ids": [
+          2,
+          6,
+          4,
+          0
+        ],
+        "scale": 0.75,
+        "zero_point": 130
+      },
+      {
+        "token_ids": [
+          7,
+          1,
+          5,
+          3
+        ],
+        "scale": 0.5,
+        "zero_point": 128
+      }
+    ]
+  }
+}

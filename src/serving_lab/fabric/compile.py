@@ -45,6 +45,9 @@ def compile_fabric(input_dir, output_dir, as_of_us):
             'phase-drift':drift,'phase-audit':dict(input_records=len(ledger),qualified_samples=len(samples),dispositions=dict(Counter(ledger.values())))}
     deployment=resolve_deployments(root,exports,config,as_of_us)
     result['deployment-profile']=dict(as_of_us=as_of_us,resources=deployment['resources'],ledger=deployment['rows'])
+    from .constraint_pilot import preview
+    constraints=preview(root,config,as_of_us)
+    if constraints is not None: result['grammar-profile']=constraints
     for name,value in result.items(): write_json(out/(name+'.json'),value)
     return result
 

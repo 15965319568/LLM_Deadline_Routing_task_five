@@ -1,4 +1,4 @@
-# 修复量化推理的持续状态、Speculative KV 回滚与滚动部署一致性
+# 修复结构化 Speculative 推理、语法版本血缘与持续生成状态
 
 推理集群把一个逻辑模型的 prefill、KV transfer 和 decode 分到不同服务。一次
 混合版本上线后，容量报表看起来足够，在线却出现请求被过度拒绝、KV 不能被 decode
@@ -11,6 +11,12 @@
 两个提交窗口时，TTFT 与流终态又产生分歧。在线服务同时承接普通 SSE 和新数值协议。
 需要用原始证据和可运行场景定位问题，修复量化 logits、采样分布、草稿提交及其与
 资源账本和部署快照的关系。题目没有预先列出需要修改的模块和根因。
+
+结构化输出上线后也出现不稳定：相同请求在不同发布时点生成不同格式，草稿被
+替换后后续分布发生偏差，已提交 token 的文本迟迟不见或停止标记透出。语法注册表、
+增量边补丁和发布记录分别来自 CSV、JSONL 与压缩重传文件，存在不完整发布、
+跨版本父链、重复记录和未来副本；注册表预览不是已生效的完整语法。请同时修复
+这条链路，并从新 captures/structured-7 原始导出重建、驱动完整工作负载验证。
 
 还有一种生产现象：单请求生成文本正常、终态页数也归零，但长流尚未结束时的
 后续接纳和滚动发布仍不正确。同一时刻的物理阶段占用、租户在途账单、草稿窗口
@@ -27,18 +33,20 @@ vllm-project/production-stack 生产路由入口；上游与许可证见 UPSTREA
 原始导出和 CPU 后端是独立编写的合成故障材料，验证推理协议与状态守恒，
 不将仿真成本宣称为 GPU 实测。
 
-以下五份文档同时生效，包含所有自动验收所要求的接口、字段、单位和边界：
+以下六份文档同时生效，包含所有自动验收所要求的接口、字段、单位和边界：
 
 - docs/fabric-measurement.md：生产时钟、原始测量、分页证据、画像与漂移。
 - docs/fabric-deployment.md：registry/runtime/rollout 裁决、模型兼容性、部署换代。
 - docs/fabric-admission.md：组合选路、资源/租户账本、健康、亲和、反馈与监控。
 - docs/fabric-protocol.md：真实三阶段协议、ACK、SSE、公开控制入口和 replay。
 - docs/fabric-speculation.md：量化张量分片、目标/草稿采样分布、提交与回滚、生成 token 和监控。
+- docs/fabric-constraints.md：原始语法导出与版本补丁、前缀相关分布、停止串与提交状态。
 
 历史文档只约束旧 colocated/deadline 入口，不覆盖新 fabric 语义。旧 CLI、
 deadline 服务及普通 RoundRobin/LoadAware 路由仍须工作。
 
-交付可执行修复源码，以及可从原始输入重新生成的五项 build JSON 和
+交付可执行修复源码，以及可从原始输入重新生成的五项基础 build JSON、
+结构化输入额外的 grammar-profile.json 和
 fabric-evaluation.json / metrics.prom。允许重构任何内部模块；只要求保留公开
 gateway、CLI、HTTP 和文档声明的控制接口。自动验收更换原始导出、成本、可见性、
 并发阶段与取消时点，独立观察真实派发、HTTP 状态、账本和指标，再与 replay 对账。
@@ -59,6 +67,9 @@ python -m serving_lab.fabric replay --input captures/speculative-7 --workload ca
 python -m pytest regression_tests -q
 python -m pytest regression_tests/test_serving_lifecycle.py -q
 python -m pytest regression_tests/test_contract_boundaries.py -q
+python -m serving_lab.fabric build --input captures/structured-7 --output out/structured --as-of 106100
+python -m serving_lab.fabric replay --input captures/structured-7 --workload captures/structured-7/workload.json --output out/structured-replay
+python -m pytest regression_tests/test_constraint_serving.py -q
 ```
 
 公开测试包含已知证据边界、真实 HTTP 数值回归与持续状态检查。test_serving_lifecycle.py
@@ -68,7 +79,15 @@ test_contract_boundaries.py 另覆盖显式空值、非法测量身份、允许�
 以及多个 SSE 事件合并到一次读取时的提交与终态。私有验收同样检查流分片
 等价性，并核对 replay 的 metrics.prom 与真实 HTTP 指标；旧路由通过正常
 构造器和 route_request 入口检查，外部 tokenizer/LMCache 在 CPU 验证中模拟。
-这些测试是可读的有限示例，全部通过仍不意味着所有输入都已覆盖。完成前应核对两份
+这些测试是可读的有限示例，全部通过仍不意味着所有输入都已覆盖。完成前应核对三份
 公开 workload 的连续 checkpoints，并将生成结果、实时派发与 metrics 按生效契约对账；
 保留所发现边界的回归证据。无需沿用测试的内部组织方式或新增固定命名的 helper。
 不限制批量操作，不规定工具调用次数，也不要求人为等待。
+
+结构化公开观测还逐帧检查生成历史、DFA 状态、未交付字节和最终 token/text；
+多个编译 cutoff 与在线发布相互关联。三类输入的派发、生成结果、持续状态和监控
+均属于交付；正式验收使用变化后的语法图、分片、历史和时序，不接受固定产物。
+
+生产后端同时发送线性与树状草稿。树节点的 KV 是多个候选分支的物理预留，
+实际采样路径决定可提交的历史与输出；分片行序、重复重传和取消会使二者出现
+不同变化。需要依据同一份约束契约完成实际树验证，并保持混合窗口的连续状态。
