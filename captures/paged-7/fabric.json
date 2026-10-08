@@ -330,8 +330,8 @@
     },
     "gold": {
       "max_slots": 2,
-      "max_pages": 8,
-      "max_work_us": 420,
+      "max_pages": 9,
+      "max_work_us": 5000,
       "max_priority": 2,
       "max_starts": 4,
       "start_window_us": 500
