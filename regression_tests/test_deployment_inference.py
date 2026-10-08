@@ -32,8 +32,9 @@ class Peer:
         for i in range(0,len(wire),7): yield wire[i:i+7]
     @asynccontextmanager
     async def request(self, **kw):
-        resource=kw['url'].split('/')[2]; self.calls.append(kw); rid=kw['headers']['X-Request-Id']; expected=self.deployments[resource]
-        actual=kw['headers'].get('X-Deployment-Id',kw['json'].get('target_deployment_id'))
+        headers={k.lower():v for k,v in kw['headers'].items()}
+        resource=kw['url'].split('/')[2]; self.calls.append(kw); rid=headers['x-request-id']; expected=self.deployments[resource]
+        actual=headers.get('x-deployment-id',kw['json'].get('target_deployment_id'))
         assert actual==expected['deployment_id'], 'dispatch used a deployment other than the transaction snapshot'
         if kw['url'].endswith('/v1/completions'):
             yield SimpleNamespace(status=200,headers={},content=SimpleNamespace(iter_any=self.stream)); return

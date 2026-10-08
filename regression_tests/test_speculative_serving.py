@@ -31,8 +31,9 @@ class Peer:
     async def request(self,**kw):
         self.calls.append(kw); rid=self.row['id']; resource=kw['url'].split('/')[2]
         expected=self.row['backend_deployments'][resource]
-        assert kw['headers'].get('X-Deployment-Id',kw['json'].get('target_deployment_id'))==expected['deployment_id']
-        assert int(kw['headers'].get('X-Deployment-Generation',kw['json'].get('target_generation',-1)))==expected['generation']
+        headers={k.lower():v for k,v in kw['headers'].items()}
+        assert headers.get('x-deployment-id',kw['json'].get('target_deployment_id'))==expected['deployment_id']
+        assert int(headers.get('x-deployment-generation',kw['json'].get('target_generation',-1)))==expected['generation']
         if kw['url'].endswith('/v1/completions'):
             yield SimpleNamespace(status=200,headers={},content=SimpleNamespace(iter_any=self.stream)); return
         phase='prefill' if kw['url'].endswith('/v1/prefill') else 'transfer'

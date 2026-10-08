@@ -57,7 +57,7 @@ class AckTransport:
             yield SimpleNamespace(status=200, headers=headers, content=SimpleNamespace(iter_any=lambda: self._stream()))
             return
         await asyncio.sleep(0)
-        request_id = kwargs["headers"]["X-Request-Id"]
+        request_id = {k.lower(): v for k, v in kwargs["headers"].items()}["x-request-id"]
         ack = dict(request_id=request_id, resource=resource,
                    layout="q16", kv_handle=f"{request_id}:{resource}:test")
         if role == "prefill":
