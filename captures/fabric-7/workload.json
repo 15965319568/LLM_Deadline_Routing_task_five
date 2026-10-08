@@ -1,7 +1,7 @@
 {
   "window": [
     100000,
-    103800
+    108100
   ],
   "initial": "initial",
   "builds": [
@@ -12,6 +12,10 @@
     {
       "name": "updated",
       "as_of_us": 100700
+    },
+    {
+      "name": "rotated",
+      "as_of_us": 104100
     }
   ],
   "requests": [
@@ -1222,6 +1226,1868 @@
         }
       },
       "bad_handle": "prefill"
+    },
+    {
+      "id": "r38",
+      "at_us": 103360,
+      "prefill_us": 103460,
+      "transfer_us": 103530,
+      "first_us": 103580,
+      "end_us": 103740,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 104360,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "session_id": "blue"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r38-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r38-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r38-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r39",
+      "at_us": 103400,
+      "prefill_us": 103500,
+      "transfer_us": 103570,
+      "first_us": 103620,
+      "end_us": 103780,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 104300,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-08"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r39-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r39-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r39-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r40",
+      "at_us": 103440,
+      "prefill_us": 103540,
+      "transfer_us": 103610,
+      "first_us": 103660,
+      "end_us": 103820,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 104340,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "adapter": "chat"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r40-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r40-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r40-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r41",
+      "at_us": 103480,
+      "prefill_us": 103580,
+      "transfer_us": 103650,
+      "first_us": 103700,
+      "end_us": 103860,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 104380,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "quantization": "fp8"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r41-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r41-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r41-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r42",
+      "at_us": 103560,
+      "prefill_us": 103660,
+      "transfer_us": 103730,
+      "first_us": 103780,
+      "end_us": 103940,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 104560,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "kv_schema": "q8",
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "session_id": "blue"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r42-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r42-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r42-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r43",
+      "at_us": 103600,
+      "prefill_us": 103700,
+      "transfer_us": 103770,
+      "first_us": 103820,
+      "end_us": 103980,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 104600,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "kv_schema": "q16",
+        "session_id": "after-transfer-fault"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r43-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r43-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r43-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r44",
+      "at_us": 103640,
+      "prefill_us": 103740,
+      "transfer_us": 103810,
+      "first_us": 103860,
+      "end_us": 104020,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 104640,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r44-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r44-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r44-decode",
+          "service_us": 55
+        }
+      },
+      "bad_handle": "transfer",
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r45",
+      "at_us": 103680,
+      "prefill_us": 103780,
+      "transfer_us": 103850,
+      "first_us": 103900,
+      "end_us": 104060,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 104680,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r45-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r45-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r45-decode",
+          "service_us": 55
+        }
+      },
+      "cancel_us": 103709,
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r46",
+      "at_us": 103720,
+      "prefill_us": 103820,
+      "transfer_us": 103890,
+      "first_us": 103940,
+      "end_us": 104100,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 104720,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r46-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r46-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r46-decode",
+          "service_us": 55
+        }
+      },
+      "tail_after_done": true,
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r47",
+      "at_us": 104000,
+      "prefill_us": 104220,
+      "transfer_us": 104300,
+      "first_us": 104350,
+      "end_us": 104450,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 107000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "session_id": "rolling"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r47-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r47-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r47-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r48",
+      "at_us": 104170,
+      "prefill_us": 104270,
+      "transfer_us": 104340,
+      "first_us": 104390,
+      "end_us": 104550,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 107170,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "session_id": "rolling"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r48-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r48-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r48-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r49",
+      "at_us": 104520,
+      "prefill_us": 104620,
+      "transfer_us": 104690,
+      "first_us": 104740,
+      "end_us": 104900,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 107520,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "session_id": "cache-blue"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r49-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r49-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r49-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r50",
+      "at_us": 105120,
+      "prefill_us": 105220,
+      "transfer_us": 105290,
+      "first_us": 105340,
+      "end_us": 105500,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 108120,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "session_id": "cache-blue"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r50-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r50-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r50-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r51",
+      "at_us": 105720,
+      "prefill_us": 105820,
+      "transfer_us": 105890,
+      "first_us": 105940,
+      "end_us": 106100,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 108720,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "session_id": "fenced"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r51-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r51-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r51-decode",
+          "service_us": 55
+        }
+      },
+      "bad_deployment": "prefill",
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r52",
+      "at_us": 105860,
+      "prefill_us": 105960,
+      "transfer_us": 106030,
+      "first_us": 106080,
+      "end_us": 106240,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 108860,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "session_id": "fenced"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r52-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r52-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r52-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r53",
+      "at_us": 106220,
+      "prefill_us": 106320,
+      "transfer_us": 106390,
+      "first_us": 106440,
+      "end_us": 106600,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 109220,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r53-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r53-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r53-decode",
+          "service_us": 55
+        }
+      },
+      "bad_deployment": "transfer",
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r54",
+      "at_us": 106720,
+      "prefill_us": 106820,
+      "transfer_us": 106890,
+      "first_us": 106940,
+      "end_us": 107100,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 109720,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r54-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r54-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r54-decode",
+          "service_us": 55
+        }
+      },
+      "cancel_us": 106945,
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r55",
+      "at_us": 107020,
+      "prefill_us": 107120,
+      "transfer_us": 107190,
+      "first_us": 107240,
+      "end_us": 107400,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 110020,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r55-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r55-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r55-decode",
+          "service_us": 55
+        }
+      },
+      "tail_after_done": true,
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "r56",
+      "at_us": 107620,
+      "prefill_us": 107720,
+      "transfer_us": 107790,
+      "first_us": 107840,
+      "end_us": 108000,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 110620,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r56-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r56-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r56-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
     }
   ],
   "reloads": [
@@ -1232,6 +3098,14 @@
     {
       "at_us": 101500,
       "build": "updated"
+    },
+    {
+      "at_us": 104150,
+      "build": "rotated"
+    },
+    {
+      "at_us": 104280,
+      "build": "rotated"
     }
   ],
   "caches": [
@@ -1250,7 +3124,13 @@
           "page_hash": "16ba1bdfd64339964b3b8b5168351c8f46f31b5c62e9ff3b05f1d6485333e4ee",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         },
         {
           "lease_id": "b",
@@ -1264,7 +3144,13 @@
           "page_hash": "7670de45b486cc01469fd4c496f5f3293bc807b7c5b50364d31bdf887ad93321",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         },
         {
           "lease_id": "c",
@@ -1278,7 +3164,13 @@
           "page_hash": "2078aeb83e5dc79bd3be022ec02163ab1e5387446d30a5d999ad4dd9cfbb7009",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         },
         {
           "lease_id": "beta-page",
@@ -1292,7 +3184,13 @@
           "page_hash": "8261a2749e2e6cb446cef388cf2196ab3bf1f8a3218985c1f8b3bffdfb0fc75c",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         },
         {
           "lease_id": "unscoped",
@@ -1306,7 +3204,13 @@
           "page_hash": "6eb14c0b81310a06679348d17218dc8e69dac1b3e3c8ecb96b8d91df14720012",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         }
       ]
     },
@@ -1325,7 +3229,13 @@
           "page_hash": "16ba1bdfd64339964b3b8b5168351c8f46f31b5c62e9ff3b05f1d6485333e4ee",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         },
         {
           "lease_id": "b",
@@ -1339,7 +3249,13 @@
           "page_hash": "7670de45b486cc01469fd4c496f5f3293bc807b7c5b50364d31bdf887ad93321",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         },
         {
           "lease_id": "c",
@@ -1353,7 +3269,13 @@
           "page_hash": "2078aeb83e5dc79bd3be022ec02163ab1e5387446d30a5d999ad4dd9cfbb7009",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         },
         {
           "lease_id": "beta-page",
@@ -1367,7 +3289,13 @@
           "page_hash": "8261a2749e2e6cb446cef388cf2196ab3bf1f8a3218985c1f8b3bffdfb0fc75c",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         },
         {
           "lease_id": "unscoped",
@@ -1381,7 +3309,13 @@
           "page_hash": "6eb14c0b81310a06679348d17218dc8e69dac1b3e3c8ecb96b8d91df14720012",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         },
         {
           "lease_id": "a",
@@ -1395,7 +3329,13 @@
           "page_hash": "16ba1bdfd64339964b3b8b5168351c8f46f31b5c62e9ff3b05f1d6485333e4ee",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         }
       ]
     },
@@ -1414,7 +3354,13 @@
           "page_hash": "16ba1bdfd64339964b3b8b5168351c8f46f31b5c62e9ff3b05f1d6485333e4ee",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         },
         {
           "lease_id": "b",
@@ -1428,7 +3374,13 @@
           "page_hash": "7670de45b486cc01469fd4c496f5f3293bc807b7c5b50364d31bdf887ad93321",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         },
         {
           "lease_id": "c",
@@ -1442,7 +3394,13 @@
           "page_hash": "2078aeb83e5dc79bd3be022ec02163ab1e5387446d30a5d999ad4dd9cfbb7009",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         },
         {
           "lease_id": "beta-page",
@@ -1456,7 +3414,13 @@
           "page_hash": "8261a2749e2e6cb446cef388cf2196ab3bf1f8a3218985c1f8b3bffdfb0fc75c",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         },
         {
           "lease_id": "unscoped",
@@ -1470,7 +3434,13 @@
           "page_hash": "6eb14c0b81310a06679348d17218dc8e69dac1b3e3c8ecb96b8d91df14720012",
           "valid_from_us": 100000,
           "expires_us": 100650,
-          "ingested_us": 100000
+          "ingested_us": 100000,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         }
       ]
     },
@@ -1489,7 +3459,13 @@
           "page_hash": "11b546c3c82275c712d130863e1f266cd80c1f881303e6a2cbfc85f7964e5097",
           "valid_from_us": 101600,
           "expires_us": 103000,
-          "ingested_us": 101600
+          "ingested_us": 101600,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         }
       ]
     },
@@ -1508,7 +3484,13 @@
           "page_hash": "11b546c3c82275c712d130863e1f266cd80c1f881303e6a2cbfc85f7964e5097",
           "valid_from_us": 101600,
           "expires_us": 103000,
-          "ingested_us": 101600
+          "ingested_us": 101600,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1"
         },
         {
           "lease_id": "fresh",
@@ -1523,7 +3505,143 @@
           "valid_from_us": 101600,
           "expires_us": 103000,
           "ingested_us": 101660,
+          "model_revision": "rev-2026-09",
+          "tokenizer_revision": "tok-2026-08",
+          "quantization": "int8",
+          "kv_schema": "q16",
+          "adapter": "base",
+          "deployment_id": "p1-stable-r1",
           "revoked_us": 101650
+        }
+      ]
+    },
+    {
+      "at_us": 104480,
+      "leases": [
+        {
+          "lease_id": "old-blue",
+          "resource": "p3",
+          "layout": "q8",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "session_id": "cache-blue",
+          "producer": "kv-cache-a",
+          "generation": 2,
+          "page_hash": "44429fe6ef46efdfb4f0349537ad8bb98b9fc953725dea2872fce21dc552da4a",
+          "valid_from_us": 103900,
+          "expires_us": 108100,
+          "ingested_us": 103900,
+          "model_revision": "rev-2026-10",
+          "tokenizer_revision": "tok-2026-10",
+          "quantization": "fp8",
+          "kv_schema": "q8",
+          "adapter": "chat",
+          "deployment_id": "p3-blue-r2"
+        },
+        {
+          "lease_id": "stale-generation",
+          "resource": "p3",
+          "layout": "q8",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "session_id": "cache-blue",
+          "producer": "kv-cache-a",
+          "generation": 2,
+          "page_hash": "44429fe6ef46efdfb4f0349537ad8bb98b9fc953725dea2872fce21dc552da4a",
+          "valid_from_us": 103900,
+          "expires_us": 108100,
+          "ingested_us": 103900,
+          "model_revision": "rev-2026-10",
+          "tokenizer_revision": "tok-2026-10",
+          "quantization": "fp8",
+          "kv_schema": "q8",
+          "adapter": "chat",
+          "deployment_id": "p3-blue-r3"
+        }
+      ]
+    },
+    {
+      "at_us": 105000,
+      "leases": [
+        {
+          "lease_id": "old-blue",
+          "resource": "p3",
+          "layout": "q8",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "session_id": "cache-blue",
+          "producer": "kv-cache-a",
+          "generation": 2,
+          "page_hash": "44429fe6ef46efdfb4f0349537ad8bb98b9fc953725dea2872fce21dc552da4a",
+          "valid_from_us": 103900,
+          "expires_us": 108100,
+          "ingested_us": 103900,
+          "model_revision": "rev-2026-10",
+          "tokenizer_revision": "tok-2026-10",
+          "quantization": "fp8",
+          "kv_schema": "q8",
+          "adapter": "chat",
+          "deployment_id": "p3-blue-r2"
+        },
+        {
+          "lease_id": "stale-generation",
+          "resource": "p3",
+          "layout": "q8",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "session_id": "cache-blue",
+          "producer": "kv-cache-a",
+          "generation": 2,
+          "page_hash": "44429fe6ef46efdfb4f0349537ad8bb98b9fc953725dea2872fce21dc552da4a",
+          "valid_from_us": 103900,
+          "expires_us": 108100,
+          "ingested_us": 103900,
+          "model_revision": "rev-2026-10",
+          "tokenizer_revision": "tok-2026-10",
+          "quantization": "fp8",
+          "kv_schema": "q8",
+          "adapter": "chat",
+          "deployment_id": "p3-blue-r3"
+        },
+        {
+          "lease_id": "new-blue",
+          "resource": "p3",
+          "layout": "q8",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "session_id": "cache-blue",
+          "producer": "kv-cache-a",
+          "generation": 3,
+          "page_hash": "44429fe6ef46efdfb4f0349537ad8bb98b9fc953725dea2872fce21dc552da4a",
+          "valid_from_us": 105000,
+          "expires_us": 108100,
+          "ingested_us": 105000,
+          "model_revision": "rev-2026-10",
+          "tokenizer_revision": "tok-2026-10",
+          "quantization": "fp8",
+          "kv_schema": "q8",
+          "adapter": "chat",
+          "deployment_id": "p3-blue-r3"
+        },
+        {
+          "lease_id": "wrong-tokenizer",
+          "resource": "p3",
+          "layout": "q8",
+          "page_index": 1,
+          "tokens": "甲甲甲甲",
+          "session_id": "cache-blue",
+          "producer": "kv-cache-a",
+          "generation": 3,
+          "page_hash": "2e33a7a3f3661abe375771a6096f6d6a0bf09c8602a9968d4f9a9bc418e4423c",
+          "valid_from_us": 105000,
+          "expires_us": 108100,
+          "ingested_us": 105000,
+          "model_revision": "rev-2026-10",
+          "tokenizer_revision": "tok-wrong",
+          "quantization": "fp8",
+          "kv_schema": "q8",
+          "adapter": "chat",
+          "deployment_id": "p3-blue-r3"
         }
       ]
     }
@@ -1829,8 +3947,72 @@
     102990,
     102999,
     103200,
+    103360,
+    103400,
+    103440,
+    103480,
     103520,
     103529,
-    103800
+    103560,
+    103600,
+    103640,
+    103680,
+    103709,
+    103720,
+    103800,
+    104000,
+    104150,
+    104170,
+    104220,
+    104270,
+    104280,
+    104300,
+    104340,
+    104350,
+    104390,
+    104450,
+    104520,
+    104550,
+    104620,
+    104690,
+    104740,
+    104900,
+    105120,
+    105220,
+    105290,
+    105340,
+    105500,
+    105720,
+    105820,
+    105860,
+    105890,
+    105940,
+    105960,
+    106030,
+    106080,
+    106100,
+    106220,
+    106240,
+    106320,
+    106390,
+    106440,
+    106600,
+    106720,
+    106820,
+    106890,
+    106940,
+    106945,
+    107020,
+    107100,
+    107120,
+    107190,
+    107240,
+    107400,
+    107620,
+    107720,
+    107790,
+    107840,
+    108000,
+    108100
   ]
 }

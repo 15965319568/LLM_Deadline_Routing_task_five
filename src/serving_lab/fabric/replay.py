@@ -30,6 +30,8 @@ class Backend:
         if self.rows[rid].get('fail_phase') == 'decode':
             raise OSError('decode stream failed')
         yield b'data: [DONE]\n\n'
+        if self.rows[rid].get('tail_after_done'):
+            yield b'data: {"choices":[{"text":"late"}]}\n\n'
         self.passed.add((rid,'end'))
 
     @asynccontextmanager
@@ -38,8 +40,18 @@ class Backend:
         resource = kw['url'].split('/')[2]
         role = self.config['resources'][resource]['role']
         phase = 'transfer' if role == 'link' else role
-        self.calls.append(dict(id=rid,resource=resource,url=kw['url'],body=kw['json']))
         row = self.rows[rid]
+        call = dict(id=rid,resource=resource,url=kw['url'],body=kw['json'])
+        expected = row.get('backend_deployments', {}).get(resource)
+        if expected:
+            actual = dict(deployment_id=kw['headers'].get('X-Deployment-Id',kw['json'].get('target_deployment_id')),
+                          generation=int(kw['headers'].get('X-Deployment-Generation',kw['json'].get('target_generation',-1))),
+                          kv_schema=kw['headers'].get('X-KV-Schema',kw['json'].get('kv_schema')))
+            call['deployment'] = actual
+            self.calls.append(call)
+            if actual != expected: raise ValueError('backend deployment fence mismatch')
+        else:
+            self.calls.append(call)
         timing = row['timing'][phase]
         headers = {'x-service-sample':timing['sample'],'x-service-us':str(timing['service_us']), 'x-baseline-us':'1'}
         if phase != 'decode':
@@ -47,11 +59,18 @@ class Backend:
             await self.gates[rid,phase].wait()
             if row.get('fail_phase') == phase:
                 raise OSError('phase failed')
-            ack = dict(request_id=rid,resource=resource,layout=self.config['resources'][resource]['layout'],kv_handle=f'{rid}:{resource}')
+            ack = dict(request_id=rid,resource=resource,layout=self.config['resources'][resource]['layout'],kv_handle=f'{rid}:{resource}:kv')
+            if expected:
+                ack.update(expected)
+                if row.get('bad_deployment') == phase: ack['generation'] += 1
+            if phase == 'prefill':
+                ack['cached_tokens'] = kw['json']['cached_tokens']
             if phase == 'transfer':
                 ack['target'] = kw['json']['target']
             if row.get('bad_ack') == phase:
                 ack['request_id'] = 'other-request'
+            if row.get('bad_handle') == phase:
+                ack['kv_handle'] = 'foreign-handle'
             async def json_body():
                 return ack
             self.passed.add((rid,phase))

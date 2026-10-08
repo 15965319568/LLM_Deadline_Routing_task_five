@@ -12,5 +12,10 @@
   ],
   "leases": [
     "phase/leases.jsonl"
+  ],
+  "deployments": [
+    "phase/deployments.jsonl",
+    "phase/deployments.csv",
+    "phase/deployments-bad.jsonl.gz"
   ]
 }

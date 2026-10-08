@@ -1,6 +1,6 @@
 # 阶段测量与证据契约
 
-`fabric.json` 是部署事实，`phase-exports.json` 是原始输入目录。所有资源
+`fabric.json` 是物理资源与支持条件配置，`phase-exports.json` 是原始输入目录。所有资源
 以 resource ID 区分；相同模型不能合并不同角色、KV layout 或物理资源。
 axis 的单位：prefill 为未缓存 Unicode codepoint 数，link 为完整 prompt KV
 字节数，decode 为完整 prompt codepoint 数。每 token 的字节数和 page_tokens
@@ -64,3 +64,5 @@ build 必须生成以下 JSON（字段稳定，浮点仅为 JSON 表达）：
 
 部署中的 `tenant_limits` 是在线资源约束，不是离线样本分组；不要把租户名称当作 cohort，
 也不要因为某租户的缓存命中而改写 phase ledger 或 baseline support。
+
+部署身份、兼容选择和滚动换代同时遵守 `fabric-deployment.md`。JSON 对象允许附加审计字段，数值比较容差为 1e-5；要求排序的数组仍按契约排序。
