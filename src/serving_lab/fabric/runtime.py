@@ -14,6 +14,7 @@ from vllm_router.routers.main_router import main_router
 from vllm_router.deadline.clock import MonotonicClock
 from vllm_router.deadline.stream import FirstToken
 from serving_lab.storage import read_json
+from .draft_pilot import DraftPilot
 from .compile import interpolate
 from .evidence import integer, number, prefix_pages
 
@@ -44,6 +45,7 @@ def semantic(row):
 class FabricGateway:
     def __init__(self, source_dir, profile_dir, clock=None, transport=None):
         self.config = read_json(Path(source_dir)/'fabric.json')
+        self.source_dir = source_dir
         self.clock = clock or MonotonicClock()
         self.surfaces = load(profile_dir, self.config, self.clock.now_us())
         self.transport = transport
@@ -283,15 +285,17 @@ class FabricGateway:
             outcome = 'error'
             response_headers = {}
             parser = FirstToken()
+            draft = DraftPilot(self.source_dir,self.config,d,body['max_tokens']) if body.get('decode_mode')=='speculative' else None
             try:
                 async with self.transport.request(method='POST',url=self.config['resources'][d]['url']+'/v1/completions',headers=headers,json=dict(body,kv_handle=handle)) as response:
                     response_headers = response.headers
                     if response.status != 200:
                         raise ValueError('decode failed')
                     async for chunk in response.content.iter_any():
-                        if parser.feed(chunk):
-                            self.first(rid)
-                        yield chunk
+                        for output in draft.feed(chunk) if draft else [chunk]:
+                            if parser.feed(output):
+                                self.first(rid)
+                            yield output
                     outcome = 'success' if parser.found else 'error'
             except asyncio.CancelledError:
                 outcome = 'cancelled'

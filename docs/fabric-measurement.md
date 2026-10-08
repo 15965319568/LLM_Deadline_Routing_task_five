@@ -66,3 +66,5 @@ build 必须生成以下 JSON（字段稳定，浮点仅为 JSON 表达）：
 也不要因为某租户的缓存命中而改写 phase ledger 或 baseline support。
 
 部署身份、兼容选择和滚动换代同时遵守 `fabric-deployment.md`。JSON 对象允许附加审计字段，数值比较容差为 1e-5；要求排序的数组仍按契约排序。
+
+新 speculative 解码同时遵守 fabric-speculation.md；其生成 token、窗口页与终态规则适用于 decode_mode="speculative"，普通 SSE 保持本文件语义。

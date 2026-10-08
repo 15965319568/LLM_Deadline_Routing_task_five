@@ -1,0 +1,461 @@
+{
+  "q00": {
+    "status": 200,
+    "output": {
+      "text": "甲",
+      "token_ids": [
+        2,
+        3
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 2,
+      "accepted": 2,
+      "corrected": 0,
+      "committed": 2,
+      "windows": 1,
+      "scratch_pages": 0
+    }
+  },
+  "q01": {
+    "status": 200,
+    "output": {
+      "text": "CA",
+      "token_ids": [
+        5,
+        0
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 3,
+      "accepted": 1,
+      "corrected": 1,
+      "committed": 2,
+      "windows": 2,
+      "scratch_pages": 0
+    }
+  },
+  "q02": {
+    "status": 200,
+    "output": {
+      "text": "乙A",
+      "token_ids": [
+        7,
+        0
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 3,
+      "accepted": 1,
+      "corrected": 1,
+      "committed": 2,
+      "windows": 2,
+      "scratch_pages": 0
+    }
+  },
+  "q03": {
+    "status": 200,
+    "output": {
+      "text": "CC",
+      "token_ids": [
+        5,
+        5
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 2,
+      "accepted": 2,
+      "corrected": 0,
+      "committed": 2,
+      "windows": 1,
+      "scratch_pages": 0
+    }
+  },
+  "q04": {
+    "status": 200,
+    "output": {
+      "text": "BB",
+      "token_ids": [
+        1,
+        1
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 2,
+      "accepted": 2,
+      "corrected": 0,
+      "committed": 2,
+      "windows": 1,
+      "scratch_pages": 0
+    }
+  },
+  "q05": {
+    "status": 200,
+    "output": {
+      "text": "甲",
+      "token_ids": [
+        2,
+        3
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 2,
+      "accepted": 1,
+      "corrected": 1,
+      "committed": 2,
+      "windows": 2,
+      "scratch_pages": 0
+    }
+  },
+  "q07": {
+    "status": 200,
+    "output": {
+      "text": "",
+      "token_ids": [],
+      "done": false
+    },
+    "outcome": "error",
+    "stats": {
+      "proposed": 2,
+      "accepted": 0,
+      "corrected": 0,
+      "committed": 0,
+      "windows": 0,
+      "scratch_pages": 0
+    }
+  },
+  "q08": {
+    "status": 200,
+    "output": {
+      "text": "",
+      "token_ids": [],
+      "done": false
+    },
+    "outcome": "error",
+    "stats": {
+      "proposed": 2,
+      "accepted": 0,
+      "corrected": 0,
+      "committed": 0,
+      "windows": 0,
+      "scratch_pages": 0
+    }
+  },
+  "q09": {
+    "status": 200,
+    "output": {
+      "text": "",
+      "token_ids": [],
+      "done": false
+    },
+    "outcome": "error",
+    "stats": {
+      "proposed": 2,
+      "accepted": 0,
+      "corrected": 0,
+      "committed": 0,
+      "windows": 0,
+      "scratch_pages": 0
+    }
+  },
+  "q10": {
+    "status": 200,
+    "output": {
+      "text": "",
+      "token_ids": [],
+      "done": false
+    },
+    "outcome": "error",
+    "stats": {
+      "proposed": 0,
+      "accepted": 0,
+      "corrected": 0,
+      "committed": 0,
+      "windows": 0,
+      "scratch_pages": 0
+    }
+  },
+  "q11": {
+    "status": 200,
+    "output": {
+      "text": "BA",
+      "token_ids": [
+        1,
+        0
+      ],
+      "done": true
+    },
+    "outcome": "error",
+    "stats": {
+      "proposed": 2,
+      "accepted": 2,
+      "corrected": 0,
+      "committed": 2,
+      "windows": 1,
+      "scratch_pages": 0
+    }
+  },
+  "q12": {
+    "status": 200,
+    "output": {
+      "text": "",
+      "token_ids": [
+        4
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 2,
+      "accepted": 1,
+      "corrected": 0,
+      "committed": 1,
+      "windows": 1,
+      "scratch_pages": 0
+    }
+  },
+  "q13": {
+    "status": 200,
+    "output": {
+      "text": "",
+      "token_ids": [],
+      "done": false
+    },
+    "outcome": "error",
+    "stats": {
+      "proposed": 2,
+      "accepted": 0,
+      "corrected": 0,
+      "committed": 0,
+      "windows": 0,
+      "scratch_pages": 0
+    }
+  },
+  "q14": {
+    "status": 200,
+    "output": {
+      "text": "",
+      "token_ids": [],
+      "done": false
+    },
+    "outcome": "error",
+    "stats": {
+      "proposed": 2,
+      "accepted": 0,
+      "corrected": 0,
+      "committed": 0,
+      "windows": 0,
+      "scratch_pages": 0
+    }
+  },
+  "q15": {
+    "status": 200,
+    "output": {
+      "text": "甲AA",
+      "token_ids": [
+        2,
+        3,
+        0,
+        0
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 4,
+      "accepted": 3,
+      "corrected": 1,
+      "committed": 4,
+      "windows": 2,
+      "scratch_pages": 0
+    }
+  },
+  "q17": {
+    "status": 200,
+    "output": {
+      "text": "AA",
+      "token_ids": [
+        0,
+        0
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 3,
+      "accepted": 1,
+      "corrected": 1,
+      "committed": 2,
+      "windows": 2,
+      "scratch_pages": 0
+    }
+  },
+  "q18": {
+    "status": 200,
+    "output": {
+      "text": "AA",
+      "token_ids": [
+        0,
+        0
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 2,
+      "accepted": 2,
+      "corrected": 0,
+      "committed": 2,
+      "windows": 1,
+      "scratch_pages": 0
+    }
+  },
+  "q19": {
+    "status": 200,
+    "output": {
+      "text": "AA",
+      "token_ids": [
+        0,
+        0
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 8,
+      "accepted": 2,
+      "corrected": 0,
+      "committed": 2,
+      "windows": 1,
+      "scratch_pages": 0
+    }
+  },
+  "q20": {
+    "status": 200,
+    "output": {
+      "text": "",
+      "token_ids": [],
+      "done": false
+    },
+    "outcome": "error",
+    "stats": {
+      "proposed": 0,
+      "accepted": 0,
+      "corrected": 0,
+      "committed": 0,
+      "windows": 0,
+      "scratch_pages": 0
+    }
+  },
+  "q21": {
+    "status": 200,
+    "output": {
+      "text": "",
+      "token_ids": [],
+      "done": false
+    },
+    "outcome": "error",
+    "stats": {
+      "proposed": 2,
+      "accepted": 0,
+      "corrected": 0,
+      "committed": 0,
+      "windows": 0,
+      "scratch_pages": 0
+    }
+  },
+  "q23": {
+    "status": 200,
+    "output": {
+      "text": "BB",
+      "token_ids": [
+        1,
+        1
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 1,
+      "accepted": 1,
+      "corrected": 1,
+      "committed": 2,
+      "windows": 1,
+      "scratch_pages": 0
+    }
+  },
+  "q24": {
+    "status": 200,
+    "output": {
+      "text": "B ",
+      "token_ids": [
+        1,
+        6
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 1,
+      "accepted": 1,
+      "corrected": 1,
+      "committed": 2,
+      "windows": 1,
+      "scratch_pages": 0
+    }
+  },
+  "q25": {
+    "status": 200,
+    "output": {
+      "text": "B ",
+      "token_ids": [
+        1,
+        6
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 1,
+      "accepted": 1,
+      "corrected": 1,
+      "committed": 2,
+      "windows": 1,
+      "scratch_pages": 0
+    }
+  },
+  "q26": {
+    "status": 200,
+    "output": {
+      "text": "C",
+      "token_ids": [
+        5
+      ],
+      "done": true
+    },
+    "outcome": "success",
+    "stats": {
+      "proposed": 1,
+      "accepted": 0,
+      "corrected": 1,
+      "committed": 1,
+      "windows": 1,
+      "scratch_pages": 0
+    }
+  },
+  "q16": {
+    "status": 400
+  }
+}

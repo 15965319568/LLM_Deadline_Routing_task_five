@@ -78,3 +78,5 @@ id/resource/url/body，显式请求另给 deployment:{deployment_id,generation,k
 workload 的 backend_deployments 是独立后端用来模拟该请求所连接服务的部署事实，
 bad_deployment 指定阶段返回错误 generation；网关不得读取 workload、未来事件
 或测试故障开关作接纳决策。公开 replay 和独立验收 transport 均遵守相同接口。
+
+新 speculative 解码同时遵守 fabric-speculation.md；其生成 token、窗口页与终态规则适用于 decode_mode="speculative"，普通 SSE 保持本文件语义。

@@ -80,3 +80,5 @@ outcome 为 success/error/cancelled 或 null。未到首 token 为 null。
 fabric_terminal_total 只带 outcome 标签。所有未使用资源也应暴露零占用。
 
 部署身份、兼容选择和滚动换代同时遵守 `fabric-deployment.md`。JSON 对象允许附加审计字段，数值比较容差为 1e-5；要求排序的数组仍按契约排序。
+
+新 speculative 解码同时遵守 fabric-speculation.md；其生成 token、窗口页与终态规则适用于 decode_mode="speculative"，普通 SSE 保持本文件语义。

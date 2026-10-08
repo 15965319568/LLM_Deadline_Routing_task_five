@@ -1,0 +1,2772 @@
+{
+  "window": [
+    103900,
+    150000
+  ],
+  "initial": "initial",
+  "builds": [
+    {
+      "name": "initial",
+      "as_of_us": 100700
+    },
+    {
+      "name": "rotated",
+      "as_of_us": 104100
+    }
+  ],
+  "requests": [
+    {
+      "id": "q00",
+      "at_us": 103900,
+      "prefill_us": 103970,
+      "transfer_us": 104040,
+      "decode_frames": [
+        {
+          "at_us": 104130,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q00\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [2, 3], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 104147,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q00\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 104164,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q00\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 104181,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q00\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 104198,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q00\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 104215,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 105300,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q00-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q00-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q00-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q01",
+      "at_us": 105000,
+      "prefill_us": 105070,
+      "transfer_us": 105140,
+      "decode_frames": [
+        {
+          "at_us": 105230,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q01\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1, 0], \"uniforms\": [0.999, 0.999, 0.68]}\n\n"
+        },
+        {
+          "at_us": 105247,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q01\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[126, 117, 126, 126], [126, 139, 126, 126], [126, 139, 126, 126]], \"draft\": [[126, 145, 126, 126], [126, 139, 126, 126]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 105264,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q01\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[126, 126, 126, 126], [126, 126, 126, 117], [126, 126, 126, 117]], \"draft\": [[126, 126, 126, 126], [126, 126, 126, 145]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 105281,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q01\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[126, 117, 126, 126], [126, 139, 126, 126], [126, 139, 126, 126]], \"draft\": [[126, 145, 126, 126], [126, 139, 126, 126]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 105298,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q01\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 105315,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q01\", \"window\": 1, \"kind\": \"begin\", \"position\": 1, \"proposal\": [0], \"uniforms\": [0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 105332,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q01\", \"window\": 1, \"kind\": \"shard\", \"rank\": 1, \"target\": [[70, 70, 70, 70], [70, 70, 70, 70]], \"draft\": [[70, 70, 70, 70]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 105349,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q01\", \"window\": 1, \"kind\": \"shard\", \"rank\": 0, \"target\": [[70, 70, 70, 180], [70, 70, 70, 180]], \"draft\": [[70, 70, 70, 180]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 105366,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q01\", \"window\": 1, \"kind\": \"shard\", \"rank\": 1, \"target\": [[70, 70, 70, 70], [70, 70, 70, 70]], \"draft\": [[70, 70, 70, 70]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 105383,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q01\", \"window\": 1, \"kind\": \"commit\"}\n\n"
+        },
+        {
+          "at_us": 105400,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 106400,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q01-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q01-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q01-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q02",
+      "at_us": 106600,
+      "prefill_us": 106670,
+      "transfer_us": 106740,
+      "decode_frames": [
+        {
+          "at_us": 106830,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q02\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1, 0], \"uniforms\": [0.999, 0.999, 0.68]}\n\n"
+        },
+        {
+          "at_us": 106847,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q02\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[126, 117, 126, 126], [126, 139, 126, 126], [126, 139, 126, 126]], \"draft\": [[126, 145, 126, 126], [126, 139, 126, 126]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 106864,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q02\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[126, 126, 126, 126], [126, 126, 126, 117], [126, 126, 126, 117]], \"draft\": [[126, 126, 126, 126], [126, 126, 126, 145]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 106881,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q02\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[126, 117, 126, 126], [126, 139, 126, 126], [126, 139, 126, 126]], \"draft\": [[126, 145, 126, 126], [126, 139, 126, 126]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 106898,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q02\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 106915,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q02\", \"window\": 1, \"kind\": \"begin\", \"position\": 1, \"proposal\": [0], \"uniforms\": [0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 106932,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q02\", \"window\": 1, \"kind\": \"shard\", \"rank\": 1, \"target\": [[70, 70, 70, 70], [70, 70, 70, 70]], \"draft\": [[70, 70, 70, 70]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 106949,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q02\", \"window\": 1, \"kind\": \"shard\", \"rank\": 0, \"target\": [[70, 70, 70, 180], [70, 70, 70, 180]], \"draft\": [[70, 70, 70, 180]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 106966,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q02\", \"window\": 1, \"kind\": \"shard\", \"rank\": 1, \"target\": [[70, 70, 70, 70], [70, 70, 70, 70]], \"draft\": [[70, 70, 70, 70]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 106983,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q02\", \"window\": 1, \"kind\": \"commit\"}\n\n"
+        },
+        {
+          "at_us": 107000,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 108000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 0.72,
+        "top_k": 4
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q02-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q02-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q02-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q03",
+      "at_us": 108200,
+      "prefill_us": 108270,
+      "transfer_us": 108340,
+      "decode_frames": [
+        {
+          "at_us": 108430,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q03\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [5, 5], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 108447,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q03\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[125, 128, 128, 120], [125, 128, 128, 120], [125, 128, 128, 120]], \"draft\": [[125, 128, 128, 120], [125, 128, 128, 120]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 108464,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q03\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[120, 127, 110, 128], [120, 127, 110, 128], [120, 127, 110, 128]], \"draft\": [[120, 127, 110, 128], [120, 127, 110, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 108481,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q03\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[125, 128, 128, 120], [125, 128, 128, 120], [125, 128, 128, 120]], \"draft\": [[125, 128, 128, 120], [125, 128, 128, 120]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 108498,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q03\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 108515,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 109600,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 0.25,
+        "top_p": 0.8,
+        "top_k": 2,
+        "logit_bias": {
+          "0": -8,
+          "5": 7
+        }
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q03-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q03-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q03-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q04",
+      "at_us": 109800,
+      "prefill_us": 109870,
+      "transfer_us": 109940,
+      "decode_frames": [
+        {
+          "at_us": 110030,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q04\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1, 1], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 110047,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q04\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[0, 255, 254, 0], [0, 255, 254, 0], [0, 255, 254, 0]], \"draft\": [[0, 255, 254, 0], [0, 255, 254, 0]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 110064,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q04\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]], \"draft\": [[0, 0, 0, 0], [0, 0, 0, 0]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 110081,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q04\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[0, 255, 254, 0], [0, 255, 254, 0], [0, 255, 254, 0]], \"draft\": [[0, 255, 254, 0], [0, 255, 254, 0]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 110098,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q04\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 110115,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 111200,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 0.001,
+        "top_p": 1,
+        "top_k": 1
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q04-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q04-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q04-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q05",
+      "at_us": 111400,
+      "prefill_us": 111470,
+      "transfer_us": 111540,
+      "decode_frames": [
+        {
+          "at_us": 111630,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q05\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [0], \"uniforms\": [0.999, 0.68]}\n\n"
+        },
+        {
+          "at_us": 111647,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q05\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[70, 70, 70, 70], [126, 139, 126, 126]], \"draft\": [[126, 139, 126, 126]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 111664,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q05\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[180, 70, 70, 70], [126, 126, 126, 117]], \"draft\": [[126, 126, 126, 145]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 111681,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q05\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[70, 70, 70, 70], [126, 139, 126, 126]], \"draft\": [[126, 139, 126, 126]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 111698,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q05\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 111715,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q05\", \"window\": 1, \"kind\": \"begin\", \"position\": 1, \"proposal\": [3], \"uniforms\": [0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 111732,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q05\", \"window\": 1, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 111749,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q05\", \"window\": 1, \"kind\": \"shard\", \"rank\": 0, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 111766,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q05\", \"window\": 1, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 111783,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q05\", \"window\": 1, \"kind\": \"commit\"}\n\n"
+        },
+        {
+          "at_us": 111800,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 112800,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q05-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q05-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q05-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q06",
+      "at_us": 113000,
+      "prefill_us": 113070,
+      "transfer_us": 113140,
+      "decode_frames": [
+        {
+          "at_us": 113230,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q06\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1, 0], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 113247,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q06\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 113264,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q06\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[123, 129, 127, 127], [126, 126, 130, 128], [124, 123, 130, 130]], \"draft\": [[123, 129, 127, 127], [126, 126, 130, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 113281,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q06\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 113298,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q06\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 113315,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 114400,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q06-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q06-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q06-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      },
+      "cancel_us": 113247
+    },
+    {
+      "id": "q07",
+      "at_us": 114600,
+      "prefill_us": 114670,
+      "transfer_us": 114740,
+      "decode_frames": [
+        {
+          "at_us": 114830,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q07\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1, 0], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 114847,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q07\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 114864,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q07\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[123, 129, 127, 127], [126, 126, 130, 128], [124, 123, 130, 130]], \"draft\": [[123, 129, 127, 127], [126, 126, 130, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 114881,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q07\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[132, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 114898,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q07\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 114915,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 116000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q07-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q07-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q07-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q08",
+      "at_us": 116200,
+      "prefill_us": 116270,
+      "transfer_us": 116340,
+      "decode_frames": [
+        {
+          "at_us": 116430,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q08\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1, 0], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 116447,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q08\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 116464,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q08\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 116481,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q08\", \"window\": 0, \"kind\": \"commit\"}\n\n"
+        },
+        {
+          "at_us": 116498,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 117600,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q08-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q08-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q08-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q09",
+      "at_us": 117800,
+      "prefill_us": 117870,
+      "transfer_us": 117940,
+      "decode_frames": [
+        {
+          "at_us": 118030,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q09\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1, 0], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 118047,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 4, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q09\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 118064,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q09\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[123, 129, 127, 127], [126, 126, 130, 128], [124, 123, 130, 130]], \"draft\": [[123, 129, 127, 127], [126, 126, 130, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 118081,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q09\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 118098,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q09\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 118115,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 119200,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q09-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q09-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q09-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q10",
+      "at_us": 119400,
+      "prefill_us": 119470,
+      "transfer_us": 119540,
+      "decode_frames": [
+        {
+          "at_us": 119630,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q10\", \"window\": 0, \"kind\": \"begin\", \"position\": 7, \"proposal\": [1, 0], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 119647,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q10\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 119664,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q10\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[123, 129, 127, 127], [126, 126, 130, 128], [124, 123, 130, 130]], \"draft\": [[123, 129, 127, 127], [126, 126, 130, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 119681,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q10\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 119698,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q10\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 119715,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 120800,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q10-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q10-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q10-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q11",
+      "at_us": 121000,
+      "prefill_us": 121070,
+      "transfer_us": 121140,
+      "decode_frames": [
+        {
+          "at_us": 121230,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q11\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1, 0], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 121247,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q11\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 121264,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q11\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[123, 129, 127, 127], [126, 126, 130, 128], [124, 123, 130, 130]], \"draft\": [[123, 129, 127, 127], [126, 126, 130, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 121281,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q11\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 121298,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q11\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 121315,
+          "wire": "data: [DONE]\n\n"
+        },
+        {
+          "at_us": 121332,
+          "wire": "event: extra\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 122400,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q11-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q11-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q11-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q12",
+      "at_us": 122600,
+      "prefill_us": 122670,
+      "transfer_us": 122740,
+      "decode_frames": [
+        {
+          "at_us": 122830,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q12\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [4, 0], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 122847,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q12\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 122864,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q12\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 122881,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q12\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 122898,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q12\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 122915,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 124000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q12-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q12-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q12-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q13",
+      "at_us": 124200,
+      "prefill_us": 124270,
+      "transfer_us": 124340,
+      "decode_frames": [
+        {
+          "at_us": 124430,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q13\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1, 0], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 124447,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q13\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 124464,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q13\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[123, 129, 127, 127], [126, 126, 130, 128], [124, 123, 130, 130]], \"draft\": [[123, 129, 127, 127], [126, 126, 130, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 124481,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q13\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 125600,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q13-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q13-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q13-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q14",
+      "at_us": 125800,
+      "prefill_us": 125870,
+      "transfer_us": 125940,
+      "decode_frames": [
+        {
+          "at_us": 126030,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q14\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [3, 0], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 126047,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q14\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[110, 110, 110, 110], [110, 110, 110, 110], [110, 110, 110, 110]], \"draft\": [[110, 110, 110, 110], [110, 110, 110, 110]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 126064,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q14\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[110, 110, 110, 150], [110, 110, 110, 150], [110, 110, 110, 150]], \"draft\": [[110, 110, 110, 150], [110, 110, 110, 150]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 126081,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q14\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[110, 110, 110, 110], [110, 110, 110, 110], [110, 110, 110, 110]], \"draft\": [[110, 110, 110, 110], [110, 110, 110, 110]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 126098,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q14\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 126115,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 127200,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 1
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q14-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q14-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q14-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q15",
+      "at_us": 127400,
+      "prefill_us": 127470,
+      "transfer_us": 127540,
+      "decode_frames": [
+        {
+          "at_us": 127630,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q15\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [2, 3], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 127647,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q15\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [70, 70, 70, 70]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 127664,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q15\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [70, 70, 70, 180]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 127681,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q15\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [70, 70, 70, 70]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 127698,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q15\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 127715,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q15\", \"window\": 1, \"kind\": \"begin\", \"position\": 3, \"proposal\": [0, 1], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 127732,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q15\", \"window\": 1, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 127749,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q15\", \"window\": 1, \"kind\": \"shard\", \"rank\": 0, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 127766,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q15\", \"window\": 1, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 127783,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q15\", \"window\": 1, \"kind\": \"commit\"}\n\n"
+        },
+        {
+          "at_us": 127800,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 128800,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q15-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q15-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q15-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q16",
+      "at_us": 129000,
+      "prefill_us": 129070,
+      "transfer_us": 129140,
+      "decode_frames": [
+        {
+          "at_us": 129230,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q16\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1, 0], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 129247,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q16\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 129264,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q16\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[123, 129, 127, 127], [126, 126, 130, 128], [124, 123, 130, 130]], \"draft\": [[123, 129, 127, 127], [126, 126, 130, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 129281,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q16\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 129298,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q16\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 129315,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 130400,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 0,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q16-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q16-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q16-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q17",
+      "at_us": 130600,
+      "prefill_us": 130670,
+      "transfer_us": 130740,
+      "decode_frames": [
+        {
+          "at_us": 130830,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q17\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1, 1], \"uniforms\": [0.0, 0.0, 0.5]}\n\n"
+        },
+        {
+          "at_us": 130847,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q17\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[60, 60, 60, 60], [60, 60, 60, 60], [60, 60, 60, 60]], \"draft\": [[60, 200, 60, 60], [60, 200, 60, 60]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 130864,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q17\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[60, 60, 60, 200], [60, 60, 60, 200], [60, 60, 60, 200]], \"draft\": [[60, 60, 60, 60], [60, 60, 60, 60]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 130881,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q17\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[60, 60, 60, 60], [60, 60, 60, 60], [60, 60, 60, 60]], \"draft\": [[60, 200, 60, 60], [60, 200, 60, 60]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 130898,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q17\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 130915,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q17\", \"window\": 1, \"kind\": \"begin\", \"position\": 1, \"proposal\": [0], \"uniforms\": [0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 130932,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q17\", \"window\": 1, \"kind\": \"shard\", \"rank\": 1, \"target\": [[70, 70, 70, 70], [70, 70, 70, 70]], \"draft\": [[70, 70, 70, 70]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 130949,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q17\", \"window\": 1, \"kind\": \"shard\", \"rank\": 0, \"target\": [[70, 70, 70, 180], [70, 70, 70, 180]], \"draft\": [[70, 70, 70, 180]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 130966,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q17\", \"window\": 1, \"kind\": \"shard\", \"rank\": 1, \"target\": [[70, 70, 70, 70], [70, 70, 70, 70]], \"draft\": [[70, 70, 70, 70]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 130983,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q17\", \"window\": 1, \"kind\": \"commit\"}\n\n"
+        },
+        {
+          "at_us": 131000,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 132000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 0.8,
+        "top_k": 1
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q17-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q17-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q17-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q18",
+      "at_us": 132200,
+      "prefill_us": 132270,
+      "transfer_us": 132340,
+      "decode_frames": [
+        {
+          "at_us": 132430,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q18\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [0, 0], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 132447,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q18\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 132464,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q18\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[130, 130, 130, 130], [130, 130, 130, 130], [130, 130, 130, 130]], \"draft\": [[130, 130, 130, 130], [130, 130, 130, 130]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 132481,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q18\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 132498,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q18\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 132515,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 133600,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 0.7,
+        "top_k": 1
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q18-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q18-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q18-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q19",
+      "at_us": 133800,
+      "prefill_us": 133870,
+      "transfer_us": 133940,
+      "decode_frames": [
+        {
+          "at_us": 134030,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q19\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [0, 0, 0, 0, 0, 0, 0, 0], \"uniforms\": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 134047,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q19\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 134064,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q19\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 134081,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q19\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128], [128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 134098,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q19\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 134115,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 135200,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q19-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q19-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q19-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q20",
+      "at_us": 135400,
+      "prefill_us": 135470,
+      "transfer_us": 135540,
+      "decode_frames": [
+        {
+          "at_us": 135630,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q20\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1, 0], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 135647,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q20\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 135664,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q20\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[123, 129, 127, 127], [126, 126, 130, 128], [124, 123, 130, 130]], \"draft\": [[123, 129, 127, 127], [126, 126, 130, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 135681,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q20\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 135698,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q20\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 135715,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 20,
+        "deadline_us": 136800,
+        "stream": true,
+        "tenant": "gold",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q20-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q20-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q20-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q21",
+      "at_us": 137000,
+      "prefill_us": 137070,
+      "transfer_us": 137140,
+      "decode_frames": [
+        {
+          "at_us": 137230,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q21\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1, 0], \"uniforms\": [0.0, 0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 137247,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q21\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 137264,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q21\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[123, 129, 127, 127], [126, 126, 130, 128], [124, 123, 130, 130]], \"draft\": [[123, 129, 127, 127], [126, 126, 130, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 137281,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q21\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[131, 124, 129, 132], [132, 125, 123, 127], [131, 123, 129, 124]], \"draft\": [[131, 124, 129, 132], [132, 125, 123, 127]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 137298,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q21\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 137315,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 138400,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q21-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q21-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q21-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q22",
+      "at_us": 138600,
+      "prefill_us": 138670,
+      "transfer_us": 138740,
+      "decode_frames": [
+        {
+          "at_us": 138830,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q22\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [0], \"uniforms\": [0.999, 0.68]}\n\n"
+        },
+        {
+          "at_us": 138847,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q22\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[70, 70, 70, 70], [126, 139, 126, 126]], \"draft\": [[126, 139, 126, 126]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 138864,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q22\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[180, 70, 70, 70], [126, 126, 126, 117]], \"draft\": [[126, 126, 126, 145]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 138881,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q22\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[70, 70, 70, 70], [126, 139, 126, 126]], \"draft\": [[126, 139, 126, 126]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 138898,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q22\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 138915,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q22\", \"window\": 1, \"kind\": \"begin\", \"position\": 1, \"proposal\": [3], \"uniforms\": [0.0, 0.51]}\n\n"
+        },
+        {
+          "at_us": 138932,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q22\", \"window\": 1, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 138949,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q22\", \"window\": 1, \"kind\": \"shard\", \"rank\": 0, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 138966,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q22\", \"window\": 1, \"kind\": \"shard\", \"rank\": 1, \"target\": [[128, 128, 128, 128], [128, 128, 128, 128]], \"draft\": [[128, 128, 128, 128]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 138983,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q22\", \"window\": 1, \"kind\": \"commit\"}\n\n"
+        },
+        {
+          "at_us": 139000,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 140000,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q22-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q22-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q22-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      },
+      "cancel_us": 138915
+    },
+    {
+      "id": "q23",
+      "at_us": 140200,
+      "prefill_us": 140270,
+      "transfer_us": 140340,
+      "decode_frames": [
+        {
+          "at_us": 140430,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q23\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1], \"uniforms\": [0.0, 0.741308843850962]}\n\n"
+        },
+        {
+          "at_us": 140447,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q23\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[132, 133, 129, 100], [132, 133, 129, 100]], \"draft\": [[132, 133, 129, 100]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 140464,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q23\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[100, 131, 100, 130], [100, 131, 100, 130]], \"draft\": [[100, 131, 100, 130]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 140481,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q23\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[132, 133, 129, 100], [132, 133, 129, 100]], \"draft\": [[132, 133, 129, 100]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 140498,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q23\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 140515,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 141600,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 0.37,
+        "top_p": 1,
+        "top_k": 5,
+        "logit_bias": {
+          "2": -100,
+          "3": -100,
+          "4": -100
+        }
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q23-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q23-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q23-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q24",
+      "at_us": 141800,
+      "prefill_us": 141870,
+      "transfer_us": 141940,
+      "decode_frames": [
+        {
+          "at_us": 142030,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q24\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1], \"uniforms\": [0.0, 0.5290781742101456]}\n\n"
+        },
+        {
+          "at_us": 142047,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q24\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[132, 133, 129, 100], [132, 133, 129, 100]], \"draft\": [[132, 133, 129, 100]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 142064,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q24\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[100, 131, 100, 130], [100, 131, 100, 130]], \"draft\": [[100, 131, 100, 130]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 142081,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q24\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[132, 133, 129, 100], [132, 133, 129, 100]], \"draft\": [[132, 133, 129, 100]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 142098,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q24\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 142115,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 143200,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.7,
+        "top_p": 0.67,
+        "top_k": 5,
+        "logit_bias": {
+          "2": -100,
+          "3": -100,
+          "4": -100
+        }
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q24-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q24-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q24-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q25",
+      "at_us": 143400,
+      "prefill_us": 143470,
+      "transfer_us": 143540,
+      "decode_frames": [
+        {
+          "at_us": 143630,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q25\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1], \"uniforms\": [0.0, 0.5290781742101456]}\n\n"
+        },
+        {
+          "at_us": 143647,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q25\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[132, 133, 129, 100], [132, 133, 129, 100]], \"draft\": [[132, 133, 129, 100]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 143664,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q25\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[100, 131, 100, 130], [100, 131, 100, 130]], \"draft\": [[100, 131, 100, 130]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 143681,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q25\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[132, 133, 129, 100], [132, 133, 129, 100]], \"draft\": [[132, 133, 129, 100]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 143698,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q25\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 143715,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 2,
+        "deadline_us": 144800,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.7,
+        "top_p": 1,
+        "top_k": 3,
+        "logit_bias": {
+          "2": -100,
+          "3": -100,
+          "4": -100
+        }
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q25-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q25-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q25-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q26",
+      "at_us": 145000,
+      "prefill_us": 145070,
+      "transfer_us": 145140,
+      "decode_frames": [
+        {
+          "at_us": 145230,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q26\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [1], \"uniforms\": [0.999, 0.23404968890356112]}\n\n"
+        },
+        {
+          "at_us": 145247,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q26\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[132, 133, 129, 100], [132, 133, 129, 100]], \"draft\": [[40, 240, 40, 40]], \"audit_note\": \"异步分片\"}\r\n\r\n"
+        },
+        {
+          "at_us": 145264,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q26\", \"window\": 0, \"kind\": \"shard\", \"rank\": 0, \"target\": [[100, 131, 100, 130], [100, 131, 100, 130]], \"draft\": [[40, 40, 40, 40]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 145281,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q26\", \"window\": 0, \"kind\": \"shard\", \"rank\": 1, \"target\": [[132, 133, 129, 100], [132, 133, 129, 100]], \"draft\": [[40, 240, 40, 40]], \"audit_note\": \"异步分片\"}\n\n"
+        },
+        {
+          "at_us": 145298,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q26\", \"window\": 0, \"kind\": \"commit\"}\r\n\r\n"
+        },
+        {
+          "at_us": 145315,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 1,
+        "deadline_us": 146400,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.7,
+        "top_p": 1,
+        "top_k": 5,
+        "logit_bias": {
+          "2": -100,
+          "3": -100,
+          "4": -100
+        }
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q26-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q26-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q26-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "q-scratch",
+      "at_us": 148000,
+      "prefill_us": 148070,
+      "transfer_us": 148140,
+      "decode_frames": [
+        {
+          "at_us": 148230,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"request_id\": \"q-scratch\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"proposal\": [0, 0, 0, 0, 0, 0, 0, 0], \"uniforms\": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}\n\n"
+        },
+        {
+          "at_us": 148600,
+          "wire": ": waiting\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 149400,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 1,
+        "top_k": 0
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q01-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q01-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q01-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      },
+      "cancel_us": 148500
+    },
+    {
+      "id": "q-contender",
+      "at_us": 148250,
+      "prefill_us": 148320,
+      "transfer_us": 148390,
+      "decode_frames": [],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 24,
+        "deadline_us": 149650,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "decode_mode": "speculative",
+        "temperature": 1.25,
+        "top_p": 0.72,
+        "top_k": 4
+      },
+      "timing": {
+        "prefill": {
+          "sample": "q02-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "q02-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "q02-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      }
+    }
+  ],
+  "reloads": [
+    {
+      "at_us": 104100,
+      "build": "rotated"
+    },
+    {
+      "at_us": 104120,
+      "build": "rotated",
+      "asset_override": {
+        "identity": "d3-blue-r3",
+        "path": [
+          "shards",
+          0,
+          "scale"
+        ],
+        "value": -1
+      }
+    }
+  ],
+  "observations": [],
+  "caches": [],
+  "checkpoints": [
+    103900,
+    103970,
+    104040,
+    104100,
+    104120,
+    104130,
+    104147,
+    104164,
+    104181,
+    104198,
+    104215,
+    105000,
+    105070,
+    105140,
+    105230,
+    105247,
+    105264,
+    105281,
+    105298,
+    105315,
+    105332,
+    105349,
+    105366,
+    105383,
+    105400,
+    106600,
+    106670,
+    106740,
+    106830,
+    106847,
+    106864,
+    106881,
+    106898,
+    106915,
+    106932,
+    106949,
+    106966,
+    106983,
+    107000,
+    108200,
+    108270,
+    108340,
+    108430,
+    108447,
+    108464,
+    108481,
+    108498,
+    108515,
+    109800,
+    109870,
+    109940,
+    110030,
+    110047,
+    110064,
+    110081,
+    110098,
+    110115,
+    111400,
+    111470,
+    111540,
+    111630,
+    111647,
+    111664,
+    111681,
+    111698,
+    111715,
+    111732,
+    111749,
+    111766,
+    111783,
+    111800,
+    113000,
+    113070,
+    113140,
+    113230,
+    113247,
+    113264,
+    113281,
+    113298,
+    113315,
+    114600,
+    114670,
+    114740,
+    114830,
+    114847,
+    114864,
+    114881,
+    114898,
+    114915,
+    116200,
+    116270,
+    116340,
+    116430,
+    116447,
+    116464,
+    116481,
+    116498,
+    117800,
+    117870,
+    117940,
+    118030,
+    118047,
+    118064,
+    118081,
+    118098,
+    118115,
+    119400,
+    119470,
+    119540,
+    119630,
+    119647,
+    119664,
+    119681,
+    119698,
+    119715,
+    121000,
+    121070,
+    121140,
+    121230,
+    121247,
+    121264,
+    121281,
+    121298,
+    121315,
+    121332,
+    122600,
+    122670,
+    122740,
+    122830,
+    122847,
+    122864,
+    122881,
+    122898,
+    122915,
+    124200,
+    124270,
+    124340,
+    124430,
+    124447,
+    124464,
+    124481,
+    125800,
+    125870,
+    125940,
+    126030,
+    126047,
+    126064,
+    126081,
+    126098,
+    126115,
+    127400,
+    127470,
+    127540,
+    127630,
+    127647,
+    127664,
+    127681,
+    127698,
+    127715,
+    127732,
+    127749,
+    127766,
+    127783,
+    127800,
+    129000,
+    129070,
+    129140,
+    129230,
+    129247,
+    129264,
+    129281,
+    129298,
+    129315,
+    130600,
+    130670,
+    130740,
+    130830,
+    130847,
+    130864,
+    130881,
+    130898,
+    130915,
+    130932,
+    130949,
+    130966,
+    130983,
+    131000,
+    132200,
+    132270,
+    132340,
+    132430,
+    132447,
+    132464,
+    132481,
+    132498,
+    132515,
+    133800,
+    133870,
+    133940,
+    134030,
+    134047,
+    134064,
+    134081,
+    134098,
+    134115,
+    135400,
+    135470,
+    135540,
+    135630,
+    135647,
+    135664,
+    135681,
+    135698,
+    135715,
+    137000,
+    137070,
+    137140,
+    137230,
+    137247,
+    137264,
+    137281,
+    137298,
+    137315,
+    138600,
+    138670,
+    138740,
+    138830,
+    138847,
+    138864,
+    138881,
+    138898,
+    138915,
+    138932,
+    138949,
+    138966,
+    138983,
+    139000,
+    140200,
+    140270,
+    140340,
+    140430,
+    140447,
+    140464,
+    140481,
+    140498,
+    140515,
+    141800,
+    141870,
+    141940,
+    142030,
+    142047,
+    142064,
+    142081,
+    142098,
+    142115,
+    143400,
+    143470,
+    143540,
+    143630,
+    143647,
+    143664,
+    143681,
+    143698,
+    143715,
+    145000,
+    145070,
+    145140,
+    145230,
+    145247,
+    145264,
+    145281,
+    145298,
+    145315,
+    148000,
+    148070,
+    148140,
+    148230,
+    148250,
+    148320,
+    148390,
+    148500,
+    148600,
+    149000
+  ]
+}

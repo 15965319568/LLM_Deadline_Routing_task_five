@@ -53,3 +53,5 @@ CLI 必须从该目录原始测量生成所需 profiles，再通过实际 HTTP �
 自己的 transport，不信任 candidate 的 replay 自报。
 
 部署身份、兼容选择和滚动换代同时遵守 `fabric-deployment.md`。JSON 对象允许附加审计字段，数值比较容差为 1e-5；要求排序的数组仍按契约排序。
+
+新 speculative 解码同时遵守 fabric-speculation.md；其生成 token、窗口页与终态规则适用于 decode_mode="speculative"，普通 SSE 保持本文件语义。

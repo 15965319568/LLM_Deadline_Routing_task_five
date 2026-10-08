@@ -1,10 +1,16 @@
-# 修复滚动部署下的 LLM 分离式推理与 KV 兼容性
+# 修复量化分片解码、Speculative KV 回滚与滚动部署一致性
 
 推理集群把一个逻辑模型的 prefill、KV transfer 和 decode 分到不同服务。一次
 混合版本上线后，容量报表看起来足够，在线却出现请求被过度拒绝、KV 不能被 decode
 解释、流已返回文本但账本不释放、画像更新后反馈漂移等现象。部署目录、运行时装载
 清单与 rollout 导出来自不同系统，文件到达顺序不代表生效顺序；原始测量和缓存页
 也没有预先清洗。旧 colocated notebook 和 pilot 仍留在工程中。
+
+新接入的 speculative decode 在混合量化部署下还出现了另一条故障链：分片各自看似正常，
+最终 token 却偏离 target 分布；草稿被拒绝后，KV 页和输出位置不一致；一个字符跨
+两个提交窗口时，TTFT 与流终态又产生分歧。在线服务同时承接普通 SSE 和新数值协议。
+需要用原始证据和可运行场景定位问题，修复量化 logits、采样分布、草稿提交及其与
+资源账本和部署快照的关系。题目没有预先列出需要修改的模块和根因。
 
 请修复实际生产入口，使同一请求从证据重建、版本选择、组合接纳、三阶段转发到
 终态监控保持一致。尤其要使滚动部署期间的在途推理、旧 KV 页、阶段反馈和新请求
@@ -17,12 +23,13 @@ vllm-project/production-stack 生产路由入口；上游与许可证见 UPSTREA
 原始导出和 CPU 后端是独立编写的合成故障材料，验证推理协议与状态守恒，
 不将仿真成本宣称为 GPU 实测。
 
-以下四份文档同时生效，包含所有自动验收所要求的接口、字段、单位和边界：
+以下五份文档同时生效，包含所有自动验收所要求的接口、字段、单位和边界：
 
 - docs/fabric-measurement.md：生产时钟、原始测量、分页证据、画像与漂移。
 - docs/fabric-deployment.md：registry/runtime/rollout 裁决、模型兼容性、部署换代。
 - docs/fabric-admission.md：组合选路、资源/租户账本、健康、亲和、反馈与监控。
 - docs/fabric-protocol.md：真实三阶段协议、ACK、SSE、公开控制入口和 replay。
+- docs/fabric-speculation.md：量化张量分片、目标/草稿采样分布、提交与回滚、生成 token 和监控。
 
 历史文档只约束旧 colocated/deadline 入口，不覆盖新 fabric 语义。旧 CLI、
 deadline 服务及普通 RoundRobin/LoadAware 路由仍须工作。
@@ -44,7 +51,10 @@ python -m serving_lab.fabric build --input captures/fabric-7 --output out/fabric
 python -m serving_lab.fabric build --input captures/fabric-7 --output out/rotated --as-of 104100
 python -m serving_lab.fabric replay --input captures/fabric-7 --workload captures/fabric-7/workload.json --output out/replay
 python -m serving_lab build --input captures/capture-5 --output out/colocated --as-of 100000
+python -m serving_lab.fabric replay --input captures/speculative-7 --workload captures/speculative-7/workload.json --output out/speculative
 python -m pytest regression_tests -q
 ```
 
+公开测试包含已知证据边界与真实 HTTP 数值回归。仅能生成 JSON、看到部分测试通过或
+某一次流返回文本，都不足以证明提交、回滚和守恒已经一致；应自行对账两个公开场景。
 不限制批量操作，不规定工具调用次数，也不要求人为等待。
