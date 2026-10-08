@@ -17,7 +17,7 @@ OBSERVATIONS=json.loads((Path(__file__).parent/'data/spec-observations.json').re
 
 class Peer:
     def __init__(self,row,config,clock):
-        self.row=row; self.config=config; self.clock=clock; self.calls=[]; self.before_frame=None
+        self.row=row; self.config=config; self.clock=clock; self.calls=[]; self.before_frame=None; self.before_transfer=None
         self.blocked=asyncio.Event(); self.release=asyncio.Event()
     async def stream(self):
         for index,frame in enumerate(self.row['decode_frames']):
@@ -37,6 +37,7 @@ class Peer:
             yield SimpleNamespace(status=200,headers={},content=SimpleNamespace(iter_any=self.stream)); return
         phase='prefill' if kw['url'].endswith('/v1/prefill') else 'transfer'
         self.clock.advance_to(self.row[phase+'_us'])
+        if phase=='transfer' and self.before_transfer: await self.before_transfer()
         ack=dict(expected,request_id=rid,resource=resource,layout=self.config['resources'][resource]['layout'],kv_handle=f'{rid}:{resource}:observed')
         if phase=='prefill': ack['cached_tokens']=kw['json']['cached_tokens']
         else: ack['target']=kw['json']['target']
@@ -64,9 +65,9 @@ def test_quantized_partitioned_decode_through_production_http(tmp_path,rid):
         clock=ManualClock(row['at_us']); peer=Peer(row,json.loads((SOURCE/'fabric.json').read_text()),clock)
         gw=FabricGateway(SOURCE,tmp_path/'initial',clock=clock,transport=peer)
         if rid=='q00':
-            async def rotate(index):
-                if index==0: await gw.reload(tmp_path/'rotated')
-            peer.before_frame=rotate
+            async def rotate():
+                await gw.reload(tmp_path/'rotated')
+            peer.before_transfer=rotate
         async with httpx.AsyncClient(transport=httpx.ASGITransport(app=gw.app,raise_app_exceptions=False),base_url='http://gateway') as client:
             response=await client.post('/v1/completions',json=row['body'],headers={'X-Request-Id':rid})
             expected=OBSERVATIONS[rid]; assert response.status_code==expected['status']
