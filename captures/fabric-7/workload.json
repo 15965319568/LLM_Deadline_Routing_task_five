@@ -3088,6 +3088,105 @@
           "kv_schema": "q8"
         }
       }
+    },
+    {
+      "id": "r57",
+      "at_us": 105520,
+      "prefill_us": 105620,
+      "transfer_us": 105690,
+      "first_us": 105740,
+      "end_us": 105900,
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 108520,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "session_id": "cache-blue"
+      },
+      "timing": {
+        "prefill": {
+          "sample": "r57-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "r57-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "r57-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p1": {
+          "deployment_id": "p1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p2": {
+          "deployment_id": "p2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d1": {
+          "deployment_id": "d1-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d2": {
+          "deployment_id": "d2-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l11": {
+          "deployment_id": "l11-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l12": {
+          "deployment_id": "l12-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l21": {
+          "deployment_id": "l21-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l22": {
+          "deployment_id": "l22-stable-r1",
+          "generation": 1,
+          "kv_schema": "q16"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l23": {
+          "deployment_id": "l23-stable-r1",
+          "generation": 1,
+          "kv_schema": "q8"
+        }
+      }
     }
   ],
   "reloads": [
@@ -3644,6 +3743,112 @@
           "deployment_id": "p3-blue-r3"
         }
       ]
+    },
+    {
+      "at_us": 105510,
+      "leases": [
+        {
+          "lease_id": "old-blue",
+          "resource": "p3",
+          "layout": "q8",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "session_id": "cache-blue",
+          "producer": "kv-cache-a",
+          "generation": 2,
+          "page_hash": "44429fe6ef46efdfb4f0349537ad8bb98b9fc953725dea2872fce21dc552da4a",
+          "valid_from_us": 103900,
+          "expires_us": 108100,
+          "ingested_us": 103900,
+          "model_revision": "rev-2026-10",
+          "tokenizer_revision": "tok-2026-10",
+          "quantization": "fp8",
+          "kv_schema": "q8",
+          "adapter": "chat",
+          "deployment_id": "p3-blue-r2"
+        },
+        {
+          "lease_id": "cache-export-61",
+          "resource": "p3",
+          "layout": "q8",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "session_id": "cache-blue",
+          "producer": "kv-cache-a",
+          "generation": 2,
+          "page_hash": "44429fe6ef46efdfb4f0349537ad8bb98b9fc953725dea2872fce21dc552da4a",
+          "valid_from_us": 103900,
+          "expires_us": 108100,
+          "ingested_us": 103900,
+          "model_revision": "rev-2026-10",
+          "tokenizer_revision": "tok-2026-10",
+          "quantization": "fp8",
+          "kv_schema": "q8",
+          "adapter": "chat",
+          "deployment_id": "p3-blue-r3"
+        },
+        {
+          "lease_id": "new-blue",
+          "resource": "p3",
+          "layout": "q8",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "session_id": "cache-blue",
+          "producer": "kv-cache-a",
+          "generation": 3,
+          "page_hash": "44429fe6ef46efdfb4f0349537ad8bb98b9fc953725dea2872fce21dc552da4a",
+          "valid_from_us": 105000,
+          "expires_us": 108100,
+          "ingested_us": 105000,
+          "model_revision": "rev-2026-10",
+          "tokenizer_revision": "tok-2026-10",
+          "quantization": "fp8",
+          "kv_schema": "q8",
+          "adapter": "chat",
+          "deployment_id": "p3-blue-r3"
+        },
+        {
+          "lease_id": "cache-export-73",
+          "resource": "p3",
+          "layout": "q8",
+          "page_index": 1,
+          "tokens": "甲甲甲甲",
+          "session_id": "cache-blue",
+          "producer": "kv-cache-a",
+          "generation": 3,
+          "page_hash": "2e33a7a3f3661abe375771a6096f6d6a0bf09c8602a9968d4f9a9bc418e4423c",
+          "valid_from_us": 105000,
+          "expires_us": 108100,
+          "ingested_us": 105000,
+          "model_revision": "rev-2026-10",
+          "tokenizer_revision": "tok-2026-07",
+          "quantization": "fp8",
+          "kv_schema": "q8",
+          "adapter": "chat",
+          "deployment_id": "p3-blue-r3"
+        },
+        {
+          "lease_id": "new-blue",
+          "resource": "p3",
+          "layout": "q8",
+          "page_index": 0,
+          "tokens": "甲甲甲甲",
+          "session_id": "cache-blue",
+          "producer": "kv-cache-a",
+          "generation": 3,
+          "page_hash": "44429fe6ef46efdfb4f0349537ad8bb98b9fc953725dea2872fce21dc552da4a",
+          "valid_from_us": 105000,
+          "expires_us": 108100,
+          "ingested_us": 105510,
+          "model_revision": "rev-2026-10",
+          "tokenizer_revision": "tok-2026-10",
+          "quantization": "fp8",
+          "kv_schema": "q8",
+          "adapter": "chat",
+          "deployment_id": "p3-blue-r3",
+          "revoked_us": 105505
+        }
+      ]
     }
   ],
   "observations": [
@@ -3982,10 +4187,15 @@
     105290,
     105340,
     105500,
+    105520,
+    105620,
+    105690,
     105720,
+    105740,
     105820,
     105860,
     105890,
+    105900,
     105940,
     105960,
     106030,
