@@ -3539,7 +3539,7 @@
           "deployment_id": "p3-blue-r2"
         },
         {
-          "lease_id": "stale-generation",
+          "lease_id": "cache-export-61",
           "resource": "p3",
           "layout": "q8",
           "page_index": 0,
@@ -3584,7 +3584,7 @@
           "deployment_id": "p3-blue-r2"
         },
         {
-          "lease_id": "stale-generation",
+          "lease_id": "cache-export-61",
           "resource": "p3",
           "layout": "q8",
           "page_index": 0,
@@ -3624,7 +3624,7 @@
           "deployment_id": "p3-blue-r3"
         },
         {
-          "lease_id": "wrong-tokenizer",
+          "lease_id": "cache-export-73",
           "resource": "p3",
           "layout": "q8",
           "page_index": 1,
@@ -3637,7 +3637,7 @@
           "expires_us": 108100,
           "ingested_us": 105000,
           "model_revision": "rev-2026-10",
-          "tokenizer_revision": "tok-wrong",
+          "tokenizer_revision": "tok-2026-07",
           "quantization": "fp8",
           "kv_schema": "q8",
           "adapter": "chat",
