@@ -10,6 +10,10 @@
       "as_of_us": 100700
     },
     {
+      "name": "staged",
+      "as_of_us": 104085
+    },
+    {
       "name": "rotated",
       "as_of_us": 104100
     },
@@ -23,7 +27,7 @@
       "id": "p00",
       "at_us": 103900,
       "prefill_us": 103950,
-      "transfer_us": 104115,
+      "transfer_us": 104088,
       "decode_frames": [
         {
           "at_us": 104130,
@@ -1944,7 +1948,7 @@
         },
         {
           "at_us": 134313,
-          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"begin\", \"position\": 2, \"kv_table\": [{\"position\": 22, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 1}, {\"position\": 3, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 0}, {\"position\": 13, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 0}, {\"position\": 7, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 0}, {\"position\": 8, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 1}, {\"position\": 0, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 0}], \"query_positions\": {\"0\": 10, \"1\": 14}, \"proposal\": [6], \"uniforms\": [0.0, 0.53], \"request_id\": \"p16\"}\r\n\r\n"
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"begin\", \"position\": 2, \"kv_table\": [{\"position\": 22, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 1}, {\"position\": 3, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 0}, {\"position\": 13, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 0}, {\"position\": 7, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 0}, {\"position\": 8, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 1}, {\"position\": 0, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 0}, {\"position\": 1, \"page_id\": \"page-0\", \"version\": 1, \"slot\": 1}], \"query_positions\": {\"0\": 10, \"1\": 14}, \"proposal\": [6], \"uniforms\": [0.0, 0.53], \"request_id\": \"p16\"}\r\n\r\n"
         },
         {
           "at_us": 134332,
@@ -1952,18 +1956,22 @@
         },
         {
           "at_us": 134351,
-          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 1, \"node_ids\": [0, 1], \"target\": [[[100, 110, 133, 141], [120, 143, 100, 148]], [[126, 125, 146, 114], [136, 139, 111, 139]]], \"draft_node_ids\": [0], \"draft\": [[[139, 144, 149, 148], [129, 125, 103, 117]]], \"request_id\": \"p16\"}\r\n\r\n"
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 1, \"base_version\": 0, \"k\": \"2b3fcf1176886e2d\", \"v\": \"20d6f5a810867b23\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_scale\": [0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p16\"}\r\n\r\n"
         },
         {
           "at_us": 134370,
-          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 0, \"node_ids\": [1, 0], \"target\": [[[139, 129, 135, 110], [143, 117, 113, 122]], [[131, 133, 124, 126], [124, 106, 149, 126]]], \"draft_node_ids\": [0], \"draft\": [[[147, 145, 145, 132], [104, 136, 125, 125]]], \"request_id\": \"p16\"}\n\n"
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 1, \"node_ids\": [0, 1], \"target\": [[[100, 110, 133, 141], [120, 143, 100, 148]], [[126, 125, 146, 114], [136, 139, 111, 139]]], \"draft_node_ids\": [0], \"draft\": [[[139, 144, 149, 148], [129, 125, 103, 117]]], \"request_id\": \"p16\"}\n\n"
         },
         {
           "at_us": 134389,
-          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"commit\", \"request_id\": \"p16\"}\r\n\r\n"
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 0, \"node_ids\": [1, 0], \"target\": [[[139, 129, 135, 110], [143, 117, 113, 122]], [[131, 133, 124, 126], [124, 106, 149, 126]]], \"draft_node_ids\": [0], \"draft\": [[[147, 145, 145, 132], [104, 136, 125, 125]]], \"request_id\": \"p16\"}\r\n\r\n"
         },
         {
           "at_us": 134408,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"commit\", \"request_id\": \"p16\"}\n\n"
+        },
+        {
+          "at_us": 134427,
           "wire": "data: [DONE]\n\n"
         }
       ],
@@ -4066,7 +4074,7 @@
         },
         {
           "at_us": 166713,
-          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"begin\", \"position\": 2, \"kv_table\": [{\"position\": 0, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 0}, {\"position\": 8, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 1}, {\"position\": 13, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 0}, {\"position\": 22, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 1}, {\"position\": 7, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 0}, {\"position\": 3, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 1}], \"query_positions\": {\"0\": 10, \"1\": 14}, \"proposal\": [0], \"uniforms\": [0.0, 0.53], \"request_id\": \"p34\"}\r\n\r\n"
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"begin\", \"position\": 2, \"kv_table\": [{\"position\": 0, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 0}, {\"position\": 8, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 1}, {\"position\": 13, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 0}, {\"position\": 22, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 1}, {\"position\": 7, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 0}, {\"position\": 3, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 1}], \"query_positions\": {\"0\": 10, \"1\": 14}, \"proposal\": [1], \"uniforms\": [0.0, 0.53], \"request_id\": \"p34\"}\r\n\r\n"
         },
         {
           "at_us": 166732,
@@ -4074,7 +4082,7 @@
         },
         {
           "at_us": 166751,
-          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 1, \"node_ids\": [1, 0], \"target\": [[[true, 101, 141, 104], [105, 131, 103, 113]], [[115, 128, 128, 119], [117, 147, 146, 141]]], \"draft_node_ids\": [0], \"draft\": [[[106, 109, 133, 116], [129, 131, 144, 136]]], \"request_id\": \"p34\"}\r\n\r\n"
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 1, \"node_ids\": [1, 0], \"target\": [[[138, 101, 141, 104], [105, 131, 103, 113]], [[115, 128, 128, 119], [117, 147, 146, 141]]], \"draft_node_ids\": [0], \"draft\": [[[106, 109, 133, 116], [129, 131, 144, 136]]], \"request_id\": \"p34\"}\r\n\r\n"
         },
         {
           "at_us": 166770,
@@ -4106,7 +4114,7 @@
         "kv_schema": "q8",
         "temperature": 0.9,
         "top_p": 1,
-        "top_k": 0,
+        "top_k": 1,
         "logit_bias": {
           "2": -100,
           "3": -100,
@@ -5074,6 +5082,122 @@
       }
     },
     {
+      "id": "p-staged",
+      "at_us": 104091,
+      "prefill_us": 104141,
+      "transfer_us": 104191,
+      "decode_frames": [
+        {
+          "at_us": 104271,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"kv_table\": [{\"position\": 0, \"page_id\": \"page-0\", \"version\": 1, \"slot\": 0}, {\"position\": 8, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 1}, {\"position\": 3, \"page_id\": \"page-0\", \"version\": 1, \"slot\": 1}, {\"position\": 22, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 1}, {\"position\": 13, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 0}, {\"position\": 7, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 0}], \"query_positions\": {\"0\": 8, \"1\": 12}, \"proposal\": [1], \"uniforms\": [0.0, 0.53], \"request_id\": \"p-staged\"}\n\n"
+        },
+        {
+          "at_us": 104290,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-2\", \"version\": 1, \"base_version\": 0, \"k\": \"dcc3181edebee4b0\", \"v\": \"c219fc9a2abfe641\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-staged\"}\r\n\r\n"
+        },
+        {
+          "at_us": 104309,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-1\", \"version\": 1, \"base_version\": 0, \"k\": \"ed807074d8a79465\", \"v\": \"d14835bb4e16c8e8\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.26, 0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2, 0.23], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-staged\"}\n\n"
+        },
+        {
+          "at_us": 104328,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 1, \"base_version\": 0, \"k\": \"ab8b600577524bba\", \"v\": \"ba4766bc8d246796\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-staged\"}\r\n\r\n"
+        },
+        {
+          "at_us": 104347,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"query\", \"rank\": 1, \"node_ids\": [1, 0], \"target\": [[[112, 148, 122, 133], [125, 134, 116, 127]], [[104, 109, 113, 115], [118, 113, 129, 149]]], \"draft_node_ids\": [0], \"draft\": [[[126, 145, 106, 119], [133, 126, 115, 127]]], \"request_id\": \"p-staged\"}\n\n"
+        },
+        {
+          "at_us": 104366,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"query\", \"rank\": 0, \"node_ids\": [1, 0], \"target\": [[[100, 100, 134, 146], [111, 114, 115, 111]], [[105, 135, 109, 123], [144, 138, 122, 121]]], \"draft_node_ids\": [0], \"draft\": [[[123, 143, 121, 139], [108, 115, 133, 135]]], \"request_id\": \"p-staged\"}\r\n\r\n"
+        },
+        {
+          "at_us": 104385,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"commit\", \"request_id\": \"p-staged\"}\n\n"
+        },
+        {
+          "at_us": 104404,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"begin\", \"position\": 2, \"kv_table\": [{\"position\": 8, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 1}, {\"position\": 13, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 0}, {\"position\": 3, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 1}, {\"position\": 0, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 0}, {\"position\": 7, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 0}, {\"position\": 22, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 1}], \"query_positions\": {\"0\": 10, \"1\": 14}, \"proposal\": [6], \"uniforms\": [0.0, 0.53], \"request_id\": \"p-staged\"}\r\n\r\n"
+        },
+        {
+          "at_us": 104423,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 2, \"base_version\": 1, \"patches\": [{\"tensor\": \"v\", \"index\": 3, \"value\": 6}, {\"tensor\": \"k\", \"index\": 2, \"value\": 9}], \"request_id\": \"p-staged\"}\n\n"
+        },
+        {
+          "at_us": 104442,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 1, \"node_ids\": [1, 0], \"target\": [[[104, 145, 110, 119], [121, 123, 115, 136]], [[147, 131, 125, 126], [126, 142, 104, 117]]], \"draft_node_ids\": [0], \"draft\": [[[144, 147, 100, 146], [140, 101, 112, 145]]], \"request_id\": \"p-staged\"}\r\n\r\n"
+        },
+        {
+          "at_us": 104461,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 0, \"node_ids\": [0, 1], \"target\": [[[139, 127, 126, 145], [139, 101, 131, 147]], [[143, 127, 139, 109], [107, 132, 126, 118]]], \"draft_node_ids\": [0], \"draft\": [[[117, 144, 104, 137], [100, 147, 132, 130]]], \"request_id\": \"p-staged\"}\n\n"
+        },
+        {
+          "at_us": 104480,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"commit\", \"request_id\": \"p-staged\"}\r\n\r\n"
+        },
+        {
+          "at_us": 104499,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 107091,
+        "stream": true,
+        "tenant": "default",
+        "priority": 0,
+        "decode_mode": "speculative",
+        "decode_kernel": "paged-gqa",
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "temperature": 0.9,
+        "top_p": 1,
+        "top_k": 0,
+        "logit_bias": {
+          "2": -100,
+          "3": -100,
+          "4": -100,
+          "7": -100
+        }
+      },
+      "timing": {
+        "prefill": {
+          "sample": "p-staged-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "p-staged-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "p-staged-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
       "id": "p-held",
       "at_us": 195000,
       "prefill_us": 195050,
@@ -5420,9 +5544,494 @@
           "kv_schema": "q8"
         }
       }
+    },
+    {
+      "id": "p-coupled-held",
+      "at_us": 204000,
+      "prefill_us": 204050,
+      "transfer_us": 204100,
+      "decode_frames": [
+        {
+          "at_us": 204180,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"kv_table\": [{\"position\": 22, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 1}, {\"position\": 13, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 0}, {\"position\": 3, \"page_id\": \"page-0\", \"version\": 1, \"slot\": 0}, {\"position\": 8, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 1}, {\"position\": 7, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 0}, {\"position\": 0, \"page_id\": \"page-0\", \"version\": 1, \"slot\": 0}], \"query_positions\": {\"0\": 8, \"1\": 12}, \"proposal\": [6], \"uniforms\": [0.0, 0.53], \"request_id\": \"p-coupled-held\"}\n\n"
+        },
+        {
+          "at_us": 204240,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-2\", \"version\": 1, \"base_version\": 0, \"k\": \"2179c0a99ca02c2c\", \"v\": \"445a89eea060eee1\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-held\"}\n\n"
+        },
+        {
+          "at_us": 204300,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-1\", \"version\": 1, \"base_version\": 0, \"k\": \"09028cca94a95679\", \"v\": \"11770501ee80f00f\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.2, 0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-held\"}\n\n"
+        },
+        {
+          "at_us": 204360,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 1, \"base_version\": 0, \"k\": \"19c8a35ef1589d86\", \"v\": \"3cf931d1d6b09eeb\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-held\"}\n\n"
+        },
+        {
+          "at_us": 204420,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"query\", \"rank\": 1, \"node_ids\": [0, 1], \"target\": [[[102, 137, 142, 144], [126, 112, 122, 144]], [[101, 119, 128, 142], [145, 129, 123, 147]]], \"draft_node_ids\": [0], \"draft\": [[[115, 122, 127, 131], [119, 111, 104, 135]]], \"request_id\": \"p-coupled-held\"}\n\n"
+        },
+        {
+          "at_us": 204480,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"query\", \"rank\": 0, \"node_ids\": [1, 0], \"target\": [[[146, 111, 133, 149], [146, 148, 128, 131]], [[102, 111, 117, 118], [127, 117, 142, 113]]], \"draft_node_ids\": [0], \"draft\": [[[106, 124, 130, 119], [106, 137, 148, 102]]], \"request_id\": \"p-coupled-held\"}\n\n"
+        },
+        {
+          "at_us": 204940,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"commit\", \"request_id\": \"p-coupled-held\"}\n\n"
+        },
+        {
+          "at_us": 205000,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"begin\", \"position\": 2, \"kv_table\": [{\"position\": 1, \"page_id\": \"page-0\", \"version\": 1, \"slot\": 1}, {\"position\": 8, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 1}, {\"position\": 22, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 1}, {\"position\": 3, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 0}, {\"position\": 7, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 0}, {\"position\": 13, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 0}, {\"position\": 0, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 0}], \"query_positions\": {\"0\": 10, \"1\": 14}, \"proposal\": [0], \"uniforms\": [0.0, 0.53], \"request_id\": \"p-coupled-held\"}\n\n"
+        },
+        {
+          "at_us": 205060,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 2, \"base_version\": 1, \"patches\": [{\"tensor\": \"v\", \"index\": 3, \"value\": 8}, {\"tensor\": \"k\", \"index\": 2, \"value\": 11}], \"request_id\": \"p-coupled-held\"}\n\n"
+        },
+        {
+          "at_us": 205120,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 1, \"base_version\": 0, \"k\": \"19c8a35ef1589d86\", \"v\": \"3cf931d1d6b09eeb\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_scale\": [0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-held\"}\n\n"
+        },
+        {
+          "at_us": 205180,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 1, \"node_ids\": [1, 0], \"target\": [[[131, 139, 106, 100], [113, 125, 131, 117]], [[117, 149, 131, 111], [118, 100, 138, 147]]], \"draft_node_ids\": [0], \"draft\": [[[124, 106, 128, 136], [109, 115, 112, 107]]], \"request_id\": \"p-coupled-held\"}\n\n"
+        },
+        {
+          "at_us": 205240,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 0, \"node_ids\": [0, 1], \"target\": [[[114, 141, 142, 138], [132, 130, 100, 139]], [[115, 130, 112, 126], [148, 112, 113, 106]]], \"draft_node_ids\": [0], \"draft\": [[[143, 102, 131, 114], [141, 148, 128, 106]]], \"request_id\": \"p-coupled-held\"}\n\n"
+        },
+        {
+          "at_us": 205300,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r3\", \"generation\": 3, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"commit\", \"request_id\": \"p-coupled-held\"}\n\n"
+        },
+        {
+          "at_us": 205360,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 210000,
+        "stream": true,
+        "tenant": "gold",
+        "priority": 0,
+        "decode_mode": "speculative",
+        "decode_kernel": "paged-gqa",
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "temperature": 0.9,
+        "top_p": 1,
+        "top_k": 0,
+        "logit_bias": {
+          "2": -100,
+          "3": -100,
+          "4": -100,
+          "7": -100
+        }
+      },
+      "timing": {
+        "prefill": {
+          "sample": "p-coupled-held-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "p-coupled-held-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "p-coupled-held-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r3",
+          "generation": 3,
+          "kv_schema": "q8"
+        }
+      },
+      "cancel_us": 205095
+    },
+    {
+      "id": "p-coupled-probe-0",
+      "at_us": 204500,
+      "prefill_us": 204550,
+      "transfer_us": 204600,
+      "decode_frames": [
+        {
+          "at_us": 204680,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"kv_table\": [{\"position\": 3, \"page_id\": \"page-0\", \"version\": 1, \"slot\": 1}, {\"position\": 22, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 1}, {\"position\": 0, \"page_id\": \"page-0\", \"version\": 1, \"slot\": 0}, {\"position\": 7, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 0}, {\"position\": 8, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 1}, {\"position\": 13, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 0}], \"query_positions\": {\"0\": 8, \"1\": 12}, \"proposal\": [6], \"uniforms\": [0.0, 0.53], \"request_id\": \"p-coupled-probe-0\"}\n\n"
+        },
+        {
+          "at_us": 204699,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-2\", \"version\": 1, \"base_version\": 0, \"k\": \"b64633dc888a4c9a\", \"v\": \"df47e5edaad16070\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-probe-0\"}\n\n"
+        },
+        {
+          "at_us": 204718,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-1\", \"version\": 1, \"base_version\": 0, \"k\": \"3b675f17783fd9cf\", \"v\": \"9079038065f30aab\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.2, 0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-probe-0\"}\n\n"
+        },
+        {
+          "at_us": 204737,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 1, \"base_version\": 0, \"k\": \"f8739dd0f1ec0de3\", \"v\": \"3ab1bc351d1d287f\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-probe-0\"}\n\n"
+        },
+        {
+          "at_us": 204756,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"query\", \"rank\": 1, \"node_ids\": [0, 1], \"target\": [[[145, 124, 135, 141], [106, 135, 147, 133]], [[110, 142, 138, 135], [149, 103, 127, 137]]], \"draft_node_ids\": [0], \"draft\": [[[102, 126, 105, 145], [116, 115, 136, 137]]], \"request_id\": \"p-coupled-probe-0\"}\n\n"
+        },
+        {
+          "at_us": 204775,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"query\", \"rank\": 0, \"node_ids\": [0, 1], \"target\": [[[126, 126, 100, 130], [103, 133, 134, 146]], [[129, 124, 101, 138], [126, 128, 144, 135]]], \"draft_node_ids\": [0], \"draft\": [[[144, 106, 107, 133], [141, 120, 123, 102]]], \"request_id\": \"p-coupled-probe-0\"}\n\n"
+        },
+        {
+          "at_us": 204794,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"commit\", \"request_id\": \"p-coupled-probe-0\"}\n\n"
+        },
+        {
+          "at_us": 204813,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"begin\", \"position\": 2, \"kv_table\": [{\"position\": 7, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 0}, {\"position\": 3, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 1}, {\"position\": 0, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 0}, {\"position\": 8, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 1}, {\"position\": 13, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 0}, {\"position\": 22, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 1}], \"query_positions\": {\"0\": 10, \"1\": 14}, \"proposal\": [5], \"uniforms\": [0.0, 0.53], \"request_id\": \"p-coupled-probe-0\"}\n\n"
+        },
+        {
+          "at_us": 204832,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 2, \"base_version\": 0, \"k\": \"f8739dd0f1ec0de3\", \"v\": \"3ab4bc351d1d287f\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_scale\": [0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-probe-0\"}\n\n"
+        },
+        {
+          "at_us": 204851,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 2, \"base_version\": 1, \"patches\": [{\"tensor\": \"k\", \"index\": 2, \"value\": 7}, {\"tensor\": \"v\", \"index\": 3, \"value\": 4}, {\"tensor\": \"k\", \"index\": 2, \"value\": 7}], \"request_id\": \"p-coupled-probe-0\"}\n\n"
+        },
+        {
+          "at_us": 204870,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 1, \"node_ids\": [1, 0], \"target\": [[[130, 144, 121, 110], [142, 146, 102, 100]], [[146, 143, 137, 143], [114, 116, 113, 139]]], \"draft_node_ids\": [0], \"draft\": [[[149, 144, 149, 100], [109, 123, 129, 119]]], \"request_id\": \"p-coupled-probe-0\"}\n\n"
+        },
+        {
+          "at_us": 204889,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 0, \"node_ids\": [1, 0], \"target\": [[[104, 148, 105, 119], [106, 105, 103, 102]], [[127, 135, 124, 120], [108, 110, 144, 113]]], \"draft_node_ids\": [0], \"draft\": [[[114, 140, 108, 119], [149, 136, 133, 105]]], \"request_id\": \"p-coupled-probe-0\"}\n\n"
+        },
+        {
+          "at_us": 204908,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"commit\", \"request_id\": \"p-coupled-probe-0\"}\n\n"
+        },
+        {
+          "at_us": 204927,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 207500,
+        "stream": true,
+        "tenant": "gold",
+        "priority": 0,
+        "decode_mode": "speculative",
+        "decode_kernel": "paged-gqa",
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "temperature": 0.9,
+        "top_p": 1,
+        "top_k": 0,
+        "logit_bias": {
+          "2": -100,
+          "3": -100,
+          "4": -100,
+          "7": -100
+        }
+      },
+      "timing": {
+        "prefill": {
+          "sample": "p-coupled-probe-0-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "p-coupled-probe-0-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "p-coupled-probe-0-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "p-coupled-probe-1",
+      "at_us": 205070,
+      "prefill_us": 205120,
+      "transfer_us": 205170,
+      "decode_frames": [
+        {
+          "at_us": 205250,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"kv_table\": [{\"position\": 3, \"page_id\": \"page-0\", \"version\": 1, \"slot\": 1}, {\"position\": 13, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 0}, {\"position\": 7, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 0}, {\"position\": 0, \"page_id\": \"page-0\", \"version\": 1, \"slot\": 0}, {\"position\": 8, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 1}, {\"position\": 22, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 1}], \"query_positions\": {\"0\": 8, \"1\": 12}, \"proposal\": [6], \"uniforms\": [0.0, 0.53], \"request_id\": \"p-coupled-probe-1\"}\n\n"
+        },
+        {
+          "at_us": 205269,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-2\", \"version\": 1, \"base_version\": 0, \"k\": \"927d7c84c5ac982e\", \"v\": \"b875f0be29897be5\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.26, 0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2, 0.23], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-probe-1\"}\n\n"
+        },
+        {
+          "at_us": 205288,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-1\", \"version\": 1, \"base_version\": 0, \"k\": \"9bfae7e37a1373f7\", \"v\": \"af8c9911d0c1ccb1\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-probe-1\"}\n\n"
+        },
+        {
+          "at_us": 205307,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 1, \"base_version\": 0, \"k\": \"d2401e0e9bfe0a17\", \"v\": \"aec442259364be88\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.2, 0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-probe-1\"}\n\n"
+        },
+        {
+          "at_us": 205326,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"query\", \"rank\": 1, \"node_ids\": [1, 0], \"target\": [[[104, 105, 110, 118], [106, 143, 113, 145]], [[108, 123, 129, 116], [117, 124, 145, 121]]], \"draft_node_ids\": [0], \"draft\": [[[130, 135, 140, 131], [113, 110, 129, 115]]], \"request_id\": \"p-coupled-probe-1\"}\n\n"
+        },
+        {
+          "at_us": 205345,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"query\", \"rank\": 0, \"node_ids\": [1, 0], \"target\": [[[139, 132, 102, 128], [149, 100, 129, 119]], [[148, 137, 140, 123], [131, 129, 101, 121]]], \"draft_node_ids\": [0], \"draft\": [[[102, 114, 139, 133], [120, 129, 125, 109]]], \"request_id\": \"p-coupled-probe-1\"}\n\n"
+        },
+        {
+          "at_us": 205364,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"commit\", \"request_id\": \"p-coupled-probe-1\"}\n\n"
+        },
+        {
+          "at_us": 205383,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"begin\", \"position\": 2, \"kv_table\": [{\"position\": 8, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 1}, {\"position\": 22, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 1}, {\"position\": 7, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 0}, {\"position\": 3, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 1}, {\"position\": 13, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 0}, {\"position\": 0, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 0}], \"query_positions\": {\"0\": 10, \"1\": 14}, \"proposal\": [6], \"uniforms\": [0.0, 0.53], \"request_id\": \"p-coupled-probe-1\"}\n\n"
+        },
+        {
+          "at_us": 205402,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 2, \"base_version\": 0, \"k\": \"d2801e0e9bfe0a17\", \"v\": \"aec542259364be88\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_scale\": [0.2, 0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-probe-1\"}\n\n"
+        },
+        {
+          "at_us": 205421,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 2, \"base_version\": 1, \"patches\": [{\"tensor\": \"k\", \"index\": 2, \"value\": 8}, {\"tensor\": \"v\", \"index\": 3, \"value\": 5}, {\"tensor\": \"k\", \"index\": 2, \"value\": 8}], \"request_id\": \"p-coupled-probe-1\"}\n\n"
+        },
+        {
+          "at_us": 205440,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 1, \"node_ids\": [0, 1], \"target\": [[[133, 109, 142, 136], [120, 148, 110, 139]], [[123, 128, 146, 131], [142, 126, 107, 128]]], \"draft_node_ids\": [0], \"draft\": [[[106, 147, 107, 106], [118, 148, 132, 148]]], \"request_id\": \"p-coupled-probe-1\"}\n\n"
+        },
+        {
+          "at_us": 205459,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 0, \"node_ids\": [0, 1], \"target\": [[[108, 117, 129, 144], [118, 122, 115, 128]], [[106, 130, 134, 106], [119, 133, 127, 110]]], \"draft_node_ids\": [0], \"draft\": [[[103, 135, 101, 134], [107, 115, 107, 117]]], \"request_id\": \"p-coupled-probe-1\"}\n\n"
+        },
+        {
+          "at_us": 205478,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"commit\", \"request_id\": \"p-coupled-probe-1\"}\n\n"
+        },
+        {
+          "at_us": 205497,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 208070,
+        "stream": true,
+        "tenant": "gold",
+        "priority": 0,
+        "decode_mode": "speculative",
+        "decode_kernel": "paged-gqa",
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "temperature": 0.9,
+        "top_p": 1,
+        "top_k": 0,
+        "logit_bias": {
+          "2": -100,
+          "3": -100,
+          "4": -100,
+          "7": -100
+        }
+      },
+      "timing": {
+        "prefill": {
+          "sample": "p-coupled-probe-1-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "p-coupled-probe-1-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "p-coupled-probe-1-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        }
+      }
+    },
+    {
+      "id": "p-coupled-probe-2",
+      "at_us": 205165,
+      "prefill_us": 205215,
+      "transfer_us": 205265,
+      "decode_frames": [
+        {
+          "at_us": 205345,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"begin\", \"position\": 0, \"kv_table\": [{\"position\": 8, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 1}, {\"position\": 7, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 0}, {\"position\": 13, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 0}, {\"position\": 3, \"page_id\": \"page-0\", \"version\": 1, \"slot\": 1}, {\"position\": 0, \"page_id\": \"page-0\", \"version\": 1, \"slot\": 0}, {\"position\": 22, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 1}], \"query_positions\": {\"0\": 8, \"1\": 12}, \"proposal\": [6], \"uniforms\": [0.0, 0.53], \"request_id\": \"p-coupled-probe-2\"}\n\n"
+        },
+        {
+          "at_us": 205364,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-2\", \"version\": 1, \"base_version\": 0, \"k\": \"cdeff610f4ea41c3\", \"v\": \"4278db876a208fc0\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-probe-2\"}\n\n"
+        },
+        {
+          "at_us": 205383,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-1\", \"version\": 1, \"base_version\": 0, \"k\": \"16d8933244d1baab\", \"v\": \"4ce9ebafb2dcbde8\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.26, 0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2, 0.23], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-probe-2\"}\n\n"
+        },
+        {
+          "at_us": 205402,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 1, \"base_version\": 0, \"k\": \"1566d350e4f73171\", \"v\": \"6d76126abafc1f62\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"v_scale\": [0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-probe-2\"}\n\n"
+        },
+        {
+          "at_us": 205421,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"query\", \"rank\": 1, \"node_ids\": [1, 0], \"target\": [[[120, 123, 139, 121], [130, 125, 102, 131]], [[112, 104, 103, 122], [107, 149, 142, 139]]], \"draft_node_ids\": [0], \"draft\": [[[122, 127, 128, 139], [145, 125, 114, 141]]], \"request_id\": \"p-coupled-probe-2\"}\n\n"
+        },
+        {
+          "at_us": 205440,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"query\", \"rank\": 0, \"node_ids\": [0, 1], \"target\": [[[106, 110, 100, 129], [108, 131, 114, 106]], [[139, 146, 103, 115], [102, 113, 127, 114]]], \"draft_node_ids\": [0], \"draft\": [[[112, 148, 149, 149], [103, 149, 105, 143]]], \"request_id\": \"p-coupled-probe-2\"}\n\n"
+        },
+        {
+          "at_us": 205459,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 0, \"kind\": \"commit\", \"request_id\": \"p-coupled-probe-2\"}\n\n"
+        },
+        {
+          "at_us": 205478,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"begin\", \"position\": 2, \"kv_table\": [{\"position\": 7, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 0}, {\"position\": 0, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 0}, {\"position\": 3, \"page_id\": \"page-0\", \"version\": 2, \"slot\": 1}, {\"position\": 8, \"page_id\": \"page-1\", \"version\": 1, \"slot\": 1}, {\"position\": 22, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 1}, {\"position\": 13, \"page_id\": \"page-2\", \"version\": 1, \"slot\": 0}], \"query_positions\": {\"0\": 10, \"1\": 14}, \"proposal\": [0], \"uniforms\": [0.0, 0.53], \"request_id\": \"p-coupled-probe-2\"}\n\n"
+        },
+        {
+          "at_us": 205497,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 2, \"base_version\": 0, \"k\": \"1596d350e4f73171\", \"v\": \"6d76126abafc1f62\", \"k_scale\": [0.1, 0.125, 0.15000000000000002, 0.1, 0.125, 0.15000000000000002, 0.1, 0.125], \"k_zero\": [6, 7, 8, 6, 7, 8, 6, 7], \"v_scale\": [0.23, 0.26, 0.29000000000000004, 0.2, 0.23, 0.26, 0.29000000000000004, 0.2], \"v_zero\": [7, 8, 7, 8, 7, 8, 7, 8], \"request_id\": \"p-coupled-probe-2\"}\n\n"
+        },
+        {
+          "at_us": 205516,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"page\", \"page_id\": \"page-0\", \"version\": 2, \"base_version\": 1, \"patches\": [{\"tensor\": \"k\", \"index\": 2, \"value\": 9}, {\"tensor\": \"v\", \"index\": 3, \"value\": 6}, {\"tensor\": \"k\", \"index\": 2, \"value\": 9}], \"request_id\": \"p-coupled-probe-2\"}\n\n"
+        },
+        {
+          "at_us": 205535,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 1, \"node_ids\": [0, 1], \"target\": [[[107, 117, 134, 134], [127, 133, 120, 148]], [[139, 112, 135, 107], [117, 110, 135, 141]]], \"draft_node_ids\": [0], \"draft\": [[[147, 115, 145, 149], [129, 122, 120, 112]]], \"request_id\": \"p-coupled-probe-2\"}\n\n"
+        },
+        {
+          "at_us": 205554,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"query\", \"rank\": 0, \"node_ids\": [0, 1], \"target\": [[[139, 112, 127, 101], [119, 105, 137, 117]], [[130, 101, 110, 126], [101, 147, 130, 144]]], \"draft_node_ids\": [0], \"draft\": [[[103, 145, 100, 135], [119, 135, 142, 100]]], \"request_id\": \"p-coupled-probe-2\"}\n\n"
+        },
+        {
+          "at_us": 205573,
+          "wire": "data: {\"deployment_id\": \"d3-blue-r2\", \"generation\": 2, \"tokenizer_revision\": \"tok-2026-10\", \"window\": 1, \"kind\": \"commit\", \"request_id\": \"p-coupled-probe-2\"}\n\n"
+        },
+        {
+          "at_us": 205592,
+          "wire": "data: [DONE]\n\n"
+        }
+      ],
+      "body": {
+        "model": "lab-model",
+        "prompt": "甲甲甲甲甲甲甲甲甲甲甲甲",
+        "max_tokens": 4,
+        "deadline_us": 208165,
+        "stream": true,
+        "tenant": "gold",
+        "priority": 0,
+        "decode_mode": "speculative",
+        "decode_kernel": "paged-gqa",
+        "model_revision": "rev-2026-10",
+        "tokenizer_revision": "tok-2026-10",
+        "quantization": "fp8",
+        "adapter": "chat",
+        "kv_schema": "q8",
+        "temperature": 0.9,
+        "top_p": 1,
+        "top_k": 0,
+        "logit_bias": {
+          "2": -100,
+          "3": -100,
+          "4": -100,
+          "7": -100
+        }
+      },
+      "timing": {
+        "prefill": {
+          "sample": "p-coupled-probe-2-prefill",
+          "service_us": 260
+        },
+        "transfer": {
+          "sample": "p-coupled-probe-2-transfer",
+          "service_us": 40
+        },
+        "decode": {
+          "sample": "p-coupled-probe-2-decode",
+          "service_us": 55
+        }
+      },
+      "backend_deployments": {
+        "p3": {
+          "deployment_id": "p3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "l33": {
+          "deployment_id": "l33-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        },
+        "d3": {
+          "deployment_id": "d3-blue-r2",
+          "generation": 2,
+          "kv_schema": "q8"
+        }
+      }
     }
   ],
   "reloads": [
+    {
+      "at_us": 104090,
+      "build": "staged"
+    },
     {
       "at_us": 104100,
       "build": "rotated"
@@ -5447,6 +6056,14 @@
           1
         ]
       }
+    },
+    {
+      "at_us": 204075,
+      "build": "initial"
+    },
+    {
+      "at_us": 208000,
+      "build": "grammar"
     }
   ],
   "observations": [],
@@ -5455,21 +6072,38 @@
     103800,
     103900,
     103950,
+    104088,
+    104090,
+    104091,
     104100,
-    104115,
     104130,
+    104141,
     104149,
     104168,
     104187,
+    104191,
     104206,
     104225,
     104244,
     104263,
+    104271,
     104282,
+    104290,
     104301,
+    104309,
     104320,
+    104328,
     104339,
+    104347,
     104358,
+    104366,
+    104385,
+    104404,
+    104423,
+    104442,
+    104461,
+    104480,
+    104499,
     106100,
     107000,
     107050,
@@ -5732,6 +6366,7 @@
     134370,
     134389,
     134408,
+    134427,
     135800,
     135850,
     135900,
@@ -6218,6 +6853,67 @@
     196877,
     196896,
     203000,
+    204000,
+    204050,
+    204075,
+    204100,
+    204180,
+    204240,
+    204300,
+    204360,
+    204420,
+    204480,
+    204500,
+    204550,
+    204600,
+    204680,
+    204699,
+    204718,
+    204737,
+    204756,
+    204775,
+    204794,
+    204813,
+    204832,
+    204851,
+    204870,
+    204889,
+    204908,
+    204927,
+    204940,
+    205000,
+    205060,
+    205070,
+    205095,
+    205120,
+    205165,
+    205170,
+    205180,
+    205215,
+    205240,
+    205250,
+    205265,
+    205269,
+    205288,
+    205300,
+    205307,
+    205326,
+    205345,
+    205360,
+    205364,
+    205383,
+    205402,
+    205421,
+    205440,
+    205459,
+    205478,
+    205497,
+    205516,
+    205535,
+    205554,
+    205573,
+    205592,
+    208000,
     219000
   ]
 }

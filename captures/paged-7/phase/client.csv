@@ -18,11 +18,11 @@ p2,s23-160,0,prefill,q16,steady,ok,phase/2,109,12,4,甲甲甲甲甲甲甲甲甲�
 d3,s23-065,0,decode,q8,steady,ok,phase/2,33,12,0,甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-065,baseline,100650,d3-blue-r2,rev-2026-10,tok-2026-10,fp8,q8,chat
 l21,s23-099,0,link,q16,steady,ok,phase/1,0.015,0,0,,trace-s23-099,baseline,90000,l21-stable-r1,rev-2026-09,tok-2026-08,int8,q16,base
 l33,s23-129,0,link,q8,steady,ok,phase/1,0.017,48,0,甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-129,recent,90000,l33-blue-r2,rev-2026-10,tok-2026-10,fp8,q8,chat
-p3,s23-032-roll,0,prefill,q8,steady,ok,phase/2,116,36,0,甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-032-roll,baseline,104050,p3-blue-r3,rev-2026-10,tok-2026-10,fp8,q8,chat
+p3,s23-031-roll,1,prefill,q8,steady,ok,phase/2,116,36,0,甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-032-roll,baseline,104050,p3-blue-r3,rev-2026-10,tok-2026-10,fp8,q8,chat
 l22,s23-113,0,link,q16,steady,ok,phase/2,35,48,0,甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-113,baseline,90000,l22-stable-r1,rev-2026-09,tok-2026-08,int8,q16,base
 l11,s23-080,0,link,q16,steady,ok,phase/2,61,144,0,甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-080,baseline,90000,l11-stable-r1,rev-2026-09,tok-2026-08,int8,q16,base
-p3,s23-029-roll,0,prefill,q8,steady,ok,phase/2,84,12,0,甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-029-roll,baseline,104050,p3-blue-r3,rev-2026-10,tok-2026-10,fp8,q8,chat
-p3,s23-032,0,prefill,q8,steady,ok,phase/2,116,36,0,甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-032,baseline,100650,p3-blue-r2,rev-2026-10,tok-2026-10,fp8,q8,chat
+p3,s23-028-roll,1,prefill,q8,steady,ok,phase/2,84,12,0,甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-029-roll,baseline,104050,p3-blue-r3,rev-2026-10,tok-2026-10,fp8,q8,chat
+p3,s23-031,1,prefill,q8,steady,ok,phase/2,116,36,0,甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-032,baseline,100650,p3-blue-r2,rev-2026-10,tok-2026-10,fp8,q8,chat
 l12,s23-091,0,link,q16,steady,ok,phase/2,42,144,0,甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-091,baseline,90000,l12-stable-r1,rev-2026-09,tok-2026-08,int8,q16,base
 d3,s23-063-roll,0,decode,q8,steady,ok,phase/1,0.025,0,0,,trace-s23-063-roll,baseline,104050,d3-blue-r3,rev-2026-10,tok-2026-10,fp8,q8,chat
 p2,s23-024,0,prefill,q16,steady,ok,phase/1,0.218,12,0,甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-024,recent,90000,p2-stable-r1,rev-2026-09,tok-2026-08,int8,q16,base
@@ -98,7 +98,7 @@ p3,s23-025,0,prefill,q8,steady,ok,phase/2,68,0,0,,trace-s23-025,baseline,100650,
 d3,s23-063,0,decode,q8,steady,ok,phase/1,0.025,0,0,,trace-s23-063,baseline,100650,d3-blue-r2,rev-2026-10,tok-2026-10,fp8,q8,chat
 d2,s23-049,0,decode,q16,steady,ok,phase/2,51,0,0,,trace-s23-049,baseline,90000,d2-stable-r1,rev-2026-09,tok-2026-08,int8,q16,base
 d3,s23-072-roll,0,decode,q8,steady,ok,phase/1,0.033,12,0,甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-072-roll,recent,104050,d3-blue-r3,rev-2026-10,tok-2026-10,fp8,q8,chat
-p3,s23-026-roll,0,prefill,q8,steady,ok,phase/2,68,0,0,,trace-s23-026-roll,baseline,104050,p3-blue-r3,rev-2026-10,tok-2026-10,fp8,q8,chat
+p3,s23-025-roll,1,prefill,q8,steady,ok,phase/2,68,0,0,,trace-s23-026-roll,baseline,104050,p3-blue-r3,rev-2026-10,tok-2026-10,fp8,q8,chat
 p1,s23-012,0,prefill,q16,steady,ok,phase/1,0.123,12,0,甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-012,recent,90000,p1-stable-r1,rev-2026-09,tok-2026-08,int8,q16,base
 l33,s23-126,0,link,q8,steady,ok,phase/1,0.033,144,0,甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-126,baseline,100650,l33-blue-r2,rev-2026-10,tok-2026-10,fp8,q8,chat
 d3,s23-070-roll,0,decode,q8,steady,ok,phase/2,33,12,0,甲甲甲甲甲甲甲甲甲甲甲甲,trace-s23-070-roll,recent,104050,d3-blue-r3,rev-2026-10,tok-2026-10,fp8,q8,chat

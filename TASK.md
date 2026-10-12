@@ -1,33 +1,32 @@
-# 修复分页量化注意力与结构化推理的跨窗口一致性
+# 修复滚动发布下分页推理的证据与运行状态偏差
 
-分离式 LLM serving 集群在混合版本上线后出现过度拒绝、KV 不兼容、token 偏离 target 分布、停止串透出和资源不释放。请修复 `/v1/completions` 生产入口，将原始证据重建、部署选择、prefill—KV transfer—decode、量化/结构化 speculative 生成与监控连成一致的执行过程。线性及树状草稿均须支持；滚动发布、取消和跨窗口生成期间的持续状态也须正确，不能只核对终态。
+分离式 LLM serving 集群在滚动上线分页后端后出现一组相互影响的故障。请调查原始采集数据与生产 `/v1/completions` 的执行，找出并修复多处问题，使离线画像、部署选择、实际生成、持续接纳和监控回放相互一致。
 
-领域为 **ML / 训练推理评测与基础设施 / Inference**，涉及推理实现、LLM serving 栈及生产监控/漂移。工程使用 Apache-2.0 的 vllm-project/production-stack，来源见 `UPSTREAM.md`。原始导出与 CPU 后端是合成故障材料，不代表 GPU 实测。
+目前掌握的现象如下，具体根因和影响范围需要结合数据与代码确定：
 
-分页后端上线后，健康预览正常但生成随导出顺序改变；旧流未结束时的后续接纳也不稳定。调查记录见 `docs/paged-incident.md`，完整背景与命令见 `docs/fabric-investigation.md`。以下七份文档**同时生效**，规定自动验收所需的接口、字段、单位和边界：
+- 测量导出包含重试、迟到和冲突记录，部分资源的样本支持数与画像成本异常；修改画像后，原来可接纳的请求又可能被拒绝。
+- 发布记录、运行时就绪记录和注册表看似都有效，但某些时点实际派发的部署与其 KV、投影资产不一致；回滚后旧流仍在生成。
+- 单个分片的数值范围正常，合并后 token 却偏离；改变页和 query 的导出次序，也可能改变结果。
+- 第二个窗口复用旧 KV 后，重传与差分页使占用记录相互矛盾；部分流已输出正确前缀，后续失败或取消却影响了新请求。
+- 新旧流共存时，服务耗时反馈、接纳结果和监控状态互相解释不通；只核对最后一帧或最终页数不能稳定复现。
 
-- `docs/fabric-measurement.md`：原始测量、生产时钟、页证据、画像与漂移。
-- `docs/fabric-deployment.md`：registry/runtime/rollout 裁决、部署换代与模型兼容性。
-- `docs/fabric-admission.md`：组合选路、资源/租户账本、缓存、健康、反馈与监控。
-- `docs/fabric-protocol.md`：三阶段转发、ACK、SSE、公开控制入口及 replay。
-- `docs/fabric-speculation.md`：量化分片、target/draft 采样、草稿提交/回滚与生成监控。
-- `docs/fabric-constraints.md`：多格式语法证据、修订父链、前缀分布、停止串与树状草稿。
-- `docs/fabric-paged-attention.md`：`paged-gqa` 张量协议、分页 KV、注意力计算、工作区与提交语义。
+工程已有各部件的实现，不需要新增一套服务。问题分布在数据处理、数值推理及在线状态的多处路径；允许重构内部实现，保留公开接口和正常行为。
 
-历史文档只约束旧 colocated/deadline 入口，不覆盖新 fabric 语义；旧 CLI、deadline 服务及普通 RoundRobin/LoadAware 路由仍须可用。
+领域为 **ML / 训练推理评测与基础设施 / Inference**。代码基于 Apache-2.0 的 production-stack，来源见 `UPSTREAM.md`；输入和 CPU 后端均为合成故障材料，不是 GPU 性能实测。
 
-交付可执行修复源码，以及可从原始输入重新生成的五项基础 build JSON、结构化输入的 `grammar-profile.json`、`fabric-evaluation.json` 和 `metrics.prom`。允许重构内部模块；保留公开 gateway、CLI、HTTP 及文档声明的控制接口。诊断和 JSON 允许附加审计字段，线路身份按协议允许的 header/JSON 表示承载。
+从 `docs/serving-incident.md` 和 `captures/paged-7/workload.json` 调查。以下七份文档同时生效：`fabric-measurement.md`、`fabric-deployment.md`、`fabric-admission.md`、`fabric-protocol.md`、`fabric-speculation.md`、`fabric-constraints.md`、`fabric-paged-attention.md`（均在 `docs/`）。它们规定接口、字段、单位、数值及错误边界，不指定故障位置或排查顺序；历史 colocated/deadline 文档只约束旧入口。
 
-验收会更换原始导出、成本、可见性、语法图、分片、历史、并发阶段及取消时点；独立观察真实派发、HTTP 状态、token/text、账本和指标，再与公开 replay 对账。SSE 分片或合包须保持语义；不得只改 replay 或写死产物。公开测试是有限示例：完成前应重建并核对 `captures/fabric-7`、`captures/speculative-7`、`captures/structured-7`、`captures/paged-7` 四份 workload 的连续 checkpoints、生成结果和 metrics。
+这些问题共享实际依赖：采集证据决定部署画像和接纳成本；选中的部署决定推理资产及页解释；生成窗口改变缓存与共享占用；旧流的反馈又参与后续接纳。单个部件局部正确不代表这条执行链正确，修复需要由可观察证据验证。
 
-建议附带 `SERVING_DESIGN.md` 说明证据取舍、调用路径与守恒，并在 `regression_tests/` 保留真实回归。这些建议用于审阅，不以字数、关键词或任意一项测试通过代替行为验收。私有测试不提供给 agent；不要求固定内部 helper、排查顺序、工具调用次数或人为等待。
+私有验收会变化输入值和导出顺序，通过独立 transport 驱动真实 HTTP/ASGI 请求，观察 token/text、阶段派发、连续页账本、竞争请求的状态和 metrics，再与公开 replay 对账。五组分页场景包含“在途切换部署—跨窗口差分页—竞争接纳—取消后恢复”的连续事件。仅修 replay、预制报告或最终清零不能替代实际执行。诊断允许附加审计字段；身份可使用协议允许的 header/JSON 表示，内部 helper 名与模块布局不作限制。
 
-环境：`/workspace`，Python 3.12，依赖已安装，`PYTHONPATH=/workspace/src`。常用入口：
+交付修复源码及可重建的 build/replay 产物。`SERVING_DESIGN.md` 和自建回归可辅助说明，但不以文档字数或任意一条测试通过代替行为验收。环境为 `/workspace`、Python 3.12，依赖已安装，`PYTHONPATH=/workspace/src`：
 
 ```sh
-python -m serving_lab.fabric build --input captures/structured-7 --output out/structured --as-of 106100
-python -m serving_lab.fabric replay --input captures/structured-7 --workload captures/structured-7/workload.json --output out/structured-replay
+python -m serving_lab.fabric build --input captures/paged-7 --output out/paged --as-of 106100
+python -m serving_lab.fabric replay --input captures/paged-7 --workload captures/paged-7/workload.json --output out/paged-replay
+python -m pytest regression_tests/test_paged_attention.py -q
 python -m pytest regression_tests -q
 ```
 
-公开回归包括 `test_serving_lifecycle.py`、`test_contract_boundaries.py` 和 `test_constraint_serving.py`，覆盖中途接纳/释放、输入与 SSE 边界、语法生成及逐帧状态。分页输入使用相同 build/replay 命令，将 input 改为 `captures/paged-7`，并运行 `test_paged_attention.py`。其它命令见 `docs/fabric-investigation.md`；所有通过条件以七份生效契约为准。
+公开测试是有限示例，完整 workload 包含持续 checkpoints，需同时核对中间画像、真实生成、在途占用和后续请求。speculative/grammar、SSE、metrics 与 replay 在同一工作负载中验证集成结果；旧入口做回归检查。不要求固定工具调用次数或等待时长。

@@ -15,3 +15,8 @@ The initial pilot is an authored implementation for repair. Workloads and
 backend service spans are synthetic; they are not customer logs or evidence of
 a real upstream outage. Private expected data, reference solutions and author
 validation tools are not part of this public starter.
+
+For V6.7 the Harbor image fetches this public exercise repository over HTTPS at
+the exact starter_commit_sha declared in task.toml. It checks the detached HEAD,
+origin URL and clean working tree and writes /opt/source-provenance.json.
+No local starter bundle or prebuilt source directory supplies /workspace.
