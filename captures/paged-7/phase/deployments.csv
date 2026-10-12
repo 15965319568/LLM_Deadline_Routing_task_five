@@ -143,7 +143,7 @@ base,cfg-l12-stable,l12-replica-2b8906eac3,95000,1,90000,q16,,rev-2026-09,int8,,
 base,cfg-p1-stable,p1-replica-00d8000101,95000,1,90000,q16,,rev-2026-09,int8,,p1,registry,,tok-2026-08
 chat,cfg-d3-blue,d3-blue-r2,90000,2,90000,q8,90000,rev-2026-10,fp8,True,d3,runtime,,tok-2026-10
 base,cfg-l23-stable,l23-replica-41b296136b,95000,1,90000,q8,,rev-2026-09,int8,,l23,rollout,active,tok-2026-08
-chat,cfg-l33-blue-r3,l33-blue-r3,104100,3,104050,q8,,rev-2026-10,fp8,,l33,registry,,tok-2026-10
+chat,cfg-l33-blue-r3,l33-blue-r3,104060,3,104050,q8,,rev-2026-10,fp8,,l33,registry,,tok-2026-10
 base,cfg-l21-stable,l21-replica-1f18802813,95000,1,90000,q16,,rev-2026-09,int8,,l21,rollout,active,tok-2026-08
 base,cfg-l22-stable,l22-replica-37d49c77b8,95000,11,90000,q16,90000,rev-2026-09,int8,True,l22,runtime,,tok-2026-08
 base,cfg-l21-stable,l21-replica-2a618ced95,95000,1,90000,q16,,rev-2026-09,int8,,l21,rollout,active,tok-2026-08

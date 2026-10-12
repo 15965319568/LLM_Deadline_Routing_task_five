@@ -33,7 +33,7 @@
 {"trace_id": "trace-s23-073", "resource": "l11", "sample_id": "s23-073", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "12322.33333333333333333333333", "end_tick": "12326.66666666666666666666667", "ingested_us": 90000}
 {"trace_id": "trace-s23-104", "resource": "l21", "sample_id": "s23-104", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "10500.25", "end_tick": "10510", "ingested_us": 90000}
 {"trace_id": "trace-s23-151", "resource": "p2", "sample_id": "s23-151", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "19050.33333333333333333333333", "end_tick": "19086.66666666666666666666667", "ingested_us": 90000}
-{"trace_id": "trace-s23-032-roll", "resource": "p3", "sample_id": "s23-032-roll", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "23376", "end_tick": "23405", "ingested_us": 104050}
+{"trace_id": "trace-s23-032-roll", "resource": "p3", "sample_id": "s23-031-roll", "attempt": 1, "producer": "nic-b", "boot": "cold", "start_tick": "23376", "end_tick": "23405", "ingested_us": 104050}
 {"trace_id": "trace-s23-033", "resource": "p3", "sample_id": "s23-033", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "32168", "end_tick": "32206.66666666666666666666667", "ingested_us": 100650}
 {"trace_id": "trace-s23-067-roll", "resource": "d3", "sample_id": "s23-067-roll", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "32190.33333333333333333333333", "end_tick": "32206.66666666666666666666667", "ingested_us": 104050}
 {"trace_id": "trace-s23-039", "resource": "d1", "sample_id": "s23-039", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "9367.333333333333333333333333", "end_tick": "9380", "ingested_us": 90000}
@@ -51,7 +51,7 @@
 {"trace_id": "trace-s23-150", "resource": "p2", "sample_id": "s23-150", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "13472.75", "end_tick": "13500", "ingested_us": 90000}
 {"trace_id": "trace-s23-025", "resource": "p3", "sample_id": "s23-025", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "32184", "end_tick": "32206.66666666666666666666667", "ingested_us": 100650}
 {"trace_id": "trace-s23-125-roll", "resource": "l33", "sample_id": "s23-125-roll", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "32201", "end_tick": "32206.66666666666666666666667", "ingested_us": 104050}
-{"trace_id": "trace-s23-026", "resource": "p3", "sample_id": "s23-026", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "23388", "end_tick": "23405", "ingested_us": 100650}
+{"trace_id": "trace-s23-026", "resource": "p3", "sample_id": "s23-025", "attempt": 1, "producer": "nic-b", "boot": "cold", "start_tick": "23388", "end_tick": "23405", "ingested_us": 100650}
 {"trace_id": "trace-s23-001", "resource": "p1", "sample_id": "s23-001", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "6059", "end_tick": "6086.666666666666666666666667", "ingested_us": 90000}
 {"trace_id": "trace-s23-120-roll", "resource": "l33", "sample_id": "s23-120-roll", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "23402.75", "end_tick": "23405", "ingested_us": 104050}
 {"trace_id": "trace-s23-030", "resource": "p3", "sample_id": "s23-030", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "23384", "end_tick": "23405", "ingested_us": 100650}
@@ -73,7 +73,7 @@
 {"trace_id": "trace-s23-154", "resource": "p2", "sample_id": "s23-154", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "13732.75", "end_tick": "13760", "ingested_us": 200000}
 {"trace_id": "trace-s23-064-roll", "resource": "d3", "sample_id": "s23-064-roll", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "23396.75", "end_tick": "23405", "ingested_us": 104050}
 {"trace_id": "trace-s23-083", "resource": "l11", "sample_id": "s23-083", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "13183.66666666666666666666667", "end_tick": "13193.33333333333333333333333", "ingested_us": 90000}
-{"trace_id": "trace-s23-032", "resource": "p3", "sample_id": "s23-032", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "23376", "end_tick": "23405", "ingested_us": 100650}
+{"trace_id": "trace-s23-032", "resource": "p3", "sample_id": "s23-031", "attempt": 1, "producer": "nic-b", "boot": "cold", "start_tick": "23376", "end_tick": "23405", "ingested_us": 100650}
 {"trace_id": "trace-s23-113", "resource": "l22", "sample_id": "s23-113", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "15781.66666666666666666666667", "end_tick": "15793.33333333333333333333333", "ingested_us": 90000}
 {"trace_id": "trace-s23-054", "resource": "d2", "sample_id": "s23-054", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "7246.25", "end_tick": "7260", "ingested_us": 90000}
 {"trace_id": "trace-s23-128-roll", "resource": "l33", "sample_id": "s23-128-roll", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "23396.75", "end_tick": "23405", "ingested_us": 104050}
@@ -107,7 +107,7 @@
 {"trace_id": "trace-s23-036-roll", "resource": "p3", "sample_id": "s23-036-roll", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "6069", "end_tick": "6090", "ingested_us": 104050}
 {"trace_id": "trace-s23-170", "resource": "l11", "sample_id": "s23-170", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "14792.75", "end_tick": "14800", "ingested_us": 90000}
 {"trace_id": "trace-s23-096", "resource": "l12", "sample_id": "s23-096", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "9977", "end_tick": "9990", "ingested_us": 90000}
-{"trace_id": "trace-s23-026-roll", "resource": "p3", "sample_id": "s23-026-roll", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "23388", "end_tick": "23405", "ingested_us": 104050}
+{"trace_id": "trace-s23-026-roll", "resource": "p3", "sample_id": "s23-025-roll", "attempt": 1, "producer": "nic-b", "boot": "cold", "start_tick": "23388", "end_tick": "23405", "ingested_us": 104050}
 {"trace_id": "trace-s23-133", "resource": "l23", "sample_id": "s23-133", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "17525.33333333333333333333333", "end_tick": "17526.66666666666666666666667", "ingested_us": 90000}
 {"trace_id": "trace-s23-118", "resource": "l22", "sample_id": "s23-118", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "11411.25", "end_tick": "11420", "ingested_us": 90000}
 {"trace_id": "trace-s23-143", "resource": "l23", "sample_id": "s23-143", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "18391.33333333333333333333333", "end_tick": "18393.33333333333333333333333", "ingested_us": 90000}
@@ -173,7 +173,7 @@
 {"trace_id": "trace-s23-031", "resource": "p3", "sample_id": "s23-031", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "32168", "end_tick": "32206.66666666666666666666667", "ingested_us": 100650}
 {"trace_id": "trace-s23-119", "resource": "l22", "sample_id": "s23-119", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "16301.66666666666666666666667", "end_tick": "16313.33333333333333333333333", "ingested_us": 90000}
 {"trace_id": "trace-s23-159", "resource": "p2", "sample_id": "s23-159", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "19743.66666666666666666666667", "end_tick": "19790", "ingested_us": 90000}
-{"trace_id": "trace-s23-029", "resource": "p3", "sample_id": "s23-029", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "32178.66666666666666666666667", "end_tick": "32206.66666666666666666666667", "ingested_us": 100650}
+{"trace_id": "trace-s23-029", "resource": "p3", "sample_id": "s23-028", "attempt": 1, "producer": "gpu-a", "boot": "warm", "start_tick": "32178.66666666666666666666667", "end_tick": "32206.66666666666666666666667", "ingested_us": 100650}
 {"trace_id": "trace-s23-095", "resource": "l12", "sample_id": "s23-095", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "14216", "end_tick": "14233.33333333333333333333333", "ingested_us": 90000}
 {"trace_id": "trace-s23-129", "resource": "l33", "sample_id": "s23-129", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "17174.33333333333333333333333", "end_tick": "17180", "ingested_us": 90000}
 {"trace_id": "trace-s23-038", "resource": "d1", "sample_id": "s23-038", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "6210.5", "end_tick": "6220", "ingested_us": 90000}
@@ -181,7 +181,7 @@
 {"trace_id": "trace-s23-056", "resource": "d2", "sample_id": "s23-056", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "7374.25", "end_tick": "7390", "ingested_us": 90000}
 {"trace_id": "trace-s23-099", "resource": "l21", "sample_id": "s23-099", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "14575", "end_tick": "14580", "ingested_us": 90000}
 {"trace_id": "trace-s23-023", "resource": "p2", "sample_id": "s23-023", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "7920.666666666666666666666667", "end_tick": "7993.333333333333333333333333", "ingested_us": 90000}
-{"trace_id": "trace-s23-029-roll", "resource": "p3", "sample_id": "s23-029-roll", "attempt": 0, "producer": "gpu-a", "boot": "warm", "start_tick": "32178.66666666666666666666667", "end_tick": "32206.66666666666666666666667", "ingested_us": 104050}
+{"trace_id": "trace-s23-029-roll", "resource": "p3", "sample_id": "s23-028-roll", "attempt": 1, "producer": "gpu-a", "boot": "warm", "start_tick": "32178.66666666666666666666667", "end_tick": "32206.66666666666666666666667", "ingested_us": 104050}
 {"trace_id": "trace-s23-072", "resource": "d3", "sample_id": "s23-072", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "8421.75", "end_tick": "8430", "ingested_us": 90000}
 {"trace_id": "trace-s23-138", "resource": "l23", "sample_id": "s23-138", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "12717.5", "end_tick": "12720", "ingested_us": 90000}
 {"trace_id": "trace-s23-066", "resource": "d3", "sample_id": "s23-066", "attempt": 0, "producer": "nic-b", "boot": "cold", "start_tick": "23396.75", "end_tick": "23405", "ingested_us": 100650}
