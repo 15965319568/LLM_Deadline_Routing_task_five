@@ -6,8 +6,9 @@ License: Apache-2.0; original LICENSE and copyrights retained.
 
 This authored CPU reproduction uses the production-stack serving entrypoint.
 It is not a reported upstream defect, a customer trace, or a GPU benchmark.
-The V6.9 exercise narrows repair responsibility to paged inference and KV
-ownership. General serving, profile/deployment loading, sampling and SSE are
+The V6.10 exercise narrows repair responsibility to paged inference and KV
+ownership. Fragmented KV transfer and incremental logical views are part of this authored paged-input scenario.
+General serving, profile/deployment loading, sampling and SSE are
 provided working dependencies. Synthetic profiles are supplied inputs.
 The only active exercise contracts are docs/paged-kv-contract.md and
 docs/paged-service-boundary.md. Prior exercise contracts and independent

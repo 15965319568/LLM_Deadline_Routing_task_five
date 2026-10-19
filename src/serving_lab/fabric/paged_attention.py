@@ -2,6 +2,7 @@
 from .paged_layout import validate_asset, uint
 from .kv_pages import PageStorage
 from .attention_math import AttentionMath
+from .paged_view import view_for
 
 
 def empty_report(revision):
@@ -15,6 +16,7 @@ class PageContext(PageStorage, AttentionMath):
         self.spec = asset['paged_attention']
         self.allocate = allocate
         self.cache = {}
+        self.view = {}
         self.stage = None
         self.report = empty_report(self.spec['revision'])
 
@@ -26,26 +28,14 @@ class PageContext(PageStorage, AttentionMath):
         if not isinstance(raw, dict) or set(raw) != {str(i) for i in ids}:
             raise ValueError('query positions must identify every query row')
         positions = {int(k):uint(v) for k,v in raw.items()}
-        table = row['kv_table']
-        if not isinstance(table, list) or not table:
-            raise ValueError('empty logical KV table')
-        mapped = []
-        for item in table:
-            name = item['page_id']
-            if not isinstance(name,str) or not name:
-                raise ValueError('invalid page identity')
-            mapped.append(dict(position=uint(item['position']),page_id=name,
-                               version=uint(item['version'],minimum=1),slot=uint(item['slot'],self.spec['page_size']-1)))
-        if len({v['position'] for v in mapped}) != len(mapped):
-            raise ValueError('duplicate logical position')
+        mapped = view_for(row, self.view, self.report['committed_windows'], self.spec)
         self.stage = dict(table=sorted(mapped,key=lambda r:r['position']),positions=positions,
-                          tree='tree' in window,pages={},queries={})
+                          tree='tree' in window,pages={},queries={},transfers={})
 
     def prepare(self):
         if self.stage is None or set(self.stage['queries']) != set(range(len(self.spec['ranks']))):
             raise ValueError('incomplete attention rank set')
-        pages = self.cache.copy()
-        pages.update(self.stage['pages'])
+        pages = self.images()
         keys = {(r['page_id'],r['version']) for r in self.stage['table']}
         if not keys <= pages.keys():
             raise ValueError('logical map references unavailable page version')
@@ -67,6 +57,7 @@ class PageContext(PageStorage, AttentionMath):
 
     def publish(self):
         self.cache = self.stage['next_cache']
+        self.view = {r['position']:r.copy() for r in self.stage['table']}
         self.allocate(len(self.cache))
         self.report.update(resident_pages=len(self.cache),staged_pages=0,
                            committed_windows=self.report['committed_windows']+1,
@@ -76,6 +67,7 @@ class PageContext(PageStorage, AttentionMath):
 
     def cleanup(self):
         self.cache.clear()
+        self.view.clear()
         self.stage = None
         self.allocate(0)
         self.report.update(resident_pages=0,staged_pages=0)

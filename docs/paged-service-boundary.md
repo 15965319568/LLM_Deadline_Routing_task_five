@@ -33,4 +33,4 @@ workload 的 requests 包含到达、prefill/transfer 完成、每个 decode fra
 - `paged_attention[request_id]` 的分页契约字段。
 - `requests[request_id].outcome`，在途为 null，终态为 success/error/cancelled。
 
-不比较整份 diagnostics，不要求完整 metrics、replay 输出、build 产物或任何旧接口套件通过。对象按声明字段比较，额外字段合法；数组中声明的顺序有语义。公开示例覆盖同一条服务路径，私有输入更换布局、页内容和时序。公开 tests 可以直接运行，不要求修改测试使其通过。
+不比较整份 diagnostics，不要求完整 metrics、replay 输出、build 产物或任何旧接口套件通过。对象按声明字段比较，额外字段合法；数组中声明的顺序有语义。公开示例覆盖同一条服务路径，私有输入更换布局、页内容、分片选择/重传/冲突、继承关系、逻辑视图及交错时序。分片和整页均属于同一分页输入协议。公开 tests 可以直接运行，不要求修改测试使其通过。

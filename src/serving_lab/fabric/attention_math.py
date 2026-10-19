@@ -35,10 +35,16 @@ class AttentionMath:
                     key = self.rotate(key,row['slot'])
                     scores.append(sum(a*b for a,b in zip(query,key))/math.sqrt(dim)+spec['alibi_slopes'][head]*(row['position']-pos))
                     values.append(val)
-                maximum = max(scores)
-                weights = [math.exp(s-maximum) for s in scores]
-                total = sum(weights)
-                context[head] = [sum(w*v[i] for w,v in zip(weights,values))/total for i in range(dim)]
+                groups = {}
+                for index, row in enumerate(table):
+                    groups.setdefault((row['page_id'],row['version']), []).append(index)
+                partial = []
+                for indices in groups.values():
+                    maximum = max(scores[j] for j in indices)
+                    weights = [math.exp(scores[j]-maximum) for j in indices]
+                    total = sum(weights)
+                    partial.append([sum(w*values[j][i] for w,j in zip(weights,indices))/total for i in range(dim)])
+                context[head] = [sum(block[i] for block in partial)/len(partial) for i in range(dim)]
         flattened = [x for part in spec['ranks'] for head in part['query_heads'] for x in context[head]]
         return [spec['bias'][token]+sum((w-spec['projection_zero'][token])*spec['projection_scale'][token]*x
                                        for w,x in zip(row,flattened)) for token,row in enumerate(spec['projection'])]

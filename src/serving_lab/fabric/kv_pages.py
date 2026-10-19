@@ -1,6 +1,7 @@
 """Quantized page storage and query row assembly."""
 import copy
 from .paged_layout import uint, real, vector
+from .kv_fragments import Transfer
 
 
 class PageStorage:
@@ -27,6 +28,18 @@ class PageStorage:
         if not isinstance(name,str) or not name:
             raise ValueError('invalid page identity')
         version = uint(row['version'], minimum=1)
+        if 'encoding' in row:
+            if row['encoding'] != 'kv-fragments/v1':
+                raise ValueError('unknown page encoding')
+            key = name, version
+            transfer = copy.deepcopy(self.stage['transfers'].get(key, Transfer(self.spec)))
+            transfer.record(row)
+            if transfer.manifest and transfer.manifest['base_version'] >= version:
+                raise ValueError('transfer base must be an older version')
+            self.allocate(len(set(self.stage['pages'])|{key}))
+            self.stage['transfers'][key] = transfer
+            self.report['staged_pages'] = len((set(self.stage['pages'])|set(self.stage['transfers']))-set(self.cache))
+            return
         base = uint(row['base_version'])
         width = self.spec['kv_heads']*self.spec['head_dim']
         if base == 0:
@@ -62,7 +75,29 @@ class PageStorage:
         if previous is None:
             self.allocate(len(set(self.stage['pages'])|{key}))
         self.stage['pages'][key] = value
-        self.report['staged_pages'] = len(set(self.stage['pages'])-set(self.cache))
+        self.report['staged_pages'] = len((set(self.stage['pages'])|set(self.stage['transfers']))-set(self.cache))
+
+    def images(self):
+        images = self.cache.copy()
+        images.update(self.stage['pages'])
+        completed = set()
+
+        def materialize(key):
+            if key in completed or key not in self.stage['transfers']:
+                if key not in images:
+                    raise ValueError('unavailable transfer parent')
+                return images[key]
+            transfer = self.stage['transfers'][key]
+            value = transfer.resolve(lambda base: self.cache[key[0], base])
+            if key in images and images[key] != value:
+                raise ValueError('wire encodings disagree on page image')
+            images[key] = value
+            completed.add(key)
+            return value
+
+        for key in self.stage['transfers']:
+            materialize(key)
+        return images
 
     def query(self, row):
         if self.stage is None:
