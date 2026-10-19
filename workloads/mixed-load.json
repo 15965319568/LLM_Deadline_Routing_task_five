@@ -1,0 +1,2886 @@
+{
+  "name": "public-41",
+  "config": {
+    "owner": "gateway-copper",
+    "max_age_us": 30000,
+    "calibration": {
+      "alpha": 0.25,
+      "lower": 0.5,
+      "upper": 4,
+      "window_samples": 4,
+      "drift_lower": 0.8,
+      "drift_upper": 1.25
+    },
+    "endpoints": [
+      {
+        "endpoint_id": "engine-m",
+        "url": "http://engine-m:8000",
+        "model": "text",
+        "revision": "weights-8",
+        "tokenizer": "utf8-v1",
+        "transport_us": 70,
+        "surface": {
+          "tokens": [
+            0,
+            8,
+            32
+          ],
+          "decodes": [
+            0,
+            2,
+            5
+          ],
+          "service_us": [
+            [
+              95.0,
+              855.0,
+              3135.0
+            ],
+            [
+              152.0,
+              1480.0,
+              5464.0
+            ],
+            [
+              237.5,
+              2417.5,
+              8957.5
+            ]
+          ]
+        }
+      },
+      {
+        "endpoint_id": "engine-c",
+        "url": "http://engine-c:8000",
+        "model": "text",
+        "revision": "weights-8",
+        "tokenizer": "codepoint-v1",
+        "transport_us": 100,
+        "surface": {
+          "tokens": [
+            0,
+            8,
+            32
+          ],
+          "decodes": [
+            0,
+            2,
+            5
+          ],
+          "service_us": [
+            [
+              126.0,
+              1134.0,
+              4158.0
+            ],
+            [
+              201.60000000000002,
+              1926.4,
+              7100.8
+            ],
+            [
+              315.0,
+              3115.0,
+              11515.0
+            ]
+          ]
+        }
+      },
+      {
+        "endpoint_id": "engine-r",
+        "url": "http://engine-r:8000",
+        "model": "text",
+        "revision": "weights-8",
+        "tokenizer": "utf8-v1",
+        "transport_us": 130,
+        "surface": {
+          "tokens": [
+            0,
+            8,
+            32
+          ],
+          "decodes": [
+            0,
+            2,
+            5
+          ],
+          "service_us": [
+            [
+              132.0,
+              1188.0,
+              4356.0
+            ],
+            [
+              211.20000000000002,
+              2012.8000000000002,
+              7417.6
+            ],
+            [
+              330.0,
+              3250.0,
+              12010.0
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "rounds": [
+    {
+      "at_us": 100000,
+      "first_us": 112000,
+      "end_us": 118000,
+      "snapshots": [
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 2,
+          "observed_at_us": 99500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 1,
+          "observed_at_us": 99500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 2,
+          "observed_at_us": 99500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 1200,
+              "decode_count": 1
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 1,
+          "observed_at_us": 99500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 2,
+          "observed_at_us": 99500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 2400,
+              "decode_count": 2
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 1,
+          "observed_at_us": 99500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        }
+      ],
+      "claims": [
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 8,
+          "created_at_us": 99000,
+          "expires_at_us": 150000
+        },
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 99000,
+          "expires_at_us": 150000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "codepoint-v1",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 99000,
+          "expires_at_us": 150000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 99000,
+          "expires_at_us": 150000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 99000,
+          "expires_at_us": 150000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 99000,
+          "expires_at_us": 150000
+        }
+      ],
+      "cache_available": true,
+      "requests": [
+        {
+          "id": "q41-0-0",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 101020,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-0-0",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-0-1",
+          "body": {
+            "model": "text",
+            "prompt": "abcd",
+            "stream": true,
+            "deadline_us": 114000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-0-1",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-0-2",
+          "body": {
+            "model": "text",
+            "prompt": "abcd",
+            "stream": true,
+            "deadline_us": 114000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-0-2",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-0-3",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 100300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-0-3",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-0-4",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 100300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-0-4",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-0-5",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 106000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-0-5",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-0-6",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 114000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-0-6",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        }
+      ],
+      "cancel": []
+    },
+    {
+      "at_us": 200000,
+      "first_us": 212000,
+      "end_us": 218000,
+      "snapshots": [
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 12,
+          "observed_at_us": 199500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 1200,
+              "decode_count": 1
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 11,
+          "observed_at_us": 199500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 12,
+          "observed_at_us": 199500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 2400,
+              "decode_count": 2
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 11,
+          "observed_at_us": 199500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 12,
+          "observed_at_us": 199500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 11,
+          "observed_at_us": 199500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        }
+      ],
+      "claims": [
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 8,
+          "created_at_us": 199000,
+          "expires_at_us": 250000
+        },
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 199000,
+          "expires_at_us": 250000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "codepoint-v1",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 199000,
+          "expires_at_us": 250000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 199000,
+          "expires_at_us": 250000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 199000,
+          "expires_at_us": 250000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 199000,
+          "expires_at_us": 250000
+        }
+      ],
+      "cache_available": true,
+      "requests": [
+        {
+          "id": "q41-1-0",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 214000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-1-0",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-1-1",
+          "body": {
+            "model": "text",
+            "prompt": "abcd",
+            "stream": true,
+            "deadline_us": 200300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-1-1",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-1-2",
+          "body": {
+            "model": "text",
+            "prompt": "共享上下文_abcdef",
+            "stream": true,
+            "deadline_us": 200300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-1-2",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-1-3",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 214000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-1-3",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-1-4",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 200300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-1-4",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-1-5",
+          "body": {
+            "model": "text",
+            "prompt": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "stream": true,
+            "deadline_us": 228000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-1-5",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-1-6",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 200300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-1-6",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        }
+      ],
+      "cancel": [
+        "q41-1-0"
+      ]
+    },
+    {
+      "at_us": 300000,
+      "first_us": 312000,
+      "end_us": 318000,
+      "snapshots": [
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 22,
+          "observed_at_us": 270000,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 2400,
+              "decode_count": 2
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 21,
+          "observed_at_us": 270000,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 22,
+          "observed_at_us": 270000,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 21,
+          "observed_at_us": 270000,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 22,
+          "observed_at_us": 270000,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 1200,
+              "decode_count": 1
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 21,
+          "observed_at_us": 270000,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        }
+      ],
+      "claims": [
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 8,
+          "created_at_us": 299000,
+          "expires_at_us": 300000
+        },
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 299000,
+          "expires_at_us": 300000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "codepoint-v1",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 299000,
+          "expires_at_us": 300000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 299000,
+          "expires_at_us": 300000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 299000,
+          "expires_at_us": 300000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 299000,
+          "expires_at_us": 300000
+        }
+      ],
+      "cache_available": true,
+      "requests": [
+        {
+          "id": "q41-2-0",
+          "body": {
+            "model": "text",
+            "prompt": "共享上下文_abcdef",
+            "stream": true,
+            "deadline_us": 300300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-2-0",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-2-1",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 306000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-2-1",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-2-2",
+          "body": {
+            "model": "text",
+            "prompt": "共享上下文_abcdef",
+            "stream": true,
+            "deadline_us": 314000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-2-2",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-2-3",
+          "body": {
+            "model": "text",
+            "prompt": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "stream": true,
+            "deadline_us": 306000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-2-3",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-2-4",
+          "body": {
+            "model": "text",
+            "prompt": "abcd",
+            "stream": true,
+            "deadline_us": 300300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-2-4",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-2-5",
+          "body": {
+            "model": "text",
+            "prompt": "abcd",
+            "stream": true,
+            "deadline_us": 306000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-2-5",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-2-6",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 300300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-2-6",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        }
+      ],
+      "cancel": []
+    },
+    {
+      "at_us": 400000,
+      "first_us": 412000,
+      "end_us": 418000,
+      "snapshots": [
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 32,
+          "observed_at_us": 369999,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 31,
+          "observed_at_us": 369999,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 32,
+          "observed_at_us": 399500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 1200,
+              "decode_count": 1
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 31,
+          "observed_at_us": 399500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 32,
+          "observed_at_us": 399500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 2400,
+              "decode_count": 2
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 31,
+          "observed_at_us": 399500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        }
+      ],
+      "claims": [
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 8,
+          "created_at_us": 399000,
+          "expires_at_us": 450000
+        },
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 399000,
+          "expires_at_us": 450000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "codepoint-v1",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 399000,
+          "expires_at_us": 450000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 399000,
+          "expires_at_us": 450000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 399000,
+          "expires_at_us": 450000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 399000,
+          "expires_at_us": 450000
+        }
+      ],
+      "cache_available": true,
+      "requests": [
+        {
+          "id": "q41-3-0",
+          "body": {
+            "model": "text",
+            "prompt": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "stream": true,
+            "deadline_us": 428000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-3-0",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-3-1",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 400300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-3-1",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-3-2",
+          "body": {
+            "model": "text",
+            "prompt": "共享上下文_abcdef",
+            "stream": true,
+            "deadline_us": 428000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-3-2",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-3-3",
+          "body": {
+            "model": "text",
+            "prompt": "共享上下文_abcdef",
+            "stream": true,
+            "deadline_us": 428000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-3-3",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-3-4",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 406000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-3-4",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-3-5",
+          "body": {
+            "model": "text",
+            "prompt": "共享上下文_abcdef",
+            "stream": true,
+            "deadline_us": 400300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-3-5",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-3-6",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 400300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-3-6",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        }
+      ],
+      "cancel": []
+    },
+    {
+      "at_us": 500000,
+      "first_us": 512000,
+      "end_us": 518000,
+      "snapshots": [],
+      "claims": [
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 8,
+          "created_at_us": 499000,
+          "expires_at_us": 550000
+        },
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 499000,
+          "expires_at_us": 550000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "codepoint-v1",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 499000,
+          "expires_at_us": 550000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 499000,
+          "expires_at_us": 550000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 499000,
+          "expires_at_us": 550000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 499000,
+          "expires_at_us": 550000
+        }
+      ],
+      "cache_available": true,
+      "requests": [
+        {
+          "id": "q41-4-0",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 528000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-4-0",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-4-1",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 514000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-4-1",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-4-2",
+          "body": {
+            "model": "text",
+            "prompt": "abcd",
+            "stream": true,
+            "deadline_us": 500300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-4-2",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-4-3",
+          "body": {
+            "model": "text",
+            "prompt": "共享上下文_abcdef",
+            "stream": true,
+            "deadline_us": 528000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-4-3",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-4-4",
+          "body": {
+            "model": "text",
+            "prompt": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "stream": true,
+            "deadline_us": 506000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-4-4",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-4-5",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 500300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-4-5",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-4-6",
+          "body": {
+            "model": "text",
+            "prompt": "共享上下文_abcdef",
+            "stream": true,
+            "deadline_us": 500300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-4-6",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        }
+      ],
+      "cancel": []
+    },
+    {
+      "at_us": 600000,
+      "first_us": 612000,
+      "end_us": 618000,
+      "snapshots": [
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 52,
+          "observed_at_us": 599500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 2400,
+              "decode_count": 2
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 51,
+          "observed_at_us": 599500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 52,
+          "observed_at_us": 599500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 51,
+          "observed_at_us": 599500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 52,
+          "observed_at_us": 599500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 1200,
+              "decode_count": 1
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 51,
+          "observed_at_us": 599500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        }
+      ],
+      "claims": [
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 8,
+          "created_at_us": 599000,
+          "expires_at_us": 650000
+        },
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 599000,
+          "expires_at_us": 650000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "codepoint-v1",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 599000,
+          "expires_at_us": 650000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 599000,
+          "expires_at_us": 650000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 599000,
+          "expires_at_us": 650000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 599000,
+          "expires_at_us": 650000
+        }
+      ],
+      "cache_available": true,
+      "requests": [
+        {
+          "id": "q41-5-0",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 628000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-5-0",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-5-1",
+          "body": {
+            "model": "text",
+            "prompt": "共享上下文_abcdef",
+            "stream": true,
+            "deadline_us": 628000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-5-1",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-5-2",
+          "body": {
+            "model": "text",
+            "prompt": "abcd",
+            "stream": true,
+            "deadline_us": 600300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-5-2",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-5-3",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 606000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-5-3",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-5-4",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 614000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-5-4",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-5-5",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 628000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-5-5",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-5-6",
+          "body": {
+            "model": "unknown",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 600300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-5-6",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        }
+      ],
+      "cancel": []
+    },
+    {
+      "at_us": 700000,
+      "first_us": 712000,
+      "end_us": 718000,
+      "snapshots": [
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 62,
+          "observed_at_us": 699500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 61,
+          "observed_at_us": 699500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 62,
+          "observed_at_us": 699500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 1200,
+              "decode_count": 1
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 61,
+          "observed_at_us": 699500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 62,
+          "observed_at_us": 699500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 2400,
+              "decode_count": 2
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 61,
+          "observed_at_us": 699500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        }
+      ],
+      "claims": [
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 8,
+          "created_at_us": 699000,
+          "expires_at_us": 750000
+        },
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 699000,
+          "expires_at_us": 750000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "codepoint-v1",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 699000,
+          "expires_at_us": 750000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 699000,
+          "expires_at_us": 750000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 699000,
+          "expires_at_us": 750000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 699000,
+          "expires_at_us": 750000
+        }
+      ],
+      "cache_available": false,
+      "requests": [
+        {
+          "id": "q41-6-0",
+          "body": {
+            "model": "text",
+            "prompt": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "stream": true,
+            "deadline_us": 706000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-6-0",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-6-1",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 714000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-6-0",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-6-2",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 714000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-6-2",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-6-3",
+          "body": {
+            "model": "text",
+            "prompt": "abcd",
+            "stream": true,
+            "deadline_us": 728000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-6-3",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-6-4",
+          "body": {
+            "model": "text",
+            "prompt": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "stream": true,
+            "deadline_us": 728000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-6-4",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-6-5",
+          "body": {
+            "model": "text",
+            "prompt": "共享上下文_abcdef",
+            "stream": true,
+            "deadline_us": 706000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-6-5",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-6-6",
+          "body": {
+            "model": "text",
+            "prompt": "abcd",
+            "stream": true,
+            "deadline_us": 706000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-6-6",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        }
+      ],
+      "cancel": []
+    },
+    {
+      "at_us": 800000,
+      "first_us": 812000,
+      "end_us": 818000,
+      "snapshots": [
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 72,
+          "observed_at_us": 799500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 1200,
+              "decode_count": 1
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 71,
+          "observed_at_us": 799500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 72,
+          "observed_at_us": 799500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 2400,
+              "decode_count": 2
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 71,
+          "observed_at_us": 799500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 72,
+          "observed_at_us": 799500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 71,
+          "observed_at_us": 799500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        }
+      ],
+      "claims": [
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 8,
+          "created_at_us": 799000,
+          "expires_at_us": 850000
+        },
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 799000,
+          "expires_at_us": 850000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "codepoint-v1",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 799000,
+          "expires_at_us": 850000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 799000,
+          "expires_at_us": 850000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 799000,
+          "expires_at_us": 850000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 799000,
+          "expires_at_us": 850000
+        }
+      ],
+      "cache_available": true,
+      "requests": [
+        {
+          "id": "q41-7-0",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 830000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-7-0",
+            "baseline_us": 1000,
+            "service_us": 2000
+          },
+          "connect_error": true
+        }
+      ],
+      "cancel": []
+    },
+    {
+      "at_us": 900000,
+      "first_us": 912000,
+      "end_us": 918000,
+      "snapshots": [
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 82,
+          "observed_at_us": 899500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 2400,
+              "decode_count": 2
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 81,
+          "observed_at_us": 899500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 83,
+          "observed_at_us": 900001,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 2400,
+              "decode_count": 2
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 84,
+          "observed_at_us": 899500,
+          "by_owner": {
+            "external": {
+              "backlog_us": -1,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 82,
+          "observed_at_us": 899500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 81,
+          "observed_at_us": 899500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 83,
+          "observed_at_us": 900001,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 84,
+          "observed_at_us": 899500,
+          "by_owner": {
+            "external": {
+              "backlog_us": -1,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 82,
+          "observed_at_us": 899500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 1200,
+              "decode_count": 1
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 81,
+          "observed_at_us": 899500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 83,
+          "observed_at_us": 900001,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 1200,
+              "decode_count": 1
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 84,
+          "observed_at_us": 899500,
+          "by_owner": {
+            "external": {
+              "backlog_us": -1,
+              "decode_count": 0
+            }
+          }
+        }
+      ],
+      "claims": [
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 8,
+          "created_at_us": 899000,
+          "expires_at_us": 950000
+        },
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 899000,
+          "expires_at_us": 950000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "codepoint-v1",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 899000,
+          "expires_at_us": 950000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 899000,
+          "expires_at_us": 950000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 899000,
+          "expires_at_us": 950000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 899000,
+          "expires_at_us": 950000
+        }
+      ],
+      "cache_available": true,
+      "requests": [
+        {
+          "id": "q41-8-0",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 906000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-8-0",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-8-1",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 906000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-8-1",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-8-2",
+          "body": {
+            "model": "text",
+            "prompt": "共享上下文_abcdef",
+            "stream": true,
+            "deadline_us": 906000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-8-2",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-8-3",
+          "body": {
+            "model": "text",
+            "prompt": "abcd",
+            "stream": true,
+            "deadline_us": 906000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-8-3",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-8-4",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 914000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-8-4",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-8-5",
+          "body": {
+            "model": "text",
+            "prompt": "共享上下文_abcdef",
+            "stream": true,
+            "deadline_us": 906000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-8-5",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        },
+        {
+          "id": "q41-8-6",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 900300,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-8-6",
+            "baseline_us": 1000,
+            "service_us": 2000
+          }
+        }
+      ],
+      "cancel": []
+    },
+    {
+      "at_us": 1000000,
+      "first_us": 1012000,
+      "end_us": 1018000,
+      "snapshots": [
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 92,
+          "observed_at_us": 999500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 0,
+              "decode_count": 0
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-m",
+          "sample_seq": 91,
+          "observed_at_us": 999500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 92,
+          "observed_at_us": 999500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 1200,
+              "decode_count": 1
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-c",
+          "sample_seq": 91,
+          "observed_at_us": 999500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 92,
+          "observed_at_us": 999500,
+          "by_owner": {
+            "gateway-copper": {
+              "backlog_us": 6000,
+              "decode_count": 2
+            },
+            "external": {
+              "backlog_us": 2400,
+              "decode_count": 2
+            }
+          }
+        },
+        {
+          "endpoint_id": "engine-r",
+          "sample_seq": 91,
+          "observed_at_us": 999500,
+          "by_owner": {
+            "external": {
+              "backlog_us": 99000,
+              "decode_count": 9
+            }
+          }
+        }
+      ],
+      "claims": [
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 8,
+          "created_at_us": 999000,
+          "expires_at_us": 1050000
+        },
+        {
+          "endpoint_id": "engine-m",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 999000,
+          "expires_at_us": 1050000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "codepoint-v1",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 999000,
+          "expires_at_us": 1050000
+        },
+        {
+          "endpoint_id": "engine-c",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            20849,
+            20139
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 999000,
+          "expires_at_us": 1050000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "utf8-v1",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 2,
+          "created_at_us": 999000,
+          "expires_at_us": 1050000
+        },
+        {
+          "endpoint_id": "engine-r",
+          "model_revision": "weights-8",
+          "tokenizer": "retired-v0",
+          "prefix": [
+            229,
+            133,
+            177,
+            228,
+            186,
+            171
+          ],
+          "matched_tokens": 10000,
+          "created_at_us": 999000,
+          "expires_at_us": 1050000
+        }
+      ],
+      "cache_available": true,
+      "requests": [
+        {
+          "id": "q41-9-0",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 1006000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-9-0",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-9-1",
+          "body": {
+            "model": "text",
+            "prompt": "abcd",
+            "stream": true,
+            "deadline_us": 1028000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-9-1",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-9-2",
+          "body": {
+            "model": "text",
+            "prompt": "共享问答",
+            "stream": true,
+            "deadline_us": 1014000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-9-2",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-9-3",
+          "body": {
+            "model": "text",
+            "prompt": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "stream": true,
+            "deadline_us": 1014000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-9-3",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-9-4",
+          "body": {
+            "model": "text",
+            "prompt": "共享上下文_abcdef",
+            "stream": true,
+            "deadline_us": 1006000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-9-4",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-9-5",
+          "body": {
+            "model": "text",
+            "prompt": "abcd",
+            "stream": true,
+            "deadline_us": 1006000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-9-5",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        },
+        {
+          "id": "q41-9-6",
+          "body": {
+            "model": "text",
+            "prompt": "abcdefghi",
+            "stream": true,
+            "deadline_us": 1006000,
+            "prompt_tokens": 1
+          },
+          "timing": {
+            "sample": "s41-9-6",
+            "baseline_us": 1000,
+            "service_us": 1000
+          }
+        }
+      ],
+      "cancel": []
+    }
+  ],
+  "window": [
+    0,
+    1100000
+  ]
+}

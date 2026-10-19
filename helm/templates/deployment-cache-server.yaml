@@ -1,0 +1,91 @@
+{{- if .Values.cacheserverSpec.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Release.Name }}-deployment-cache-server"
+  namespace: {{ .Release.Namespace }}
+  labels:
+  {{- include "chart.cacheserverStandardLabels" (dict "releaseName" .Release.Name "chartName" .Chart.Name) | nindent 4 }}
+  {{- include "chart.cacheserverLabels" . | nindent 4 }}
+  {{- with .Values.cacheserverSpec.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  replicas: {{ .Values.cacheserverSpec.replicaCount }}
+  {{- with .Values.cacheserverSpec.strategy }}
+  strategy:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  selector:
+    matchLabels:
+    {{- include "chart.cacheserverStandardLabels" (dict "releaseName" .Release.Name "chartName" .Chart.Name) | nindent 6 }}
+    {{- include "chart.cacheserverLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+      {{- include "chart.cacheserverStandardLabels" (dict "releaseName" .Release.Name "chartName" .Chart.Name) | nindent 8 }}
+      {{- include "chart.cacheserverLabels" . | nindent 8 }}
+    spec:
+      {{- if .Values.cacheserverSpec.priorityClassName }}
+      priorityClassName: {{ .Values.cacheserverSpec.priorityClassName }}
+      {{- end }}
+      {{- if .Values.cacheserverSpec.runtimeClassName }}
+      runtimeClassName: {{ .Values.cacheserverSpec.runtimeClassName }}
+      {{- end }}
+      {{- if .Values.cacheserverSpec.schedulerName }}
+      schedulerName: {{ .Values.cacheserverSpec.schedulerName }}
+      {{- end }}
+      {{- with .Values.cacheserverSpec.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.cacheserverSpec.securityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.cacheserverSpec.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.cacheserverSpec.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.cacheserverSpec.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: "lmcache-server"
+          image: "{{ .Values.cacheserverSpec.image.repository }}:{{ .Values.cacheserverSpec.image.tag }}"
+          command:
+          - "/opt/venv/bin/lmcache_server"
+          - "0.0.0.0"
+          - "{{ .Values.cacheserverSpec.containerPort }}"
+          {{- with .Values.cacheserverSpec.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          ports:
+            - name: "caserver-cport"
+              containerPort: {{ .Values.cacheserverSpec.containerPort }}
+          imagePullPolicy: {{ .Values.cacheserverSpec.imagePullPolicy }}
+          {{- if .Values.cacheserverSpec.livenessProbe }}
+          livenessProbe:
+            initialDelaySeconds: {{ .Values.cacheserverSpec.livenessProbe.initialDelaySeconds | default 30 }}
+            periodSeconds: {{ .Values.cacheserverSpec.livenessProbe.periodSeconds | default 10 }}
+            failureThreshold: {{ .Values.cacheserverSpec.livenessProbe.failureThreshold | default 3 }}
+            timeoutSeconds: {{ .Values.cacheserverSpec.livenessProbe.timeoutSeconds | default 5 }}
+            exec:
+              command:
+              - "/opt/venv/bin/python3"
+              - "/workspace/LMCache/examples/kubernetes/health_probe.py"
+              - "127.0.0.1"
+              - "{{ .Values.cacheserverSpec.containerPort }}"
+          {{- end }}
+          {{- with .Values.cacheserverSpec.containerSecurityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+{{- end -}}

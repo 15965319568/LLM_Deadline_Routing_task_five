@@ -1,0 +1,578 @@
+# vLLM Production Stack helm chart
+
+This helm chart lets users deploy multiple serving engines and a router into the Kubernetes cluster.
+
+## Key features
+
+- Support running multiple serving engines with multiple different models
+- Load the model weights directly from the existing PersistentVolumes
+
+## Prerequisites
+
+1. A running Kubernetes cluster with GPU. (You can set it up through `minikube`: <https://minikube.sigs.k8s.io/docs/tutorials/nvidia/>)
+2. [Helm](https://helm.sh/docs/intro/install/)
+
+## Install the helm chart
+
+```bash
+helm dependency build
+helm install llmstack . -f values-example.yaml
+```
+
+## Uninstall the chart
+
+```bash
+helm uninstall llmstack
+```
+
+## Configure the deployments
+
+See `helm/values.yaml` for mode details.
+
+## Production Stack Helm Chart Values Reference
+
+This table documents all available configuration values for the Production Stack Helm chart.
+
+### Table of Contents
+
+- [Serving Engine Configuration](#serving-engine-configuration)
+- [Router Configuration](#router-configuration)
+- [Cache Server Configuration](#cache-server-configuration)
+- [LoRA Adapters Configuration](#lora-adapters-configuration)
+- [LoRA Controller Configuration](#lora-controller-configuration)
+- [Shared Storage Configuration](#shared-storage-configuration)
+- [Other Configuration](#other-configuration)
+
+### Serving Engine Configuration
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `servingEngineSpec.enableEngine` | boolean | `true` | Whether to enable the serving engine deployment |
+| `servingEngineSpec.labels` | map | `{environment: "test", release: "test"}` | Customized labels for the serving engine deployment |
+| `servingEngineSpec.vllmApiKey` | string/map | `null` | (Optional) API key for securing vLLM models. Can be a direct string or an object referencing an existing secret |
+| `servingEngineSpec.modelSpec` | list | `[]` | Array of specifications for configuring multiple serving engine deployments running different models |
+| `servingEngineSpec.containerPort` | integer | `8000` | Port the vLLM server container is listening on |
+| `servingEngineSpec.servicePort` | integer | `80` | Port the service will listen on |
+| `servingEngineSpec.configs` | map | `{}` | Set other environment variables from a config map |
+| `servingEngineSpec.strategy` | map | `{}` | Deployment strategy for the serving engine pods |
+| `servingEngineSpec.tolerations` | list | `[]` | Tolerations configuration for the serving engine pods (when there are taints on nodes) |
+| `servingEngineSpec.runtimeClassName` | string | `"nvidia"` | RuntimeClassName configuration (set to "nvidia" if using GPU) |
+| `servingEngineSpec.schedulerName` | string | `""` | SchedulerName configuration for the serving engine pods |
+| `servingEngineSpec.securityContext` | map | `{}` | Pod-level security context configuration for the serving engine pods |
+| `servingEngineSpec.containerSecurityContext` | map | `{runAsNonRoot: false}` | Container-level security context configuration for the serving engine container |
+| `servingEngineSpec.extraPorts` | list | `[]` | List of additional ports to expose for the serving engine container |
+| `servingEngineSpec.startupProbe.initialDelaySeconds` | integer | `15` | Number of seconds after container starts before startup probe is initiated |
+| `servingEngineSpec.startupProbe.periodSeconds` | integer | `10` | How often (in seconds) to perform the startup probe |
+| `servingEngineSpec.startupProbe.failureThreshold` | integer | `60` | Number of failures before considering failed |
+| `servingEngineSpec.startupProbe.httpGet.path` | string | `"/health"` | Path to access on the HTTP server |
+| `servingEngineSpec.startupProbe.httpGet.port` | integer | `8000` | Port to access on the container |
+| `servingEngineSpec.livenessProbe.initialDelaySeconds` | integer | `15` | Number of seconds after container starts before liveness probe is initiated |
+| `servingEngineSpec.livenessProbe.periodSeconds` | integer | `10` | How often (in seconds) to perform the liveness probe |
+| `servingEngineSpec.livenessProbe.failureThreshold` | integer | `3` | Number of failures before considering failed |
+| `servingEngineSpec.livenessProbe.httpGet.path` | string | `"/health"` | Path to access on the HTTP server |
+| `servingEngineSpec.livenessProbe.httpGet.port` | integer | `8000` | Port to access on the container |
+| `servingEngineSpec.imagePullPolicy` |  string | `"Always"`| Image pull policy for serving engine |
+| `servingEngineSpec.extraVolumes` | list | `[]`| Extra volumes for serving engine |
+| `servingEngineSpec.extraVolumeMounts` | list | `[]` | Extra volume mounts for serving engine |
+| `servingEngineSpec.env` | list | `[]` | (Optional) Global environment variables for all serving engine containers. If a variable is set in both `servingEngineSpec.env` and `servingEngineSpec.modelSpec[].env`, the value from `modelSpec[].env` will override the global value for that model. |
+
+#### Model Specification Fields
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `servingEngineSpec.modelSpec[].annotations` | map | `{}` | (Optional) Annotations to add to the deployment, e.g., {model: "opt125m"} |
+| `servingEngineSpec.modelSpec[].podAnnotations` | map | `{}` | (Optional) Annotations to add to the pod, e.g., {model: "opt125m"} |
+| `servingEngineSpec.modelSpec[].labels` | map | `{}` | (Optional) Additional labels to add to the deployment |
+| `servingEngineSpec.modelSpec[].podLabels` | map | `{}` | (Optional) Additional labels to add to the pods |
+| `servingEngineSpec.modelSpec[].name` | string | `""` | The name of the model, e.g., "example-model" |
+| `servingEngineSpec.modelSpec[].repository` | string | `""` | The repository of the model, e.g., "vllm/vllm-openai" |
+| `servingEngineSpec.modelSpec[].tag` | string | `""` | The tag of the model, e.g., "latest" |
+| `servingEngineSpec.modelSpec[].imagePullSecret` | string | `""` | (Optional) Name of secret with credentials to private container repository |
+| `servingEngineSpec.modelSpec[].modelURL` | string | `""` | The URL of the model, e.g., "facebook/opt-125m" |
+| `servingEngineSpec.modelSpec[].chatTemplate` | string | `null` | (Optional) Chat template (Jinja2) specifying tokenizer configuration |
+| `servingEngineSpec.modelSpec[].replicaCount` | integer | `1` | The number of replicas for the model |
+| `servingEngineSpec.modelSpec[].pdb.enabled`| boolean |  `false` | Whether to create a PodDisruptionBudget for the model |
+| `servingEngineSpec.modelSpec[].pdb.labels`| map | `{}` | Labels to add to the PodDisruptionBudget |
+| `servingEngineSpec.modelSpec[].pdb.annotations`| map | `{}` | Annotations to add to the PodDisruptionBudget |
+| `servingEngineSpec.modelSpec[].pdb.minAvailable`| string | `""` | Number of pods that are available after eviction as number or percentage (eg.: 50%) |
+| `servingEngineSpec.modelSpec[].pdb.maxUnavailable`| string | `""` | Number of pods that are unavailable after eviction as number or percentage (eg.: 50%). |
+| `servingEngineSpec.modelSpec[].resources` | object | `{}` | Standard Kubernetes resources block (requests/limits). If specified, this takes priority over and ignores simplified resource fields (requestCPU, requestMemory, requestGPU, etc.) |
+| `servingEngineSpec.modelSpec[].requestCPU` | integer | `0` | The number of CPUs requested for the model |
+| `servingEngineSpec.modelSpec[].requestMemory` | string | `""` | The amount of memory requested for the model, e.g., "16Gi" |
+| `servingEngineSpec.modelSpec[].requestGPU` | integer | `0` | The number of GPUs requested for the model |
+| `servingEngineSpec.modelSpec[].requestGPUType` | string | `"nvidia.com/gpu"` | (Optional) The type of GPU requested, e.g., "nvidia.com/mig-4g.71gb" |
+| `servingEngineSpec.modelSpec[].limitCPU` | string | `""` | (Optional) The CPU limit for the model, e.g., "8" |
+| `servingEngineSpec.modelSpec[].limitMemory` | string | `""` | (Optional) The memory limit for the model, e.g., "32Gi" |
+| `servingEngineSpec.modelSpec[].shmSize` | string | `"20Gi"` | Size of the shared memory for the serving engine container (applied when tensor parallelism is enabled) |
+| `servingEngineSpec.modelSpec[].enableLoRA` | boolean | `true` | (Optional) Whether to enable LoRA |
+| `servingEngineSpec.modelSpec[].pvcStorage` | string | `""` | (Optional) The amount of storage requested for the model, e.g., "50Gi" |
+| `servingEngineSpec.modelSpec[].pvcAccessMode` | list | `[]` | (Optional) The access mode policy for the mounted volume, e.g., ["ReadWriteOnce"] |
+| `servingEngineSpec.modelSpec[].storageClass` | string | `""` | (Optional) The storage class of the PVC |
+| `servingEngineSpec.modelSpec[].pvcMatchLabels` | map | `{}` | (Optional) The labels to match the PVC, e.g., {model: "opt125m"} |
+| `servingEngineSpec.modelSpec[].pvcLabels` | map | `{}` | (Optional) The labels to add to the PVC, e.g., {label_excluded_from_alerts: "true"} |
+| `servingEngineSpec.modelSpec[].pvcAnnotations` | map | `{}` | (Optional) The annotations to add to the PVC |
+| `servingEngineSpec.modelSpec[].extraVolumes` | list | `[]` | (Optional) Additional volumes to add to the pod, in Kubernetes volume format |
+| `servingEngineSpec.modelSpec[].extraVolumeMounts` | list | `[]` | (Optional) Additional volume mounts to add to the container, in Kubernetes volumeMount format |
+| `servingEngineSpec.modelSpec[].serviceAccountName` | string | `""` | (Optional) The name of the service account to use for the deployment |
+| `servingEngineSpec.modelSpec[].priorityClassName` | string | `""` | Priority class name for the deployment |
+| `servingEngineSpec.modelSpec[].hf_token` | string/map | - | (Optional) Hugging Face token configuration |
+| `servingEngineSpec.modelSpec[].env` | list | - | (Optional) Environment variables for the container |
+| `servingEngineSpec.modelSpec[].nodeName` | string | - | (Optional) Direct node assignment |
+| `servingEngineSpec.modelSpec[].nodeSelectorTerms` | list | - | (Optional) Node selector terms |
+| `servingEngineSpec.modelSpec[].tolerations` | list | - | (Optional) Per-model tolerations. Merged with or replaces `servingEngineSpec.tolerations` according to `tolerationsPolicy` |
+| `servingEngineSpec.modelSpec[].tolerationsPolicy` | string | `"append"` | (Optional) How per-model tolerations interact with global tolerations. `"append"` unions both lists; `"override"` replaces global tolerations entirely for this model |
+
+#### Init Container Configuration
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `servingEngineSpec.modelSpec[].initContainer.name` | string | `""` | The name of the init container, e.g., "init" |
+| `servingEngineSpec.modelSpec[].initContainer.image` | string | `""` | The Docker image for the init container, e.g., "busybox:latest" |
+| `servingEngineSpec.modelSpec[].initContainer.command` | list | `[]` | (Optional) The command to run in the init container, e.g., ["sh", "-c"] |
+| `servingEngineSpec.modelSpec[].initContainer.args` | list | `[]` | (Optional) Additional arguments to pass to the command, e.g., ["ls"] |
+| `servingEngineSpec.modelSpec[].initContainer.env` | list | `[]` | (Optional) List of environment variables to set in the container |
+| `servingEngineSpec.modelSpec[].initContainer.resources` | map | `{}` | (Optional) The resource requests and limits for the container |
+| `servingEngineSpec.modelSpec[].initContainer.mountPvcStorage` | boolean | `false` | (Optional) Whether to mount the model's volume |
+
+#### vLLM Configuration
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `servingEngineSpec.modelSpec[].vllmConfig.v0` | integer | - | Specify to 1 to use vLLM v0, otherwise vLLM v1 |
+| `servingEngineSpec.modelSpec[].vllmConfig.enablePrefixCaching` | boolean | `false` | Enable prefix caching |
+| `servingEngineSpec.modelSpec[].vllmConfig.enableChunkedPrefill` | boolean | `false` | Enable chunked prefill |
+| `servingEngineSpec.modelSpec[].vllmConfig.maxModelLen` | integer | `4096` | The maximum model length, e.g., 16384 |
+| `servingEngineSpec.modelSpec[].vllmConfig.dtype` | string | `"fp16"` | The data type, e.g., "bfloat16" |
+| `servingEngineSpec.modelSpec[].vllmConfig.tensorParallelSize` | integer | `1` | The degree of tensor parallelism, e.g., 2 |
+| `servingEngineSpec.modelSpec[].vllmConfig.maxNumSeqs` | integer | `256` | Maximum number of sequences to be processed in a single iteration |
+| `servingEngineSpec.modelSpec[].vllmConfig.maxLoras` | integer | `0` | The maximum number of LoRA models to be loaded in a single batch |
+| `servingEngineSpec.modelSpec[].vllmConfig.gpuMemoryUtilization` | number | `0.9` | The fraction of GPU memory to be used for the model executor (0-1) |
+| `servingEngineSpec.modelSpec[].vllmConfig.runner` | string | `""` | The runner type for the model, can be "auto" or "pooling" |
+| `servingEngineSpec.modelSpec[].vllmConfig.convert` | string | `""` | The conversion type for the model, can be "token_embed", "embed", "token_classify", "classify", or "score" |
+| `servingEngineSpec.modelSpec[].vllmConfig.extraArgs` | list | `["--trust-remote-code"]` | Extra command line arguments to pass to vLLM |
+
+#### LMCache Configuration
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `servingEngineSpec.modelSpec[].lmcacheConfig.enabled` | boolean | `false` | Enable LMCache |
+| `servingEngineSpec.modelSpec[].lmcacheConfig.cpuOffloadingBufferSize` | string | `"4"` | The CPU offloading buffer size, e.g., "30" |
+| `servingEngineSpec.modelSpec[].lmcacheConfig.diskOffloadingBufferSize` | string | `""` | The disk offloading buffer size, e.g., "10Gi" |
+| `servingEngineSpec.modelSpec[].lmcacheConfig.enableController` | boolean | `true` | Enable LMCache controller for KV-aware routing |
+| `servingEngineSpec.modelSpec[].lmcacheConfig.instanceId` | string | `"default1"` | Unique instance identifier for controller |
+| `servingEngineSpec.modelSpec[].lmcacheConfig.controllerPort` | string | `"9000"` | Controller port for KV coordination |
+| `servingEngineSpec.modelSpec[].lmcacheConfig.workerPort` | integer | `8001` | Worker port for cache communication |
+| `servingEngineSpec.modelSpec[].lmcacheConfig.kvRole` | string | - | KV cache role (for disaggregated prefill) - "kv_producer" or "kv_consumer" |
+| `servingEngineSpec.modelSpec[].lmcacheConfig.enableNixl` | boolean | `true` | Enable NIXL protocol for KV transfer |
+| `servingEngineSpec.modelSpec[].lmcacheConfig.nixlRole` | string | - | NIXL role for distributed caching - "sender" or "receiver" |
+| `servingEngineSpec.modelSpec[].lmcacheConfig.nixlPeerHost` | string | `"decode-service"` | NIXL peer host for KV transfer |
+| `servingEngineSpec.modelSpec[].lmcacheConfig.nixlPeerPort` | string | `"55555"` | NIXL peer port for KV transfer |
+| `servingEngineSpec.modelSpec[].lmcacheConfig.nixlBufferSize` | string | `"1073741824"` | NIXL buffer size for KV transfer |
+| `servingEngineSpec.modelSpec[].lmcacheConfig.logLevel` | string | `"info"` | Log level for LMCache |
+
+#### KEDA Autoscaling Configuration
+
+> **Note**: Unless explicitly set, KEDA's default values will apply. The defaults shown below are KEDA's defaults, not values enforced by this Helm chart.
+
+| Field | Type | KEDA Default | Description |
+|-------|------|--------------|-------------|
+| `servingEngineSpec.modelSpec[].keda.enabled` | boolean | `false` | Enable KEDA autoscaling for this model deployment (requires KEDA installed in cluster) |
+| `servingEngineSpec.modelSpec[].keda.minReplicaCount` | integer | - | Minimum number of replicas (supports 0 for scale-to-zero); if not set, HPA minReplicas default applies |
+| `servingEngineSpec.modelSpec[].keda.maxReplicaCount` | integer | - | Maximum number of replicas; if not set, HPA maxReplicas default applies |
+| `servingEngineSpec.modelSpec[].keda.pollingInterval` | integer | `30` | How often KEDA checks metrics (in seconds) |
+| `servingEngineSpec.modelSpec[].keda.cooldownPeriod` | integer | `300` | Wait time before scaling down after scaling up (in seconds) |
+| `servingEngineSpec.modelSpec[].keda.idleReplicaCount` | integer | - | Number of replicas when no triggers are active |
+| `servingEngineSpec.modelSpec[].keda.initialCooldownPeriod` | integer | - | Initial cooldown period before scaling down after creation (in seconds) |
+| `servingEngineSpec.modelSpec[].keda.fallback` | map | - | Fallback configuration when scaler fails |
+| `servingEngineSpec.modelSpec[].keda.fallback.failureThreshold` | integer | - | Number of consecutive failures before fallback |
+| `servingEngineSpec.modelSpec[].keda.fallback.replicas` | integer | - | Number of replicas to scale to in fallback |
+| `servingEngineSpec.modelSpec[].keda.triggers` | list | See below | List of KEDA trigger configurations (Prometheus-based) |
+| `servingEngineSpec.modelSpec[].keda.triggers[].type` | string | - | Trigger type (e.g., `"prometheus"`) |
+| `servingEngineSpec.modelSpec[].keda.triggers[].metadata.serverAddress` | string | - | Prometheus server URL (e.g., <http://prometheus-operated.monitoring.svc:9090>) |
+| `servingEngineSpec.modelSpec[].keda.triggers[].metadata.metricName` | string | - | Name of the metric to monitor |
+| `servingEngineSpec.modelSpec[].keda.triggers[].metadata.query` | string | - | PromQL query to fetch the metric |
+| `servingEngineSpec.modelSpec[].keda.triggers[].metadata.threshold` | string | - | Threshold value that triggers scaling |
+| `servingEngineSpec.modelSpec[].keda.advanced` | map | - | Advanced KEDA configuration options |
+| `servingEngineSpec.modelSpec[].keda.advanced.restoreToOriginalReplicaCount` | boolean | `false` | Restore original replica count when ScaledObject is deleted |
+| `servingEngineSpec.modelSpec[].keda.advanced.horizontalPodAutoscalerConfig` | map | - | HPA-specific configuration |
+| `servingEngineSpec.modelSpec[].keda.advanced.horizontalPodAutoscalerConfig.name` | string | `keda-hpa-{scaled-object-name}` | Custom name for HPA resource |
+| `servingEngineSpec.modelSpec[].keda.advanced.horizontalPodAutoscalerConfig.behavior` | map | - | HPA scaling behavior configuration (see [K8s docs](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)) |
+| `servingEngineSpec.modelSpec[].keda.advanced.scalingModifiers` | map | - | Scaling modifiers for composite metrics |
+| `servingEngineSpec.modelSpec[].keda.advanced.scalingModifiers.target` | string | - | Target value for the composed metric |
+| `servingEngineSpec.modelSpec[].keda.advanced.scalingModifiers.activationTarget` | string | - | Activation target for the composed metric |
+| `servingEngineSpec.modelSpec[].keda.advanced.scalingModifiers.metricType` | string | `"AverageValue"` | Metric type (AverageValue or Value) |
+| `servingEngineSpec.modelSpec[].keda.advanced.scalingModifiers.formula` | string | - | Formula to compose metrics together |
+
+#### Ray Cluster Configuration
+
+Set `servingEngineSpec.modelSpec[].raySpec.enabled: true` to deploy the model as a multi-node `RayCluster` (via KubeRay) instead of a standard `Deployment`. Worker resources and the worker init container are taken from the top-level `modelSpec` (`requestCPU`/`requestMemory`/`requestGPU` or `resources`, and `initContainer`), while head-node resources and the head-node init container are configured under `raySpec.headNode`.
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `servingEngineSpec.modelSpec[].raySpec.enabled` | boolean | `false` | Deploy the model as a `RayCluster` instead of a `Deployment` |
+| `servingEngineSpec.modelSpec[].raySpec.headNode.requestCPU` | integer | `1` | CPU request for the Ray head node container |
+| `servingEngineSpec.modelSpec[].raySpec.headNode.requestMemory` | string | `"1Gi"` | Memory request for the Ray head node container |
+| `servingEngineSpec.modelSpec[].raySpec.headNode.requestGPU` | integer | `1` | GPU request for the Ray head node container |
+| `servingEngineSpec.modelSpec[].raySpec.headNode.resources` | map | `{}` | (Optional) Raw Kubernetes `resources` block for the head container. When set, overrides the `request*` fields above |
+| `servingEngineSpec.modelSpec[].raySpec.headNode.initContainer.name` | string | - | (Optional) Name of an init container to run before the Ray head container |
+| `servingEngineSpec.modelSpec[].raySpec.headNode.initContainer.image` | string | - | (Optional) Image for the head init container |
+| `servingEngineSpec.modelSpec[].raySpec.headNode.initContainer.command` | list | `[]` | (Optional) Command for the head init container |
+| `servingEngineSpec.modelSpec[].raySpec.headNode.initContainer.args` | list | `[]` | (Optional) Args for the head init container |
+| `servingEngineSpec.modelSpec[].raySpec.headNode.initContainer.env` | list | `[]` | (Optional) Environment variables for the head init container |
+| `servingEngineSpec.modelSpec[].raySpec.headNode.initContainer.resources` | map | `{}` | (Optional) Resource requests/limits for the head init container |
+| `servingEngineSpec.modelSpec[].raySpec.headNode.initContainer.mountPvcStorage` | boolean | `false` | (Optional) Mount the model's PVC into the head init container |
+| `servingEngineSpec.modelSpec[].raySpec.headNode.initContainer.extraVolumeMounts` | list | `[]` | (Optional) Additional volume mounts for the head init container |
+
+> **Note**: Ray worker pods reuse the top-level `modelSpec` fields — set `modelSpec.requestCPU`/`requestMemory`/`requestGPU` (or `modelSpec.resources` for a raw override) to size the workers, and `modelSpec.initContainer` to inject an init container into each worker pod.
+
+#### Serving Engine Monitoring Configuration
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `servingEngineSpec.serviceMonitor.enabled` | boolean | `false` | Specifies whether to create a ServiceMonitor resource for collecting Prometheus metrics |
+| `servingEngineSpec.serviceMonitor.additionalLabels` | map | `{}` | Additional labels |
+| `servingEngineSpec.serviceMonitor.interval` | string | `30s` | Interval to scrape metrics |
+| `servingEngineSpec.serviceMonitor.scrapeTimeout` | string | `25s` | Timeout if metrics can't be retrieved in given time interval |
+| `servingEngineSpec.serviceMonitor.honorLabels` | boolean | `false` | Let prometheus add an exported_ prefix to conflicting labels |
+| `servingEngineSpec.serviceMonitor.metricRelabelings` | list | `[]` | Metric relabel configs to apply to samples before ingestion. [Metric Relabeling](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#metric_relabel_configs) |
+| `servingEngineSpec.serviceMonitor.relabelings` | list | `[]` | Relabel configs to apply to samples before ingestion. [Relabeling](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config) |
+
+### Router Configuration
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `routerSpec.enableRouter` | boolean | `true` | Whether to enable the router service |
+| `routerSpec.repository` | string | `"lmcache/lmstack-router"` | Docker image repository for the router |
+| `routerSpec.tag` | string | `"latest"` | Docker image tag for the router |
+| `routerSpec.imagePullPolicy` | string | `"Always"` | Image pull policy for the router |
+| `routerSpec.imagePullSecrets` | list | `[]` | Image pull secrets for private container registries |
+| `routerSpec.replicaCount` | integer | `1` | Number of replicas for the router pod |
+| `routerSpec.pdb.enabled`| boolean |  `false` | Whether to create a PodDisruptionBudget for the model |
+| `routerSpec.pdb.labels`| map | `{}` | Labels to add to the PodDisruptionBudget |
+| `routerSpec.pdb.annotations`| map | `{}` | Annotations to add to the PodDisruptionBudget |
+| `routerSpec.pdb.minAvailable`| string | `""` | Number of pods that are available after eviction as number or percentage (eg.: 50%) |
+| `routerSpec.pdb.maxUnavailable`| string | `""` | Number of pods that are unavailable after eviction as number or percentage (eg.: 50%). |
+| `routerSpec.priorityClassName` | string | `""` | Priority class for router |
+| `routerSpec.containerPort` | integer | `8000` | Port the router container is listening on |
+| `routerSpec.serviceType` | string | `"ClusterIP"` | Kubernetes service type for the router |
+| `routerSpec.serviceAnnotations` | map | `{}` | Service annotations for LoadBalancer/NodePort |
+| `routerSpec.servicePort` | integer | `80` | Port the router service will listen on |
+| `routerSpec.serviceDiscovery` | string | `"k8s"` | Service discovery mode ("k8s" or "static") |
+| `routerSpec.k8sServiceDiscoveryType` | string | `"pod-ip"` | Service discovery Type ("pod-ip" or "service-name") if serviceDiscovery is "k8s" |
+| `routerSpec.staticBackends` | string | `""` | Comma-separated list of backend addresses if serviceDiscovery is "static" |
+| `routerSpec.staticModels` | string | `""` | Comma-separated list of model names if serviceDiscovery is "static" |
+| `routerSpec.routingLogic` | string | `"roundrobin"` | Routing logic: `"roundrobin"`, `"session"`, `"prefixaware"`, `"kvaware"`, `"disaggregated_prefill"`, or `"disaggregated_prefill_orchestrated"` |
+| `routerSpec.prefixMinMatchLength` | integer | `0` | Minimum prefix match length for `prefixaware` routing to reuse a matched endpoint; below this, requests fall back to QPS routing. Quantized to the prefix chunk size (default 128). `0` disables it |
+| `routerSpec.sessionKey` | string | `""` | Session key if using "session" routing logic |
+| `routerSpec.extraArgs` | list | `[]` | Extra command line arguments to pass to the router |
+| `routerSpec.extraVolumes` | list | `[]` | Additional volumes to add to the router pod, in Kubernetes volume format |
+| `routerSpec.extraVolumeMounts` | list | `[]` | Additional volume mounts to add to the router container, in Kubernetes volumeMount format |
+| `routerSpec.engineScrapeInterval` | integer | `15` | Interval in seconds to scrape metrics from the serving engine |
+| `routerSpec.requestStatsWindow` | integer | `60` | Window size in seconds for calculating request statistics |
+| `routerSpec.strategy` | map | `{}` | Deployment strategy for the router pods |
+| `routerSpec.vllmApiKey` | string/map | `null` | (Optional) API key for securing vLLM models |
+| `routerSpec.resources.requests.cpu` | string | `"4"` | CPU requests for router |
+| `routerSpec.resources.requests.memory` | string | `"16G"` | Memory requests for router |
+| `routerSpec.resources.limits.cpu` | string | `"8"` | CPU limits for router |
+| `routerSpec.resources.limits.memory` | string | `"32G"` | Memory limits for router |
+| `routerSpec.labels` | map | `{environment: "router", release: "router"}` | Customized labels for the router deployment |
+| `routerSpec.podAnnotations` | map | `{}` | (Optional) Annotations to add to the pod, e.g., {model: "opt125m"} |
+| `routerSpec.affinity` | map | {} | (Optional) Affinity configuration. If specified, this takes precedence over `nodeSelectorTerms`. |
+| `routerSpec.nodeSelectorTerms` | list | `[]` | (Optional) Node selector terms. This is ignored if `affinity` is specified. |
+| `routerSpec.hf_token` | string | `""`| Hugging Face token for router |
+| `routerSpec.lmcacheControllerPort` | integer | `""` | LMCache controller port, used when `routingLogic` is `"kvaware"` (e.g. `9000`) |
+| `routerSpec.lmcacheConfig.logLevel` | string | `"INFO"`| Log level for LMCache in the router when routingLogic is kvaware |
+| `routerSpec.livenessProbe.initialDelaySeconds` | integer |`30`| Initial delay in seconds for router's liveness probe |
+| `routerSpec.livenessProbe.periodSeconds` | integer |`5`| Interval in seconds for router's liveness probe |
+| `routerSpec.livenessProbe.failureThreshold` | integer |`3`| Failure threshold for router's liveness probe |
+| `routerSpec.livenessProbe.httpGet.path` | string |`"/health"`| Endpoint that the router's liveness probe will be testing |
+| `routerSpec.startupProbe.initialDelaySeconds` | integer |`5`| Initial delay in seconds for router's startup probe |
+| `routerSpec.startupProbe.periodSeconds` | integer |`5`| Interval in seconds for router's startup probe |
+| `routerSpec.startupProbe.failureThreshold` | integer |`3`| Failure threshold for router's startup probe |
+| `routerSpec.startupProbe.httpGet.path` | string |`"/health"`| Endpoint that the router's startup probe will be testing |
+| `routerSpec.readinessProbe.initialDelaySeconds` | integer |`30`| Initial delay in seconds for router's readiness probe |
+| `routerSpec.readinessProbe.periodSeconds` | integer |`5`| Interval in seconds for router's readiness probe |
+| `routerSpec.readinessProbe.failureThreshold` | integer |`3`| Failure threshold for router's readiness probe |
+| `routerSpec.readinessProbe.httpGet.path` | string |`"/health"`| Endpoint that the router's readiness probe will be testing |
+
+#### Router OpenTelemetry Configuration
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `routerSpec.otel.endpoint` | string | `""` | OTLP endpoint for tracing (e.g., "otel-collector:4317"). Tracing is enabled when this is set. |
+| `routerSpec.otel.serviceName` | string | `"vllm-router"` | Service name for OpenTelemetry traces |
+| `routerSpec.otel.secure` | boolean | `false` | Use secure (TLS) connection for OTLP exporter |
+
+#### Router Monitoring Configuration
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `routerSpec.serviceMonitor.enabled` | boolean | `false` | Specifies whether to create a ServiceMonitor resource for collecting Prometheus metrics |
+| `routerSpec.serviceMonitor.additionalLabels` | map | `{}` | Additional labels |
+| `routerSpec.serviceMonitor.interval` | string | `30s` | Interval to scrape metrics |
+| `routerSpec.serviceMonitor.scrapeTimeout` | string | `25s` | Timeout if metrics can't be retrieved in given time interval |
+| `routerSpec.serviceMonitor.honorLabels` | boolean | `false` | Let prometheus add an exported_ prefix to conflicting labels |
+| `routerSpec.serviceMonitor.metricRelabelings` | list | `[]` | Metric relabel configs to apply to samples before ingestion. [Metric Relabeling](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#metric_relabel_configs) |
+| `routerSpec.serviceMonitor.relabelings` | list | `[]` | Relabel configs to apply to samples before ingestion. [Relabeling](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config) |
+
+#### Router Ingress Configuration
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `routerSpec.ingress.enabled` | boolean | `false` | Enable Ingress controller resource for the router |
+| `routerSpec.ingress.className` | string | `""` | IngressClass to use for the router Ingress resource |
+| `routerSpec.ingress.annotations` | map | `{}` | Additional annotations for the router Ingress resource |
+| `routerSpec.ingress.hosts` | list | `[{host: "vllm-router.local", paths: [{path: /, pathType: Prefix}]}]` | List of hostnames covered by the router Ingress record |
+| `routerSpec.ingress.tls` | list | `[]` | TLS configuration for hostnames covered by the router Ingress record |
+
+### Cache Server Configuration
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `cacheserverSpec.enabled` | boolean | `false` | Whether to enable the cache server deployment |
+| `cacheserverSpec.image.repository` | string | `"lmcache/vllm-openai"` | Docker image repository for the cache server |
+| `cacheserverSpec.image.tag` | string | `"latest"` | Docker image tag for the cache server |
+| `cacheserverSpec.imagePullPolicy` | string | `"Always"` | Image pull policy for the cache server |
+| `cacheserverSpec.imagePullSecrets` | list | `[]` | Image pull secrets for private container registries |
+| `cacheserverSpec.replicaCount` | integer | `1` | Number of replicas for the cache server pod |
+| `cacheserverSpec.containerPort` | integer | `8000` | Port the cache server container is listening on |
+| `cacheserverSpec.serviceType` | string | `"ClusterIP"` | Kubernetes service type for the cache server |
+| `cacheserverSpec.servicePort` | integer | `80` | Port the cache server service will listen on |
+| `cacheserverSpec.resources` | map | `{}` | Resource requests and limits |
+| `cacheserverSpec.labels` | map | `{environment: "cache", release: "cache"}` | Customized labels for the cache server deployment |
+| `cacheserverSpec.strategy` | map | `{}` | Deployment strategy for the cache server pods |
+| `cacheserverSpec.livenessProbe` | map | `{initialDelaySeconds: 15, periodSeconds: 10, failureThreshold: 3, httpGet: {path: /health, port: 8000}}` | Configuration for the liveness probe |
+| `cacheserverSpec.tolerations` | list | `[]` | Tolerations configuration for the cache server pods |
+| `cacheserverSpec.runtimeClassName` | string | `""` | RuntimeClassName configuration for the cache server pods |
+| `cacheserverSpec.schedulerName` | string | `""` | SchedulerName configuration for the cache server pods |
+| `cacheserverSpec.securityContext` | map | `{}` | Pod-level security context configuration |
+| `cacheserverSpec.containerSecurityContext` | map | `{}` | Container-level security context configuration |
+| `cacheserverSpec.priorityClassName` | string | - | Priority class for cache server |
+| `cacheserverSpec.affinity` | map | - | (Optional) Affinity configuration. If specified, this takes precedence over `nodeSelectorTerms`. |
+| `cacheserverSpec.nodeSelector` | map | - | (Optional) nodeSelector for the cache pods. |
+| `cacheserverSpec.serde` | string | - | Serialization/deserialization format |
+
+> `cacheserverSpec.resources` is passed through directly to the pod container resources block, so you can use extended resource keys (for example `rdma/ib`) in addition to cpu/memory.
+
+### LoRA Adapters Configuration
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `loraAdapters` | list | `[]` | Array of LoRA adapter instances to deploy |
+| `loraAdapters[].name` | string | - | Name of the LoRA adapter instance |
+| `loraAdapters[].baseModel` | string | - | Name of the base model this adapter is for |
+| `loraAdapters[].vllmApiKey.secretRef.secretName` | string | - | Name of the secret containing API key |
+| `loraAdapters[].vllmApiKey.secretRef.secretKey` | string | - | Key in the secret containing API key |
+| `loraAdapters[].vllmApiKey.value` | string | - | Direct API key value |
+| `loraAdapters[].adapterSource.type` | string | - | Type of adapter source (local, s3, http, huggingface) |
+| `loraAdapters[].adapterSource.adapterName` | string | - | Name of the adapter to apply |
+| `loraAdapters[].adapterSource.adapterPath` | string | - | Path to the LoRA adapter weights |
+| `loraAdapters[].adapterSource.repository` | string | - | Repository to get the LoRA adapter from |
+| `loraAdapters[].adapterSource.pattern` | string | - | Pattern to use for the adapter name |
+| `loraAdapters[].adapterSource.maxAdapters` | integer | - | Maximum number of adapters to load |
+| `loraAdapters[].adapterSource.credentials.secretName` | string | - | Name of secret with storage credentials |
+| `loraAdapters[].adapterSource.credentials.secretKey` | string | - | Key in secret containing credentials |
+| `loraAdapters[].loraAdapterDeploymentConfig.algorithm` | string | - | Placement algorithm (default, ordered, equalized) |
+| `loraAdapters[].loraAdapterDeploymentConfig.replicas` | integer | - | Number of replicas that should load this adapter |
+| `loraAdapters[].labels` | map | - | Additional labels for the LoRA adapter |
+
+### LoRA Controller Configuration
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `loraController.enableLoraController` | boolean | `false` | Whether to enable the LoRA controller |
+| `loraController.kubernetesClusterDomain` | string | `"cluster.local"` | Kubernetes cluster domain |
+| `loraController.replicaCount` | integer | `1` | Number of LoRA controller replicas |
+| `loraController.image.repository` | string | `"lmcache/lmstack-lora-controller"` | Docker image repository |
+| `loraController.image.tag` | string | `"latest"` | Docker image tag |
+| `loraController.image.pullPolicy` | string | `"IfNotPresent"` | Image pull policy |
+| `loraController.imagePullSecrets` | list | `[]` | Image pull secrets |
+| `loraController.annotations` | map | `{}` | Deployment annotations |
+| `loraController.labels` | map | `{}` | Deployment labels |
+| `loraController.podAnnotations` | map | `{}` | Pod annotations |
+| `loraController.podLabels` | map | `{}` | Pod labels |
+| `loraController.podSecurityContext.runAsNonRoot` | boolean | `true` | Run as non-root user |
+| `loraController.podSecurityContext.seccompProfile.type` | string | `RuntimeDefault` | Seccomp profile type |
+| `loraController.containerSecurityContext.allowPrivilegeEscalation` | boolean | `false` | Allow privilege escalation |
+| `loraController.containerSecurityContext.capabilities.drop` | list | `["ALL"]` | Drop capabilities |
+| `loraController.resources` | map | `{}` | Resource requests and limits |
+| `loraController.nodeSelector` | map | `{}` | Node selector |
+| `loraController.affinity` | map | `{}` | Affinity configuration |
+| `loraController.tolerations` | list | `[]` | Tolerations configuration |
+| `loraController.env` | list | `[]` | Environment variables |
+| `loraController.extraArgs` | list | `[]` | Extra arguments for the controller |
+| `loraController.metrics.enabled` | boolean | `true` | Whether to expose lora controller metrics |
+| `loraController.pdb.enabled`| boolean |  `false` | Whether to create a PodDisruptionBudget for the loraController |
+| `loraController.pdb.labels`| map | `{}` | Labels to add to the PodDisruptionBudget |
+| `loraController.pdb.annotations`| map | `{}` | Annotations to add to the PodDisruptionBudget |
+| `loraController.pdb.minAvailable`| string | `""` | Number of pods that are available after eviction as number or percentage (eg.: 50%) |
+| `loraController.pdb.maxUnavailable`| string | `""` | Number of pods that are unavailable after eviction as number or percentage (eg.: 50%). |
+
+### Shared Storage Configuration
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `sharedPvcStorage.enabled` | boolean | `false` | Whether to enable shared storage for the models |
+| `sharedPvcStorage.size` | string | `"100Gi"` | Size of the shared storage volume |
+| `sharedPvcStorage.accessModes` | list | `["ReadWriteMany"]` | Access modes for the shared storage volume |
+| `sharedPvcStorage.storageClass` | string | `""` | Storage class name for the shared storage volume |
+| `sharedPvcStorage.hostPath` | string | `""` | Host path for the shared storage volume. Specifying a hostPath or nfs server will create a PersistentVolume. These fields should be omitted to rely on dynamic provisioning of PersistentVolumeClaims. |
+| `sharedPvcStorage.nfs.server` | string | `""` | NFS server address for the shared storage volume |
+| `sharedPvcStorage.nfs.path` | string | `""` | NFS export path for the shared storage volume |
+
+### Other Configuration
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `grafanaDashboards.enabled` | boolean | `false` | Whether to deploy grafana dashboards as configmaps. |
+| `grafanaDashboards.annotations` | map | `{}` | Annotations to add to the configmaps. |
+| `grafanaDashboards.labels` | map | `{grafana_dashboard: "1"}` | Labels for the configmaps |
+| `extraObjects` | list | `[]` | Array of extra Kubernetes objects to deploy. Each object should be a valid Kubernetes manifest in YAML format. This can be used to deploy additional resources such as ConfigMaps, Secrets, or custom resources that are not directly supported by the chart's built-in configuration. Supports use of custom Helm templates. |
+
+## Observability
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/05766673-c449-4094-bdc8-dea6ac28cb79" alt="Grafana dashboard to monitor the deployment" width="80%"/>
+</p>
+
+### Deploy the observability stack
+
+#### On a cluster with prometheus operator installed
+
+Install the chart with the following helm values to create the `serviceMonitor` and grafana dashboards.
+
+```yaml
+servingEngineSpec:
+  serviceMonitor:
+    enabled: true
+routerSpec:
+  serviceMonitor:
+    enabled: true
+grafanaDashboards:
+  enabled: true
+```
+
+#### On an empty cluster
+
+The vllm-stack chart embeds kube-prometheus-stack as a subchart.
+Install the chart with the following helm values to deploy prometheus and grafana
+
+```yaml
+servingEngineSpec:
+  serviceMonitor:
+    enabled: true
+routerSpec:
+  serviceMonitor:
+    enabled: true
+grafanaDashboards:
+  enabled: true
+
+kube-prometheus-stack:
+  enabled: true
+```
+
+### Access the Grafana UI
+
+Forward the Grafana dashboard port to the local node-port
+
+```bash
+kubectl port-forward svc/<release-name>-grafana 8080:80
+```
+
+Open the webpage at `http://<IP of your node>:8080` to access the Grafana web page. The default user name is `admin` and the password can be configured in the values (default is generated by helm and stored in a secret `<release-name>-grafana`).
+
+### LMCache Dashboard
+
+If you use the LMCache image in the production stack, the chart includes a dedicated LMCache dashboard (provisioned automatically alongside the main vLLM dashboard when `grafanaDashboards.enabled` is set to `true`). It contains six fields showing the benefits of CPU offloading: Average time to first token (sec), Cache hit rate (%) in last 1 minute, LMCache retrieve speed (K Tokens / sec), Local CPU cache usage (GB), Number of requested tokens in total, and Number of hit tokens in total.
+
+### Use Prometheus Adapter to export vLLM metrics
+
+The vLLM router can export metrics to Prometheus using the [Prometheus Adapter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-adapter).
+
+Install the chart with the following helm values to deploy prometheus-adapter
+
+```yaml
+prometheus-adapter:
+  enabled: true
+```
+
+We provide a minimal example of how to use the Prometheus Adapter to export vLLM metrics. See [values.yaml](values.yaml) for more details.
+
+The exported metrics can be used for different purposes, such as horizontal scaling of the vLLM deployments.
+
+To verify the metrics are being exported, you can use the following command:
+
+```bash
+kubectl get --raw /apis/custom.metrics.k8s.io/v1beta1 | jq | grep vllm_num_requests_waiting -C 10
+```
+
+You should see something like the following:
+
+```json
+    {
+      "name": "namespaces/vllm_num_requests_waiting",
+      "singularName": "",
+      "namespaced": false,
+      "kind": "MetricValueList",
+      "verbs": [
+        "get"
+      ]
+    }
+```
+
+The following command will show the current value of the metric:
+
+```bash
+kubectl get --raw /apis/custom.metrics.k8s.io/v1beta1/namespaces/default/metrics/vllm_num_requests_waiting | jq
+```
+
+The output should look like the following:
+
+```json
+{
+  "kind": "MetricValueList",
+  "apiVersion": "custom.metrics.k8s.io/v1beta1",
+  "metadata": {},
+  "items": [
+    {
+      "describedObject": {
+        "kind": "Namespace",
+        "name": "default",
+        "apiVersion": "/v1"
+      },
+      "metricName": "vllm_num_requests_waiting",
+      "timestamp": "2025-03-02T01:56:01Z",
+      "value": "0",
+      "selector": null
+    }
+  ]
+}
+```
+
+## Optional: runtime AI inventory (k8s-aibom)
+
+The stack can optionally install [k8s-aibom](https://github.com/GoogleCloudPlatform/k8s-aibom),
+an unprivileged controller that generates a [CycloneDX 1.6 ML-BOM](https://cyclonedx.org/capabilities/mlbom/)
+for each AI workload actually serving — model identity, runtime, and
+container digests, each with evidence and a confidence tier. vLLM is a
+natively detected runtime.
+
+Enable it at install time, then opt in the namespace you deploy the
+stack into (inventory is namespace-opt-in by design — nothing is
+recorded without this label):
+
+```bash
+helm install llmstack . --set k8s-aibom.enabled=true
+kubectl label namespace <your-namespace> aibom.k8saibom.dev/enabled=true
+```
+
+Each vLLM deployment then gets an `AIBOM` resource:
+
+```bash
+kubectl get aiboms -n <your-namespace>
+```
+
+The BOM records the served model (from `--model` args or `HF_MODEL_ID`,
+confidence `declared`) and the vLLM runtime (confidence `inferred`),
+and can be shipped to external sinks (GCS, webhook) for audit retention.
+See the [k8s-aibom documentation](https://github.com/GoogleCloudPlatform/k8s-aibom#readme).

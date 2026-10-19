@@ -1,0 +1,24 @@
+{{- if .Values.cacheserverSpec.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ .Release.Name }}-cache-server-service"
+  namespace: {{ .Release.Namespace }}
+  labels:
+  {{- include "chart.cacheserverStandardLabels" (dict "releaseName" .Release.Name "chartName" .Chart.Name) | nindent 4 }}
+  {{- include "chart.cacheserverLabels" . | nindent 4 }}
+  {{- with .Values.cacheserverSpec.serviceAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: {{ .Values.cacheserverSpec.serviceType }}
+  ports:
+    - name: "cacheserver-sport"
+      port: {{ .Values.cacheserverSpec.servicePort }}
+      targetPort: {{ .Values.cacheserverSpec.containerPort }}
+      protocol: TCP
+  selector:
+  {{- include "chart.cacheserverStandardLabels" (dict "releaseName" .Release.Name "chartName" .Chart.Name) | nindent 4 }}
+  {{- include "chart.cacheserverLabels" . | nindent 4 }}
+{{- end -}}
