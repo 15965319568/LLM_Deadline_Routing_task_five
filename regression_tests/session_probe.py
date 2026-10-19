@@ -41,7 +41,7 @@ previous independent transport. Neither part imports an author solution.
 """
 
 
-async def run_session(source, segmentation='split'):
+async def run_session(source, segmentation='split', checkpoint_fields=None):
     work=json.loads((source/'workload.json').read_text())
     config=json.loads((source/'fabric.json').read_text())
     clock=ManualClock(work['window'][0])
@@ -76,8 +76,14 @@ async def run_session(source, segmentation='split'):
                     await gateway.reload(source/'profiles'/row['build'])
                 elif kind=='checkpoint':
                     state=(await client.get('/fabric/diagnostics')).json()
-                    checkpoints.append(dict(at_us=at,pages={r:n['pages'] for r,n in state['nodes'].items()},
-                        paged_attention=state.get('paged_attention',{}),outcomes={r:n['outcome'] for r,n in state['requests'].items()}))
+                    observed=dict(at_us=at,pages={r:n['pages'] for r,n in state['nodes'].items()},
+                        paged_attention=state.get('paged_attention',{}),outcomes={r:n['outcome'] for r,n in state['requests'].items()})
+                    if checkpoint_fields is not None:
+                        required=checkpoint_fields[at]
+                        for field in ['paged_attention','outcomes']:
+                            observed[field]={k:v for k,v in observed[field].items() if k in required[field]}
+                        conforms(observed,required,'$/checkpoints/'+str(len(checkpoints)))
+                    checkpoints.append(observed)
                 elif rid in tasks and not tasks[rid].done():
                     backend.gates[rid,kind].set()
                     next_phase={'prefill':'transfer','transfer':'frame:0'}.get(kind)
@@ -116,6 +122,6 @@ def conforms(actual,expected,path='$'):
 
 
 async def verify_case(source,expected,segmentation='split'):
-    actual=await asyncio.wait_for(run_session(source,segmentation),90)
+    actual=await asyncio.wait_for(run_session(source,segmentation,{r['at_us']:r for r in expected['checkpoints']}),90)
     conforms(actual,expected)
     return actual

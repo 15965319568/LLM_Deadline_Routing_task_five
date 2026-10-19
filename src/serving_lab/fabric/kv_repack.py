@@ -1,13 +1,17 @@
 """Worker-side gather representation accepted by the compacting decoder."""
 from .kv_fragments import Transfer
+from .compaction_seed import seed_image
 
 
 class Repack(Transfer):
     def __init__(self, spec):
         super().__init__(spec)
         self.gathers = {}
+        self.seed_meta = None
 
     def record(self, row):
+        if row['record'] == 'manifest':
+            self.seed_meta = dict(row)
         if row['record'] != 'gather':
             return super().record(row)
         current = self.gathers.get(row['id'])
@@ -15,7 +19,13 @@ class Repack(Transfer):
             self.gathers[row['id']] = dict(row)
 
     def resolve_images(self, resolve):
-        result = self.resolve(lambda base:None)
+        result = seed_image(self.seed_meta,resolve,self.spec) if self.seed_meta else None
+        if result is None:
+            result = self.resolve(lambda base:None)
+        else:
+            for candidates in self.spans.values():
+                span = candidates[-1]
+                result[span['tensor']][span['offset']:span['offset']+len(span['values'])] = span['values']
         width = self.spec['kv_heads']*self.spec['head_dim']
         for row in self.gathers.values():
             ref=row['source'];t=row['tensor']

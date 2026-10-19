@@ -6,8 +6,8 @@ License: Apache-2.0; original LICENSE and copyrights retained.
 
 This authored CPU reproduction uses the production-stack serving entrypoint.
 It is not a reported upstream defect, a customer trace, or a GPU benchmark.
-The V6.11 exercise limits repair responsibility to paged inference and KV
-ownership. Shared prefix readers, fragmented compaction and incremental views
+The V6.12 exercise limits repair responsibility to paged inference and KV
+ownership. Sparse shared views, inherited compaction, retained sources and overlapping allocation lifetimes
 are different storage representations within this authored paged-input scenario.
 General serving, profile/deployment loading, sampling and SSE are
 provided working dependencies. Synthetic profiles are supplied inputs.

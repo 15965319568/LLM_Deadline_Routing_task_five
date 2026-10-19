@@ -3,6 +3,7 @@ from .paged_layout import validate_asset, uint
 from .kv_pages import PageStorage
 from .attention_math import AttentionMath
 from .paged_view import view_for
+from .retention_policy import retain_images, inventory_cost
 
 
 def empty_report(revision):
@@ -32,7 +33,7 @@ class PageContext(PageStorage, AttentionMath):
         positions = {int(k):uint(v) for k,v in raw.items()}
         mapped = view_for(row, self.view, self.report['committed_windows'], self.spec)
         self.stage = dict(table=sorted(mapped,key=lambda r:r['position']),positions=positions,
-                          tree='tree' in window,pages={},queries={},transfers={},imports=row.get('kv_imports',[]))
+                          tree='tree' in window,pages={},queries={},transfers={},imports=row.get('kv_imports',[]),retained=row.get('kv_keep',[]))
 
     def prepare(self):
         if self.stage is None or set(self.stage['queries']) != set(range(len(self.spec['ranks']))):
@@ -60,9 +61,9 @@ class PageContext(PageStorage, AttentionMath):
         return shards
 
     def publish(self):
-        self.cache = self.stage['next_cache']
+        self.cache = retain_images(self.stage['next_cache'],self.stage['table'],self.stage['retained'])
         self.view = {r['position']:r.copy() for r in self.stage['table']}
-        self.allocate(len(self.cache))
+        self.allocate(inventory_cost(self.cache))
         self.report.update(resident_pages=len(self.cache),staged_pages=0,
                            committed_windows=self.report['committed_windows']+1,
                            query_rows=self.report['query_rows']+self.stage['query_rows'],
