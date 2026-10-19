@@ -84,4 +84,3 @@ class PageStorage:
         if previous is not None and previous != value:
             raise ValueError('conflicting query retransmission')
         self.stage['queries'][rank] = value
-

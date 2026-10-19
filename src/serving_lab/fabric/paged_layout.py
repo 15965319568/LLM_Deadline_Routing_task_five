@@ -57,5 +57,3 @@ def validate_asset(raw, vocabulary):
     out['projection_zero'] = vector(raw['projection_zero'], vocabulary, lambda x: uint(x,255))
     out['bias'] = vector(raw['bias'], vocabulary, real)
     return out
-
-

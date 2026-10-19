@@ -42,4 +42,3 @@ class AttentionMath:
         flattened = [x for part in spec['ranks'] for head in part['query_heads'] for x in context[head]]
         return [spec['bias'][token]+sum((w-spec['projection_zero'][token])*spec['projection_scale'][token]*x
                                        for w,x in zip(row,flattened)) for token,row in enumerate(spec['projection'])]
-
