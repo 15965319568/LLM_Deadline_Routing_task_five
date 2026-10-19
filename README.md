@@ -1,3 +1,6 @@
+<!-- V69_TASK_ENTRY -->
+本次任务见 [TASK.md](TASK.md)。仅两份分页契约生效；原项目文档是基础工程资料。
+
 # vLLM Production Stack: reference stack for production vLLM deployment
 
 | [**Blog**](https://lmcache.github.io) | [**Docs**](https://docs.vllm.ai/projects/production-stack) | [**Production-Stack Slack Channel**](https://communityinviter.com/apps/vllm-dev/join-vllm-developers-slack) | [**LMCache Slack**](https://join.slack.com/t/lmcacheworkspace/shared_invite/zt-2viziwhue-5Amprc9k5hcIdXT7XevTaQ) | [**Interest Form**](https://forms.gle/mQfQDUXbKfp2St1z7) |

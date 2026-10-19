@@ -52,6 +52,9 @@ class Backend:
         phase = 'transfer' if role == 'link' else role
         row = self.rows[rid]
         call = dict(id=rid,resource=resource,url=kw['url'],body=kw['json'])
+        if phase == 'decode' and row.get('backend_grammar'):
+            call['grammar'] = dict(grammar_id=normalized_headers.get('x-grammar-id',kw['json'].get('grammar_id')),
+                revision=int(normalized_headers.get('x-grammar-revision',kw['json'].get('grammar_revision',-1))))
         expected = row.get('backend_deployments', {}).get(resource)
         if expected:
             actual = dict(deployment_id=normalized_headers.get('x-deployment-id',kw['json'].get('target_deployment_id')),
@@ -140,9 +143,10 @@ async def replay(source, workload, output):
                     tasks[rid].cancel()
                     await asyncio.gather(tasks[rid],return_exceptions=True)
                 elif kind == 'reloads':
-                    if row.get('asset_override'):
-                        asset_path=source/backend.config['decode_assets']; original=asset_path.read_bytes()
-                        override=row['asset_override']; catalogue=json.loads(original); target=catalogue[override['identity']]
+                    if row.get('asset_override') or row.get('profile_override'):
+                        override=row.get('asset_override',row.get('profile_override'))
+                        asset_path=source/backend.config['decode_assets'] if row.get('asset_override') else dirs[row['build']]/override['file']; original=asset_path.read_bytes()
+                        catalogue=json.loads(original); target=catalogue[override['identity']] if row.get('asset_override') else catalogue
                         for part in override['path'][:-1]: target=target[part]
                         target[override['path'][-1]]=override['value']; asset_path.write_text(json.dumps(catalogue))
                         try:

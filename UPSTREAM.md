@@ -1,17 +1,18 @@
 # Source provenance
 
 Upstream: https://github.com/vllm-project/production-stack
+Upstream commit: 014d070e6f7611978d321bdb05cbe9a934b614e7
+License: Apache-2.0; original LICENSE and copyrights retained.
 
-Source commit: 014d070e6f7611978d321bdb05cbe9a934b614e7
+This authored CPU reproduction uses the production-stack serving entrypoint.
+It is not a reported upstream defect, a customer trace, or a GPU benchmark.
+The V6.9 exercise narrows repair responsibility to paged inference and KV
+ownership. General serving, profile/deployment loading, sampling and SSE are
+provided working dependencies. Synthetic profiles are supplied inputs.
+The only active exercise contracts are docs/paged-kv-contract.md and
+docs/paged-service-boundary.md. Prior exercise contracts and independent
+regression workloads have been removed from this starter.
 
-The complete source snapshot is retained, with Apache-2.0 LICENSE and upstream
-copyrights. The author adds the deadline package, embedding bootstrap, CPU
-exercise, synthetic workloads and task contracts. Limited lifecycle hooks are
-added to src/vllm_router/services/request_service/request.py so the extension
-runs on the actual upstream forwarder. No upstream issue or patch is claimed
-as the source of this task's deliberately incomplete pilot semantics.
-
-The initial pilot is an authored implementation for repair. Workloads and
-backend service spans are synthetic; they are not customer logs or evidence of
-a real upstream outage. Private expected data, reference solutions and author
-validation tools are not part of this public starter.
+The public starter contains no private scenarios, oracle implementation or
+author validation tools. The task environment fetches its declared immutable
+GitHub commit over HTTPS rather than copying a local source bundle.
