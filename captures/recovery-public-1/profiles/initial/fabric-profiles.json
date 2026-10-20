@@ -1,0 +1,233 @@
+{
+  "as_of_us": 100700,
+  "resources": {
+    "p1": {
+      "role": "prefill",
+      "layout": "q16",
+      "axis": [
+        0,
+        12,
+        36
+      ],
+      "service_us": [
+        83.0,
+        369.0,
+        203.0
+      ],
+      "support": [
+        3,
+        7,
+        3
+      ]
+    },
+    "p2": {
+      "role": "prefill",
+      "layout": "q16",
+      "axis": [
+        0,
+        12,
+        36
+      ],
+      "service_us": [
+        93.0,
+        109.0,
+        141.0
+      ],
+      "support": [
+        3,
+        7,
+        3
+      ]
+    },
+    "p3": {
+      "role": "prefill",
+      "layout": "q8",
+      "axis": [
+        0,
+        12,
+        36
+      ],
+      "service_us": [
+        68.0,
+        84.0,
+        116.0
+      ],
+      "support": [
+        3,
+        3,
+        3
+      ]
+    },
+    "d1": {
+      "role": "decode",
+      "layout": "q16",
+      "axis": [
+        0,
+        12,
+        36
+      ],
+      "service_us": [
+        38.0,
+        46.0,
+        62.0
+      ],
+      "support": [
+        3,
+        3,
+        3
+      ]
+    },
+    "d2": {
+      "role": "decode",
+      "layout": "q16",
+      "axis": [
+        0,
+        12,
+        36
+      ],
+      "service_us": [
+        51.0,
+        55.0,
+        63.0
+      ],
+      "support": [
+        3,
+        3,
+        3
+      ]
+    },
+    "d3": {
+      "role": "decode",
+      "layout": "q8",
+      "axis": [
+        0,
+        12,
+        36
+      ],
+      "service_us": [
+        25.0,
+        33.0,
+        49.0
+      ],
+      "support": [
+        3,
+        3,
+        3
+      ]
+    },
+    "l11": {
+      "role": "link",
+      "layout": "q16",
+      "axis": [
+        0,
+        48,
+        144
+      ],
+      "service_us": [
+        13.0,
+        29.0,
+        61.0
+      ],
+      "support": [
+        3,
+        3,
+        3
+      ]
+    },
+    "l12": {
+      "role": "link",
+      "layout": "q16",
+      "axis": [
+        0,
+        48,
+        144
+      ],
+      "service_us": [
+        18.0,
+        26.0,
+        42.0
+      ],
+      "support": [
+        3,
+        3,
+        3
+      ]
+    },
+    "l21": {
+      "role": "link",
+      "layout": "q16",
+      "axis": [
+        0,
+        48,
+        144
+      ],
+      "service_us": [
+        15.0,
+        23.0,
+        39.0
+      ],
+      "support": [
+        3,
+        3,
+        3
+      ]
+    },
+    "l22": {
+      "role": "link",
+      "layout": "q16",
+      "axis": [
+        0,
+        48,
+        144
+      ],
+      "service_us": [
+        11.0,
+        35.0,
+        83.0
+      ],
+      "support": [
+        3,
+        3,
+        3
+      ]
+    },
+    "l33": {
+      "role": "link",
+      "layout": "q8",
+      "axis": [
+        0,
+        48,
+        144
+      ],
+      "service_us": [
+        9.0,
+        17.0,
+        33.0
+      ],
+      "support": [
+        3,
+        3,
+        3
+      ]
+    },
+    "l23": {
+      "role": "link",
+      "layout": "q8",
+      "axis": [
+        0,
+        48,
+        144
+      ],
+      "service_us": [
+        4.0,
+        6.0,
+        10.0
+      ],
+      "support": [
+        3,
+        3,
+        3
+      ]
+    }
+  }
+}

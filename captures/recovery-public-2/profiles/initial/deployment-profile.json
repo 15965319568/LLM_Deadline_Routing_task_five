@@ -1,0 +1,1975 @@
+{
+  "as_of_us": 100700,
+  "resources": {
+    "p1": {
+      "resource": "p1",
+      "deployment_id": "p1-stable-r1",
+      "model_revision": "rev-2026-09",
+      "tokenizer_revision": "tok-2026-08",
+      "quantization": "int8",
+      "kv_schema": "q16",
+      "adapter": "base",
+      "generation": 1,
+      "config_hash": "cfg-p1-stable",
+      "effective_us": 90000
+    },
+    "p2": {
+      "resource": "p2",
+      "deployment_id": "p2-stable-r1",
+      "model_revision": "rev-2026-09",
+      "tokenizer_revision": "tok-2026-08",
+      "quantization": "int8",
+      "kv_schema": "q16",
+      "adapter": "base",
+      "generation": 1,
+      "config_hash": "cfg-p2-stable",
+      "effective_us": 90000
+    },
+    "p3": {
+      "resource": "p3",
+      "deployment_id": "p3-blue-r2",
+      "model_revision": "rev-2026-10",
+      "tokenizer_revision": "tok-2026-10",
+      "quantization": "fp8",
+      "kv_schema": "q8",
+      "adapter": "chat",
+      "generation": 2,
+      "config_hash": "cfg-p3-blue",
+      "effective_us": 90000
+    },
+    "d1": {
+      "resource": "d1",
+      "deployment_id": "d1-stable-r1",
+      "model_revision": "rev-2026-09",
+      "tokenizer_revision": "tok-2026-08",
+      "quantization": "int8",
+      "kv_schema": "q16",
+      "adapter": "base",
+      "generation": 1,
+      "config_hash": "cfg-d1-stable",
+      "effective_us": 90000
+    },
+    "d2": {
+      "resource": "d2",
+      "deployment_id": "d2-stable-r1",
+      "model_revision": "rev-2026-09",
+      "tokenizer_revision": "tok-2026-08",
+      "quantization": "int8",
+      "kv_schema": "q16",
+      "adapter": "base",
+      "generation": 1,
+      "config_hash": "cfg-d2-stable",
+      "effective_us": 90000
+    },
+    "d3": {
+      "resource": "d3",
+      "deployment_id": "d3-blue-r2",
+      "model_revision": "rev-2026-10",
+      "tokenizer_revision": "tok-2026-10",
+      "quantization": "fp8",
+      "kv_schema": "q8",
+      "adapter": "chat",
+      "generation": 2,
+      "config_hash": "cfg-d3-blue",
+      "effective_us": 90000
+    },
+    "l11": {
+      "resource": "l11",
+      "deployment_id": "l11-stable-r1",
+      "model_revision": "rev-2026-09",
+      "tokenizer_revision": "tok-2026-08",
+      "quantization": "int8",
+      "kv_schema": "q16",
+      "adapter": "base",
+      "generation": 1,
+      "config_hash": "cfg-l11-stable",
+      "effective_us": 90000
+    },
+    "l12": {
+      "resource": "l12",
+      "deployment_id": "l12-stable-r1",
+      "model_revision": "rev-2026-09",
+      "tokenizer_revision": "tok-2026-08",
+      "quantization": "int8",
+      "kv_schema": "q16",
+      "adapter": "base",
+      "generation": 1,
+      "config_hash": "cfg-l12-stable",
+      "effective_us": 90000
+    },
+    "l21": {
+      "resource": "l21",
+      "deployment_id": "l21-stable-r1",
+      "model_revision": "rev-2026-09",
+      "tokenizer_revision": "tok-2026-08",
+      "quantization": "int8",
+      "kv_schema": "q16",
+      "adapter": "base",
+      "generation": 1,
+      "config_hash": "cfg-l21-stable",
+      "effective_us": 90000
+    },
+    "l22": {
+      "resource": "l22",
+      "deployment_id": "l22-stable-r1",
+      "model_revision": "rev-2026-09",
+      "tokenizer_revision": "tok-2026-08",
+      "quantization": "int8",
+      "kv_schema": "q16",
+      "adapter": "base",
+      "generation": 1,
+      "config_hash": "cfg-l22-stable",
+      "effective_us": 90000
+    },
+    "l33": {
+      "resource": "l33",
+      "deployment_id": "l33-blue-r2",
+      "model_revision": "rev-2026-10",
+      "tokenizer_revision": "tok-2026-10",
+      "quantization": "fp8",
+      "kv_schema": "q8",
+      "adapter": "chat",
+      "generation": 2,
+      "config_hash": "cfg-l33-blue",
+      "effective_us": 90000
+    },
+    "l23": {
+      "resource": "l23",
+      "deployment_id": "l23-stable-r1",
+      "model_revision": "rev-2026-09",
+      "tokenizer_revision": "tok-2026-08",
+      "quantization": "int8",
+      "kv_schema": "q8",
+      "adapter": "base",
+      "generation": 1,
+      "config_hash": "cfg-l23-stable",
+      "effective_us": 90000
+    }
+  },
+  "ledger": [
+    {
+      "source": "phase/deployments-bad.jsonl.gz#1",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#10",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#100",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#101",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#102",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#103",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#104",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#105",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#106",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#107",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#108",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#109",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#11",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#110",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#111",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#112",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#113",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#114",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#115",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#116",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#117",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#118",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#119",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#12",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#120",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#121",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#122",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#123",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#124",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#125",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#126",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#127",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#128",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#129",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#13",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#130",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#131",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#132",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#133",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#134",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#135",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#136",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#137",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#138",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#139",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#14",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#140",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#141",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#142",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#143",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#144",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#145",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#146",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#147",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#148",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#149",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#15",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#150",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#151",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#152",
+      "disposition": "invalid"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#153",
+      "disposition": "invalid"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#16",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#17",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#18",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#19",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#2",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#20",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#21",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#22",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#23",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#24",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#25",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#26",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#27",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#28",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#29",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#3",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#30",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#31",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#32",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#33",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#34",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#35",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#36",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#37",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#38",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#39",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#4",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#40",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#41",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#42",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#43",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#44",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#45",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#46",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#47",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#48",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#49",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#5",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#50",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#51",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#52",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#53",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#54",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#55",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#56",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#57",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#58",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#59",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#6",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#60",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#61",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#62",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#63",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#64",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#65",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#66",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#67",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#68",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#69",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#7",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#70",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#71",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#72",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#73",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#74",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#75",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#76",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#77",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#78",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#79",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#8",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#80",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#81",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#82",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#83",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#84",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#85",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#86",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#87",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#88",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#89",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#9",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#90",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#91",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#92",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#93",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#94",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#95",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#96",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#97",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#98",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments-bad.jsonl.gz#99",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#1",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#10",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#100",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#101",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#102",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#103",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#104",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#105",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#106",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#107",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#108",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#109",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#11",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#110",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#111",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#112",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#113",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#114",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#115",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#116",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#117",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#118",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#119",
+      "disposition": "duplicate"
+    },
+    {
+      "source": "phase/deployments.csv#12",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#120",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#121",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#122",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#123",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#124",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#125",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#126",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.csv#127",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#128",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#129",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#13",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#130",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#131",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#132",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#133",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#134",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#135",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#136",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#137",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#138",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#139",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.csv#14",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#140",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#141",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#142",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#143",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#144",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#145",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#146",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#147",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#148",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#149",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#15",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#150",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#151",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.csv#16",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#17",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#18",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#19",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#2",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#20",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#21",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#22",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#23",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#24",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#25",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.csv#26",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#27",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#28",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#29",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#3",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#30",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#31",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#32",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#33",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#34",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#35",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#36",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#37",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#38",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#39",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#4",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#40",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#41",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#42",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#43",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.csv#44",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#45",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#46",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#47",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#48",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#49",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#5",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#50",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#51",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#52",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#53",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#54",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#55",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#56",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#57",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#58",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#59",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#6",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#60",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#61",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#62",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#63",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#64",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.csv#65",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.csv#66",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#67",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.csv#68",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#69",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#7",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#70",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#71",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#72",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#73",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#74",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.csv#75",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#76",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#77",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#78",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#79",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.csv#8",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#80",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#81",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#82",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.csv#83",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#84",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#85",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#86",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.csv#87",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#88",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.csv#89",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#9",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#90",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#91",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#92",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#93",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#94",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#95",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#96",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#97",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.csv#98",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.csv#99",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#1",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#10",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#100",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.jsonl#101",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#102",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#103",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#104",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#105",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#106",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#107",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#108",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#109",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#11",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#110",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#111",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#112",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#113",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#114",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#115",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#116",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#117",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#118",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#119",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#12",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#120",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#121",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#122",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#123",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#124",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#125",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#126",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#127",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#128",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#129",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#13",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#130",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#131",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#132",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#133",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#134",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#135",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#136",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#137",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#138",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#139",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.jsonl#14",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#140",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#141",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#142",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.jsonl#143",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#144",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#145",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#146",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#147",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#148",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#149",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#15",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#150",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#151",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#152",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#16",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#17",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#18",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#19",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#2",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#20",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#21",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#22",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#23",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#24",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#25",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#26",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#27",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#28",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#29",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#3",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#30",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#31",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#32",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#33",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#34",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#35",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#36",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#37",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#38",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#39",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#4",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#40",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#41",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#42",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#43",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#44",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#45",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#46",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#47",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#48",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#49",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#5",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#50",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#51",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#52",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#53",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#54",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#55",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#56",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#57",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.jsonl#58",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#59",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#6",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#60",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#61",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#62",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#63",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#64",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#65",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#66",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#67",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#68",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#69",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#7",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#70",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#71",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#72",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#73",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#74",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#75",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#76",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#77",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#78",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#79",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#8",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#80",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#81",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#82",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.jsonl#83",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#84",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#85",
+      "disposition": "deferred"
+    },
+    {
+      "source": "phase/deployments.jsonl#86",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#87",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#88",
+      "disposition": "conflict"
+    },
+    {
+      "source": "phase/deployments.jsonl#89",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#9",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#90",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#91",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#92",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#93",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#94",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#95",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#96",
+      "disposition": "candidate"
+    },
+    {
+      "source": "phase/deployments.jsonl#97",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#98",
+      "disposition": "excluded"
+    },
+    {
+      "source": "phase/deployments.jsonl#99",
+      "disposition": "candidate"
+    }
+  ]
+}
