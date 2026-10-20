@@ -286,7 +286,7 @@ class SpeculativeDecoder:
         return self.publish(staged,emitted,accepted,corrected,text)
 
     def publish(self,staged,emitted,accepted,corrected,text):
-        if self.paged: self.paged.publish()
+        if self.paged: self.paged.publish(len(emitted))
         self.state = staged
         self.decoding.clear(); self.decoding.update(staged.report())
         self.position += len(emitted)

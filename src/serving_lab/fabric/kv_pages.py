@@ -51,6 +51,7 @@ class PageStorage:
             for kind in ['k','v']:
                 value[kind+'_scale'] = vector(row[kind+'_scale'],width,lambda x:real(x,True))
                 value[kind+'_zero'] = vector(row[kind+'_zero'],width,lambda x:uint(x,15))
+                value[kind+'_after'] = list(row.get(kind+'_after',[0]*len(value[kind])))
         else:
             if base >= version or (name,base) not in self.cache or any(k in row for k in ['k','v','k_scale','k_zero','v_scale','v_zero']):
                 raise ValueError('delta must inherit a committed older page')

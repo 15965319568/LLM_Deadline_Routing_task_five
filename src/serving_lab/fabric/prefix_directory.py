@@ -1,10 +1,12 @@
 """Lookup directory used by the streaming prefix reuse adapter."""
 from .slot_projection import project_slots
+from .read_receipts import ReadReceipts
 
 class PrefixDirectory:
     def __init__(self):
         self.readers = {}
         self.lookup_cache = {}
+        self.receipts = ReadReceipts()
 
     def register(self, rid, context, scope):
         self.readers[rid] = (context, scope)
@@ -12,6 +14,8 @@ class PrefixDirectory:
     def resolve(self, records):
         result = {}
         for row in records:
+            if 'read' in row:
+                row = dict(row, **self.receipts.source(row['read']))
             source, scope = self.readers[row['request_id']]
             key = row['page_id'], row['version']
             if key not in source.cache:

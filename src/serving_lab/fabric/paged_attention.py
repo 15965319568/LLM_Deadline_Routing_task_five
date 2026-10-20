@@ -8,7 +8,7 @@ from .retention_policy import retain_images, inventory_cost
 
 def empty_report(revision):
     return dict(revision=revision, resident_pages=0, staged_pages=0, committed_windows=0,
-                query_rows=0, last_positions=[])
+                query_rows=0, last_positions=[], published_slots=0, accepted_frontier=0)
 
 
 class PageContext(PageStorage, AttentionMath):
@@ -60,14 +60,15 @@ class PageContext(PageStorage, AttentionMath):
         self.stage['query_rows'] = len(targets)+len(drafts)
         return shards
 
-    def publish(self):
+    def publish(self, frontier=0):
         self.cache = retain_images(self.stage['next_cache'],self.stage['table'],self.stage['retained'])
         self.view = {r['position']:r.copy() for r in self.stage['table']}
         self.allocate(inventory_cost(self.cache))
         self.report.update(resident_pages=len(self.cache),staged_pages=0,
                            committed_windows=self.report['committed_windows']+1,
                            query_rows=self.report['query_rows']+self.stage['query_rows'],
-                           last_positions=sorted(set(self.stage['positions'].values())))
+                           last_positions=sorted(set(self.stage['positions'].values())),
+                           published_slots=len(self.cache)*self.spec['page_size'],accepted_frontier=frontier)
         self.stage = None
 
     def cleanup(self):
@@ -76,4 +77,4 @@ class PageContext(PageStorage, AttentionMath):
         self.view.clear()
         self.stage = None
         self.allocate(0)
-        self.report.update(resident_pages=0,staged_pages=0)
+        self.report.update(resident_pages=0,staged_pages=0,published_slots=0)

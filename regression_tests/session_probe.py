@@ -54,13 +54,14 @@ async def run_session(source, segmentation='split', checkpoint_fields=None):
                 yield frame['wire'].encode()
         backend.body=whole_body
     gateway=FabricGateway(source,source/'profiles'/work['initial'],clock=clock,transport=backend)
-    tasks={};events=[];checkpoints=[]
+    tasks={};events=[];checkpoints=[];reads=[]
     for row in work['requests']:
         events.append((row['at_us'],8,row['id'],'arrival',row))
         for rank,kind in [(0,'cancel'),(3,'transfer'),(4,'prefill')]:
             if kind+'_us' in row:events.append((row[kind+'_us'],rank,row['id'],kind,row))
         events.extend((frame['at_us'],2,row['id'],'frame:'+str(i),row) for i,frame in enumerate(row['decode_frames']))
     events.extend((r['at_us'],5,str(i),'reload',r) for i,r in enumerate(work['reloads']))
+    events.extend((r['at_us'],1,str(i).zfill(6),'read',r['body']) for i,r in enumerate(work.get('kv_reads',[])))
     events.extend((t,9,str(i),'checkpoint',{}) for i,t in enumerate(work['checkpoints']))
     async with httpx.AsyncClient(transport=httpx.ASGITransport(app=gateway.app,raise_app_exceptions=False),base_url='http://gateway') as client:
         try:
@@ -72,6 +73,8 @@ async def run_session(source, segmentation='split', checkpoint_fields=None):
                         await settle(lambda:all(t.done() or any(k[0]==r for k in backend.waiting) for r,t in tasks.items()))
                 elif kind=='cancel' and rid in tasks:
                     tasks[rid].cancel();await asyncio.gather(tasks[rid],return_exceptions=True)
+                elif kind=='read':
+                    reads.append((await client.post('/fabric/kv-reads',json=row)).status_code)
                 elif kind=='reload':
                     await gateway.reload(source/'profiles'/row['build'])
                 elif kind=='checkpoint':
@@ -101,7 +104,9 @@ async def run_session(source, segmentation='split', checkpoint_fields=None):
                     assert len(sent)==3,(rid,'missing/duplicate HTTP phase')
                     assert [r['url'].rsplit('/',1)[-1] for r in sent]==['prefill','kv-transfer','completions']
                 else:assert not sent,(rid,'rejected request dispatched')
-            return dict(statuses=statuses,outputs=outputs,checkpoints=checkpoints)
+            result=dict(statuses=statuses,outputs=outputs,checkpoints=checkpoints)
+            if 'kv_reads' in work:result['reads']=reads
+            return result
         finally:
             for task in tasks.values():task.cancel()
             await asyncio.gather(*tasks.values(),return_exceptions=True)

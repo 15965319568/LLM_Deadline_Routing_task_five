@@ -87,6 +87,14 @@ class FabricGateway:
         @self.app.get('/fabric/diagnostics')
         async def diagnostics():
             return self.inspect()
+        @self.app.post('/fabric/kv-reads')
+        async def kv_reads(body: dict):
+            async with self.lock:
+                try:
+                    self.prefix_directory.receipts.update(body)
+                    return JSONResponse({'ok': True})
+                except (KeyError, ValueError, TypeError, IndexError):
+                    return JSONResponse({'error': 'invalid read receipt'}, status_code=422)
         @self.app.get('/metrics')
         async def metrics():
             return Response(self.metrics(), media_type='text/plain')
