@@ -9,6 +9,9 @@ class ReadReceipts:
             self.pending.pop(name, None)
         elif row['action'] == 'pin':
             self.pending[name] = row['sources']
+        elif row['action'] == 'advance':
+            sources = self.pending.get(name, [])
+            self.pending[name] = [dict(source, remaining=slots) for source, slots in zip(sources, row['remaining']) if slots]
         else:
             raise ValueError('unknown read action')
 

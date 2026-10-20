@@ -8,7 +8,7 @@
 
 公开构造为 `FabricGateway(source_dir, profile_dir, clock=..., transport=...)`，从 `serving_lab.fabric` 导入。`.app` 是 ASGI 应用。`await gateway.reload(profile_dir)` 是用于发布画像快照的公开接口，发布给定有效快照，在途请求保持原快照。`ManualClock` 从 `vllm_router.deadline` 导入，提供 now_us()/advance_to(at_us)。以上名字属于公开测试接入面；PageContext、内部辅助函数、文件和状态组织不受限制。
 
-HTTP 入口为 POST `/v1/completions`，以 X-Request-Id 标识请求；GET `/fabric/diagnostics` 提供持续观察；POST `/fabric/kv-reads` 的 pin/complete、200/409/422 语义见分页契约“异步读取快照与迟到回执”节。示例 body 已给出模型/部署选择、prompt、max_tokens、deadline_us、tenant、stream、decode_mode="speculative" 和 decode_kernel="paged-gqa"。这些 mode 名称属于既有消费者协议，不意味着要实现全部 speculative 功能。无 decode_kernel 的 logits 请求只用来观察同一容量池的接纳结果。
+HTTP 入口为 POST `/v1/completions`，以 X-Request-Id 标识请求；GET `/fabric/diagnostics` 提供持续观察；POST `/fabric/kv-reads` 的 pin/advance/complete、200/409/422 语义见分页契约“异步读取快照与迟到回执”节。示例 body 已给出模型/部署选择、prompt、max_tokens、deadline_us、tenant、stream、decode_mode="speculative" 和 decode_kernel="paged-gqa"。这些 mode 名称属于既有消费者协议，不意味着要实现全部 speculative 功能。无 decode_kernel 的 logits 请求只用来观察同一容量池的接纳结果。
 
 已有 gateway 在接纳时冻结完整资产，通过以下真实阶段转发：prefill `/v1/prefill` → link `/v1/kv-transfer` → decode `/v1/completions`。transport.request 是异步 context manager，接收 method/url/headers/json；响应提供 status、headers、json() 或 content.iter_any()。测试辅助文件给出完整可运行 transport。每个接纳的示例请求执行各阶段一次；被拒绝的请求不能发出后端请求。工作负载不要求重试机制。
 
@@ -34,4 +34,6 @@ workload 的 requests 包含到达、prefill/transfer 完成、每个 decode fra
 - kv_reads 按实际提交顺序返回的 HTTP 状态码。
 - `requests[request_id].outcome`，在途为 null，终态为 success/error/cancelled。
 
-不比较整份 diagnostics，不要求完整 metrics、replay 输出、build 产物或任何旧接口套件通过。对象按声明字段比较，额外字段合法；数组中声明的顺序有语义。公开示例覆盖同一条服务路径，私有输入更换布局、页内容、分片选择/重传/冲突、继承关系、逻辑视图、共享来源、稀疏槽位、压实继承、保留清单、名称替换、元素前缀依赖、实际接受后的发布、读取回执代次、块内地址、独立量化通道、DMA 选择证据、块驻留/地址发布、目录选中的跨块恢复、各查询前缀可恢复性及交错时序。共享与压实的容量接合由解题者修复；通用接纳公式仍作为给定依赖。分片和整页均属于同一分页输入协议。公开 tests 可以直接运行，不要求修改测试使其通过。
+不比较整份 diagnostics，不要求完整 metrics、replay 输出、build 产物或任何旧接口套件通过。对象按声明字段比较，额外字段合法；数组中声明的顺序有语义。公开示例覆盖同一条服务路径，私有输入更换布局、页内容、分片选择/重传/冲突、继承关系、逻辑视图、共享来源、稀疏槽位、压实继承、保留清单、名称替换、元素前缀依赖、实际接受后的发布、读取回执代次、块内地址、独立量化通道、DMA 选择证据、块驻留/地址发布、目录选中的跨块恢复、各查询前缀可恢复性、异量化副本联合约束、读取进度及其交错时序。共享与压实的容量接合由解题者修复；通用接纳公式仍作为给定依赖。分片和整页均属于同一分页输入协议。公开 tests 可以直接运行，不要求修改测试使其通过。
+
+新增 `captures/joint-public-0` 至 `joint-public-3` 通过同一 HTTP 推理和读取入口复现异量化冗余搬运及分批读取；这些仍使用上述字段投影验收，不增加日志格式、指定内部方法或独立控制面交付。

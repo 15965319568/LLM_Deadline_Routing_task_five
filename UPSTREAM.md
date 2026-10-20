@@ -6,9 +6,9 @@ License: Apache-2.0; original LICENSE and copyrights retained.
 
 This authored CPU reproduction uses the production-stack serving entrypoint.
 It is not a reported upstream defect, a customer trace, or a GPU benchmark.
-The V6.15 exercise limits repair responsibility to paged inference and KV
+The V6.16 exercise limits repair responsibility to paged inference and KV
 ownership. Sparse shared views, inherited compaction, retained sources and overlapping allocation lifetimes
-interact with erasure-coded DMA blocks, prefix-dependent recoverability, per-address publication, accepted-prefix visibility and asynchronous read snapshots in the same paged-input scenario.
+interact with erasure-coded DMA blocks, mixed-precision replica constraints, prefix-dependent recoverability, per-address publication, accepted-prefix visibility and progressively drained asynchronous read snapshots in the same paged-input scenario.
 General serving, profile/deployment loading, sampling mathematics and SSE are
 provided working dependencies; their KV publication/accounting joins need repair. Synthetic profiles are supplied inputs.
 The only active exercise contracts are docs/paged-kv-contract.md and
