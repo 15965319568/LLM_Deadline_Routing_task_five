@@ -30,7 +30,7 @@ class Transport:
         if row.get('bad_handle')==p: ack['kv_handle']='foreign-handle'
         async def payload(): return ack
         yield SimpleNamespace(status=200,headers=headers,json=payload)
-def client_output(content): data=['\n'.join(line[5:].lstrip(' ') for line in event.split('\n') if line.startswith('data:')) for event in content.decode().replace('\r\n','\n').split('\n\n')]; rows=[json.loads(p) for p in data if p and p!='[DONE]']; assert all(r.get('kind') not in ['begin','page','query','shard','commit'] for r in rows),'raw tensor event leaked to client'; return dict(text=''.join(c.get('text','') for r in rows for c in r.get('choices',[])),token_ids=[t for r in rows for c in r.get('choices',[]) for t in c.get('token_ids',[])],done='[DONE]' in data)
+def client_output(content): data=['\n'.join(line[5:].lstrip(' ') for line in event.split('\n') if line.startswith('data:')) for event in content.decode().replace('\r\n','\n').split('\n\n')]; rows=[json.loads(p) for p in data if p and p!='[DONE]']; assert all(r.get('kind') not in ['begin','page','kv_block','query','shard','commit'] for r in rows),'raw tensor event leaked to client'; return dict(text=''.join(c.get('text','') for r in rows for c in r.get('choices',[])),token_ids=[t for r in rows for c in r.get('choices',[]) for t in c.get('token_ids',[])],done='[DONE]' in data)
 async def settle(predicate):
     async with asyncio.timeout(5):
         while not predicate(): await asyncio.sleep(0)

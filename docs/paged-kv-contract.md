@@ -194,3 +194,40 @@ begin 的 kv_imports 也允许如下来源，与旧的 request_id/window/page_id
 index 为非负整数且在 sources 范围内；引用必须是已 pin 且未 complete 的读取。其 scope 必须与接收请求一致。as_*、slot_map、replace_window、原子导入和提交规则与旧来源相同。导入立即固定独立持有；读取随后 complete 不影响已导入请求。引用已完成/不存在读取或混合来源字段是窗口错误。
 
 容量按所有请求和所有未完成读取共同持有的不同物理对象并集计费，再加既有预留/scratch。请求已结束但读取未完成时，孤立读取仍占资源及租户 pages，不占 slots/work。最后一个请求和读取都释放才回收。回执不应通过重复扣减导致负计数，也不能把已完成 attempt 的晚到 pin 计作新分配。上述读取、推测发布、稀疏投影和压实使用同一物理页生命周期。
+
+## 分块 DMA 与分页视图
+
+新 worker 使用分块 DMA 搬运同一批量化 KV。旧完整页/v1/v2 仍按此前规定分配独立的一页；`kv-striped/v1` 页是由 DMA 块支撑的视图，不再拥有一份额外完整页分配。以下定义扩展同一数值、共享和发布链路，不增加独立控制系统。
+
+### worker 记录
+
+`kind="kv_block"` 与 page/query 使用相同的请求、部署及 window 身份，只能出现在 begin 与 commit 之间。块身份为该请求内的 `(block_id,epoch)`；block_id 非空、epoch 为正整数。独立请求发送同名同值块也不去重。令 N=page_size×kv_heads×head_dim。记录有两种形式：
+
+- `record="directory"`：`length` 为 1..2N 的元素数，`channels` 为 1..2N 的通道数；`scale`、`zero` 长度为 channels，分别为正有限数和 0..15 整数；`chunks` 为不重复的 `{id,revision}` 选择列表，id 非空、revision 正整数。目录选择准确身份，不能用最高 revision 或到达顺序替代。目录按这些字段的语义比较，选择顺序无意义；矛盾目录收到时失败。
+- `record="chunk"`：`id,revision,offset,count,data,nibble_order`，可带标量 `after`。offset 非负、count 正整数、offset+count≤2N；data 为 uint4 十六进制，长度恰为 `2*ceil(count/2)`，不接受空白。每条 chunk 自带 low-first/high-first 半字节顺序，与 attention 资产中的整页顺序独立；奇数 count 的未使用半字节必须为零。after 默认为 0，须是 0..当前 proposal 长度的整数。
+
+所有整数字段不接受 bool。所有记录都校验语法，包括未选中的旧记录；额外审计字段不参与相等比较。相同 chunk 身份按 offset、解码元素、after 比较；相同幂等，不同内容可以暂存。commit 时每个目录选择身份必须有且仅有一种语义，未选择身份的内容矛盾不影响该块。选择 chunk 必须位于 directory.length 内，其并集覆盖完整 length；重叠元素须同时满足编码和 after 相等。块内容、源量化参数和选择证据必须完整有效，包括未被最终页视图引用的预取块。目录、chunk、页映射的到达顺序任意。
+
+### 页映射与数值解释
+
+`kind="page",encoding="kv-striped/v1",record="manifest"` 使用 page_id/version，带完整页的 k_scale/k_zero/v_scale/v_zero，以及可选 valid_slots（默认全部槽位）。`runs` 是非空列表，每项为：
+
+```json
+{"tensor":"k","offset":0,"count":4,"block_id":"buffer-a","epoch":2,"start":7,"stride":-2,"after":0}
+```
+
+tensor 为 k/v，offset/count 指定目的页连续扁平区间，须在 N 内且全部落在 valid_slots；start+j×stride 为源块元素下标，stride 为非零整数。收到映射时地址须在 0..2N-1；commit 时还必须在所选块实际 length 及其可读地址集合内。一个页的全部有效 K/V 元素必须覆盖，不能为孔洞补零。runs 顺序及完全重复的 run 不改变语义；覆盖同一目的元素的记录必须指向相同块身份、相同源地址且 after 相同，否则即使编码恰巧相同也失败。相同页名/version 的映射须语义一致。同一窗口中该名字不能再使用旧整页、v1/v2 或导入表示；已提交的页名/version 不接受新的 striped manifest，重映射使用新的页名或版本。
+
+源地址 s 的通道是 s % directory.channels；先按 `(code-zero[channel])*scale[channel]` 解码，再用目的下标 d % (kv_heads×head_dim) 的页参数编码，最接近整数、半整数取偶、裁剪到 0..15。该 uint4 图像继续进入本契约已有注意力计算；不能省略中间量化、提前旋转 K、按目的通道读取源参数或按物理块分别做 softmax。元素依赖为 run.after 与源 chunk.after 的最大值；其 query 可见性和实际接受后的发布规则同前文。
+
+### 驻留、地址可见性与后续共享
+
+第一条语法合法的块记录到达即持有一个物理分配，大小不足 2N、分片未到齐、只用于预取均占一页容量。相同块后续记录不重复计费。单独收到页映射不创建块或额外页；commit 缺少引用块时失败。新旧 epoch 同时存在时各占一页；不能先释放来源来支付目的分配。旧页分配与新块分配在同一资源和租户容量池中求并集。
+
+一个 striped 页的不同槽位可以指向不同块，多个 striped 页也可共享同一块。成功提交时先按实际接受的 proposal 前缀裁掉无效槽位，再按保留视图的有效 K/V 元素收集实际支撑块。没有保留元素的块从该请求释放；仍有任一保留元素的块占完整一页，不按有效地址比例计费。`kv_keep` 保留名称和有效视图，不强迫保留已被接受前缀裁掉的槽位。旧完整页、v1/v2 压实目的仍拥有自己的独立分配，不因其来源是 striped 页而共享目的存储。
+
+块仍驻留不代表全部旧地址仍可读。一个成功窗口之后，该请求能通过块名读取的地址集合，精确等于此次保留页视图仍引用的源地址并集；这些地址的 after 归零。下一窗口可用新 manifest 引用这些驻留地址，无需重传；未发布/已丢弃地址不能因新映射、等价重传或旧 bytes 尚在而复活。重传目录/chunk 与原证据比较，不能扩大已发布地址集合。块从该请求完全释放后，相同 block_id/epoch 进入已回收状态，本请求不能再次上传该身份；不同 epoch 是新分配。epoch 不要求到达顺序递增。
+
+请求导入、读取回执、slot_map、名称替换继续固定不可变图像，并同时固定这些有效元素实际支撑的块。接收方不继承来源的块命名空间；若要重组导入内容，可用已有 v2 gather/inherit 创建独立目的页。稀疏投影只持有其有效元素需要的块；隐藏部分地址仍可能保留整个块。创建者推进或结束后，其他请求/未完成回执仍持有的块不得释放；回执完成也不能释放已导入读者独立持有的块。K/V 可能来自不同块，两者都须计入。
+
+既有 resident_pages/staged_pages 在此表示独立物理分配数：最近提交视图支撑集合为 resident，本窗口持有且不在 resident 集合内的分配为 staged，包含所有已到达的未完成/预取块。published_slots 仍按页名称的有效槽位求和。资源 pages 为请求预留、scratch 加全部请求/回执所持分配的全局并集；不同请求 resident 相加不代表池占用。错误、取消、成功终态、迟到帧和回执遵守既有一次释放规则。

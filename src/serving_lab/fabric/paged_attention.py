@@ -4,6 +4,7 @@ from .kv_pages import PageStorage
 from .attention_math import AttentionMath
 from .paged_view import view_for
 from .retention_policy import retain_images, inventory_cost
+from .striped_pages import StripedStorage
 
 
 def empty_report(revision):
@@ -11,7 +12,7 @@ def empty_report(revision):
                 query_rows=0, last_positions=[], published_slots=0, accepted_frontier=0)
 
 
-class PageContext(PageStorage, AttentionMath):
+class PageContext(StripedStorage, PageStorage, AttentionMath):
     def __init__(self, asset, allocate, directory=None, owner=None, scope=None):
         self.asset = asset
         self.spec = asset['paged_attention']

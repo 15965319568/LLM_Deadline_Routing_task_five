@@ -1,0 +1,246 @@
+{
+  "as_of_us": 104100,
+  "grammars": {},
+  "ledger": [
+    {
+      "source": "grammar/patches.jsonl#1",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/patches.jsonl#10",
+      "disposition": "invalid"
+    },
+    {
+      "source": "grammar/patches.jsonl#11",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/patches.jsonl#12",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/patches.jsonl#13",
+      "disposition": "deferred"
+    },
+    {
+      "source": "grammar/patches.jsonl#14",
+      "disposition": "conflict"
+    },
+    {
+      "source": "grammar/patches.jsonl#15",
+      "disposition": "deferred"
+    },
+    {
+      "source": "grammar/patches.jsonl#16",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/patches.jsonl#17",
+      "disposition": "selected"
+    },
+    {
+      "source": "grammar/patches.jsonl#18",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/patches.jsonl#19",
+      "disposition": "selected"
+    },
+    {
+      "source": "grammar/patches.jsonl#2",
+      "disposition": "selected"
+    },
+    {
+      "source": "grammar/patches.jsonl#20",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/patches.jsonl#3",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/patches.jsonl#4",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/patches.jsonl#5",
+      "disposition": "selected"
+    },
+    {
+      "source": "grammar/patches.jsonl#6",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/patches.jsonl#7",
+      "disposition": "deferred"
+    },
+    {
+      "source": "grammar/patches.jsonl#8",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/patches.jsonl#9",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/registry.csv#1",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/registry.csv#10",
+      "disposition": "shadowed"
+    },
+    {
+      "source": "grammar/registry.csv#11",
+      "disposition": "conflict"
+    },
+    {
+      "source": "grammar/registry.csv#12",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/registry.csv#13",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/registry.csv#14",
+      "disposition": "duplicate"
+    },
+    {
+      "source": "grammar/registry.csv#15",
+      "disposition": "shadowed"
+    },
+    {
+      "source": "grammar/registry.csv#16",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/registry.csv#17",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/registry.csv#18",
+      "disposition": "duplicate"
+    },
+    {
+      "source": "grammar/registry.csv#19",
+      "disposition": "shadowed"
+    },
+    {
+      "source": "grammar/registry.csv#2",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/registry.csv#20",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/registry.csv#3",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/registry.csv#4",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/registry.csv#5",
+      "disposition": "deferred"
+    },
+    {
+      "source": "grammar/registry.csv#6",
+      "disposition": "conflict"
+    },
+    {
+      "source": "grammar/registry.csv#7",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/registry.csv#8",
+      "disposition": "deferred"
+    },
+    {
+      "source": "grammar/registry.csv#9",
+      "disposition": "deferred"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#1",
+      "disposition": "selected"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#10",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#11",
+      "disposition": "selected"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#12",
+      "disposition": "shadowed"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#13",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#14",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#15",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#16",
+      "disposition": "deferred"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#17",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#18",
+      "disposition": "deferred"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#19",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#2",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#20",
+      "disposition": "invalid"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#3",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#4",
+      "disposition": "shadowed"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#5",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#6",
+      "disposition": "conflict"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#7",
+      "disposition": "excluded"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#8",
+      "disposition": "shadowed"
+    },
+    {
+      "source": "grammar/retries.jsonl.gz#9",
+      "disposition": "excluded"
+    }
+  ]
+}

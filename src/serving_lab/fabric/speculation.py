@@ -163,6 +163,8 @@ class SpeculativeDecoder:
             if kind == 'begin':
                 self.begin(row)
                 if self.paged: self.paged.begin(row,self.window)
+            elif kind == 'kv_block' and self.paged:
+                self.paged.block(row)
             elif kind == 'page' and self.paged:
                 self.paged.page(row)
             elif kind == 'query' and self.paged:
