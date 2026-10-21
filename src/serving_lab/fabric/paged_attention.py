@@ -27,13 +27,16 @@ class PageContext(StripedStorage, PageStorage, AttentionMath):
     def begin(self, row, window):
         if self.stage is not None:
             raise ValueError('overlapping paged window')
+        recovery = row.get('kv_recovery', 'full')
+        if recovery not in ['full', 'view']:
+            raise ValueError('invalid recovery mode')
         ids = {0, *window['tree']} if 'tree' in window else set(range(len(window['proposal'])+1))
         raw = row['query_positions']
         if not isinstance(raw, dict) or set(raw) != {str(i) for i in ids}:
             raise ValueError('query positions must identify every query row')
         positions = {int(k):uint(v) for k,v in raw.items()}
         mapped = view_for(row, self.view, self.report['committed_windows'], self.spec)
-        self.stage = dict(table=sorted(mapped,key=lambda r:r['position']),positions=positions,
+        self.stage = dict(recovery=recovery,table=sorted(mapped,key=lambda r:r['position']),positions=positions,
                           tree='tree' in window,pages={},queries={},transfers={},imports=row.get('kv_imports',[]),retained=row.get('kv_keep',[]))
 
     def prepare(self):

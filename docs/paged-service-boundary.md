@@ -41,3 +41,5 @@ workload 的 requests 包含到达、prefill/transfer 完成、每个 decode fra
 `captures/continuity-public-success` 和 `captures/continuity-public-atomic-replace` 是连续转借的短段复现。契约适用于持续运行，不隐含“前一读者退出即清空共享状态”、固定转借层数、固定恢复方程连通结构或窗口之间重新初始化的假设。私有会话还组合多层投影、同时存活的读取代次、名称替换、压实后祖先释放、同名重新分配及失败窗口。所有组合沿用分页契约中已声明的语义、时间顺序和本文件的验收字段；没有新增控制接口、日志格式或内部类要求。
 
 验收环境为 2 vCPU、2 GiB 内存，Harbor verifier 总时限为 600 秒；其中场景执行预算为 570 秒，余量用于进程清理和记录最终分数。超过执行预算判为未通过，并保留已完成场景数及超时位置，不把未执行的场景记为已完成。此预算约束整个场景集合，不给单个事件或内部函数设定计时要求。
+
+`captures/view-public-correlated` 与 `captures/view-public-per-quantizer` 是同一路径的量化视图记录。`kv_recovery`、量化可观察性以及接受前缀后的联合知识均由分页契约“量化视图与持续证据”节定义；验收仍仅使用本文件的 HTTP、输出、页状态和容量投影。

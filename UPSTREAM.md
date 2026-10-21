@@ -6,12 +6,14 @@ License: Apache-2.0; original LICENSE and copyrights retained.
 
 This authored CPU reproduction uses the production-stack serving entrypoint.
 It is not a reported upstream defect, a customer trace, or a GPU benchmark.
-The V6.17 exercise limits repair responsibility to paged inference and KV
+The V6.18 exercise limits repair responsibility to paged inference and KV
 ownership. Sparse shared views, inherited compaction, retained sources and overlapping allocation lifetimes
 interact with connected erasure/replica evidence, prefix-dependent recoverability,
 per-address publication and progressively drained asynchronous read snapshots.
 Continuous histories keep shared objects alive across chained publication,
 failed replacement and physical-name reuse in this same paged-input scenario.
+Quantized observation windows also carry accepted-prefix recovery knowledge;
+its numerical meaning and lifetime are defined in the active KV contract.
 General serving, profile/deployment loading, sampling mathematics and SSE are
 provided working dependencies; their KV publication/accounting joins need repair. Synthetic profiles are supplied inputs.
 The only active exercise contracts are docs/paged-kv-contract.md and
